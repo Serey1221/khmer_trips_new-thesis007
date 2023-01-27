@@ -20,12 +20,24 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+        'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css',
+        'https://fonts.gstatic.com',
+        'app/lib/owlcarousel/assets/owl.carousel.min.css',
+        'app/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css',
+        'app/css/style.css',
     ];
     public $js = [
+        'https://code.jquery.com/jquery-3.4.1.min.js',
+        'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js',
+        'app/lib/easing/easing.min.js',
+        'app/lib/owlcarousel/owl.carousel.min.js',
+        'app/lib/tempusdominus/js/moment.min.js',
+        'app/lib/tempusdominus/js/moment-timezone.min.js',
+        'app/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js',
+        'app/mail/jqBootstrapValidation.min.js',
+        'app/mail/contact.js',
+        'app/js/main.js',
     ];
-    public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap5\BootstrapAsset'
-    ];
+    public $depends = ['yii\web\YiiAsset', 'yii\bootstrap4\BootstrapAsset'];
 }

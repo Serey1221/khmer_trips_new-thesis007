@@ -23,7 +23,7 @@ use Yii;
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @author Alexander Makarov <sam@rmcreative.ru>
  */
-class Alert extends \yii\bootstrap5\Widget
+class Alert extends \yii\bootstrap4\Widget
 {
     /**
      * @var array the alert types configuration for the flash messages.
@@ -32,11 +32,11 @@ class Alert extends \yii\bootstrap5\Widget
      * - value: the bootstrap alert type (i.e. danger, success, info, warning)
      */
     public $alertTypes = [
-        'error'   => 'alert-danger',
-        'danger'  => 'alert-danger',
+        'error' => 'alert-danger',
+        'danger' => 'alert-danger',
         'success' => 'alert-success',
-        'info'    => 'alert-info',
-        'warning' => 'alert-warning'
+        'info' => 'alert-info',
+        'warning' => 'alert-warning',
     ];
     /**
      * @var array the options for rendering the close button tag.
@@ -44,14 +44,15 @@ class Alert extends \yii\bootstrap5\Widget
      */
     public $closeButton = [];
 
-
     /**
      * {@inheritdoc}
      */
     public function run()
     {
         $session = Yii::$app->session;
-        $appendClass = isset($this->options['class']) ? ' ' . $this->options['class'] : '';
+        $appendClass = isset($this->options['class'])
+            ? ' ' . $this->options['class']
+            : '';
 
         foreach (array_keys($this->alertTypes) as $type) {
             $flash = $session->getFlash($type);
