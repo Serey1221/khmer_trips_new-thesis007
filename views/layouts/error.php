@@ -4,13 +4,15 @@
 /** @var string $content */
 
 use app\assets\AppAsset;
+use app\assets\AdminAsset;
 use app\widgets\Alert;
 use yii\bootstrap4\Breadcrumbs;
 use yii\bootstrap4\Html;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 
-AppAsset::register($this);
+//AppAsset::register($this);
+AdminAsset::register($this);
 
 $this->registerCsrfMetaTags();
 $this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
@@ -39,21 +41,33 @@ $this->registerLinkTag([
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head(); ?>
 </head>
-<body>
+<body class="hold-transition sidebar-mini">
 <?php $this->beginBody(); ?>
-<?= $this->render('_topbar') ?>
-<?= $this->render('_navbar') ?>
-
 
 <main id="main" class="flex-shrink-0" role="main">
-     <?php if (!empty($this->params['breadcrumbs'])): ?>
-        <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
-        <?php endif; ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+<div class="wrapper">
+  <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>404 Error Page</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">404 Error Page</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+          <?= $content ?>
+  </div>
+</div>
+      
 </main>
-
-<?= $this->render('_footer') ?>
 
 <?php $this->endBody(); ?>
 </body>

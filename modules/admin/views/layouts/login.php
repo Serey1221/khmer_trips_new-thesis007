@@ -4,13 +4,15 @@
 /** @var string $content */
 
 use app\assets\AppAsset;
+use app\assets\AdminAsset;
 use app\widgets\Alert;
 use yii\bootstrap4\Breadcrumbs;
 use yii\bootstrap4\Html;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 
-AppAsset::register($this);
+//AppAsset::register($this);
+AdminAsset::register($this);
 
 $this->registerCsrfMetaTags();
 $this->registerMetaTag(['charset' => Yii::$app->charset], 'charset');
@@ -39,21 +41,23 @@ $this->registerLinkTag([
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head(); ?>
 </head>
-<body>
+<body class="hold-transition login-page">
 <?php $this->beginBody(); ?>
-<?= $this->render('_topbar') ?>
-<?= $this->render('_navbar') ?>
-
 
 <main id="main" class="flex-shrink-0" role="main">
-     <?php if (!empty($this->params['breadcrumbs'])): ?>
-        <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
-        <?php endif; ?>
-        <?= Alert::widget() ?>
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="../../index2.html"><b>KHMER</b>TRAVEL</a>
+    </div>
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Sign in to start your session</p>
         <?= $content ?>
+      </div>
+    </div>
+   
+  </div>
 </main>
-
-<?= $this->render('_footer') ?>
 
 <?php $this->endBody(); ?>
 </body>

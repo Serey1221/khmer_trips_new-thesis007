@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers;
+namespace app\modules\admin\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
@@ -71,6 +71,10 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
+
+        $this->layout = 'login';
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -106,7 +110,10 @@ class SiteController extends Controller
     public function actionContact()
     {
         $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+        if (
+            $model->load(Yii::$app->request->post()) &&
+            $model->contact(Yii::$app->params['adminEmail'])
+        ) {
             Yii::$app->session->setFlash('contactFormSubmitted');
 
             return $this->refresh();
@@ -124,5 +131,17 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+    public function beforeAction($action)
+    {
+        if (parent::beforeAction($action)) {
+            //change layout for error action after
+            //checking for the error action name
+            //so that the layout is set for errors only
+            if ($action->id == 'error') {
+                $this->layout = 'error';
+            }
+            return true;
+        }
     }
 }
