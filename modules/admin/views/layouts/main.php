@@ -37,17 +37,19 @@ $this->registerLinkTag([
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
+
 <head>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head(); ?>
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
-<?php $this->beginBody(); ?>
-<div class="wrapper">
-<?= $this->render('_navbar') ?>
-<?= $this->render('_sidebar') ?>
 
-<!-- <header id="header">
+<body class="hold-transition sidebar-mini layout-fixed">
+    <?php $this->beginBody(); ?>
+    <div class="wrapper">
+        <?= $this->render('_navbar') ?>
+        <?= $this->render('_sidebar') ?>
+
+        <!-- <header id="header">
     <?php
     NavBar::begin([
         'brandLabel' => Yii::$app->name,
@@ -65,13 +67,13 @@ $this->registerLinkTag([
             Yii::$app->user->isGuest
                 ? ['label' => 'Login', 'url' => ['/site/login']]
                 : '<li class="nav-item">' .
-                    Html::beginForm(['/site/logout']) .
-                    Html::submitButton(
-                        'Logout (' . Yii::$app->user->identity->username . ')',
-                        ['class' => 'nav-link btn btn-link logout']
-                    ) .
-                    Html::endForm() .
-                    '</li>',
+                Html::beginForm(['/site/logout']) .
+                Html::submitButton(
+                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    ['class' => 'nav-link btn btn-link logout']
+                ) .
+                Html::endForm() .
+                '</li>',
         ],
     ]);
     NavBar::end();
@@ -79,25 +81,27 @@ $this->registerLinkTag([
     
 </header> -->
 
-<main id="main" class="flex-shrink-0" role="main">
-    <div class="content-wrapper">
-        <div class="content-header">
-            <div class="container-fluid">
-                <?php if (!empty($this->params['breadcrumbs'])): ?>
-                    <?= Breadcrumbs::widget([
-                        'links' => $this->params['breadcrumbs'],
-                    ]) ?>
-                <?php endif; ?>
-                <?= Alert::widget() ?>
-                <?= $content ?>
-            </div>
-        </div>
-    </div>
-</main>
-</div>
-<?= $this->render('_footer') ?>
+        <main id="main" class="flex-shrink-0" role="main">
+            <div class="content-wrapper">
+                <div class="content-header">
+                    <div class="container-fluid">
+                        <?php if (!empty($this->params['breadcrumbs'])) : ?>
+                            <?= Breadcrumbs::widget([
+                                'links' => $this->params['breadcrumbs'],
+                            ]) ?>
+                        <?php endif; ?>
+                        <?= Alert::widget() ?>
+                        <?= $content ?>
 
-<?php $this->endBody(); ?>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <?= $this->render('_footer') ?>
+
+    <?php $this->endBody(); ?>
 </body>
+
 </html>
 <?php $this->endPage(); ?>
