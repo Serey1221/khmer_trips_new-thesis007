@@ -42,7 +42,7 @@ class AdminAsset extends AssetBundle
         // 'plugins/sparklines/sparkline.js',
         // 'plugins/jqvmap/jquery.vmap.min.js',
         // 'plugins/jqvmap/maps/jquery.vmap.usa.js',
-        // 'plugins/moment/moment.min.js',
+        'plugins/moment/moment.min.js',
         // 'plugins/daterangepicker/daterangepicker.js',
         'plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js',
         // 'plugins/summernote/summernote-bs4.min.js',

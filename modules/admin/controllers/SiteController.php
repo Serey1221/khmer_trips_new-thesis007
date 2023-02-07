@@ -34,6 +34,10 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+                'layout' => 'error',
+            ],
         ];
     }
 
@@ -101,7 +105,6 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-
     /**
      * Displays about page.
      *
@@ -113,14 +116,23 @@ class SiteController extends Controller
     }
     public function beforeAction($action)
     {
+        // if (parent::beforeAction($action)) {
+        //     //change layout for error action after
+        //     //checking for the error action name
+        //     //so that the layout is set for errors only
+        //     if ($action->id == 'error') {
+        //         $this->layout = 'error';
+        //     }
+        //     return true;
+        // }
         if (parent::beforeAction($action)) {
-            //change layout for error action after
-            //checking for the error action name
-            //so that the layout is set for errors only
+            // change layout for error action
             if ($action->id == 'error') {
                 $this->layout = 'error';
             }
             return true;
+        } else {
+            return false;
         }
     }
 }
