@@ -14,45 +14,11 @@ class SiteController extends Controller
     /**
      * {@inheritdoc}
      */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::class,
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::class,
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-                'layout' => 'error',
-            ],
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function actions()
     {
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
     }
@@ -114,6 +80,7 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    /*
     public function beforeAction($action)
     {
         // if (parent::beforeAction($action)) {
@@ -135,4 +102,5 @@ class SiteController extends Controller
             return false;
         }
     }
+    */
 }
