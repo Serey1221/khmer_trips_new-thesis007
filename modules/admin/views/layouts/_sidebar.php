@@ -39,18 +39,16 @@ Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="<?= Yii::getAlias('@web/admin/city') ?>" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Article
+                Citys
               </p>
             </a>
           </li>
           
           <li class="nav-item">
-            <a href="<?= Yii::getAlias(
-                '@web/admin/product'
-            ) ?>" class="nav-link">
+            <a href="<?= Yii::getAlias('@web/admin/product') ?>" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 Products

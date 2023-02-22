@@ -20,7 +20,7 @@ use yii\helpers\Url;
                         <a href="<?= Yii::getAlias('@web/site/about') ?>" class="nav-item nav-link">About</a>
                         <a href="<?= Yii::getAlias('@web/site/service') ?>" class="nav-item nav-link">Services</a>
                         <a href="<?= Yii::getAlias('@web/site/package') ?>" class="nav-item nav-link">Tour Packages</a>
-                        <div class="nav-item dropdown">
+                        <!-- <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
                                 <a href="blog.html" class="dropdown-item">Blog Grid</a>
@@ -29,8 +29,8 @@ use yii\helpers\Url;
                                 <a href="guide.html" class="dropdown-item">Travel Guides</a>
                                 <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                             </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        </div> -->
+                        <a href="<?= Yii::getAlias('@web/site/contact') ?>" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>
             </nav>

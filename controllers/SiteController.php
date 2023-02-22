@@ -106,6 +106,7 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
+        $this->layout = 'package';
         $model = new ContactForm();
         if (
             $model->load(Yii::$app->request->post()) &&
