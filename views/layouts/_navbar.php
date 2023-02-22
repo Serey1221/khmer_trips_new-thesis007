@@ -19,7 +19,7 @@ use yii\helpers\Url;
                         <a href="<?= Yii::$app->homeUrl ?>" class="nav-item nav-link active">Home</a>
                         <a href="<?= Yii::getAlias('@web/site/about') ?>" class="nav-item nav-link">About</a>
                         <a href="<?= Yii::getAlias('@web/site/service') ?>" class="nav-item nav-link">Services</a>
-                        <a href="<?= Yii::getAlias('@web/site/package') ?>" class="nav-item nav-link">Tour Packages</a>
+                        <a href="<?= Yii::getAlias('@web/site/package') ?>" class="nav-item nav-link">Packages</a>
                         <!-- <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">

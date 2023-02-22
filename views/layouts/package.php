@@ -41,7 +41,6 @@ $this->registerLinkTag([
 </head>
 <body>
 <?php $this->beginBody(); ?>
-<?= $this->render('_topbar') ?>
 <?= $this->render('_navbar') ?>
 <?= $this->render('_header') ?>
 
