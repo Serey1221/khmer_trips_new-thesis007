@@ -17,9 +17,9 @@ Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
   <ul class="navbar-nav ml-auto">
     <!-- Navbar Search -->
     <li class="nav-item">
-      <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+      <!-- <a class="nav-link" data-widget="navbar-search" href="#" role="button">
         <i class="fas fa-search"></i>
-      </a>
+      </a> -->
       <div class="navbar-search-block">
         <form class="form-inline">
           <div class="input-group input-group-sm">
@@ -38,12 +38,12 @@ Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
     </li>
     <li class="nav-item dropdown user-menu">
       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-        <img src="../img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
+        <img src="../../img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
         <span class="d-none d-md-inline">Admin</span>
       </a>
       <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
         <li class="user-header bg-primary">
-          <img src="../img/user2-160x160.jpg" class="img-circle elevation-2" alt="UserImage">
+          <img src="../../img/user2-160x160.jpg" class="img-circle elevation-2" alt="UserImage">
 
           <p>
             Alexander Pierce - Web Developer
@@ -88,3 +88,15 @@ Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
   </ul>
 </nav>
 <!-- /.navbar -->
+<?php
+$script = <<<JS
+
+$('[data-widget="push-menu"]').on('click', function (){
+        $('[data-widget="push-menu"]').PushMenu("toggle");
+    });
+    
+
+JS;
+
+$this->registerJs($script);
+?>
