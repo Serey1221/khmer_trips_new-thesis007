@@ -22,7 +22,7 @@ class AppAsset extends AssetBundle
     public $css = [
         'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap',
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css',
-        'https://fonts.gstatic.com',
+        //'https://fonts.gstatic.com',
         'app/lib/owlcarousel/assets/owl.carousel.min.css',
         'app/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css',
         'app/css/style.css',

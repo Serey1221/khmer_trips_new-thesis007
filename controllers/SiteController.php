@@ -125,8 +125,20 @@ class SiteController extends Controller
      *
      * @return string
      */
+    public function actionService()
+    {
+        $this->layout = 'package';
+        return $this->render('service');
+    }
     public function actionAbout()
     {
+        $this->layout = 'package';
         return $this->render('about');
+    }
+    public function actionPackage()
+    {
+        $this->layout = 'package';
+        
+        return $this->render('package');
     }
 }
