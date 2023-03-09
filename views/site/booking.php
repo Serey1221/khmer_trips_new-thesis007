@@ -8,25 +8,50 @@
                             <div class="col-md-3">
                                 <div class="mb-3 mb-md-0">
                                     <select class="custom-select px-4" style="height: 47px;">
-                                        <option selected>Destination</option>
-                                        <option value="1">Destination 1</option>
-                                        <option value="2">Destination 1</option>
-                                        <option value="3">Destination 1</option>
+                                        <option selected>All</option>
+                                        <option value="1">Siem Reap</option>
+                                        <option value="2">Phnom Penh</option>
+                                        <option value="3">Preah Vihear</option>
+                                        <option value="4">Strung Treng</option>
+                                        <option value="5">Kampong Thom</option>
+                                        <option value="6">BattomBong</option>
+                                        <option value="7">Ratanakiri</option>
+                                        <option value="8">Banteay Meanchey</option>
+                                        <option value="3">Kampong Chhnang</option>
+                                        <option value="3">Kampong Cham</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <div class="mb-3 mb-md-0">
+                                <!-- <div class="mb-3 mb-md-0">
                                     <div class="date" id="date1" data-target-input="nearest">
                                         <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Depart Date" data-target="#date1" data-toggle="datetimepicker"/>
                                     </div>
+                                </div> -->
+
+                                <div class="input-group date" id="datepicker" >
+                                    <input type="text" class="form-control" style="height: 47px;">
+                                    <span class="input-group-append">
+                                        <span class="input-group-text bg-white">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </span>
                                 </div>
+
                             </div>
                             <div class="col-md-3">
-                                <div class="mb-3 mb-md-0">
+                                <!-- <div class="mb-3 mb-md-0">
                                     <div class="date" id="date2" data-target-input="nearest">
                                         <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Return Date" data-target="#date2" data-toggle="datetimepicker"/>
                                     </div>
+                                </div> -->
+                                <div class="input-group date" id="datetimepicker">
+                                    <input type="text" class="form-control" style="height: 47px;">
+                                    <span class="input-group-append">
+                                        <span class="input-group-text bg-white">
+                                            <i class="fa fa-calendar"></i>
+                                        </span>
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -49,3 +74,9 @@
         </div>
     </div>
     <!-- Booking End -->
+
+    <script type="text/javascript">
+        $(function(){
+            $('#datetimepicker').datetimepicker()
+        });
+    </script>

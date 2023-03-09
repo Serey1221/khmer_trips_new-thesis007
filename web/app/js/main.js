@@ -41,6 +41,12 @@
         format: 'LT'
     });
 
+    $('.datepicker').datepicker({
+        inline: true
+      });
+
+    $('#datetimepicker').datetimepicker();
+
 
     // Testimonials carousel
     $(".testimonial-carousel").owlCarousel({

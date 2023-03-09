@@ -8,6 +8,8 @@ $this->title = 'About';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 <?= $this->render('_sub_about');?>
+
+<?= $this->render('booking');?>
  <!-- Feature Start -->
  <div class="container-fluid pb-5">
         <div class="container pb-5">
