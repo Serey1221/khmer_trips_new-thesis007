@@ -31,7 +31,7 @@ Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
             </a>
           </li>
           <li class="nav-item">
-            <a href="/page" class="nav-link">
+            <a href="<?= Yii::getAlias('@web/admin/gallery') ?>" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
                 Gallery

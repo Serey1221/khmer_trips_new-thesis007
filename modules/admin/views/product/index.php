@@ -24,12 +24,13 @@ $this->params['pageTitle'] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel' => $searchModel,
-        'rowOptions'   => function ($model, $key, $index, $grid) {
-            return ['data-id' => $model->id, 'class' => 'cs-pointer'];
-          },
+        // 'rowOptions'   => function ($model, $key, $index, $grid) {
+        //     return ['data-id' => $model->id, 'class' => 'cs-pointer'];
+        //   },
         'tableOptions' => [
-            'id' => 'tableArticle',
-            'class' => 'table table-hover',
+            'id' => 'tableProduct',
+            // 'class' => 'table table-hover',
+            'class'=>'table table-striped projects',
             'cellspacing' => '0',
             'width' => '100%',
           ],
@@ -75,18 +76,12 @@ $this->params['pageTitle'] = $this->title;
             //'deleted_at', 
             //'deleted_by',
             //'rate',
-            // [
-            //     'class' => ActionColumn::className(),
-            //     'urlCreator' => function (
-            //         $action,
-            //         Product $model,
-            //         $key,
-            //         $index,
-            //         $column
-            //     ) {
-            //         return Url::toRoute([$action, 'id' => $model->id]);
-            //     },
-            // ],
+            [
+                'class' => ActionColumn::className(),
+                'urlCreator' => function ($action,Product $model, $key,$index,$column) {
+                    return Url::toRoute([$action, 'id' => $model->id]);
+                },
+            ],
         ],
     ]) ?>
     </div>

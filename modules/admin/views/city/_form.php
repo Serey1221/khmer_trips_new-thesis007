@@ -10,20 +10,30 @@ use yii\widgets\ActiveForm;
 
 <div class="city-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options' => ['id' => 'cityForm', 'enctype' => 'multipart/form-data'],
+    ]); ?>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'name_kh')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'name_kh')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'country_id')->textInput() ?>
 
-    <?= $form->field($model, 'country_id')->textInput() ?>
+                <div class="form-group">
+                    <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+                </div>
 
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+                </div>
+            </div>
+        </div>
     </div>
-
+   
     <?php ActiveForm::end(); ?>
 
 </div>

@@ -69,9 +69,7 @@ Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
         <li class="user-footer">
           <a href="#" class="btn btn-default btn-flat">Profile</a>
 
-          <a href="<?= \yii\helpers\Url::to([
-                      '/admin/site/logout',
-                    ]) ?>" class="btn btn-default btn-flat float-right" data-confirm="Are you sure?" method="post">Sign out</a>
+          <a href="<?= \yii\helpers\Url::to([ '/admin/site/logout',]) ?>" class="btn btn-default btn-flat float-right" data-confirm="Are you sure?" method="post">Sign out</a>
         </li>
       </ul>
     </li>

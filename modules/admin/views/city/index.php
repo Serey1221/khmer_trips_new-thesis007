@@ -11,21 +11,37 @@ use yii\grid\GridView;
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = 'Cities';
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['pageTitle'][] = $this->title;
 ?>
+
 <div class="city-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Create City', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+    <?= $this->render('_search', ['model' => $searchModel]) ?>
+    
+<div class="card">
+    <div class="card-body p-0">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel' => $searchModel,
+        'tableOptions' => [
+            'class'=>'table table-striped projects',
+            
+          ],
+          'layout' => "
+                    <div class='table-responsive'>
+                        {items}
+                    </div>
+                    <hr>
+                    <div class='row'>
+                        <div class='col-md-6'>
+                            {summary}
+                        </div>
+                        <div class='col-md-6'>
+                            {pager}
+                        </div>
+                    </div>
+                ",
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -42,6 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]); ?>
-
+    </div>
+</div>
 
 </div>
