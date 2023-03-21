@@ -23,36 +23,36 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <!-- <div class="mb-3 mb-md-0">
+                                <div class="mb-3 mb-md-0">
                                     <div class="date" id="date1" data-target-input="nearest">
                                         <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Depart Date" data-target="#date1" data-toggle="datetimepicker"/>
                                     </div>
-                                </div> -->
+                                </div>
 
-                                <div class="input-group date" id="datepicker" >
+                                <!-- <div class="input-group date" id="datepicker" >
                                     <input type="text" class="form-control" style="height: 47px;">
                                     <span class="input-group-append">
                                         <span class="input-group-text bg-white">
                                             <i class="fa fa-calendar"></i>
                                         </span>
                                     </span>
-                                </div>
+                                </div> -->
 
                             </div>
                             <div class="col-md-3">
-                                <!-- <div class="mb-3 mb-md-0">
+                                <div class="mb-3 mb-md-0">
                                     <div class="date" id="date2" data-target-input="nearest">
                                         <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Return Date" data-target="#date2" data-toggle="datetimepicker"/>
                                     </div>
-                                </div> -->
-                                <div class="input-group date" id="datetimepicker">
+                                </div>
+                                <!-- <div class="input-group date" id="datetimepicker">
                                     <input type="text" class="form-control" style="height: 47px;">
                                     <span class="input-group-append">
                                         <span class="input-group-text bg-white">
                                             <i class="fa fa-calendar"></i>
                                         </span>
                                     </span>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-md-3">
                                 <div class="mb-3 mb-md-0">
@@ -75,8 +75,8 @@
     </div>
     <!-- Booking End -->
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         $(function(){
             $('#datetimepicker').datetimepicker()
         });
-    </script>
+    </script> -->

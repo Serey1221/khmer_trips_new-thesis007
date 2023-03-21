@@ -41,9 +41,9 @@
         format: 'LT'
     });
 
-    $('.datepicker').datepicker({
-        inline: true
-      });
+    // $('.datepicker').datepicker({
+    //     inline: true
+    //   });
 
     $('#datetimepicker').datetimepicker();
 

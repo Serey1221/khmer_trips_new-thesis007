@@ -46,28 +46,15 @@ Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
           <img src="../../img/user2-160x160.jpg" class="img-circle elevation-2" alt="UserImage">
 
           <p>
-            Alexander Pierce - Web Developer
+            Admin CMS
             <small>Member since Nov. 2012</small>
           </p>
         </li>
-
-        <li class="user-body">
-          <div class="row">
-            <div class="col-4 text-center">
-              <a href="#">Followers</a>
-            </div>
-            <div class="col-4 text-center">
-              <a href="#">Sales</a>
-            </div>
-            <div class="col-4 text-center">
-              <a href="#">Friends</a>
-            </div>
-          </div>
-
-        </li>
-
         <li class="user-footer">
-          <a href="#" class="btn btn-default btn-flat">Profile</a>
+          <!-- <a href="#" class="btn btn-default btn-flat">Profile</a> -->
+          <a class="btn btn-default btn-flat" href="<?= Url::toRoute(['user/index']) ?>">
+                            <span class="bi bi-person mr-2"></span> <?= Yii::t('app', 'Profile') ?>
+          </a>
 
           <a href="<?= \yii\helpers\Url::to([ '/admin/site/logout',]) ?>" class="btn btn-default btn-flat float-right" data-confirm="Are you sure?" method="post">Sign out</a>
         </li>

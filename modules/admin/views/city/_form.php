@@ -17,13 +17,13 @@ use yii\widgets\ActiveForm;
         <div class="card-body">
             <div class="row">
                 <div class="col-lg-12">
-                <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'name')->textInput(['maxlength' => true,'placeholder' => ' Name of City'])->label(false) ?>
 
-                <?= $form->field($model, 'name_kh')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'name_kh')->textInput(['maxlength' => true,'placeholder' => ' Name Khmer of City'])->label(false) ?>
 
-                <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+                <?= $form->field($model, 'description')->textarea(['rows' => 6,'placeholder'=>'Short Description'])->label(false) ?>
 
-                <?= $form->field($model, 'country_id')->textInput() ?>
+                <?php // $form->field($model, 'country_id')->textInput() ?>
 
                 <div class="form-group">
                     <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

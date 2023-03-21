@@ -55,6 +55,15 @@ Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="<?= Yii::getAlias('@web/admin/booking') ?>" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Booking
+                <span class="badge badge-info right">2</span>
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
     </div>

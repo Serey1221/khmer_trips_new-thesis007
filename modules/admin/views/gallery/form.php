@@ -3,9 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
-use app\assets\EditorAsset;
 
-EditorAsset::register($this);
 $inputFloatLabel = '<div class="form-label-group">{input} {label} {error}{hint}</div>';
 ?>
 <?php
