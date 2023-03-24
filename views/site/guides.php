@@ -1,5 +1,7 @@
-
-
+<?php
+$this->title='Guides';
+?>
+<?= $this->render('booking');?>
 <!-- Team Start -->
 <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">

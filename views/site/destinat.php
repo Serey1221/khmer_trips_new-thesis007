@@ -1,4 +1,7 @@
-
+<?php
+$this->title='Destination';
+?>
+<?= $this->render('booking');?>
 <!-- Destination Start -->
 <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">

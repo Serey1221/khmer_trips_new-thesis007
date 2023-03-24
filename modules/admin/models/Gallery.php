@@ -43,7 +43,7 @@ class Gallery extends \yii\db\ActiveRecord
             [
                 'class' => \mohorev\file\UploadImageBehavior::class,
                 'attribute' => 'img_url',
-                'scenarios' => ['default'],
+                'scenarios' => ['admin'],
                 'placeholder' => '@web/img/placeholder.png',
                 'path' => '@webroot/upload/gallery/{id}',
                 'url' => '@web/upload/gallery/{id}',

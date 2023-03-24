@@ -2,7 +2,8 @@
 
 /** @var yii\web\View $this */
 
-$this->title = 'Khmer Travel'; ?>
+$this->title = 'Khmer Travel'; 
+?>
 
 <!-- Carousel Start -->
     <div class="container-fluid p-0">
@@ -13,7 +14,7 @@ $this->title = 'Khmer Travel'; ?>
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
-                            <h1 class="display-3 text-white mb-md-4">We are serving from our heart</h1>
+                            <h1 class="display-3 text-white mb-md-4">We are serving from our heart.</h1>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
                         </div>
                     </div>
@@ -23,7 +24,7 @@ $this->title = 'Khmer Travel'; ?>
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
-                            <h1 class="display-3 text-white mb-md-4">Discover Amazing Places With Us</h1>
+                            <h1 class="display-3 text-white mb-md-4">Discover Amazing Places With Us.</h1>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
                         </div>
                     </div>
@@ -33,7 +34,7 @@ $this->title = 'Khmer Travel'; ?>
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
-                            <h1 class="display-3 text-white mb-md-4"></h1>
+                            <h1 class="display-3 text-white mb-md-4">Travel is an investment in yourself.</h1>
                             <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
                         </div>
                     </div>

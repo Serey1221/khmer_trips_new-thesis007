@@ -17,7 +17,7 @@ $base_url = Yii::getAlias("@web");
     padding-top:20px
   }
   .row_gallery .card {
-    margin-bottom: 0;
+    margin-bottom: 70px;
   }
 
   .row_gallery img {
@@ -25,31 +25,31 @@ $base_url = Yii::getAlias("@web");
     border-radius: 4px;
   }
 
-  .row_gallery .carousel-caption {
+  /* .row_gallery .carousel-caption {
     top: 50%;
     transform: translateY(-50%);
     bottom: initial;
     opacity: 0;
     transition: .5s ease;
-  }
+  } */
 
-  .row_gallery .gallery-image:hover .carousel-caption {
+  /* .row_gallery .gallery-image:hover .carousel-caption {
     opacity: 1;
-  }
+  } */
 
-  .row_gallery .gallery-image img {
+  /* .row_gallery .gallery-image img {
     width: 100%;
     height: 160px;
     object-fit: contain;
-  }
+  } */
 
-  .row_gallery .gallery-image:hover img {
+  /* .row_gallery .gallery-image:hover img {
     opacity: .8;
     transition: .3s ease;
-  }
+  } */
 
   .row_gallery .add-button i {
-    font-size: 2rem;
+    font-size: 3rem;
     color: grey;
     opacity: .4;
   }
@@ -59,9 +59,9 @@ $base_url = Yii::getAlias("@web");
     cursor: pointer;
   }
 
-  .row_gallery .col-lg-3 {
+  /* .row_gallery .col-lg-3 {
     padding-bottom: 1rem;
-  }
+  } */
 </style>
 <h1><?= Html::encode($this->title) ?></h1>
         <!-- <div class="row">
@@ -91,11 +91,12 @@ $base_url = Yii::getAlias("@web");
           </div>
         </div> -->
 <?= $this->render('/admin/drawer_right') ?>
+
 <div class="row row_gallery">
   <div class="col-lg-3">
     <div class="card card-body text-center justify-content-center h-100">
       <div class="add-button modalButton" data-title="Add gallery image" value="<?= Url::toRoute(['gallery/form']) ?>">
-        <i class="fas fa-plus"></i>
+        <i class="nav-icon far fa-plus-square"></i>
       </div>
     </div>
   </div>

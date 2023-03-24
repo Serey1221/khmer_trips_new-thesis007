@@ -122,7 +122,7 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays about page.
+     * Displays about page
      *
      * @return string
      */
@@ -141,5 +141,40 @@ class SiteController extends Controller
         $this->layout = 'package';
         
         return $this->render('package');
+    }
+    public function actionBloggrid()
+    {
+        $this->layout = 'package';
+        
+        return $this->render('bloggrid');
+
+    }
+    public function actionDetail()
+    {
+        $this->layout = 'package';
+        
+        return $this->render('detail');
+
+    }
+    public function actionDestinat()
+    {
+        $this->layout = 'package';
+        
+        return $this->render('destinat');
+
+    }
+    public function actionGuides()
+    {
+        $this->layout = 'package';
+        
+        return $this->render('guides');
+
+    }
+    public function actionClient()
+    {
+        $this->layout = 'package';
+        
+        return $this->render('client');
+
     }
 }

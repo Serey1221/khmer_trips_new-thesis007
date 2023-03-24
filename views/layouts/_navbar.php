@@ -20,17 +20,22 @@ use yii\helpers\Url;
                         <a href="<?= Yii::getAlias('@web/site/about') ?>" class="nav-item nav-link">About</a>
                         <a href="<?= Yii::getAlias('@web/site/service') ?>" class="nav-item nav-link">Services</a>
                         <a href="<?= Yii::getAlias('@web/site/package') ?>" class="nav-item nav-link">Packages</a>
-                        <!-- <div class="nav-item dropdown">
+                        <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu border-0 rounded-0 m-0">
-                                <a href="blog.html" class="dropdown-item">Blog Grid</a>
-                                <a href="single.html" class="dropdown-item">Blog Detail</a>
-                                <a href="destination.html" class="dropdown-item">Destination</a>
-                                <a href="guide.html" class="dropdown-item">Travel Guides</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                                <a href="<?= Yii::getAlias('@web/site/bloggrid') ?>" class="dropdown-item">Blog Grid</a>
+                                <a href="<?= Yii::getAlias('@web/site/detail') ?>" class="dropdown-item">Blog Detail</a>
+                                <a href="<?= Yii::getAlias('@web/site/destinat') ?>" class="dropdown-item">Destination</a>
+                                <a href="<?= Yii::getAlias('@web/site/guides') ?>" class="dropdown-item">Travel Guides</a>
+                                <a href="<?= Yii::getAlias('@web/site/client') ?>" class="dropdown-item">Testimonial</a>
                             </div>
-                        </div> -->
+                        </div>
                         <a href="<?= Yii::getAlias('@web/site/contact') ?>" class="nav-item nav-link">Contact</a>
+                        <a href="<?= Yii::getAlias('@web/site/contact') ?>" class="nav-item nav-link">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="badge badge-danger navbar-badge">3</span>
+                        </a>
+                        
                     </div>
                 </div>
             </nav>

@@ -31,7 +31,7 @@ $this->registerMetaTag([
 $this->registerLinkTag([
     'rel' => 'icon',
     'type' => 'image/x-icon',
-    'href' => Yii::getAlias('@web/ANGKOR.ico'),
+    'href' => Yii::getAlias('@web/Khmer_Travel.ico'),
 ]);
 ?>
 <?php $this->beginPage(); ?>

@@ -64,6 +64,8 @@ class User extends ActiveRecord implements IdentityInterface
             'email' => 'Email',
             'created_at' => 'Created Date',
             'updated_at' => 'Updated Date',
+            'first_name' => Yii::t('app', 'First Name'),
+            'last_name' => Yii::t('app', 'Last Name'),
             'status' => 'Status',
         ];
     }

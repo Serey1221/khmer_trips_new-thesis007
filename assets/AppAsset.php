@@ -39,5 +39,8 @@ class AppAsset extends AssetBundle
         'app/mail/contact.js',
         'app/js/main.js',
     ];
-    public $depends = ['yii\web\YiiAsset', 'yii\bootstrap4\BootstrapAsset'];
+    public $depends = [
+        'yii\web\YiiAsset',
+         'yii\bootstrap4\BootstrapAsset'
+        ];
 }
