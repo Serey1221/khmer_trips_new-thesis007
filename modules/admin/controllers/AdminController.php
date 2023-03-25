@@ -41,5 +41,6 @@ class AdminController extends Controller
 
         return parent::beforeAction($action);
     }
+    
 }
 ?>
