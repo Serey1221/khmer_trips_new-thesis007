@@ -5,7 +5,7 @@
 use yii\helpers\Url;
 
 $this->title = 'Admin';
-$this->params['breadcrumbs'][] = 'Admin';
+$this->params['breadcrumbs'][] = 'Dashboard';
 ?>
 
 <?php

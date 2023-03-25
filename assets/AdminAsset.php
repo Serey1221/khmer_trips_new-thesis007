@@ -35,6 +35,7 @@ class AdminAsset extends AssetBundle
         'css/adminlte.css',
         // 'css/adminlte.css.map',
         'css/adminlte.min.css',
+        'css/upload_image.css',
         // 'css/adminlte.min.css.map',
     ];
     public $js = [

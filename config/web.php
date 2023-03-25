@@ -3,6 +3,10 @@
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
+use \yii\web\Request;
+
+$baseUrl = str_replace('/web', '', (new Request)->getBaseUrl());
+
 $config = [
     'id' => 'khmer_travel001',
     'basePath' => dirname(__DIR__),
@@ -38,6 +42,9 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'formater' => [
+            'class' => 'app\components\Formater',
+        ],
         'user' => [
             'identityClass' => 'app\modules\admin\models\User',
             'enableAutoLogin' => true,
@@ -63,6 +70,7 @@ $config = [
         'db' => $db,
 
         'urlManager' => [
+            'baseUrl' => $baseUrl,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [],

@@ -32,7 +32,7 @@ class Gallery extends \yii\db\ActiveRecord
         return [
 
             [['img_url', 'title'], 'required'],
-            ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['default']],
+            ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['admin']],
             [['sub_title', 'title', 'description'], 'string', 'max' => 255],
         ];
     }

@@ -25,28 +25,28 @@ $base_url = Yii::getAlias("@web");
     border-radius: 4px;
   }
 
-  /* .row_gallery .carousel-caption {
+  .row_gallery .carousel-caption {
     top: 50%;
     transform: translateY(-50%);
     bottom: initial;
     opacity: 0;
     transition: .5s ease;
-  } */
+  } 
 
-  /* .row_gallery .gallery-image:hover .carousel-caption {
+  .row_gallery .gallery-image:hover .carousel-caption {
     opacity: 1;
-  } */
+  }
 
-  /* .row_gallery .gallery-image img {
+  .row_gallery .gallery-image img {
     width: 100%;
     height: 160px;
     object-fit: contain;
-  } */
+  }
 
-  /* .row_gallery .gallery-image:hover img {
+  .row_gallery .gallery-image:hover img {
     opacity: .8;
     transition: .3s ease;
-  } */
+  }
 
   .row_gallery .add-button i {
     font-size: 3rem;
@@ -59,39 +59,12 @@ $base_url = Yii::getAlias("@web");
     cursor: pointer;
   }
 
-  /* .row_gallery .col-lg-3 {
+  .row_gallery .col-lg-3 {
     padding-bottom: 1rem;
-  } */
+  }
 </style>
 <h1><?= Html::encode($this->title) ?></h1>
-        <!-- <div class="row">
-          <div class="col-12">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h4 class="card-title">Gallery</h4>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                    <div class="add-button modalButton" data-title="Add gallery image" value="<?= Url::toRoute(['gallery/form']) ?>">
-                      <i class="bi bi-plus-circle"></i>
-                    </div>
-                    <div class="col-sm-2">
-                      <a href="https://via.placeholder.com/1200/FFFFFF.png?text=1" data-toggle="lightbox" data-title="sample 1 - white" data-gallery="gallery">
-                        <img src="https://via.placeholder.com/300/FFFFFF?text=1" class="img-fluid mb-2" alt="white sample"/>
-                      </a>
-                    </div>
-                    <div class="col-sm-2">
-                    <a href="https://via.placeholder.com/1200/000000.png?text=2" data-toggle="lightbox" data-title="sample 2 - black" data-gallery="gallery">
-                      <img src="https://via.placeholder.com/300/000000?text=2" class="img-fluid mb-2" alt="black sample"/>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
 <?= $this->render('/admin/drawer_right') ?>
-
 <div class="row row_gallery">
   <div class="col-lg-3">
     <div class="card card-body text-center justify-content-center h-100">

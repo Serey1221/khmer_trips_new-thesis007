@@ -53,10 +53,19 @@ Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
         <li class="user-footer">
           <!-- <a href="#" class="btn btn-default btn-flat">Profile</a> -->
           <a class="btn btn-default btn-flat" href="<?= Url::toRoute(['user/index']) ?>">
-                            <span class="bi bi-person mr-2"></span> <?= Yii::t('app', 'Profile') ?>
+             <span class="bi bi-person mr-2"></span> <?= Yii::t('app', 'Profile') ?>
           </a>
 
-          <a href="<?= \yii\helpers\Url::to([ '/admin/site/logout',]) ?>" class="btn btn-default btn-flat float-right" data-confirm="Are you sure?" method="post">Sign out</a>
+          <a href="<?= \yii\helpers\Url::to([ '/admin/site/logout',]) ?>" class="btn btn-default btn-flat float-right " data-confirm="Are you sure?" method="post">Sign out</a>
+          
+          <?= Html::a('<span class="bi-box-arrow-left mr-2"></span> ' . Yii::t('app', 'Log out'), ['#'], [
+                            'class' => 'btn btn-default btn-flat float-right sign-out-user',
+                            'data' => [
+                                'confirm' => 'Are you sure, you want to Logout?',
+                                'value' => Url::toRoute('/admin/site/logout'),
+                                'method' => 'post',
+                            ]
+                        ]) ?>
         </li>
       </ul>
     </li>
