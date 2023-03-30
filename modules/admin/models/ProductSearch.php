@@ -14,12 +14,14 @@ class ProductSearch extends Product
     /**
      * {@inheritdoc}
      */
+    public $globalSearch, $from_date, $to_date;
     public function rules()
     {
         return [
             [['id', 'tourday', 'tournight', 'tourhour', 'tourmin', 'status', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
             [['name', 'namekh', 'overview', 'overviewkh', 'highlight', 'highlight_kh', 'pick_up', 'pick_up_kh', 'drop_off', 'drop_off_kh', 'price_include_kh', 'price_exclude_kh', 'created_at', 'updated_at', 'deleted_at'], 'safe'],
             [['rate'], 'number'],
+            [['globalSearch', 'from_date', 'to_date'], 'safe']
         ];
     }
 

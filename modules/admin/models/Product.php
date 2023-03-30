@@ -90,6 +90,22 @@ class Product extends \yii\db\ActiveRecord
             'rate' => 'Rate',
         ];
     }
+    // public function beforeSave($insert)
+    // {
+    //     if (parent::beforeSave($insert)) {
+    //         $this->slug = Yii::$app->formater->slugify($this->slug);
+    //         if ($this->isNewRecord) {
+    //             $this->created_at = date('Y-m-d H:i:s');
+    //             $this->created_by = Yii::$app->user->identity->id;
+    //         } else {
+    //             $this->updated_at = date('Y-m-d H:i:s');
+    //             $this->updated_by = Yii::$app->user->identity->id;
+    //         }
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
     public function getStatusTemp()
     {
         if ($this->status == 1) {

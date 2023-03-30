@@ -24,6 +24,7 @@ class AdminAsset extends AssetBundle
         'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback',
         'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css',
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
+        'https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css',
         'plugins/fontawesome-free/css/all.min.css',
         'plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css',
         // 'plugins/icheck-bootstrap/icheck-bootstrap.min.css',
@@ -62,7 +63,7 @@ class AdminAsset extends AssetBundle
         // 'js.demo.js',
     ];
     public $depends = [
-        'yii\web\YiiAsset', 
+        'yii\web\YiiAsset',
         'yii\bootstrap4\BootstrapAsset'
     ];
 }

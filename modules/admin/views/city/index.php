@@ -13,11 +13,7 @@ use yii\grid\GridView;
 $this->title = 'Cities';
 $this->params['pageTitle'][] = $this->title;
 ?>
-<!-- <style>
-    .city-index{
-        padding-top:20px
-    }
-</style>     -->
+  
 <div class="city-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -54,7 +50,7 @@ $this->params['pageTitle'][] = $this->title;
                 //'id',
                 'name',
                 'name_kh',
-                'description',
+                //'description',
                 //'country_id',
                 [
                     'class' => ActionColumn::className(),

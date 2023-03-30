@@ -9,7 +9,7 @@ Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
   <!-- Left navbar links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      <a class="nav-link" data-widget="pushmenu" data-toggle="push-menu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
   </ul>
 
@@ -56,7 +56,7 @@ Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
              <span class="bi bi-person mr-2"></span> <?= Yii::t('app', 'Profile') ?>
           </a>
 
-          <a href="<?= \yii\helpers\Url::to([ '/admin/site/logout',]) ?>" class="btn btn-default btn-flat float-right " data-confirm="Are you sure?" method="post">Sign out</a>
+          <!-- <a href="<?= \yii\helpers\Url::to([ '/admin/site/logout',]) ?>" class="btn btn-default btn-flat float-right " data-confirm="Are you sure?" method="post">Sign out</a> -->
           
           <?= Html::a('<span class="bi-box-arrow-left mr-2"></span> ' . Yii::t('app', 'Log out'), ['#'], [
                             'class' => 'btn btn-default btn-flat float-right sign-out-user',

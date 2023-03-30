@@ -14,11 +14,13 @@ class CitySearch extends City
     /**
      * {@inheritdoc}
      */
+    public $globalSearch, $from_date, $to_date;
     public function rules()
     {
         return [
             [['id', 'country_id'], 'integer'],
             [['name', 'name_kh', 'description'], 'safe'],
+            [['globalSearch', 'from_date', 'to_date'], 'safe']
         ];
     }
 

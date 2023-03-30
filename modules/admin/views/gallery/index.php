@@ -17,7 +17,7 @@ $base_url = Yii::getAlias("@web");
     padding-top:20px
   }
   .row_gallery .card {
-    margin-bottom: 70px;
+    margin-bottom: 0;
   }
 
   .row_gallery img {

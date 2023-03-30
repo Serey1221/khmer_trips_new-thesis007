@@ -31,7 +31,7 @@ class Gallery extends \yii\db\ActiveRecord
     {
         return [
 
-            [['img_url', 'title'], 'required'],
+            [['title','img_url'], 'required'],
             ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['admin']],
             [['sub_title', 'title', 'description'], 'string', 'max' => 255],
         ];
@@ -44,7 +44,8 @@ class Gallery extends \yii\db\ActiveRecord
                 'class' => \mohorev\file\UploadImageBehavior::class,
                 'attribute' => 'img_url',
                 'scenarios' => ['admin'],
-                'placeholder' => '@web/img/placeholder.png',
+                // 'placeholder' => '@web/img/placeholder-2.png',
+                'placeholder' => '@app/web/img/placeholder.png',
                 'path' => '@webroot/upload/gallery/{id}',
                 'url' => '@web/upload/gallery/{id}',
                 'thumbs' => [

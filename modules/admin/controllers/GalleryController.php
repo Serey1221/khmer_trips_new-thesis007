@@ -30,15 +30,16 @@ class GalleryController extends Controller
 
   public function actionForm($id = 0)
   {
-    $model = Gallery::findOne($id);
-    if (empty($model)) {
-      $model = new Gallery();
-    }
+    $model = !empty(Gallery::findOne($id)) ? Gallery::findOne($id) : new Gallery();
+    $model->scenario = 'admin';
     if ($this->request->isPost && $model->load($this->request->post())) {
 
       $transaction_exception = Yii::$app->db->beginTransaction();
 
       try {
+        // echo "<pre>";
+        // print_r($model->img_url);
+        // exit();
         if (!$model->save()) throw new Exception(Yii::$app->formater->errToString($model->getErrors()));
 
         $transaction_exception->commit();

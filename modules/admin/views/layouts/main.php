@@ -10,6 +10,10 @@ use yii\bootstrap4\Breadcrumbs;
 use yii\bootstrap4\Html;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
+use app\assets\SweetAlert2Asset;
+use yii\helpers\Url;
+
+SweetAlert2Asset::register($this);
 
 //AppAsset::register($this);
 AdminAsset::register($this);

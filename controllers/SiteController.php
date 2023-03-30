@@ -9,6 +9,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\City;
+use yii\db\Expression;
 
 class SiteController extends Controller
 {
@@ -62,7 +64,18 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        // $data = $this->queryData();
+
+        $numberCity = City::find()
+            ->where(['id' => 1])
+            ->all();
+
+        return $this->render('index', [
+            'numberCity' => $numberCity,
+        ]);
+        // echo '<pre>';
+        // print_r($numberCity);
+        // echo '</pre';
     }
 
     /**
@@ -139,42 +152,37 @@ class SiteController extends Controller
     public function actionPackage()
     {
         $this->layout = 'package';
-        
+
         return $this->render('package');
     }
     public function actionBloggrid()
     {
         $this->layout = 'package';
-        
-        return $this->render('bloggrid');
 
+        return $this->render('bloggrid');
     }
     public function actionDetail()
     {
         $this->layout = 'package';
-        
-        return $this->render('detail');
 
+        return $this->render('detail');
     }
     public function actionDestinat()
     {
         $this->layout = 'package';
-        
-        return $this->render('destinat');
 
+        return $this->render('destinat');
     }
     public function actionGuides()
     {
         $this->layout = 'package';
-        
-        return $this->render('guides');
 
+        return $this->render('guides');
     }
     public function actionClient()
     {
         $this->layout = 'package';
-        
-        return $this->render('client');
 
+        return $this->render('client');
     }
 }
