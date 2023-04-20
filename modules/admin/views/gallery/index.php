@@ -13,9 +13,10 @@ $this->params['pageTitle'] = $this->title;
 $base_url = Yii::getAlias("@web");
 ?>
 <style>
-  .row{
-    padding-top:20px
+  .row {
+    padding-top: 20px
   }
+
   .row_gallery .card {
     margin-bottom: 0;
   }
@@ -31,7 +32,7 @@ $base_url = Yii::getAlias("@web");
     bottom: initial;
     opacity: 0;
     transition: .5s ease;
-  } 
+  }
 
   .row_gallery .gallery-image:hover .carousel-caption {
     opacity: 1;
@@ -82,7 +83,7 @@ $base_url = Yii::getAlias("@web");
         <img src="<?= $value->getThumbUploadUrl('img_url') ?>" alt="<?= $value->title ?>">
         <div class="carousel-caption">
           <button type="button" class="btn btn-secondary btn-icon linkToCopy" data-id="<?= $value->id ?>"><i class="fas fa-link"></i></button>
-          <button type="button" data-title="Update gallery image: <?= $value->title ?>" value="<?= Url::toRoute(['gallery/form', 'id' => $value->id]) ?>" class="btn btn-secondary btn-icon modalButton"><i class="bi bi-pencil-square"></i></button>
+          <button type="button" data-title="Update gallery image: <?= $value->title ?>" value="<?= Url::toRoute(['gallery/form', 'id' => $value->id]) ?>" class="btn btn-secondary btn-icon modalButton"><i class="nav-icon fas fa-edit"></i></button>
         </div>
       </div>
     </div>
@@ -90,7 +91,7 @@ $base_url = Yii::getAlias("@web");
   }
   ?>
 </div>
-      
+
 <?php
 $script = <<<JS
 

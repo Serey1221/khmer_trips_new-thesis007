@@ -9,10 +9,10 @@
             <p>All you need is to set your time, the rest of things will be handle by us. At Khmer Travel, we provide a best solution for traveling and always find a new experience to suit your wish.</p>
             <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
             <div class="d-flex justify-content-start">
-                <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/home"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-outline-primary btn-square mr-2" href="https://web.facebook.com/?_rdc=1&_rdr"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/khmer_travel"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100091447657537"><i class="fab fa-facebook-f" target="_blank"></i></a>
                 <a class="btn btn-outline-primary btn-square mr-2" href="https://manager.line.biz/account/@313rhjxt"><i class="fab fa-line"></i></a>
-                <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/khmertravel.siemreap/"><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/khmertravel.cambodia/"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 mb-5">
@@ -20,7 +20,7 @@
             <div class="d-flex flex-column justify-content-start">
                 <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About</a>
                 <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Destination</a>
-                <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Services</a>
+                <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Purposes</a>
                 <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Packages</a>
                 <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Guides</a>
                 <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>

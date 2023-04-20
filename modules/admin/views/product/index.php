@@ -5,6 +5,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
+use yii\widgets\Pjax;
 
 /** @var yii\web\View $this */
 /** @var app\modules\admin\models\ProductSearch $searchModel */
@@ -17,6 +18,7 @@ $this->params['pageTitle'] = $this->title;
 <div class="product-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <?php Pjax::begin(['id' => 'product_data']); ?>
     <?= $this->render('_search', ['model' => $searchModel]) ?>
 
     <div class="card">
@@ -29,12 +31,16 @@ $this->params['pageTitle'] = $this->title;
                     'cellspacing' => '0',
                     'width' => '100%',
                 ],
+                'pager' => [
+                    'class' => 'yii\bootstrap4\LinkPager'
+                ],
+
                 'layout' => "
                         <div class='table-responsive'>
                             {items}
                         </div>
                         <hr>
-                        <div class='row'>
+                        <div class='row justify-content-md-center'>
                             <div class='col-md-6'>
                                 {summary}
                             </div>
@@ -78,7 +84,23 @@ $this->params['pageTitle'] = $this->title;
                     //'deleted_by',
                     //'rate',
                     [
-                        'class' => ActionColumn::className(),
+                        'class' => 'yii\grid\ActionColumn',
+                        'header' => Yii::t('app', 'Actions'),
+                        'headerOptions' => ['class' => 'text-center'],
+                        'contentOptions' => ['class' => 'text-center'],
+                        'template' => '{update} {view} {delete}',
+                        'buttons' => [
+                            'view' => function ($url, $model) {
+                                return Html::a('<i class="far fa-eye"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-warning', 'target' => '_blank']);
+                            },
+                            'update' => function ($url, $model) {
+                                return Html::a('<i class="fas fa-pen"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-secondary ', 'data-pjax' => 0]);
+                            },
+                            'delete' => function ($url, $model) {
+                                return Html::a('<i class="fas fa-trash"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-danger ', 'data-pjax' => 0]);
+                            },
+
+                        ],
                         'urlCreator' => function ($action, Product $model, $key, $index, $column) {
                             return Url::toRoute([$action, 'id' => $model->id]);
                         },
@@ -88,5 +110,5 @@ $this->params['pageTitle'] = $this->title;
             ]) ?>
         </div>
     </div>
-
+    <?php Pjax::end(); ?>
 </div>

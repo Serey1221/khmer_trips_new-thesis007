@@ -1,6 +1,7 @@
 <?php
 
 namespace app\modules\admin\controllers;
+
 use app\modules\admin\models\Product;
 use app\modules\admin\models\ProductSearch;
 use Yii;
@@ -23,6 +24,7 @@ class ProductController extends \yii\web\Controller
         $searchModel = new ProductSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -36,10 +38,10 @@ class ProductController extends \yii\web\Controller
     }
     public function actionCreate()
     {
-    $model = new Product();
-    return $this->render('create', [
-        'model' => $model,
-      ]);
+        $model = new Product();
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
     public function actionUpdate($id)
     {

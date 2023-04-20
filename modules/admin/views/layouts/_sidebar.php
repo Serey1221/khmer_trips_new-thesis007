@@ -42,10 +42,18 @@ $action = Yii::$app->controller->action->id;
           </a>
         </li>
         <li class="nav-item">
+          <a href="<?= Yii::getAlias('@web/admin/article') ?>" class="nav-link <?= $controller . '-' . $action === 'article-index' ? 'active' : '' ?>">
+            <i class="nav-icon fas fa-book"></i>
+            <p>
+              Article
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="<?= Yii::getAlias('@web/admin/city') ?>" class="nav-link <?= $controller . '-' . $action === 'city-index' ? 'active' : '' ?>">
             <i class="nav-icon fas fa-th"></i>
             <p>
-              Citys
+              Cities
             </p>
           </a>
         </li>

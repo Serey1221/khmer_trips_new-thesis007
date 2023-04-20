@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use app\assets\DatetimepickerAsset;
+use kartik\date\DatePicker;
+
 
 /** @var yii\web\View $this */
 
@@ -196,6 +198,21 @@ DatetimepickerAsset::register($this);
 
 
 <?= $this->render('_sub_package'); ?>
+
+<?php // echo $img 
+?>
+
+<div class="col-lg-4 col-md-6 mb-4">
+    <div class="destination-item position-relative overflow-hidden mb-2">
+
+        <a class="destination-overlay text-white text-decoration-none" href="<?= Yii::getAlias('@web/site/detail') ?>">
+            <h5 class="text-white"><?php // $img->title 
+                                    ?></h5>
+            <span><?php // $img->sub_title 
+                    ?></span>
+        </a>
+    </div>
+</div>
 
 <?= $this->render('registration'); ?>
 
