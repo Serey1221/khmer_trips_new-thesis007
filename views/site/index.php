@@ -22,17 +22,29 @@ DatetimepickerAsset::register($this);
                     <div class="p-3" style="max-width: 900px;">
                         <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
                         <h1 class="display-3 text-white mb-md-4">We are serving from our heart.</h1>
-                        <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
+                        <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a> -->
+                        <div class="input-group rounded py-md-3 px-md-5 mt-2">
+                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                            <button type="button" class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="w-100" src="../app/img/carousel-2.jpg" alt="Image">
+                <img class="w-100" src="../app/img/Khmer-Travel-Logo-13.png" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
                         <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
                         <h1 class="display-3 text-white mb-md-4">Discover Amazing Places With Us.</h1>
-                        <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
+                        <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a> -->
+                        <div class="input-group rounded py-md-3 px-md-5 mt-2">
+                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                            <button type="button" class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -42,7 +54,29 @@ DatetimepickerAsset::register($this);
                     <div class="p-3" style="max-width: 900px;">
                         <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
                         <h1 class="display-3 text-white mb-md-4">Travel is an investment in yourself.</h1>
-                        <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a>
+                        <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a> -->
+                        <div class="input-group rounded py-md-3 px-md-5 mt-2">
+                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                            <button type="button" class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="w-100" src="../app/img/Khmer-Travel-Logo-14.png" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
+                        <h1 class="display-3 text-white mb-md-4">Travel is an investment in yourself.</h1>
+                        <!-- <a href="" class="btn btn-primary py-md-3 px-md-5 mt-2">Book Now</a> -->
+                        <div class="input-group rounded py-md-3 px-md-5 mt-2">
+                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                            <button type="button" class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -93,7 +127,7 @@ DatetimepickerAsset::register($this);
                                     <div class="form-group">
                                         <!-- <label for="id_start_datetime"></label> -->
                                         <div class="input-group date" id='datetimepicker1'>
-                                            <input type="text" value="05/16/2018 11:31:00" class="form-control p-4 datetimepicker-input" required />
+                                            <input type="text" name="birthday" value="05/16/2018 11:31:00" class="form-control p-4 datetimepicker-input" required />
                                             <div class="input-group-addon input-group-append">
                                                 <div class="input-group-text">
                                                     <i class="far fa-calendar-alt"></i>
@@ -108,9 +142,15 @@ DatetimepickerAsset::register($this);
                                     <h4 class="title">Day</h4>
                                     <label>Duration</label>
                                     <div class="mb-3 mb-md-0">
-                                        <div class="date" id="date2" data-target-input="nearest">
+                                        <!-- <div class="date" id="date2" data-target-input="nearest">
                                             <input type="text" class="form-control p-4 datetimepicker-input" placeholder="Number of days" data-target="#date2" data-toggle="datetimepicker" />
-                                        </div>
+                                        </div> -->
+                                        <select class="custom-select px-4" style="height: 47px;">
+                                            <option selected>Number of days</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
                                     </div>
                                     <!-- <div class="input-group date" id="datetimepicker">
                                     <input type="text" class="form-control" style="height: 47px;">
@@ -159,7 +199,7 @@ DatetimepickerAsset::register($this);
                     </div>
                     <div class="d-flex flex-column">
                         <h5 class="">Competitive Pricing</h5>
-                        <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                        <p class="m-0">Khmer Travel provide best price to customers</p>
                     </div>
                 </div>
             </div>
@@ -170,7 +210,7 @@ DatetimepickerAsset::register($this);
                     </div>
                     <div class="d-flex flex-column">
                         <h5 class="">Best Services</h5>
-                        <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                        <p class="m-0">Khmer Travel brings you the best service and confidence.</p>
                     </div>
                 </div>
             </div>
@@ -180,8 +220,8 @@ DatetimepickerAsset::register($this);
                         <i class="fa fa-2x fa-globe text-white"></i>
                     </div>
                     <div class="d-flex flex-column">
-                        <h5 class="">Worldwide Coverage</h5>
-                        <p class="m-0">Magna sit magna dolor duo dolor labore rebum amet elitr est diam sea</p>
+                        <h5 class="">Nationwide Coverage</h5>
+                        <p class="m-0">Khmer Travel brings you new destinations closest to you.</p>
                     </div>
                 </div>
             </div>
@@ -199,24 +239,10 @@ DatetimepickerAsset::register($this);
 
 <?= $this->render('_sub_package'); ?>
 
-<?php // echo $img 
-?>
-
-<div class="col-lg-4 col-md-6 mb-4">
-    <div class="destination-item position-relative overflow-hidden mb-2">
-
-        <a class="destination-overlay text-white text-decoration-none" href="<?= Yii::getAlias('@web/site/detail') ?>">
-            <h5 class="text-white"><?php // $img->title 
-                                    ?></h5>
-            <span><?php // $img->sub_title 
-                    ?></span>
-        </a>
-    </div>
-</div>
-
 <?= $this->render('registration'); ?>
 
 <?= $this->render('team'); ?>
+
 
 <?= $this->render('testimonial'); ?>
 
@@ -224,11 +250,17 @@ DatetimepickerAsset::register($this);
 
 <?php
 $script = <<<JS
-    $(function () {
-             $('#datetimepicker1').datetimepicker({
-                format: 'mm-dd-yyyy'
-             });
-         });
+    $(function() {
+  $('input[name="birthday"]').daterangepicker({
+    singleDatePicker: true,
+    showDropdowns: true,
+    minYear: 1901,
+    maxYear: parseInt(moment().format('YYYY'),10)
+  }, function(start, end, label) {
+    var years = moment().diff(start, 'years');
+    alert("You are " + years + " years old!");
+  });
+});
 JS;
 $this->registerJs($script);
 ?>

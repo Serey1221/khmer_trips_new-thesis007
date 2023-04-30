@@ -20,8 +20,8 @@ $this->title = 'Blog';
                             </div>
                             <div class="bg-white p-4">
                                 <div class="d-flex mb-2">
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span>
+                                    <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
+                                    <span class="text-primary px-2">|</span> -->
                                     <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                                 </div>
                                 <a class="h5 m-0 text-decoration-none" href="<?= Yii::getAlias('@web/site/detail') ?>">Dolor justo sea kasd lorem clita justo diam amet</a>
@@ -39,8 +39,8 @@ $this->title = 'Blog';
                             </div>
                             <div class="bg-white p-4">
                                 <div class="d-flex mb-2">
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span>
+                                    <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
+                                    <span class="text-primary px-2">|</span> -->
                                     <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                                 </div>
                                 <a class="h5 m-0 text-decoration-none" href="<?= Yii::getAlias('@web/site/detail') ?>">Dolor justo sea kasd lorem clita justo diam amet</a>
@@ -58,8 +58,8 @@ $this->title = 'Blog';
                             </div>
                             <div class="bg-white p-4">
                                 <div class="d-flex mb-2">
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span>
+                                    <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
+                                    <span class="text-primary px-2">|</span> -->
                                     <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                                 </div>
                                 <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
@@ -77,8 +77,8 @@ $this->title = 'Blog';
                             </div>
                             <div class="bg-white p-4">
                                 <div class="d-flex mb-2">
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span>
+                                    <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
+                                    <span class="text-primary px-2">|</span> -->
                                     <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                                 </div>
                                 <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
@@ -96,8 +96,8 @@ $this->title = 'Blog';
                             </div>
                             <div class="bg-white p-4">
                                 <div class="d-flex mb-2">
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span>
+                                    <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
+                                    <span class="text-primary px-2">|</span> -->
                                     <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                                 </div>
                                 <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
@@ -115,8 +115,8 @@ $this->title = 'Blog';
                             </div>
                             <div class="bg-white p-4">
                                 <div class="d-flex mb-2">
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span>
+                                    <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
+                                    <span class="text-primary px-2">|</span> -->
                                     <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                                 </div>
                                 <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
@@ -134,8 +134,8 @@ $this->title = 'Blog';
                             </div>
                             <div class="bg-white p-4">
                                 <div class="d-flex mb-2">
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span>
+                                    <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
+                                    <span class="text-primary px-2">|</span> -->
                                     <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                                 </div>
                                 <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
@@ -153,8 +153,8 @@ $this->title = 'Blog';
                             </div>
                             <div class="bg-white p-4">
                                 <div class="d-flex mb-2">
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span>
+                                    <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
+                                    <span class="text-primary px-2">|</span> -->
                                     <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                                 </div>
                                 <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
@@ -236,11 +236,11 @@ $this->title = 'Blog';
                                 <span class="badge badge-primary badge-pill">131</span>
                             </li>
                             <li class="mb-3 d-flex justify-content-between align-items-center">
-                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Family Vacation</a>
+                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Calture</a>
                                 <span class="badge badge-primary badge-pill">78</span>
                             </li>
                             <li class="mb-3 d-flex justify-content-between align-items-center">
-                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Event Travel</a>
+                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Adventure</a>
                                 <span class="badge badge-primary badge-pill">56</span>
                             </li>
                             <li class="d-flex justify-content-between align-items-center">
@@ -255,21 +255,21 @@ $this->title = 'Blog';
                 <div class="mb-5">
                     <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Recent Post</h4>
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/blog-100x100.jpg" alt="">
+                        <img class="img-fluid" src="../app/img/photo-12.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
                             <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
                             <small>Jan 01, 2050</small>
                         </div>
                     </a>
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/blog-100x100.jpg" alt="">
+                        <img class="img-fluid" src="../app/img/photo-13.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
                             <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
                             <small>Jan 01, 2050</small>
                         </div>
                     </a>
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/blog-100x100.jpg" alt="">
+                        <img class="img-fluid" src="../app/img/photo-14.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
                             <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
                             <small>Jan 01, 2050</small>
@@ -281,12 +281,12 @@ $this->title = 'Blog';
                 <div class="mb-5">
                     <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Tag Cloud</h4>
                     <div class="d-flex flex-wrap m-n1">
-                        <a href="" class="btn btn-light m-1">Design</a>
-                        <a href="" class="btn btn-light m-1">Development</a>
-                        <a href="" class="btn btn-light m-1">Marketing</a>
-                        <a href="" class="btn btn-light m-1">SEO</a>
-                        <a href="" class="btn btn-light m-1">Writing</a>
-                        <a href="" class="btn btn-light m-1">Consulting</a>
+                        <a href="" class="btn btn-light m-1">Camping</a>
+                        <a href="" class="btn btn-light m-1">Calture</a>
+                        <a href="" class="btn btn-light m-1">Adventure</a>
+                        <a href="" class="btn btn-light m-1">Mountain</a>
+                        <a href="" class="btn btn-light m-1">Nature</a>
+                        <a href="" class="btn btn-light m-1">Food</a>
                     </div>
                 </div>
             </div>

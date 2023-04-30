@@ -171,7 +171,7 @@ class SiteController extends Controller
     }
     public function actionDetail()
     {
-        $this->layout = 'package';
+        // $this->layout = 'package';
 
         return $this->render('detail');
     }
@@ -192,5 +192,34 @@ class SiteController extends Controller
         $this->layout = 'package';
 
         return $this->render('client');
+    }
+    public function actionBooking()
+    {
+
+        return $this->render('booking');
+    }
+    public function actionBookingDetail()
+    {
+
+        return $this->render('booking-detail');
+    }
+    public function actionAddCart()
+    {
+
+        return $this->render('add-cart');
+    }
+    public function actionCheckout()
+    {
+        return $this->render('checkout');
+    }
+    public function actionSuccessPay()
+    {
+        $this->layout = 'success';
+
+        return $this->render('success-pay');
+    }
+    public function actionAvailability()
+    {
+        return $this->render('availability');
     }
 }

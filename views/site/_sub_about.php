@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-6" style="min-height: 500px;">
                 <div class="position-relative h-100">
-                    <img class="position-absolute w-100 h-100" src="../app/img/about.jpg" style="object-fit: cover;">
+                    <img class="position-absolute w-100 h-100" src="../app/img/about-5.png" style="object-fit: cover;">
                 </div>
             </div>
             <div class="col-lg-6 pt-5 pb-lg-5">
@@ -15,12 +15,12 @@
                     <div class="row mb-4">
                         <div class="col-6">
                             <div class="bg-image hover-zoom">
-                                <img class="img-fluid" src="../app/img/about-1.jpg" alt="">
+                                <img class="img-fluid" src="../app/img/about-3.png" alt="">
                             </div>
 
                         </div>
                         <div class="col-6">
-                            <img class="img-fluid" src="../app/img/about-2.jpg" alt="">
+                            <img class="img-fluid" src="../app/img/about-4.png" alt="">
                         </div>
                     </div>
                     <a href="" class="btn btn-primary mt-1">Book Now</a>

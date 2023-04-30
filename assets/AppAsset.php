@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @link http://www.yiiframework.com/
  * @copyright Copyright (c) 2008 Yii Software LLC
@@ -22,10 +23,10 @@ class AppAsset extends AssetBundle
     public $css = [
         'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap',
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css',
-        //'https://fonts.gstatic.com',
         'app/lib/owlcarousel/assets/owl.carousel.min.css',
         'app/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css',
         'app/css/style.css',
+
     ];
     public $js = [
         'https://code.jquery.com/jquery-3.4.1.min.js',
@@ -38,9 +39,10 @@ class AppAsset extends AssetBundle
         'app/mail/jqBootstrapValidation.min.js',
         'app/mail/contact.js',
         'app/js/main.js',
+
     ];
     public $depends = [
         'yii\web\YiiAsset',
-         'yii\bootstrap4\BootstrapAsset'
-        ];
+        'yii\bootstrap4\BootstrapAsset'
+    ];
 }

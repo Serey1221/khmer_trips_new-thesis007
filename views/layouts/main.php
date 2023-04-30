@@ -35,28 +35,32 @@ $this->registerLinkTag([
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
+
 <head>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head(); ?>
 </head>
+
 <body>
-<?php $this->beginBody(); ?>
-<?= $this->render('_navbar') ?>
+    <?php $this->beginBody(); ?>
+    <?= $this->render('_navbar') ?>
 
 
-<main id="main" class="flex-shrink-0" role="main">
-     <?php if (!empty($this->params['breadcrumbs'])): ?>
-        <?= Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) ?>
+    <main id="main" class="flex-shrink-0" role="main">
+        <?php if (!empty($this->params['breadcrumbs'])) : ?>
+            <?php //Breadcrumbs::widget(['links' => $this->params['breadcrumbs']]) 
+            ?>
         <?php endif; ?>
         <?= Alert::widget() ?>
         <?= $content ?>
-</main>
+    </main>
 
-<?= $this->render('_footer') ?>
-<!-- Back to Top -->
-<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <?= $this->render('_footer') ?>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
-<?php $this->endBody(); ?>
+    <?php $this->endBody(); ?>
 </body>
+
 </html>
 <?php $this->endPage(); ?>

@@ -1,7 +1,45 @@
 <?php
+
+use yii\bootstrap4\Breadcrumbs;
+
 $this->title = 'Blog Detail';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<?= $this->render('booking'); ?>
+<?php // $this->render('booking'); 
+?>
+<style>
+    .page-title {
+        background-color: #7ab730;
+        margin-top: 85px;
+        height: 60px;
+    }
+</style>
+<div class="page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h4 class="text-justify py-3" style="color:white">Ta Prom Temple </h4>
+            </div>
+            <div class="col-lg-4">
+                <div class="text-justify py-2">
+                    <?php
+                    echo Breadcrumbs::widget([
+                        'class' => 'py-4',
+                        'homeLink' => [
+                            'label' => Yii::t('yii', 'Home'),
+                            'url' => Yii::$app->homeUrl,
+                        ],
+                        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                    ]);
+                    ?>
+                    <!-- <small class="text-color">Home</small> / <small>Page</small> -->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
 <!-- Blog Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
@@ -160,7 +198,7 @@ $this->title = 'Blog Detail';
                     </div> -->
 
                 <!-- Search Form -->
-                <div class="mb-5">
+                <!-- <div class="mb-5">
                     <div class="bg-white" style="padding: 30px;">
                         <div class="input-group">
                             <input type="text" class="form-control p-4" placeholder="Keyword">
@@ -169,7 +207,7 @@ $this->title = 'Blog Detail';
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Category List -->
                 <div class="mb-5">
@@ -177,25 +215,23 @@ $this->title = 'Blog Detail';
                     <div class="bg-white" style="padding: 30px;">
                         <ul class="list-inline m-0">
                             <li class="mb-3 d-flex justify-content-between align-items-center">
-                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Web
-                                    Design</a>
+                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Camping Trip</a>
                                 <span class="badge badge-primary badge-pill">150</span>
                             </li>
                             <li class="mb-3 d-flex justify-content-between align-items-center">
-                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Web
-                                    Development</a>
+                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Solo Travel</a>
                                 <span class="badge badge-primary badge-pill">131</span>
                             </li>
                             <li class="mb-3 d-flex justify-content-between align-items-center">
-                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Online Marketing</a>
+                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Calture</a>
                                 <span class="badge badge-primary badge-pill">78</span>
                             </li>
                             <li class="mb-3 d-flex justify-content-between align-items-center">
-                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Keyword Research</a>
+                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Adventure</a>
                                 <span class="badge badge-primary badge-pill">56</span>
                             </li>
                             <li class="d-flex justify-content-between align-items-center">
-                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Email Marketing</a>
+                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Group Travel</a>
                                 <span class="badge badge-primary badge-pill">98</span>
                             </li>
                         </ul>
@@ -206,21 +242,21 @@ $this->title = 'Blog Detail';
                 <div class="mb-5">
                     <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Recent Post</h4>
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/blog-100x100.jpg" alt="">
+                        <img class="img-fluid" src="../app/img/photo-12.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
                             <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
                             <small>Jan 01, 2050</small>
                         </div>
                     </a>
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/blog-100x100.jpg" alt="">
+                        <img class="img-fluid" src="../app/img/photo-13.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
                             <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
                             <small>Jan 01, 2050</small>
                         </div>
                     </a>
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/blog-100x100.jpg" alt="">
+                        <img class="img-fluid" src="../app/img/photo-14.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
                             <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
                             <small>Jan 01, 2050</small>

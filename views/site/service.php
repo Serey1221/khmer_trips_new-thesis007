@@ -8,10 +8,10 @@ use yii\bootstrap4\ActiveForm;
 use yii\bootstrap4\Html;
 use yii\captcha\Captcha;
 
-$this->title = 'Purposes';
+$this->title = 'Service';
 
 ?>
-
+<?= $this->render('booking'); ?>
 <?= $this->render('_sub_service'); ?>
 
 
