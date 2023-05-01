@@ -12,7 +12,7 @@ $this->title = 'Blog';
                     <div class="col-md-6 mb-4 pb-2">
                         <div class="blog-item">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/blog-1.jpg" alt="">
+                                <img class="img-fluid w-100" src="../app/img/photo-12.png" alt="">
                                 <div class="blog-date">
                                     <h6 class="font-weight-bold mb-n1">01</h6>
                                     <small class="text-white text-uppercase">Jan</small>
@@ -31,7 +31,7 @@ $this->title = 'Blog';
                     <div class="col-md-6 mb-4 pb-2">
                         <div class="blog-item">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/blog-2.jpg" alt="">
+                                <img class="img-fluid w-100" src="../app/img/photo-15.png" alt="">
                                 <div class="blog-date">
                                     <h6 class="font-weight-bold mb-n1">01</h6>
                                     <small class="text-white text-uppercase">Jan</small>
@@ -50,7 +50,7 @@ $this->title = 'Blog';
                     <div class="col-md-6 mb-4 pb-2">
                         <div class="blog-item">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/blog-3.jpg" alt="">
+                                <img class="img-fluid w-100" src="../app/img/photo-16.png" alt="">
                                 <div class="blog-date">
                                     <h6 class="font-weight-bold mb-n1">01</h6>
                                     <small class="text-white text-uppercase">Jan</small>
@@ -69,7 +69,7 @@ $this->title = 'Blog';
                     <div class="col-md-6 mb-4 pb-2">
                         <div class="blog-item">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/blog-1.jpg" alt="">
+                                <img class="img-fluid w-100" src="../app/img/photo-13.png" alt="">
                                 <div class="blog-date">
                                     <h6 class="font-weight-bold mb-n1">01</h6>
                                     <small class="text-white text-uppercase">Jan</small>
@@ -88,7 +88,7 @@ $this->title = 'Blog';
                     <div class="col-md-6 mb-4 pb-2">
                         <div class="blog-item">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/blog-2.jpg" alt="">
+                                <img class="img-fluid w-100" src="../app/img/photo-14.png" alt="">
                                 <div class="blog-date">
                                     <h6 class="font-weight-bold mb-n1">01</h6>
                                     <small class="text-white text-uppercase">Jan</small>
