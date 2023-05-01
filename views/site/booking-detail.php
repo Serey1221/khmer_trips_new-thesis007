@@ -155,22 +155,22 @@ $this->params['breadcrumbs'][] = $this->title;
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
                         <img class="img-fluid" src="../app/img/photo-12.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
-                            <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
-                            <small>Jan 01, 2050</small>
+                            <h6 class="ml-1">Knorng Psar is an area rich in dense forests</h6>
+                            <small class="">Jan 01, 2023</small>
                         </div>
                     </a>
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/photo-13.png" style="max-width:40%;" alt="">
+                        <img class="img-fluid" src="../app/img/photo-15.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
-                            <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
-                            <small>Jan 01, 2050</small>
+                            <h6 class="ml-1">Angkor Wat is a huge Buddhist temple</h6>
+                            <small>Jan 01, 2023</small>
                         </div>
                     </a>
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/photo-14.png" style="max-width:40%;" alt="">
+                        <img class="img-fluid" src="../app/img/photo-16.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
-                            <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
-                            <small>Jan 01, 2050</small>
+                            <h6 class="m-1">Busra Waterfall, a tourist attraction</h6>
+                            <small>Jan 01, 2023</small>
                         </div>
                     </a>
                 </div>
@@ -211,11 +211,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     <img class="img-fluid" src="../app/img/photo-8.png" alt="">
                     <div class="p-4">
                         <div class="d-flex justify-content-between mb-3">
-                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Thailand</small>
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Koh Ker</small>
                             <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
                             <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
                         </div>
-                        <a class="h5 text-decoration-none" href="<?= Yii::getAlias('@web/site/booking-detail') ?>">Discover amazing places of the world with us</a>
+                        <a class="h5 text-decoration-none" href="<?= Yii::getAlias('@web/site/booking-detail') ?>">Koh Ker</a>
+                        <p>Koh Ker is a 10th-century temple complex in the north Cambodian jungle.</p>
                         <div class="border-top mt-4 pt-4">
                             <div class="d-flex justify-content-between">
                                 <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
@@ -230,11 +231,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     <img class="img-fluid" src="../app/img/photo-9.png" alt="">
                     <div class="p-4">
                         <div class="d-flex justify-content-between mb-3">
-                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Thailand</small>
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Kbal Spean</small>
                             <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
                             <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
                         </div>
-                        <a class="h5 text-decoration-none" href="">Discover amazing places of the world with us</a>
+                        <a class="h5 text-decoration-none" href="">Kbal Spean</a>
+                        <p>Kbal Spean is an Angkorian-era archaeological site on the southwest slopes of the Kulen Hills </p>
                         <div class="border-top mt-4 pt-4">
                             <div class="d-flex justify-content-between">
                                 <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
@@ -249,11 +251,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     <img class="img-fluid" src="../app/img/photo-10.png" alt="">
                     <div class="p-4">
                         <div class="d-flex justify-content-between mb-3">
-                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Thailand</small>
+                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Mekong River</small>
                             <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
                             <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
                         </div>
-                        <a class="h5 text-decoration-none" href="">Discover amazing places of the world with us</a>
+                        <a class="h5 text-decoration-none" href="">Mekong River</a>
+                        <p>The Mekong or Mekong River is a trans-boundary river in East Asia and Southeast Asia.</p>
                         <div class="border-top mt-4 pt-4">
                             <div class="d-flex justify-content-between">
                                 <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>

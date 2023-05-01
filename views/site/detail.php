@@ -244,22 +244,22 @@ $this->params['breadcrumbs'][] = $this->title;
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
                         <img class="img-fluid" src="../app/img/photo-12.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
-                            <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
-                            <small>Jan 01, 2050</small>
+                            <h6 class="ml-1">Knorng Psar is an area rich in dense forests</h6>
+                            <small class="">Jan 01, 2023</small>
                         </div>
                     </a>
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/photo-13.png" style="max-width:40%;" alt="">
+                        <img class="img-fluid" src="../app/img/photo-15.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
-                            <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
-                            <small>Jan 01, 2050</small>
+                            <h6 class="ml-1">Angkor Wat is a huge Buddhist temple</h6>
+                            <small>Jan 01, 2023</small>
                         </div>
                     </a>
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/photo-14.png" style="max-width:40%;" alt="">
+                        <img class="img-fluid" src="../app/img/photo-16.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
-                            <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
-                            <small>Jan 01, 2050</small>
+                            <h6 class="m-1">Busra Waterfall, a tourist attraction</h6>
+                            <small>Jan 01, 2023</small>
                         </div>
                     </a>
                 </div>

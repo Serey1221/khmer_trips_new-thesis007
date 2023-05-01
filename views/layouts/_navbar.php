@@ -7,6 +7,7 @@ $controller = Yii::$app->controller->id;
 $action = Yii::$app->controller->action->id; ?>
 <!-- Navbar Start -->
 <?= $this->render('modal') ?>
+<?= $this->render('sign_up') ?>
 <div class="container-fluid position-relative nav-bar p-0">
     <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
         <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5"> <a href="<?= Yii::$app->homeUrl ?>" class="navbar-brand">
@@ -31,7 +32,7 @@ $action = Yii::$app->controller->action->id; ?>
                     <a href="<?= Yii::getAlias('@web/site/contact') ?>" class="nav-item nav-link <?= $action == 'contact' ? 'active' : '' ?>">Contact</a>
                     <a href="" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-shopping-cart"></i> <span class="badge badge-danger navbar-badge">3</span> </a>
                     <form class="form-inline my-2 my-lg-0">
-                        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Sign up</button>
+                        <button class="btn btn-outline-primary my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModalCenter">Sign up</button>
                     </form>
                 </div>
             </div>

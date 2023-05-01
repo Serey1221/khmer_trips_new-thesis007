@@ -257,25 +257,22 @@ $this->title = 'Blog';
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
                         <img class="img-fluid" src="../app/img/photo-12.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
-                            <h6 class="text-uppercase mt-2">Knong Psar</h6>
-                            <p class="text-muted">Knorng Psar is an area rich in dense forests</p>
-                            <small class="mb-3">Jan 01, 2050</small>
+                            <h6 class="ml-1">Knorng Psar is an area rich in dense forests</h6>
+                            <small class="">Jan 01, 2023</small>
                         </div>
                     </a>
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
                         <img class="img-fluid" src="../app/img/photo-15.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
-                            <h6 class="text-uppercase mt-2">Angkor Wat</h6>
-                            <p class="text-muted">Angkor Wat is a huge Buddhist temple</p>
-                            <small>Jan 01, 2050</small>
+                            <h6 class="ml-1">Angkor Wat is a huge Buddhist temple</h6>
+                            <small>Jan 01, 2023</small>
                         </div>
                     </a>
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
                         <img class="img-fluid" src="../app/img/photo-16.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
-                            <h6 class="text-uppercase mt-2">Busra Waterfall</h6>
-                            <p class="text-muted">Busra Waterfall, a tourist attraction</p>
-                            <small>Jan 01, 2050</small>
+                            <h6 class="m-1">Busra Waterfall, a tourist attraction</h6>
+                            <small>Jan 01, 2023</small>
                         </div>
                     </a>
                 </div>
