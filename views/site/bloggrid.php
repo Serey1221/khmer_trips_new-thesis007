@@ -69,7 +69,7 @@ $this->title = 'Blog';
                     <div class="col-md-6 mb-4 pb-2">
                         <div class="blog-item">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/photo-13.png" alt="">
+                                <img class="img-fluid w-100" src="../app/img/photo-17.png" alt="">
                                 <div class="blog-date">
                                     <h6 class="font-weight-bold mb-n1">01</h6>
                                     <small class="text-white text-uppercase">Jan</small>
@@ -81,14 +81,14 @@ $this->title = 'Blog';
                                     <span class="text-primary px-2">|</span> -->
                                     <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                                 </div>
-                                <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
+                                <a class="h5 m-0 text-decoration-none" href="">Tatai Waterfall is a large rocky cascade located amidst a lush jungle </a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-4 pb-2">
                         <div class="blog-item">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/photo-14.png" alt="">
+                                <img class="img-fluid w-100" src="../app/img/photo-18.png" alt="">
                                 <div class="blog-date">
                                     <h6 class="font-weight-bold mb-n1">01</h6>
                                     <small class="text-white text-uppercase">Jan</small>
@@ -100,14 +100,14 @@ $this->title = 'Blog';
                                     <span class="text-primary px-2">|</span> -->
                                     <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                                 </div>
-                                <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
+                                <a class="h5 m-0 text-decoration-none" href="">This is the big hill that you see near the landing if you head to Siem Reap by bullet boat</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-4 pb-2">
                         <div class="blog-item">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/blog-3.jpg" alt="">
+                                <img class="img-fluid w-100" src="../app/img/photo-19.png" alt="">
                                 <div class="blog-date">
                                     <h6 class="font-weight-bold mb-n1">01</h6>
                                     <small class="text-white text-uppercase">Jan</small>
@@ -119,14 +119,14 @@ $this->title = 'Blog';
                                     <span class="text-primary px-2">|</span> -->
                                     <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                                 </div>
-                                <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
+                                <a class="h5 m-0 text-decoration-none" href="">Phnom Bakheng is a temple mountain in honor of the Hindu god Shiva</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-4 pb-2">
                         <div class="blog-item">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/blog-1.jpg" alt="">
+                                <img class="img-fluid w-100" src="../app/img/photo-20.png" alt="">
                                 <div class="blog-date">
                                     <h6 class="font-weight-bold mb-n1">01</h6>
                                     <small class="text-white text-uppercase">Jan</small>
@@ -138,14 +138,14 @@ $this->title = 'Blog';
                                     <span class="text-primary px-2">|</span> -->
                                     <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                                 </div>
-                                <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
+                                <a class="h5 m-0 text-decoration-none" href="">Phnom Banan is a must-see ancient site located at Battambang</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 mb-4 pb-2">
                         <div class="blog-item">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/blog-2.jpg" alt="">
+                                <img class="img-fluid w-100" src="../app/img/photo-21.png" alt="">
                                 <div class="blog-date">
                                     <h6 class="font-weight-bold mb-n1">01</h6>
                                     <small class="text-white text-uppercase">Jan</small>
@@ -157,7 +157,7 @@ $this->title = 'Blog';
                                     <span class="text-primary px-2">|</span> -->
                                     <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                                 </div>
-                                <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
+                                <a class="h5 m-0 text-decoration-none" href="">Banteay Srei Temple is one of the most beautiful ancient temples to be found in Asia</a>
                             </div>
                         </div>
                     </div>
