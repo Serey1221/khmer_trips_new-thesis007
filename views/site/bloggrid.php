@@ -24,7 +24,7 @@ $this->title = 'Blog';
                                     <span class="text-primary px-2">|</span> -->
                                     <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                                 </div>
-                                <a class="h5 m-0 text-decoration-none" href="<?= Yii::getAlias('@web/site/detail') ?>">Dolor justo sea kasd lorem clita justo diam amet</a>
+                                <a class="h5 m-0 text-decoration-none" href="<?= Yii::getAlias('@web/site/detail') ?>">Knorng Psar is an area rich in dense forests and high valleys.</a>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@ $this->title = 'Blog';
                                     <span class="text-primary px-2">|</span> -->
                                     <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                                 </div>
-                                <a class="h5 m-0 text-decoration-none" href="<?= Yii::getAlias('@web/site/detail') ?>">Dolor justo sea kasd lorem clita justo diam amet</a>
+                                <a class="h5 m-0 text-decoration-none" href="<?= Yii::getAlias('@web/site/detail') ?>">Angkor Wat is a huge Buddhist temple located in northern Cambodia.</a>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@ $this->title = 'Blog';
                                     <span class="text-primary px-2">|</span> -->
                                     <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                                 </div>
-                                <a class="h5 m-0 text-decoration-none" href="">Dolor justo sea kasd lorem clita justo diam amet</a>
+                                <a class="h5 m-0 text-decoration-none" href="">Busra Waterfall, a tourist attraction in Mondulkiri province in Cambodia</a>
                             </div>
                         </div>
                     </div>
