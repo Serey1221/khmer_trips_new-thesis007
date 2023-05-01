@@ -67,22 +67,22 @@ class SiteController extends Controller
     {
         // $data = $this->queryData();
 
-        $img = Gallery::find()
-            ->select(['id'])
-            ->from('gallery')
-            ->all();
+        // $img = Gallery::find()
+        //     ->select(['id'])
+        //     ->from('gallery')
+        //     ->all();
 
         // echo '<pre>';
         // var_dump($img);
         // echo '</pre>';
 
-        $numberCity = City::find()
-            ->where(['id' => 1])
-            ->all();
+        // $numberCity = City::find()
+        //     ->where(['id' => 1])
+        //     ->all();
 
         return $this->render('index', [
-            'img' => $img,
-            'numberCity' => $numberCity,
+            //'img' => $img,
+            //'numberCity' => $numberCity,
         ]);
     }
 
