@@ -22,7 +22,7 @@ $this->title = 'Blog';
                                 <div class="d-flex mb-2">
                                     <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
                                     <span class="text-primary px-2">|</span> -->
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
+                                    <a class="text-primary text-uppercase text-decoration-none" href="">Knong Psar</a>
                                 </div>
                                 <a class="h5 m-0 text-decoration-none" href="<?= Yii::getAlias('@web/site/detail') ?>">Knorng Psar is an area rich in dense forests and high valleys.</a>
                             </div>
@@ -41,7 +41,7 @@ $this->title = 'Blog';
                                 <div class="d-flex mb-2">
                                     <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
                                     <span class="text-primary px-2">|</span> -->
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
+                                    <a class="text-primary text-uppercase text-decoration-none" href="">Angkor Wat</a>
                                 </div>
                                 <a class="h5 m-0 text-decoration-none" href="<?= Yii::getAlias('@web/site/detail') ?>">Angkor Wat is a huge Buddhist temple located in northern Cambodia.</a>
                             </div>
@@ -60,7 +60,7 @@ $this->title = 'Blog';
                                 <div class="d-flex mb-2">
                                     <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
                                     <span class="text-primary px-2">|</span> -->
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
+                                    <a class="text-primary text-uppercase text-decoration-none" href="">Busra Waterfall</a>
                                 </div>
                                 <a class="h5 m-0 text-decoration-none" href="">Busra Waterfall, a tourist attraction in Mondulkiri province in Cambodia</a>
                             </div>
@@ -79,7 +79,7 @@ $this->title = 'Blog';
                                 <div class="d-flex mb-2">
                                     <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
                                     <span class="text-primary px-2">|</span> -->
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
+                                    <a class="text-primary text-uppercase text-decoration-none" href="">Tatai Waterfall</a>
                                 </div>
                                 <a class="h5 m-0 text-decoration-none" href="">Tatai Waterfall is a large rocky cascade located amidst a lush jungle </a>
                             </div>
@@ -98,7 +98,7 @@ $this->title = 'Blog';
                                 <div class="d-flex mb-2">
                                     <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
                                     <span class="text-primary px-2">|</span> -->
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
+                                    <a class="text-primary text-uppercase text-decoration-none" href="">Phnom Krom</a>
                                 </div>
                                 <a class="h5 m-0 text-decoration-none" href="">This is the big hill that you see near the landing if you head to Siem Reap by bullet boat</a>
                             </div>
@@ -117,7 +117,7 @@ $this->title = 'Blog';
                                 <div class="d-flex mb-2">
                                     <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
                                     <span class="text-primary px-2">|</span> -->
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
+                                    <a class="text-primary text-uppercase text-decoration-none" href="">Phnom Bakheng</a>
                                 </div>
                                 <a class="h5 m-0 text-decoration-none" href="">Phnom Bakheng is a temple mountain in honor of the Hindu god Shiva</a>
                             </div>
@@ -136,7 +136,7 @@ $this->title = 'Blog';
                                 <div class="d-flex mb-2">
                                     <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
                                     <span class="text-primary px-2">|</span> -->
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
+                                    <a class="text-primary text-uppercase text-decoration-none" href="">Phnom Banan</a>
                                 </div>
                                 <a class="h5 m-0 text-decoration-none" href="">Phnom Banan is a must-see ancient site located at Battambang</a>
                             </div>
@@ -155,7 +155,7 @@ $this->title = 'Blog';
                                 <div class="d-flex mb-2">
                                     <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
                                     <span class="text-primary px-2">|</span> -->
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
+                                    <a class="text-primary text-uppercase text-decoration-none" href="">Banteay Srei</a>
                                 </div>
                                 <a class="h5 m-0 text-decoration-none" href="">Banteay Srei Temple is one of the most beautiful ancient temples to be found in Asia</a>
                             </div>
@@ -257,21 +257,24 @@ $this->title = 'Blog';
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
                         <img class="img-fluid" src="../app/img/photo-12.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
-                            <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                            <h6 class="text-uppercase mt-2">Knong Psar</h6>
+                            <p class="text-muted">Knorng Psar is an area rich in dense forests</p>
+                            <small class="mb-3">Jan 01, 2050</small>
+                        </div>
+                    </a>
+                    <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                        <img class="img-fluid" src="../app/img/photo-15.png" style="max-width:40%;" alt="">
+                        <div class="pl-3">
+                            <h6 class="text-uppercase mt-2">Angkor Wat</h6>
+                            <p class="text-muted">Angkor Wat is a huge Buddhist temple</p>
                             <small>Jan 01, 2050</small>
                         </div>
                     </a>
                     <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/photo-13.png" style="max-width:40%;" alt="">
+                        <img class="img-fluid" src="../app/img/photo-16.png" style="max-width:40%;" alt="">
                         <div class="pl-3">
-                            <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
-                            <small>Jan 01, 2050</small>
-                        </div>
-                    </a>
-                    <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/photo-14.png" style="max-width:40%;" alt="">
-                        <div class="pl-3">
-                            <h6 class="m-1">Diam lorem dolore justo eirmod lorem dolore</h6>
+                            <h6 class="text-uppercase mt-2">Busra Waterfall</h6>
+                            <p class="text-muted">Busra Waterfall, a tourist attraction</p>
                             <small>Jan 01, 2050</small>
                         </div>
                     </a>
