@@ -59,8 +59,7 @@ $this->title = 'About';
                 <div class="col-lg-6">
                     <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Our activities</h6>
                     <h1>Our journey so far</h1>
-                    <p>Some quick example text to build on the card title and make up the bulk
-                        of the card's content.</p>
+                    <p>We would like to thank to all professors, advisor, owner and leader at Euro Khmer Voyage very much and we cannot express enough gratitude to you, for how much you have taught and inputted to us.</p>
                 </div>
                 <!-- <div class="col-lg-4">
                     <img src="https://mdbcdn.b-cdn.net/img/Photos/Thumbnails/Slides/1.webp" data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Slides/1.webp" alt="Table Full of Spices" class="w-100 mb-2 mb-md-4 shadow-1-strong rounded" />
@@ -76,8 +75,7 @@ $this->title = 'About';
                 </div>
                 <div class="col-lg-6 py-5">
                     <h3>Our journey so far</h3>
-                    <p>Some quick example text to build on the card title and make up the bulk
-                        of the card's content.</p>
+                    <p>Thanks for being very patient with us from the first day until we finish this Sarona. With your help, we could fight with our struggling in any matter and ending up to get a potential project done. Thank you very much.</p>
                 </div>
             </div>
         </div>
@@ -93,7 +91,7 @@ $this->title = 'About';
             <h1>Our Team</h1>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <div class="team-item bg-white mb-4">
                     <div class="team-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="../app/img/Team-1.png" alt="">
@@ -110,7 +108,7 @@ $this->title = 'About';
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <div class="team-item bg-white mb-4">
                     <div class="team-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="../app/img/Team-2.png" alt="">
@@ -127,7 +125,7 @@ $this->title = 'About';
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <div class="team-item bg-white mb-4">
                     <div class="team-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="../app/img/Team-3.png" alt="">
@@ -144,11 +142,7 @@ $this->title = 'About';
                     </div>
                 </div>
             </div>
-
-
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <div class="team-item bg-white mb-4">
                     <div class="team-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="../app/img/Team-4.png" alt="">
@@ -165,7 +159,11 @@ $this->title = 'About';
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
+
+        </div>
+        <div class="row">
+
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
                 <div class="team-item bg-white mb-4">
                     <div class="team-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="../app/img/Team.png" alt="">

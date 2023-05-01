@@ -30,6 +30,9 @@ $action = Yii::$app->controller->action->id; ?>
                     </div> -->
                     <a href="<?= Yii::getAlias('@web/site/contact') ?>" class="nav-item nav-link <?= $action == 'contact' ? 'active' : '' ?>">Contact</a>
                     <a href="" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-shopping-cart"></i> <span class="badge badge-danger navbar-badge">3</span> </a>
+                    <form class="form-inline my-2 my-lg-0">
+                        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Sign up</button>
+                    </form>
                 </div>
             </div>
         </nav>
