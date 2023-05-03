@@ -76,13 +76,13 @@ class SiteController extends Controller
         // var_dump($img);
         // echo '</pre>';
 
-        // $numberCity = City::find()
-        //     ->where(['id' => 1])
-        //     ->all();
+        $numberCity = City::find()
+            ->where(['id' => 1])
+            ->all();
 
         return $this->render('index', [
             //'img' => $img,
-            //'numberCity' => $numberCity,
+            'numberCity' => $numberCity,
         ]);
     }
 
