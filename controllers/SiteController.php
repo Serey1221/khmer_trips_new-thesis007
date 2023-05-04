@@ -67,22 +67,24 @@ class SiteController extends Controller
     {
         // $data = $this->queryData();
 
-        // $img = Gallery::find()
-        //     ->select(['id'])
-        //     ->from('gallery')
-        //     ->all();
+        // $allGallery = Gallery::find()
+        //     ->where(['id' => 2])
+        //     ->one();
 
-        // echo '<pre>';
-        // var_dump($img);
-        // echo '</pre>';
+
 
         $numberCity = City::find()
-            ->where(['id' => 1])
+            ->indexBy('id')
             ->all();
 
+        // echo '<pre>';
+        // print_r($numberCity);
+        // echo '</pre>';
+
         return $this->render('index', [
-            //'img' => $img,
             'numberCity' => $numberCity,
+            //'allGallery' => $allGallery,
+
         ]);
     }
 
@@ -175,11 +177,21 @@ class SiteController extends Controller
 
         return $this->render('detail');
     }
-    public function actionDestinat()
+    public function actionDestination()
     {
         $this->layout = 'package';
 
-        return $this->render('destinat');
+        $allGallery = Gallery::find()
+            ->where(['id' => 2])
+            ->one();
+
+        echo '<pre>';
+        print_r($allGallery);
+        echo '</pre>';
+
+        return $this->render('destination', [
+            'allGallery' => $allGallery,
+        ]);
     }
     public function actionGuides()
     {
@@ -196,7 +208,13 @@ class SiteController extends Controller
     public function actionBooking()
     {
 
-        return $this->render('booking');
+        $numberCity = City::find()
+            ->indexBy('id')
+            ->all();
+
+        return $this->render('booking', [
+            'numberCity' => $numberCity,
+        ]);
     }
     public function actionBookingDetail()
     {

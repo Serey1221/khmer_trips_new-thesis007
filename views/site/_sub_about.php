@@ -23,7 +23,7 @@
                             <img class="img-fluid" src="../app/img/about-4.png" alt="">
                         </div>
                     </div>
-                    <a href="" class="btn btn-primary mt-1">Book Now</a>
+                    <a href="<?= Yii::getAlias('@web/site/package') ?>" class="btn btn-primary mt-1">Book Now</a>
                 </div>
             </div>
         </div>

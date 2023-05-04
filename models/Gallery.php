@@ -64,4 +64,8 @@ class Gallery extends \yii\db\ActiveRecord
             'title' => 'Title',
         ];
     }
+    // public static function find()
+    // {
+    //     return parent::find()->where(['city.name' => 1]);
+    // }
 }

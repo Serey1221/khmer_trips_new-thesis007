@@ -19,21 +19,21 @@ $this->title = 'Service';
             <div class="service-item bg-white text-center mb-2 py-5 px-4">
                 <i class="fa fa-2x fa-archive mx-auto mb-4"></i>
                 <h5 class="mb-2">Packages</h5>
-                <p class="m-0">Meet guides with years of experience in guiding tourists</p>
+                <p class="m-0">Khmer Travel prepares the best package for you</p>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="service-item bg-white text-center mb-2 py-5 px-4">
                 <i class="fa fa-2x fa-refresh mx-auto mb-4"></i>
                 <h5 class="mb-2">Recent Post</h5>
-                <p class="m-0">Get the latest tour information and weekly specials.</p>
+                <p class="m-0">You will receive a new tour from our company Khmer Travel.</p>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="service-item bg-white text-center mb-2 py-5 px-4">
                 <i class="fa fa-2x fa-home mx-auto mb-4"></i>
                 <h5 class="mb-2">Domistic tours</h5>
-                <p class="m-0">Khmer Travel brings you a new experience of booking a private tour</p>
+                <p class="m-0">Khmer Travel would like to take you to visit the provinces in Cambodia.</p>
             </div>
         </div>
     </div>

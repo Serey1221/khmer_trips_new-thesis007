@@ -22,9 +22,12 @@ DatetimepickerAsset::register($this);
                             <div class="mb-3 mb-md-0">
                                 <select class="custom-select px-4" style="height: 47px;">
                                     <option selected>All</option>
-                                    <option value="">Siem Reap</option>
+                                    <?php if (!empty($numberCity)) {
+                                        foreach ($numberCity as $key => $value) { ?>
+                                            <option value=""><?= $value->name ?></option>
 
-
+                                    <?php }
+                                    } ?>
                                 </select>
                             </div>
                         </div>
