@@ -29,10 +29,12 @@ class City extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['default']],
             [['country_id'], 'integer'],
             [['name', 'name_kh', 'description'], 'string', 'max' => 255],
         ];
     }
+
 
     /**
      * {@inheritdoc}
@@ -45,6 +47,7 @@ class City extends \yii\db\ActiveRecord
             'name_kh' => 'Name Kh',
             'description' => 'Description',
             'country_id' => 'Country ID',
+            'img_url' => 'Img Url',
         ];
     }
 }

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 
-$this->title = 'Article';
+$this->title = 'Blog';
 $this->params['pageTitle'] = $this->title;
 ?>
 <div class="article-index">

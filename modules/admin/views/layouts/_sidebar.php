@@ -45,7 +45,7 @@ $action = Yii::$app->controller->action->id;
           <a href="<?= Yii::getAlias('@web/admin/article') ?>" class="nav-link <?= $controller . '-' . $action === 'article-index' ? 'active' : '' ?>">
             <i class="nav-icon fas fa-book"></i>
             <p>
-              Article
+              Blog
             </p>
           </a>
         </li>

@@ -49,6 +49,7 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['default']],
             [['tourday', 'tournight', 'tourhour', 'tourmin', 'status', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
             [['overview', 'overviewkh', 'highlight', 'highlight_kh'], 'string'],
             [['created_at', 'updated_at', 'deleted_at'], 'safe'],
@@ -88,6 +89,7 @@ class Product extends \yii\db\ActiveRecord
             'deleted_at' => 'Deleted At',
             'deleted_by' => 'Deleted By',
             'rate' => 'Rate',
+            'img_url' => 'Img Url',
         ];
     }
     // public function beforeSave($insert)

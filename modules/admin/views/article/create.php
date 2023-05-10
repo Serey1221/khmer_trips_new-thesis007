@@ -2,8 +2,8 @@
 
 use yii\helpers\Html;
 
-$this->title = 'Add Article';
-$this->params['breadcrumbs'][] = ['label' => 'Article', 'url' => ['index']];
+$this->title = 'Add Blog';
+$this->params['breadcrumbs'][] = ['label' => 'Blog', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="blog-inspire-create">

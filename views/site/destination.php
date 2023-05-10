@@ -10,7 +10,7 @@
                 foreach ($allGallery as $key => $value) { ?>
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="destination-item position-relative overflow-hidden mb-2">
-                            <img class="img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
+                            <img class="img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
                             <a class="destination-overlay text-white text-decoration-none" href="">
                                 <h5 class="text-white"><?= $value['title'] ?></h5>
                                 <span><?= $value->sub_title ?></span>
