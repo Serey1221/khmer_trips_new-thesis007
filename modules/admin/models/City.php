@@ -35,7 +35,22 @@ class City extends \yii\db\ActiveRecord
         ];
     }
 
-
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => \mohorev\file\UploadImageBehavior::class,
+                'attribute' => 'img_url',
+                'scenarios' => ['admin'],
+                'placeholder' => '@webroot/img/placeholder-3.png',
+                'path' => '@webroot/upload/city/{id}',
+                'url' => '@web/upload/city/{id}',
+                'thumbs' => [
+                    'thumb' => ['width' => 300, 'height' => 300],
+                ],
+            ],
+        ];
+    }
     /**
      * {@inheritdoc}
      */

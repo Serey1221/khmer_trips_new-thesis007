@@ -164,11 +164,65 @@ use yii\widgets\ActiveForm;
 </div>
 </div>
 
-
-
-
-
-
 <?php ActiveForm::end(); ?>
 
 </div>
+<?php
+$script = <<<JS
+
+    $(".submit-button").click(function(){
+        var type = $(this).data("type");
+        $("input[name='submit_type']").val(type);
+        $('#articleForm').trigger('submit');
+    });
+
+    $("#itemStatus").change(function(){
+        if($(this).is(":checked")){
+            $("#article-status").val(1);
+        }else{
+            $("#article-status").val(0);
+        }
+    })
+
+    function summerTextEditor(textareaID){
+        $(textareaID).summernote({
+            imageTitle: {
+                specificAltField: true,
+            },
+            popover: {
+                image: [
+                    ['image', ['resizeFull', 'resizeHalf', 'resizeQuarter', 'resizeNone']],
+                    ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                    ['remove', ['removeMedia']],
+                ],
+                link: [
+                    ['link', ['linkDialogShow', 'unlink']]
+                ],
+            },
+            minHeight: 400,
+            toolbar: [
+                ['style', ['style','bold', 'italic', 'underline', 'ul', 'paragraph', 'clear']],
+                ['color', ['color']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen','codeview', 'help']]
+            ]
+           
+        });
+    }
+
+    summerTextEditor("#article-description");
+
+    $("#image_upload").change(function(){
+        if(event.target.files.length > 0){
+            var src = URL.createObjectURL(event.target.files[0]);
+            var preview = document.getElementById("image_upload-preview");
+            preview.src = src;
+            preview.style.display = "block";
+        }
+    });
+
+JS;
+
+$this->registerJs($script);
+
+?>
