@@ -26,14 +26,14 @@ DatetimepickerAsset::register($this);
         <div class="col-lg-4">
             <label>Date Range</label>
             <div id="order__date__range" style="cursor: pointer;" class="form-control">
-                <i class="fas fa-calendar text-muted"></i>&nbsp;
+                <i class="fas fa-calendar-alt text-muted"></i>&nbsp;
                 <span></span> <i class="fa fa-caret-down text-muted float-right"></i>
             </div>
             <?= $form->field($model, 'from_date')->hiddenInput()->label(false) ?>
             <?= $form->field($model, 'to_date')->hiddenInput()->label(false) ?>
         </div>
         <div class="col-lg-4">
-            <?= $form->field($model, 'globalSearch')->textInput(['placeholder' => 'Search by title, slug,...etc'])->label('Search') ?>
+            <?= $form->field($model, 'globalSearch')->textInput(['placeholder' => 'Search by name,...etc'])->label('Search') ?>
         </div>
         <div class="col-lg-4">
             <div class="float-right">

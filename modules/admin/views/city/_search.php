@@ -26,14 +26,14 @@ DatetimepickerAsset::register($this);
         <div class="col-lg-4">
             <label>Date Range</label>
             <div id="order__date__range" style="cursor: pointer;" class="form-control">
-                <i class="fas fa-calendar text-muted"></i>&nbsp;
+                <i class="fas fa-calendar-alt text-muted"></i>&nbsp;
                 <span></span> <i class="fa fa-caret-down text-muted float-right"></i>
             </div>
             <?= $form->field($model, 'from_date')->hiddenInput()->label(false) ?>
             <?= $form->field($model, 'to_date')->hiddenInput()->label(false) ?>
         </div>
         <div class="col-lg-4">
-            <?= $form->field($model, 'globalSearch')->textInput(['placeholder' => 'Search by title, slug,...etc'])->label('Search') ?>
+            <?= $form->field($model, 'globalSearch')->textInput(['placeholder' => 'Search by name,...etc'])->label('Search') ?>
         </div>
         <div class="col-lg-4">
             <div class="float-right">
@@ -92,42 +92,42 @@ $script = <<<JS
         var end = moment($("#articlesearch-to_date").val());
     }
 
-    function cb(start, end) {
-        $('#order__date__range span').html(start.format('MMM D, YYYY') + ' - ' + end.format('MMM D, YYYY'));
-        $("#articlesearch-from_date").val(start.format('YYYY-MM-D'));
-        $("#articlesearch-to_date").val(end.format('YYYY-MM-D'));
-    }
+    // function cb(start, end) {
+    //     $('#order__date__range span').html(start.format('MMM D, YYYY') + ' - ' + end.format('MMM D, YYYY'));
+    //     $("#articlesearch-from_date").val(start.format('YYYY-MM-D'));
+    //     $("#articlesearch-to_date").val(end.format('YYYY-MM-D'));
+    // }
 
-    $('#order__date__range').daterangepicker({
-        startDate: start,
-        endDate: end,
-        ranges: {
-           'Today': [moment(), moment()],
-           'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-           'This Week': [moment().startOf('week'), moment()],
-           'This Month': [moment().startOf('month'), moment().endOf('month')],
-           'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-        }
-    }, cb);
+    // $('#order__date__range').daterangepicker({
+    //     startDate: start,
+    //     endDate: end,
+    //     ranges: {
+    //        'Today': [moment(), moment()],
+    //        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+    //        'This Week': [moment().startOf('week'), moment()],
+    //        'This Month': [moment().startOf('month'), moment().endOf('month')],
+    //        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+    //     }
+    // }, cb);
 
-    cb(start, end);
+    // cb(start, end);
 
-    $('#order__date__range').on('apply.daterangepicker', function(ev, picker) {
-        $('#formArticleSearch').trigger('submit');
-    });
+    // $('#order__date__range').on('apply.daterangepicker', function(ev, picker) {
+    //     $('#formArticleSearch').trigger('submit');
+    // });
 
-    $(document).on("change","#articlesearch-globalsearch", function(){
-        $('#formArticleSearch').trigger('submit');
-    });
+    // $(document).on("change","#articlesearch-globalsearch", function(){
+    //     $('#formArticleSearch').trigger('submit');
+    // });
 
 
-    $(".triggerModal").click(function(){
-        $("#modal").modal("show")
-            .find("#modalContent")
-            .load($(this).attr("value"));
-        $("#modal").find("#modal-label").text($(this).data("title"));
+    // $(".triggerModal").click(function(){
+    //     $("#modal").modal("show")
+    //         .find("#modalContent")
+    //         .load($(this).attr("value"));
+    //     $("#modal").find("#modal-label").text($(this).data("title"));
 
-    });
+    // });
 
 JS;
 $this->registerJs($script);

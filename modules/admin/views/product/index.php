@@ -22,33 +22,33 @@ $this->params['pageTitle'] = $this->title;
     <?= $this->render('_search', ['model' => $searchModel]) ?>
 
     <div class="card">
-        <div class="card-body p-0">
+        <div class="card-body">
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,
                 'tableOptions' => [
-                    'id' => 'tableProduct',
                     'class' => 'table table-striped projects',
                     'cellspacing' => '0',
                     'width' => '100%',
+
                 ],
                 'pager' => [
                     'class' => 'yii\bootstrap4\LinkPager'
                 ],
 
                 'layout' => "
-                        <div class='table-responsive'>
-                            {items}
+                    <div class='table-responsive'>
+                        {items}
+                    </div>
+                    <hr>
+                    <div class='row'>
+                        <div class='col-md-6'>
+                            {summary}
                         </div>
-                        <hr>
-                        <div class='row justify-content-md-center'>
-                            <div class='col-md-6'>
-                                {summary}
-                            </div>
-                            <div class='col-md-6'>
-                                {pager}
-                            </div>
+                        <div class='col-md-6'>
+                            {pager}
                         </div>
-                    ",
+                    </div>
+                ",
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn'],
                     //'id',
@@ -66,9 +66,9 @@ $this->params['pageTitle'] = $this->title;
                     // [
                     //     'attribute' => 'created_at',
                     //     'value' => function ($model) {
-                    //       return Yii::$app->formater->timeAgo($model->created_at);
+                    //         return Yii::$app->formater->timeAgo($model->created_at);
                     //     }
-                    //   ],
+                    // ],
                     [
                         'attribute' => 'status',
                         'format' => 'raw',
@@ -88,13 +88,10 @@ $this->params['pageTitle'] = $this->title;
                         'header' => Yii::t('app', 'Actions'),
                         'headerOptions' => ['class' => 'text-center'],
                         'contentOptions' => ['class' => 'text-center'],
-                        'template' => '{update} {view} {delete}',
+                        'template' => '{update} {delete}',
                         'buttons' => [
-                            'view' => function ($url, $model) {
-                                return Html::a('<i class="far fa-eye"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-warning', 'target' => '_blank']);
-                            },
                             'update' => function ($url, $model) {
-                                return Html::a('<i class="fas fa-pen"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-secondary ', 'data-pjax' => 0]);
+                                return Html::a('<i class="fas fa-pen"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-info ', 'data-pjax' => 0]);
                             },
                             'delete' => function ($url, $model) {
                                 return Html::a('<i class="fas fa-trash"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-danger ', 'data-pjax' => 0]);

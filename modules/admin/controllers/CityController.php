@@ -4,6 +4,8 @@ namespace app\modules\admin\controllers;
 
 use app\modules\admin\models\City;
 use app\modules\admin\models\CitySearch;
+use Codeception\Scenario;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -13,23 +15,31 @@ use yii\filters\VerbFilter;
  */
 class CityController extends Controller
 {
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+        ];
+    }
     /**
      * @inheritDoc
      */
-    public function behaviors()
-    {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
-                    ],
-                ],
-            ]
-        );
-    }
+    // public function behaviors()
+    // {
+    //     return array_merge(
+    //         parent::behaviors(),
+    //         [
+    //             'verbs' => [
+    //                 'class' => VerbFilter::className(),
+    //                 'actions' => [
+    //                     'delete' => ['POST'],
+    //                 ],
+    //             ],
+    //         ]
+    //     );
+    // }
 
     /**
      * Lists all City models.
@@ -68,6 +78,7 @@ class CityController extends Controller
     public function actionCreate()
     {
         $model = new City();
+        $model->scenario = 'admin';
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -92,6 +103,7 @@ class CityController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->scenario = 'admin';
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -116,6 +128,15 @@ class CityController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionValidation($id = null)
+    {
+
+        $model = $id === null ? new City() : City::findOne($id);
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return \yii\widgets\ActiveForm::validate($model);
+        }
+    }
     /**
      * Finds the City model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

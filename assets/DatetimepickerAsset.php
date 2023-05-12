@@ -15,18 +15,20 @@ class DatetimepickerAsset extends AssetBundle
     public $css = [
         'https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css',
         // 'app/css/bootstrap-datetimepicker.min.css',
-        'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css',
-        'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css',
+        // 'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css',
+        // 'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css',
+        'plugins/daterangepicker/daterangepicker.css'
 
     ];
     /**
      * @var array
      */
     public $js = [
-        'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js',
-        'https://cdn.jsdelivr.net/momentjs/latest/moment.min.js',
-        'app/js/bootstrap-datetimepicker.min.js',
-        'https://cdn.jsdelivr.net/jquery/latest/jquery.min.js',
+        // 'https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js',
+        // 'https://cdn.jsdelivr.net/momentjs/latest/moment.min.js',
+        // 'app/js/bootstrap-datetimepicker.min.js',
+        // 'https://cdn.jsdelivr.net/jquery/latest/jquery.min.js',
+        'plugins/daterangepicker/daterangepicker.js'
         // 'app/js/date.js',
     ];
 

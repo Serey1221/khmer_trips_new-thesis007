@@ -29,8 +29,8 @@ class City extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['default']],
-            [['country_id'], 'integer'],
+            ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['admin']],
+            [['country_id', 'status',], 'integer'],
             [['name', 'name_kh', 'description'], 'string', 'max' => 255],
         ];
     }
@@ -63,6 +63,15 @@ class City extends \yii\db\ActiveRecord
             'description' => 'Description',
             'country_id' => 'Country ID',
             'img_url' => 'Img Url',
+            'status' => 'Status',
         ];
+    }
+    public function getStatusTemp()
+    {
+        if ($this->status == 1) {
+            return '<span class="badge badge-pill badge-info">Publish</span>';
+        } else {
+            return '<span class="badge badge-pill badge-danger">Inactive</span>';
+        }
     }
 }

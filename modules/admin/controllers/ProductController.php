@@ -39,6 +39,7 @@ class ProductController extends \yii\web\Controller
     public function actionCreate()
     {
         $model = new Product();
+        $model->scenario = 'admin';
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -46,6 +47,7 @@ class ProductController extends \yii\web\Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->scenario = 'admin';
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -54,6 +56,15 @@ class ProductController extends \yii\web\Controller
         return $this->render('update', [
             'model' => $model,
         ]);
+    }
+    public function actionValidation($id = null)
+    {
+
+        $model = $id === null ? new Product() : Product::findOne($id);
+        if (Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return \yii\widgets\ActiveForm::validate($model);
+        }
     }
     public function actionDelete($id)
     {

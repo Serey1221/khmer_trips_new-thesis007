@@ -49,7 +49,7 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['default']],
+            ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['admin']],
             [['tourday', 'tournight', 'tourhour', 'tourmin', 'status', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
             [['overview', 'overviewkh', 'highlight', 'highlight_kh'], 'string'],
             [['created_at', 'updated_at', 'deleted_at'], 'safe'],
@@ -61,6 +61,22 @@ class Product extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => \mohorev\file\UploadImageBehavior::class,
+                'attribute' => 'img_url',
+                'scenarios' => ['admin'],
+                'placeholder' => '@webroot/img/placeholder-3.png',
+                'path' => '@webroot/upload/city/{id}',
+                'url' => '@web/upload/city/{id}',
+                'thumbs' => [
+                    'thumb' => ['width' => 300, 'height' => 300],
+                ],
+            ],
+        ];
+    }
     public function attributeLabels()
     {
         return [

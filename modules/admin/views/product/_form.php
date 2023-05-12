@@ -18,8 +18,16 @@ use yii\widgets\ActiveForm;
 </style>
 <div class="product-form">
 
-    <?php $form = ActiveForm::begin([
+    <?php
+    $validationUrl = ['product/validation'];
+    if (!$model->isNewRecord) {
+        $validationUrl['id'] = $model->id;
+    }
+    $form = ActiveForm::begin([
         'options' => ['id' => 'productForm', 'enctype' => 'multipart/form-data'],
+        'enableAjaxValidation' => true,
+        'enableClientValidation' => true,
+        'validationUrl' => $validationUrl
     ]); ?>
     <div class="card">
         <div class="card-body">
@@ -92,65 +100,88 @@ use yii\widgets\ActiveForm;
                     </div>
                     <div class="form-row">
                         <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'overview')->textarea(['rows' => 3]) ?>
+                            <?= $form->field($model, 'overview')->textarea(['rows' => 4]) ?>
                         </div>
                         <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'overviewkh')->textarea(['rows' => 3]) ?>
+                            <?= $form->field($model, 'overviewkh')->textarea(['rows' => 4]) ?>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'highlight')->textarea(['rows' => 3]) ?>
+                            <?= $form->field($model, 'highlight')->textarea(['rows' => 4]) ?>
                         </div>
                         <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'highlight_kh')->textarea(['rows' => 3]) ?>
+                            <?= $form->field($model, 'highlight_kh')->textarea(['rows' => 4]) ?>
                         </div>
                     </div>
 
 
 
                     <div class="form-row">
-                        <div class="form-check col-lg-2">
-                            <?= $form->field($model, 'pick_up')->radio(['maxlength' => true]) ?>
+                        <div class="form-check col-lg-6">
+                            <?= $form->field($model, 'pick_up')->textInput(['maxlength' => true]) ?>
                         </div>
-                        <div class="form-check col-lg-2">
-                            <?= $form->field($model, 'pick_up_kh')->radio(['maxlength' => true]) ?>
-                        </div>
-                        <div class="form-check col-lg-2">
-                            <?= $form->field($model, 'drop_off')->radio(['maxlength' => true]) ?>
-                        </div>
-                        <div class="form-check col-lg-2">
-                            <?= $form->field($model, 'drop_off_kh')->radio(['maxlength' => true]) ?>
+                        <div class="form-check col-lg-6">
+                            <?= $form->field($model, 'pick_up_kh')->textInput(['maxlength' => true]) ?>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-check col-lg-4">
-                            <?= $form->field($model, 'price_include_kh')->checkbox(['maxlength' => true]) ?>
+                        <div class="form-check col-lg-6">
+                            <?= $form->field($model, 'drop_off')->textInput(['maxlength' => true]) ?>
                         </div>
-                        <div class="form-check col-lg-4">
-                            <?= $form->field($model, 'price_exclude_kh')->checkbox(['maxlength' => true]) ?>
+                        <div class="form-check col-lg-6">
+                            <?= $form->field($model, 'drop_off_kh')->textInput(['maxlength' => true]) ?>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'rate', [])->textInput(['maxlength' => true]) ?>
+                    <div class="form-row mt-4">
+                        <div class="form-check col-lg-6">
+                            <?= $form->field($model, 'price_include_kh')->textInput(['maxlength' => true]) ?>
+                        </div>
+                        <div class="form-check col-lg-6">
+                            <?= $form->field($model, 'price_exclude_kh')->textInput(['maxlength' => true]) ?>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <?= $form->field($model, 'rate', [])->hiddenInput()->label('Rating Star'); ?>
+                            <div class="rating">
+                                <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                                <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                                <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                                <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                                <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-check form-switch col-lg-6">
-                            <?= $form->field($model, 'status')->checkbox() ?>
+                            <?php // $form->field($model, 'status')->checkbox() 
+                            ?>
 
                         </div>
                     </div>
                 </div>
                 <div class="form-group col-lg-3">
-                    <p>Banner Image</p>
+                    <p class="font-weight-bold">Banner Image</p>
                     <div class="form-upload-image">
                         <div class="preview">
                             <?= Html::img($model->isNewRecord ? Yii::getAlias("@web/app/img/not_found_sq.png") : $model->getThumbUploadUrl('img_url'), ['class' => 'img-thumbnail', 'id' => 'image_upload-preview', 'onerror' => "this.onerror=null;this.src='" . Yii::getAlias('@web/img/not_found_sq.png') . "';"]) ?>
                         </div>
                         <label for="image_upload"><i class="fas fa-image"></i> Upload Image</label>
                         <?= $form->field($model, 'img_url')->fileInput(['accept' => 'image/*', 'id' => 'image_upload'])->label(false) ?>
+                    </div>
+                    <div class="card border shadow bg-white rounded">
+                        <div class="card-body ">
+                            <div class="card-title ml-4 mb-3"><?= Yii::t('app', 'Restriction Area') ?></div>
+
+                            <div class="form-group ml-4">
+                                <div class="custom-control custom-switch">
+                                    <?= $form->field($model, 'status')->hiddenInput()->label(false); ?>
+                                    <input type="checkbox" class="custom-control-input" value="<?= $model->status ?>" id="itemStatus" <?= $model->status == 1 ? 'checked' : '' ?>>
+                                    <label class="custom-control-label" for="itemStatus">Publish Post</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -173,44 +204,19 @@ $script = <<<JS
     $(".submit-button").click(function(){
         var type = $(this).data("type");
         $("input[name='submit_type']").val(type);
-        $('#articleForm').trigger('submit');
+        $('#productForm').trigger('submit');
     });
+
 
     $("#itemStatus").change(function(){
         if($(this).is(":checked")){
-            $("#article-status").val(1);
+            $("#product-status").val(1);
         }else{
-            $("#article-status").val(0);
+            $("#product-status").val(0);
         }
     })
 
-    function summerTextEditor(textareaID){
-        $(textareaID).summernote({
-            imageTitle: {
-                specificAltField: true,
-            },
-            popover: {
-                image: [
-                    ['image', ['resizeFull', 'resizeHalf', 'resizeQuarter', 'resizeNone']],
-                    ['float', ['floatLeft', 'floatRight', 'floatNone']],
-                    ['remove', ['removeMedia']],
-                ],
-                link: [
-                    ['link', ['linkDialogShow', 'unlink']]
-                ],
-            },
-            minHeight: 400,
-            toolbar: [
-                ['style', ['style','bold', 'italic', 'underline', 'ul', 'paragraph', 'clear']],
-                ['color', ['color']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen','codeview', 'help']]
-            ]
-           
-        });
-    }
-
-    summerTextEditor("#article-description");
+    
 
     $("#image_upload").change(function(){
         if(event.target.files.length > 0){

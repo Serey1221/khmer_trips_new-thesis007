@@ -2,10 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use app\assets\DateRangePickerAsset;
+use app\assets\DatetimepickerAsset;
 use yii\helpers\Url;
 
-// DateRangePickerAsset::register($this);
+DatetimepickerAsset::register($this);
 
 /* @var $this yii\web\View */
 /* @var $model app\models\articleSearch */
@@ -27,7 +27,7 @@ use yii\helpers\Url;
         <div class="col-lg-4">
             <label>Date Range</label>
             <div id="order__date__range" style="cursor: pointer;" class="form-control">
-                <i class="fas fa-calendar text-muted"></i>&nbsp;
+                <i class="fas fa-calendar-alt text-muted"></i>&nbsp;
                 <span></span> <i class="fa fa-caret-down text-muted float-right"></i>
             </div>
             <?= $form->field($model, 'from_date')->hiddenInput()->label(false) ?>
@@ -53,37 +53,37 @@ $script = <<<JS
 
     var is_filter = $("#articlesearch-from_date").val() != ''?true:false;
 
-    if(!is_filter){
-        var start = moment().startOf('week');
-        var end = moment();
-    }else{
-        var start = moment($("#articlesearch-from_date").val());
-        var end = moment($("#articlesearch-to_date").val());
-    }
+    // if(!is_filter){
+    //     var start = moment().startOf('week');
+    //     var end = moment();
+    // }else{
+    //     var start = moment($("#articlesearch-from_date").val());
+    //     var end = moment($("#articlesearch-to_date").val());
+    // }
 
-    function cb(start, end) {
-        $('#order__date__range span').html(start.format('MMM D, YYYY') + ' - ' + end.format('MMM D, YYYY'));
-        $("#articlesearch-from_date").val(start.format('YYYY-MM-D'));
-        $("#articlesearch-to_date").val(end.format('YYYY-MM-D'));
-    }
+    // function cb(start, end) {
+    //     $('#order__date__range span').html(start.format('MMM D, YYYY') + ' - ' + end.format('MMM D, YYYY'));
+    //     $("#articlesearch-from_date").val(start.format('YYYY-MM-D'));
+    //     $("#articlesearch-to_date").val(end.format('YYYY-MM-D'));
+    // }
 
-    $('#order__date__range').daterangepicker({
-        startDate: start,
-        endDate: end,
-        ranges: {
-           'Today': [moment(), moment()],
-           'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-           'This Week': [moment().startOf('week'), moment()],
-           'This Month': [moment().startOf('month'), moment().endOf('month')],
-           'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-        }
-    }, cb);
+    // $('#order__date__range').daterangepicker({
+    //     startDate: start,
+    //     endDate: end,
+    //     ranges: {
+    //        'Today': [moment(), moment()],
+    //        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+    //        'This Week': [moment().startOf('week'), moment()],
+    //        'This Month': [moment().startOf('month'), moment().endOf('month')],
+    //        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+    //     }
+    // }, cb);
 
-    cb(start, end);
+    // cb(start, end);
 
-    $('#order__date__range').on('apply.daterangepicker', function(ev, picker) {
-        $('#formArticleSearch').trigger('submit');
-    });
+    // $('#order__date__range').on('apply.daterangepicker', function(ev, picker) {
+    //     $('#formArticleSearch').trigger('submit');
+    // });
 
     $(document).on("change","#articlesearch-globalsearch", function(){
         $('#formArticleSearch').trigger('submit');
@@ -97,6 +97,25 @@ $script = <<<JS
         $("#modal").find("#modal-label").text($(this).data("title"));
 
     });
+
+    //Date range as a button
+    // $('#daterange-btn').daterangepicker(
+    //   {
+    //     ranges   : {
+    //       'Today'       : [moment(), moment()],
+    //       'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+    //       'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+    //       'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+    //       'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+    //       'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+    //     },
+    //     startDate: moment().subtract(29, 'days'),
+    //     endDate  : moment()
+    //   },
+    //   function (start, end) {
+    //     $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+    //   }
+    // )
 
 JS;
 $this->registerJs($script);

@@ -37,7 +37,7 @@ EditorAsset::register($this);
     <div class="row">
         <div class="col-lg-9">
             <?= $form->field($model, 'title')->textInput(['class' => 'form-control form-control-lg', 'autofocus' => true, 'placeholder' => 'Blog Title'])->label(false) ?>
-            <?= $form->field($model, 'short_description')->textArea(['rows' => 3, 'placeholder' => 'Short description'])->label(false) ?>
+            <?= $form->field($model, 'short_description')->textArea(['rows' => 4, 'placeholder' => 'Short description'])->label(false) ?>
             <?= $form->field($model, 'description')->textArea()->label(false) ?>
 
         </div>
@@ -46,7 +46,7 @@ EditorAsset::register($this);
             <?php // $form->field($model, 'category_id')->dropDownList($category, ['data-toggle' => 'selectpicker', 'data-width' => "100%", 'data-size' => 5])->label('Category <abbr title="Required">*</abbr>') 
             ?>
 
-            <p>Banner Image</p>
+            <p class="font-weight-bold">Banner Image</p>
             <div class="form-upload-image">
                 <div class="preview">
                     <?= Html::img($model->isNewRecord ? Yii::getAlias("@web/app/img/not_found_sq.png") : $model->getThumbUploadUrl('img_url'), ['class' => 'img-thumbnail', 'id' => 'image_upload-preview', 'onerror' => "this.onerror=null;this.src='" . Yii::getAlias('@web/img/not_found_sq.png') . "';"]) ?>
@@ -54,19 +54,16 @@ EditorAsset::register($this);
                 <label for="image_upload"><i class="fas fa-image"></i> Upload Image</label>
                 <?= $form->field($model, 'img_url')->fileInput(['accept' => 'image/*', 'id' => 'image_upload'])->label(false) ?>
             </div>
-            <div class="card border border-warning">
-                <div class="card-body">
-                    <div class="card-title"><?= Yii::t('app', 'Restriction Area') ?></div>
+            <div class="card border shadow bg-white rounded">
+                <div class="card-body ">
+                    <div class="card-title ml-4 mb-3"><?= Yii::t('app', 'Restriction Area') ?></div>
 
-                    <div class="d-flex justify-content-between align-items-center">
-                        <span class="font-weight-bold">Publish Post</span>
-                        <?= $form->field($model, 'status')->hiddenInput()->label(false); ?>
-                        <label class="switcher-control switcher-control-danger switcher-control-lg">
-                            <input type="checkbox" value="<?= $model->status ?>" id="itemStatus" class="switcher-input" <?= $model->status == 1 ? 'checked' : '' ?>>
-                            <span class="switcher-indicator"></span>
-                            <span class="switcher-label-on"><i class="fas fa-check"></i></span>
-                            <span class="switcher-label-off"><i class="fas fa-times"></i></span>
-                        </label>
+                    <div class="form-group ml-4">
+                        <div class="custom-control custom-switch">
+                            <?= $form->field($model, 'status')->hiddenInput()->label(false); ?>
+                            <input type="checkbox" class="custom-control-input" value="<?= $model->status ?>" id="itemStatus" <?= $model->status == 1 ? 'checked' : '' ?>>
+                            <label class="custom-control-label" for="itemStatus">Publish Post</label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -74,7 +71,7 @@ EditorAsset::register($this);
             ?>
             <input type="hidden" name="submit_type" value="save">
             <div class="btn-group btn-block" role="group" aria-label="Button group with nested dropdown">
-                <button type="submut" class="btn btn-primary">Save</button>
+                <button type="submut" class="btn btn-primary"><i class="far fa-save mr-1"></i> Save</button>
                 <!-- <div class="btn-group" role="group">
                     <button id="btnGroupDrop4" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop4">

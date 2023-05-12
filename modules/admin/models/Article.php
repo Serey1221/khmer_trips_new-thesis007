@@ -36,13 +36,13 @@ class Article extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['default']],
+            ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['admin']],
             [['description'], 'string'],
             [['category_id', 'status', 'created_by', 'updated_by'], 'integer'],
             [['created_date', 'updated_date'], 'safe'],
             [['slug', 'title', 'short_description', 'meta_description', 'meta_keyword'], 'string', 'max' => 255],
 
-            [['slug', 'title', 'short_description'], 'required', 'on' => ['default']],
+            [['slug', 'title', 'short_description'], 'required', 'on' => ['admin']],
             [['slug'], 'unique'],
             [['slug'], 'match', 'pattern' => '/^[A-Za-z0-9 -_.]+$/', 'message' => 'Invalid characters'],
         ];
@@ -54,7 +54,7 @@ class Article extends \yii\db\ActiveRecord
             [
                 'class' => \mohorev\file\UploadImageBehavior::class,
                 'attribute' => 'img_url',
-                'scenarios' => ['default'],
+                'scenarios' => ['admin'],
                 'placeholder' => '@webroot/img/placeholder.png',
                 'path' => '@webroot/upload/article/{id}',
                 'url' => '@web/upload/article/{id}',

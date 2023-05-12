@@ -20,7 +20,7 @@ $this->params['pageTitle'][] = $this->title;
     <?= $this->render('_search', ['model' => $searchModel]) ?>
 
     <div class="card">
-        <div class="card-body p-0">
+        <div class="card-body">
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,
                 //'filterModel' => $searchModel,
@@ -54,6 +54,13 @@ $this->params['pageTitle'][] = $this->title;
                     //'id',
                     'name',
                     'name_kh',
+                    [
+                        'attribute' => 'status',
+                        'format' => 'raw',
+                        'value' => function ($model) {
+                            return $model->getStatusTemp();
+                        }
+                    ],
                     //'description',
                     //'country_id',
                     [
@@ -61,13 +68,13 @@ $this->params['pageTitle'][] = $this->title;
                         'header' => Yii::t('app', 'Actions'),
                         'headerOptions' => ['class' => 'text-center'],
                         'contentOptions' => ['class' => 'text-center'],
-                        'template' => '{update} {view} {delete}',
+                        'template' => '{update} {delete}',
                         'buttons' => [
-                            'view' => function ($url, $model) {
-                                return Html::a('<i class="far fa-eye"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-warning', 'data-pjax' => 0]);
-                            },
+                            // 'view' => function ($url, $model) {
+                            //     return Html::a('<i class="far fa-eye"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-primary', 'data-pjax' => 0]);
+                            // },
                             'update' => function ($url, $model) {
-                                return Html::a('<i class="fas fa-pen"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-secondary ', 'data-pjax' => 0]);
+                                return Html::a('<i class="fas fa-pen"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-info ', 'data-pjax' => 0]);
                             },
                             'delete' => function ($url, $model) {
                                 return Html::a('<i class="fas fa-trash"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-danger ', 'data-pjax' => 0]);

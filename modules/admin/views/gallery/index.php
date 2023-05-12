@@ -82,8 +82,8 @@ $base_url = Yii::getAlias("@web");
       <div class="card card-body gallery-image p-0">
         <img src="<?= $value->getThumbUploadUrl('img_url') ?>" alt="<?= $value->title ?>">
         <div class="carousel-caption">
-          <button type="button" class="btn btn-secondary btn-icon linkToCopy" data-id="<?= $value->id ?>"><i class="fas fa-link"></i></button>
-          <button type="button" data-title="Update gallery image: <?= $value->title ?>" value="<?= Url::toRoute(['gallery/form', 'id' => $value->id]) ?>" class="btn btn-secondary btn-icon modalButton"><i class="nav-icon fas fa-edit"></i></button>
+          <button type="button" class="btn btn-info btn-icon linkToCopy" data-id="<?= $value->id ?>"><i class="fas fa-link"></i></button>
+          <button type="button" data-title="Update gallery image: <?= $value->title ?>" value="<?= Url::toRoute(['gallery/form', 'id' => $value->id]) ?>" class="btn btn-info btn-icon modalButton"><i class="fas fa-edit"></i></button>
         </div>
       </div>
     </div>
