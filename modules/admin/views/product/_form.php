@@ -77,7 +77,7 @@ use yii\widgets\ActiveForm;
                         {label}
                     </label>
                     <div class="form-item">{input}</div>
-                    </div>'])  ?>
+                    </div>']);  ?>
                         </div>
                         <div class="form-group col-lg-3">
                             <?= $form->field($model, 'tourhour', ['template' =>
@@ -133,9 +133,17 @@ use yii\widgets\ActiveForm;
                             <?= $form->field($model, 'drop_off_kh')->textInput(['maxlength' => true]) ?>
                         </div>
                     </div>
-                    <div class="form-row mt-4">
+                    <div class="form-row ">
+                        <div class="form-check col-lg-6">
+                            <?= $form->field($model, 'price_include')->textInput(['maxlength' => true]) ?>
+                        </div>
                         <div class="form-check col-lg-6">
                             <?= $form->field($model, 'price_include_kh')->textInput(['maxlength' => true]) ?>
+                        </div>
+                    </div>
+                    <div class="form-row ">
+                        <div class="form-check col-lg-6">
+                            <?= $form->field($model, 'price_exclude')->textInput(['maxlength' => true]) ?>
                         </div>
                         <div class="form-check col-lg-6">
                             <?= $form->field($model, 'price_exclude_kh')->textInput(['maxlength' => true]) ?>
