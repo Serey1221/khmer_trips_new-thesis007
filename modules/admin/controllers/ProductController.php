@@ -36,10 +36,28 @@ class ProductController extends \yii\web\Controller
             'model' => $this->findModel($id),
         ]);
     }
-    public function actionCreate()
+    public function actionCreate($type = Product::ACTIVITY)
     {
         $model = new Product();
-        $model->scenario = 'admin';
+        $model->type = $type;
+        $model->scenario = $model->type;
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $transaction_exception = Yii::$app->db->beginTransaction();
+            try {
+
+                if (!$model->save()) throw new Exception(print_r($model->getErrors()));
+
+                $transaction_exception->commit();
+                Yii::$app->session->setFlash('success', "Item has been saved successfully");
+                return $this->redirect(['view', 'id' => $model->id]);
+            } catch (Exception $ex) {
+                echo "<pre>";
+                print_r($ex->getMessage());
+                exit;
+                Yii::$app->session->setFlash('warning', $ex->getMessage());
+                $transaction_exception->rollBack();
+            }
+        }
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -47,7 +65,7 @@ class ProductController extends \yii\web\Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $model->scenario = 'admin';
+        $model->scenario = $model->type;
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);

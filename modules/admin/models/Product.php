@@ -32,7 +32,9 @@ use Yii;
  * @property string|null $deleted_at
  * @property int|null $deleted_by
  * @property float|null $rate
+ * @property string|null $type
  */
+
 class Product extends \yii\db\ActiveRecord
 {
     /**
@@ -42,6 +44,8 @@ class Product extends \yii\db\ActiveRecord
     {
         return 'product';
     }
+    const ACTIVITY = 'acitivty';
+    const TOUR = 'tour';
 
     /**
      * {@inheritdoc}
@@ -49,11 +53,17 @@ class Product extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['tourhour', 'tourmin'], 'required', 'on' => self::ACTIVITY],
+            [['tourday', 'tournight'], 'required', 'on' => self::TOUR],
+            [['tourday', 'tournight'], 'integer', 'min' => 1],
+            [['name', 'namekh'], 'required'],
+
             ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['admin']],
-            [['tourday', 'tournight', 'tourhour', 'tourmin', 'status', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
+            [['tourhour', 'tourmin', 'status', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
             [['overview', 'overviewkh', 'highlight', 'highlight_kh'], 'string'],
             [['created_at', 'updated_at', 'deleted_at'], 'safe'],
             [['rate'], 'number'],
+            [['type'], 'string', 'max' => 20],
             [['name', 'namekh', 'pick_up', 'pick_up_kh', 'drop_off', 'drop_off_kh', 'price_include_kh', 'price_exclude_kh', 'price_include', 'price_exclude'], 'string', 'max' => 255],
         ];
     }
@@ -67,7 +77,7 @@ class Product extends \yii\db\ActiveRecord
             [
                 'class' => \mohorev\file\UploadImageBehavior::class,
                 'attribute' => 'img_url',
-                'scenarios' => ['admin'],
+                'scenarios' => ['admin', self::ACTIVITY, self::TOUR],
                 'placeholder' => '@webroot/img/placeholder-3.png',
                 'path' => '@webroot/upload/city/{id}',
                 'url' => '@web/upload/city/{id}',
@@ -83,10 +93,10 @@ class Product extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
             'namekh' => 'Name khmer',
-            'tourday' => 'Tourday',
-            'tournight' => 'Tournight',
-            'tourhour' => 'Tourhour',
-            'tourmin' => 'Tourmin',
+            'tourday' => 'Day(s)',
+            'tournight' => 'Night(s)',
+            'tourhour' => 'Hour(s)',
+            'tourmin' => 'Minute(s)',
             'overview' => 'Overview',
             'overviewkh' => 'Overview khmer',
             'highlight' => 'Highlight',
@@ -133,5 +143,14 @@ class Product extends \yii\db\ActiveRecord
         } else {
             return '<span class="badge badge-pill badge-danger">Inactive</span>';
         }
+    }
+
+    public function isTour()
+    {
+        return $this->type == self::TOUR ? true : false;
+    }
+    public function isActivity()
+    {
+        return $this->type == self::ACTIVITY ? true : false;
     }
 }

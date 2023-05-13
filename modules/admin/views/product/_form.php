@@ -6,6 +6,19 @@ use yii\widgets\ActiveForm;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\models\Product $model */
 /** @var yii\widgets\ActiveForm $form */
+
+function iconTemplate($icon)
+{
+    return "<div>
+<span class='{$icon}'></span>
+<label class='form-label'>
+    {label}
+    <span class='required'>*</span>
+</label>
+<div class='form-item'>{input}</div>
+</div>";
+}
+
 ?>
 <style>
     .product-form {
@@ -39,64 +52,33 @@ use yii\widgets\ActiveForm;
                         <div class="form-group col-lg-12">
                             <?= $form->field($model, 'name', [
                                 'template' =>
-                                '<div>
-                        <span class="flag-icon flag-icon-gb flag-icon-squared"></span>
-                        <label class="form-label">
-                            {label}
-                            <span class="required">*</span>
-                        </label>
-                        <div class="form-item">{input}</div>
-                     </div>'
+                                iconTemplate("flag-icon flag-icon-gb flag-icon-squared")
                             ]) ?>
                             <?= $form->field($model, 'namekh', ['template' =>
-                            '<div >
-                        <span class="flag-icon flag-icon-kh flag-icon-squared"></span>
-                        <label class="form-label">
-                            {label}
-                    
-                            <span class="required">*</span>
-                        </label>
-                        <div class="form-item">{input}</div>
-                     </div>']) ?>
+                            iconTemplate("flag-icon flag-icon-kh flag-icon-squared")]) ?>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-lg-3">
-                            <?= $form->field($model, 'tourday', ['template' =>
-                            '<div>
-                    <label class="form-label">
-                        {label}
-                    </label>
-                    <div class="form-item">{input}</div>
-                    </div>']) ?>
-                        </div>
-                        <div class="form-group col-lg-3">
-                            <?= $form->field($model, 'tournight', ['template' =>
-                            '<div>
-                    <label class="form-label">
-                        {label}
-                    </label>
-                    <div class="form-item">{input}</div>
-                    </div>']);  ?>
-                        </div>
-                        <div class="form-group col-lg-3">
-                            <?= $form->field($model, 'tourhour', ['template' =>
-                            '<div>
-                    <label class="form-label">
-                        {label}
-                    </label>
-                    <div class="form-item">{input}</div>
-                    </div>'])  ?>
-                        </div>
-                        <div class="form-group col-lg-3">
-                            <?= $form->field($model, 'tourmin', ['template' =>
-                            '<div>
-                    <label class="form-label">
-                        {label}
-                    </label>
-                    <div class="form-item">{input}</div>
-                    </div>'])  ?>
-                        </div>
+                        <?php
+                        if ($model->isTour()) {
+                        ?>
+                            <div class="form-group col-lg-3">
+                                <?= $form->field($model, 'tourday') ?>
+                            </div>
+                            <div class="form-group col-lg-3">
+                                <?= $form->field($model, 'tournight')  ?>
+                            </div>
+                        <?php } ?>
+                        <?php
+                        if ($model->isActivity()) {
+                        ?>
+                            <div class="form-group col-lg-3">
+                                <?= $form->field($model, 'tourhour')  ?>
+                            </div>
+                            <div class="form-group col-lg-3">
+                                <?= $form->field($model, 'tourmin')  ?>
+                            </div>
+                        <?php } ?>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-lg-6">
@@ -151,7 +133,10 @@ use yii\widgets\ActiveForm;
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
-                            <?= $form->field($model, 'rate', [])->hiddenInput()->label('Rating Star'); ?>
+                            <div hidden class="hide">
+                                <?= $form->field($model, 'rate')->hiddenInput()->label(false); ?>
+                            </div>
+                            <label>Star Rating</label>
                             <div class="rating">
                                 <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
                                 <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
@@ -233,6 +218,11 @@ $script = <<<JS
             preview.src = src;
             preview.style.display = "block";
         }
+    });
+
+    $(".rating input").click(function(){
+        var rate = $(this).val();
+        $("#product-rate").val(rate);
     });
 
 JS;

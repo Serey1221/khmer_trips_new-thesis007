@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\assets\DatetimepickerAsset;
+use app\modules\admin\models\Product;
 use yii\bootstrap4\Dropdown;
 
 DatetimepickerAsset::register($this);
@@ -44,8 +45,8 @@ DatetimepickerAsset::register($this);
                     <?php
                     echo Dropdown::widget([
                         'items' => [
-                            ['label' => 'Add Tour', 'url' => '/'],
-                            ['label' => 'Add Activity', 'url' => '#'],
+                            ['label' => 'Add Activity', 'linkOptions' => ['data-pjax' => 0], 'url' => ['product/create', 'type' => Product::ACTIVITY]],
+                            ['label' => 'Add Tour', 'linkOptions' => ['data-pjax' => 0], 'url' => ['product/create', 'type' => Product::TOUR]],
                         ],
                     ]);
                     ?>
