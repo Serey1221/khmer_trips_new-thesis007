@@ -20,6 +20,7 @@ DatetimepickerAsset::register($this);
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
+        'options' => ['data-pjax' => true, 'id' => 'formCitysearch'],
         'method' => 'get',
     ]); ?>
     <div class="row">
@@ -88,37 +89,37 @@ $script = <<<JS
         var start = moment().startOf('week');
         var end = moment();
     }else{
-        var start = moment($("#articlesearch-from_date").val());
-        var end = moment($("#articlesearch-to_date").val());
+        var start = moment($("#citysearch-from_date").val());
+        var end = moment($("#citysearch-to_date").val());
     }
 
-    // function cb(start, end) {
-    //     $('#order__date__range span').html(start.format('MMM D, YYYY') + ' - ' + end.format('MMM D, YYYY'));
-    //     $("#articlesearch-from_date").val(start.format('YYYY-MM-D'));
-    //     $("#articlesearch-to_date").val(end.format('YYYY-MM-D'));
-    // }
+    function cb(start, end) {
+        $('#order__date__range span').html(start.format('MMM D, YYYY') + ' - ' + end.format('MMM D, YYYY'));
+        $("#citysearch-from_date").val(start.format('YYYY-MM-D'));
+        $("#citysearch-to_date").val(end.format('YYYY-MM-D'));
+    }
 
-    // $('#order__date__range').daterangepicker({
-    //     startDate: start,
-    //     endDate: end,
-    //     ranges: {
-    //        'Today': [moment(), moment()],
-    //        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-    //        'This Week': [moment().startOf('week'), moment()],
-    //        'This Month': [moment().startOf('month'), moment().endOf('month')],
-    //        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-    //     }
-    // }, cb);
+    $('#order__date__range').daterangepicker({
+        startDate: start,
+        endDate: end,
+        ranges: {
+           'Today': [moment(), moment()],
+           'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+           'This Week': [moment().startOf('week'), moment()],
+           'This Month': [moment().startOf('month'), moment().endOf('month')],
+           'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+    }, cb);
 
-    // cb(start, end);
+    cb(start, end);
 
-    // $('#order__date__range').on('apply.daterangepicker', function(ev, picker) {
-    //     $('#formArticleSearch').trigger('submit');
-    // });
+    $('#order__date__range').on('apply.daterangepicker', function(ev, picker) {
+        $('#formCitysearch').trigger('submit');
+    });
 
-    // $(document).on("change","#articlesearch-globalsearch", function(){
-    //     $('#formArticleSearch').trigger('submit');
-    // });
+    $(document).on("change","#articlesearch-globalsearch", function(){
+        $('#formCitysearch').trigger('submit');
+    });
 
 
     // $(".triggerModal").click(function(){

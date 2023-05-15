@@ -132,7 +132,7 @@ DatetimepickerAsset::register($this);
                                     <input type="text" name="birthday" value="05/16/2018 11:31:00" class="form-control p-4 datetimepicker-input" required />
                                     <div class="input-group-addon input-group-append">
                                         <div class="input-group-text">
-                                            <i class="far fa-calendar-alt"></i>
+                                            <i class="far fa-calendar-alt"></i>&nbsp;
                                             <!-- <i class="glyphicon glyphicon-calendar fa fa-calendar"></i> -->
                                         </div>
                                     </div>
@@ -250,18 +250,10 @@ DatetimepickerAsset::register($this);
 <?= $this->render('blog'); ?>
 
 <?php
-// $script = <<<JS
-//     $(function() {
-//   $('input[name="birthday"]').daterangepicker({
-//     singleDatePicker: true,
-//     showDropdowns: true,
-//     minYear: 1901,
-//     maxYear: parseInt(moment().format('YYYY'),10)
-//   }, function(start, end, label) {
-//     var years = moment().diff(start, 'years');
-//     alert("You are " + years + " years old!");
-//   });
-// });
-// JS;
-// $this->registerJs($script);
+$script = <<<JS
+    
+
+    cb(start, end);
+JS;
+$this->registerJs($script);
 ?>

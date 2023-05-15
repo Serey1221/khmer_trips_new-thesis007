@@ -22,6 +22,7 @@ DatetimepickerAsset::register($this);
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
+        'options' => ['data-pjax' => true, 'id' => 'formProductsearch'],
         'method' => 'get',
     ]); ?>
     <div class="row">
@@ -176,14 +177,14 @@ $script = <<<JS
         var start = moment().startOf('week');
         var end = moment();
     }else{
-        var start = moment($("#articlesearch-from_date").val());
-        var end = moment($("#articlesearch-to_date").val());
+        var start = moment($("#productsearch-from_date").val());
+        var end = moment($("#productsearch-to_date").val());
     }
 
     function cb(start, end) {
         $('#order__date__range span').html(start.format('MMM D, YYYY') + ' - ' + end.format('MMM D, YYYY'));
-        $("#articlesearch-from_date").val(start.format('YYYY-MM-D'));
-        $("#articlesearch-to_date").val(end.format('YYYY-MM-D'));
+        $("#productsearch-from_date").val(start.format('YYYY-MM-D'));
+        $("#productsearch-to_date").val(end.format('YYYY-MM-D'));
     }
 
     $('#order__date__range').daterangepicker({
@@ -201,11 +202,11 @@ $script = <<<JS
     cb(start, end);
 
     $('#order__date__range').on('apply.daterangepicker', function(ev, picker) {
-        $('#formArticleSearch').trigger('submit');
+        $('#formProductsearch').trigger('submit');
     });
 
-    $(document).on("change","#articlesearch-globalsearch", function(){
-        $('#formArticleSearch').trigger('submit');
+    $(document).on("change","#productsearch-globalsearch", function(){
+        $('#formProductsearch').trigger('submit');
     });
 
 

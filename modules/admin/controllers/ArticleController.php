@@ -48,6 +48,7 @@ class ArticleController extends Controller
   public function actionCreate()
   {
     $model = new Article();
+    $model->scenario = 'admin';
 
     if ($this->request->isPost && $model->load($this->request->post())) {
 

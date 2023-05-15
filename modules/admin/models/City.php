@@ -31,6 +31,7 @@ class City extends \yii\db\ActiveRecord
         return [
             ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['admin']],
             [['country_id', 'status',], 'integer'],
+            [['name', 'name_kh', 'description'], 'required', 'on' => ['admin']],
             [['name', 'name_kh', 'description'], 'string', 'max' => 255],
         ];
     }

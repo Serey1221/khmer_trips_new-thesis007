@@ -41,7 +41,6 @@ class Article extends \yii\db\ActiveRecord
             [['category_id', 'status', 'created_by', 'updated_by'], 'integer'],
             [['created_date', 'updated_date'], 'safe'],
             [['slug', 'title', 'short_description', 'meta_description', 'meta_keyword'], 'string', 'max' => 255],
-
             [['slug', 'title', 'short_description'], 'required', 'on' => ['admin']],
             [['slug'], 'unique'],
             [['slug'], 'match', 'pattern' => '/^[A-Za-z0-9 -_.]+$/', 'message' => 'Invalid characters'],
