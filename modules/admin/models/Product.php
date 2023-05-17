@@ -44,7 +44,7 @@ class Product extends \yii\db\ActiveRecord
     {
         return 'product';
     }
-    const ACTIVITY = 'acitivty';
+    const ACTIVITY = 'activity';
     const TOUR = 'tour';
 
     /**

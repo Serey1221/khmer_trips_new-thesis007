@@ -165,9 +165,11 @@ function iconTemplate($icon)
                     </div>
                     <div class="card border shadow bg-white rounded">
                         <div class="card-body ">
-                            <div class="card-title ml-4 mb-3"><?= Yii::t('app', 'Restriction Area') ?></div>
+                            <div class=""><?= Yii::t('app', 'Restriction Area') ?></div>
+                            <hr>
+                            <?= $form->field($model, 'rate')->textInput(['type' => 'number'])->label('Rate') ?>
 
-                            <div class="form-group ml-4">
+                            <div class="form-group">
                                 <div class="custom-control custom-switch">
                                     <?= $form->field($model, 'status')->hiddenInput()->label(false); ?>
                                     <input type="checkbox" class="custom-control-input" value="<?= $model->status ?>" id="itemStatus" <?= $model->status == 1 ? 'checked' : '' ?>>

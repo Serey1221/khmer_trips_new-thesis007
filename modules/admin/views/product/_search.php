@@ -42,12 +42,14 @@ DatetimepickerAsset::register($this);
             <div class="float-right">
                 <div class="blank_space_label"></div>
                 <div class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle btn rounded-pill btn-success"><i class="fas fa-plus mr-1"></i> Add Product <b class="caret"></b></a>
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle btn rounded-pill btn-success"><i class="fas fa-plus mr-1"></i> Product Action <b class="caret"></b></a>
                     <?php
                     echo Dropdown::widget([
                         'items' => [
                             ['label' => 'Add Activity', 'linkOptions' => ['data-pjax' => 0], 'url' => ['product/create', 'type' => Product::ACTIVITY]],
+                            ['label' => 'Add Rate Acitivty', 'linkOptions' => ['data-pjax' => 0], 'url' => ['product/add-rate', 'type' => Product::ACTIVITY]],
                             ['label' => 'Add Tour', 'linkOptions' => ['data-pjax' => 0], 'url' => ['product/create', 'type' => Product::TOUR]],
+                            ['label' => 'Add Rate Tour', 'linkOptions' => ['data-pjax' => 0], 'url' => ['product/add-rate', 'type' => Product::TOUR]],
                         ],
                     ]);
                     ?>
