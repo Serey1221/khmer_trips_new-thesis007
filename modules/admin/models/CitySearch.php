@@ -65,9 +65,9 @@ class CitySearch extends City
             'country_id' => $this->country_id,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'name_kh', $this->name_kh])
-            ->andFilterWhere(['like', 'description', $this->description]);
+        $query->andFilterWhere(['like', 'name', $this->globalSearch], ['like', 'name_kh', $this->globalSearch], ['like', 'description', $this->globalSearch]);
+        // ->andFilterWhere(['like', 'name_kh', $this->name_kh])
+        // ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;
     }

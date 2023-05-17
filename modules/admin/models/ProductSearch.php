@@ -76,18 +76,18 @@ class ProductSearch extends Product
             'rate' => $this->rate,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'namekh', $this->namekh])
-            ->andFilterWhere(['like', 'overview', $this->overview])
-            ->andFilterWhere(['like', 'overviewkh', $this->overviewkh])
-            ->andFilterWhere(['like', 'highlight', $this->highlight])
-            ->andFilterWhere(['like', 'highlight_kh', $this->highlight_kh])
-            ->andFilterWhere(['like', 'pick_up', $this->pick_up])
-            ->andFilterWhere(['like', 'pick_up_kh', $this->pick_up_kh])
-            ->andFilterWhere(['like', 'drop_off', $this->drop_off])
-            ->andFilterWhere(['like', 'drop_off_kh', $this->drop_off_kh])
-            ->andFilterWhere(['like', 'price_include_kh', $this->price_include_kh])
-            ->andFilterWhere(['like', 'price_exclude_kh', $this->price_exclude_kh]);
+        $query->andFilterWhere(['like', 'name', $this->globalSearch], ['like', 'namekh', $this->globalSearch]);
+        // ->andFilterWhere(['like', 'namekh', $this->namekh])
+        // ->andFilterWhere(['like', 'overview', $this->overview])
+        // ->andFilterWhere(['like', 'overviewkh', $this->overviewkh])
+        // ->andFilterWhere(['like', 'highlight', $this->highlight])
+        // ->andFilterWhere(['like', 'highlight_kh', $this->highlight_kh])
+        // ->andFilterWhere(['like', 'pick_up', $this->pick_up])
+        // ->andFilterWhere(['like', 'pick_up_kh', $this->pick_up_kh])
+        // ->andFilterWhere(['like', 'drop_off', $this->drop_off])
+        // ->andFilterWhere(['like', 'drop_off_kh', $this->drop_off_kh])
+        // ->andFilterWhere(['like', 'price_include_kh', $this->price_include_kh])
+        // ->andFilterWhere(['like', 'price_exclude_kh', $this->price_exclude_kh]);
 
         return $dataProvider;
     }

@@ -2,7 +2,7 @@
 
 $this->title = 'Blog';
 ?>
-<?= $this->render('booking'); ?>
+<?= $this->render('_section_search') ?>
 <!-- Blog Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">

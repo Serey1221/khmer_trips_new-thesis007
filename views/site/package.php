@@ -7,7 +7,7 @@
     $this->title = 'Package';
     // $this->params['breadcrumbs'][] = $this->title;
     ?>
- <?= $this->render('booking'); ?>
+ <?= $this->render('_section_search') ?>
  <div class="container mt-5">
      <div class="row">
          <div class="col-lg-5">
@@ -34,4 +34,4 @@
      </div>
  </div>
  <?= $this->render('_sub_package'); ?>
- <?= $this->render('destination') ?>
+ <?= $this->render("destination_section", ['city' => $city]) ?>

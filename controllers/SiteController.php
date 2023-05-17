@@ -58,6 +58,15 @@ class SiteController extends Controller
         ];
     }
 
+    public function cityData()
+    {
+        return City::find()
+            ->where(['status' => 1])
+            ->orderBy(new Expression('rand()'))
+            ->limit(6)
+            ->all();
+    }
+
     /**
      * Displays homepage.
      *
@@ -66,16 +75,11 @@ class SiteController extends Controller
     public function actionIndex()
     {
         // $data = $this->queryData();
-
-        // $allGallery = Gallery::find()
-        //     ->where(['id' => 2])
-        //     ->one();
-
-
-
         $numberCity = City::find()
             ->indexBy('id')
             ->all();
+
+        $city = $this->cityData();
 
         // echo '<pre>';
         // print_r($numberCity);
@@ -83,7 +87,8 @@ class SiteController extends Controller
 
         return $this->render('index', [
             'numberCity' => $numberCity,
-            //'allGallery' => $allGallery,
+            'city' => $city,
+
 
         ]);
     }
@@ -162,8 +167,9 @@ class SiteController extends Controller
     public function actionPackage()
     {
         $this->layout = 'package';
+        $city = $this->cityData();
 
-        return $this->render('package');
+        return $this->render('package', ['city' => $city]);
     }
     public function actionBloggrid()
     {
@@ -181,17 +187,7 @@ class SiteController extends Controller
     {
         $this->layout = 'package';
 
-        $allGallery = Gallery::find()
-            ->where(['id' => 2])
-            ->one();
-
-        echo '<pre>';
-        print_r($allGallery);
-        echo '</pre>';
-
-        return $this->render('destination', [
-            'allGallery' => $allGallery,
-        ]);
+        return $this->render('destination');
     }
     public function actionGuides()
     {

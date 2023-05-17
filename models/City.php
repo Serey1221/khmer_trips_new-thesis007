@@ -29,8 +29,27 @@ class City extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['country_id'], 'integer'],
+            ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['admin']],
+            [['country_id', 'status',], 'integer'],
+            [['name', 'name_kh', 'description'], 'required', 'on' => ['admin']],
             [['name', 'name_kh', 'description'], 'string', 'max' => 255],
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => \mohorev\file\UploadImageBehavior::class,
+                'attribute' => 'img_url',
+                'scenarios' => ['admin'],
+                'placeholder' => '@webroot/img/placeholder-3.png',
+                'path' => '@webroot/upload/city/{id}',
+                'url' => '@web/upload/city/{id}',
+                'thumbs' => [
+                    'thumb' => ['width' => 300, 'height' => 300],
+                ],
+            ],
         ];
     }
 

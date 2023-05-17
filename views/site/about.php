@@ -7,7 +7,8 @@ use yii\helpers\Html;
 $this->title = 'About';
 // $this->params['breadcrumbs'][] = $this->title;
 ?>
-<?= $this->render('booking'); ?>
+<?= $this->render('_section_search') ?>
+
 <?= $this->render('_sub_about'); ?>
 
 
@@ -96,10 +97,10 @@ $this->title = 'About';
                     <div class="team-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="../app/img/Team-1.png" alt="">
                         <div class="team-social">
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/khmer_travel"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100091447657537"><i class="fab fa-facebook-f" target="_blank"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://manager.line.biz/account/@313rhjxt"><i class="fab fa-line"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/khmertravel.cambodia/"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/SNakatok4810" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://web.facebook.com/srout.serey.5" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://t.me/Serey_nakanaka" target="_blank"><i class="fab fa-telegram"></i></a>
+                            <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/sereynakato/" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="text-center py-4">
@@ -113,10 +114,10 @@ $this->title = 'About';
                     <div class="team-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="../app/img/Team-2.png" alt="">
                         <div class="team-social">
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/khmer_travel"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100091447657537"><i class="fab fa-facebook-f" target="_blank"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://manager.line.biz/account/@313rhjxt"><i class="fab fa-line"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/khmertravel.cambodia/"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/psovanmony/" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100020864430839&mibextid=LQQJ4d" target="_blank"><i class="fab fa-facebook-f" target="_blank"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://t.me/phoeungsovanmony" target="_blank"><i class="fab fa-telegram"></i></a>
+                            <a class="btn btn-outline-primary btn-square" href="https://instagram.com/phoeungsovanmony?igshid=MzRlODBiNWFlZA==" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="text-center py-4">
@@ -130,10 +131,10 @@ $this->title = 'About';
                     <div class="team-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="../app/img/Team-3.png" alt="">
                         <div class="team-social">
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/khmer_travel"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100091447657537"><i class="fab fa-facebook-f" target="_blank"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://manager.line.biz/account/@313rhjxt"><i class="fab fa-line"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/khmertravel.cambodia/"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/khmer_travel" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100091447657537" target="_blank"><i class="fab fa-facebook-f" target="_blank"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://manager.line.biz/account/@313rhjxt" target="_blank"><i class="fab fa-telegram"></i></a>
+                            <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/khmertravel.cambodia/" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="text-center py-4">
@@ -147,10 +148,10 @@ $this->title = 'About';
                     <div class="team-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="../app/img/Team-4.png" alt="">
                         <div class="team-social">
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/khmer_travel"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100091447657537"><i class="fab fa-facebook-f" target="_blank"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://manager.line.biz/account/@313rhjxt"><i class="fab fa-line"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/khmertravel.cambodia/"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/khmer_travel" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100091447657537" target="_blank"><i class="fab fa-facebook-f" target="_blank"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://manager.line.biz/account/@313rhjxt" target="_blank"><i class="fab fa-telegram"></i></a>
+                            <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/khmertravel.cambodia/" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="text-center py-4">
@@ -168,10 +169,10 @@ $this->title = 'About';
                     <div class="team-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="../app/img/Team.png" alt="">
                         <div class="team-social">
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/khmer_travel"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100091447657537"><i class="fab fa-facebook-f" target="_blank"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-2" href="https://manager.line.biz/account/@313rhjxt"><i class="fab fa-line"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/khmertravel.cambodia/"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/khmer_travel" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100091447657537" target="_blank"><i class="fab fa-facebook-f" target="_blank"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="https://manager.line.biz/account/@313rhjxt" target="_blank"><i class="fab fa-telegram"></i></a>
+                            <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/khmertravel.cambodia/" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="text-center py-4">
@@ -183,7 +184,7 @@ $this->title = 'About';
         </div>
 
         <div class="text-center mt-5">
-            <a href="https://t.me/khmertravel07" class="btn btn-primary m-0"> Join Us</a>
+            <a href="https://t.me/khmertravel07" class="btn btn-primary m-0" target="_blank"><i class="fab fa-telegram"></i> Join Us</a>
         </div>
     </div>
 </div>

@@ -11,7 +11,7 @@ use yii\captcha\Captcha;
 $this->title = 'Service';
 
 ?>
-<?= $this->render('booking'); ?>
+<?= $this->render('_section_search') ?>
 <?= $this->render('_sub_service'); ?>
 <div class="container">
     <div class="row">
