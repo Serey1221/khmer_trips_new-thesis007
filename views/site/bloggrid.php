@@ -1,6 +1,7 @@
 <?php
 
 $this->title = 'Blog';
+$formater = Yii::$app->formater;
 ?>
 <?= $this->render('_section_search') ?>
 <!-- Blog Start -->
@@ -9,158 +10,28 @@ $this->title = 'Blog';
         <div class="row">
             <div class="col-lg-8">
                 <div class="row pb-3">
-                    <div class="col-md-6 mb-4 pb-2">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/photo-12.png" alt="">
-                                <div class="blog-date">
-                                    <h6 class="font-weight-bold mb-n1">01</h6>
-                                    <small class="text-white text-uppercase">Jan</small>
+                    <?php if (!empty($blog)) {
+                        foreach ($blog as $key => $value) { ?>
+                            <div class="col-md-6 mb-4 pb-2">
+                                <div class="blog-item">
+                                    <div class="position-relative">
+                                        <img class="img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
+                                        <div class="blog-date">
+                                            <!-- <h6 class="font-weight-bold mb-n1">01</h6> -->
+                                            <small class="font-weight-bold text-white text-uppercase ml-2"><?= $formater->date($value->created_date) ?></small>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white p-4">
+                                        <div class="d-flex mb-2">
+                                            <a class="text-primary text-uppercase text-decoration-none" href=""><?= $value['title'] ?></a>
+                                        </div>
+                                        <a class="h5 m-0 text-decoration-none" href="<?= Yii::getAlias('@web/site/detail') ?>"><?= $value->short_description ?></a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="bg-white p-4">
-                                <div class="d-flex mb-2">
-                                    <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span> -->
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Knong Psar</a>
-                                </div>
-                                <a class="h5 m-0 text-decoration-none" href="<?= Yii::getAlias('@web/site/detail') ?>">Knorng Psar is an area rich in dense forests and high valleys.</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4 pb-2">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/photo-15.png" alt="">
-                                <div class="blog-date">
-                                    <h6 class="font-weight-bold mb-n1">01</h6>
-                                    <small class="text-white text-uppercase">Jan</small>
-                                </div>
-                            </div>
-                            <div class="bg-white p-4">
-                                <div class="d-flex mb-2">
-                                    <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span> -->
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Angkor Wat</a>
-                                </div>
-                                <a class="h5 m-0 text-decoration-none" href="<?= Yii::getAlias('@web/site/detail') ?>">Angkor Wat is a huge Buddhist temple located in northern Cambodia.</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4 pb-2">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/photo-16.png" alt="">
-                                <div class="blog-date">
-                                    <h6 class="font-weight-bold mb-n1">01</h6>
-                                    <small class="text-white text-uppercase">Jan</small>
-                                </div>
-                            </div>
-                            <div class="bg-white p-4">
-                                <div class="d-flex mb-2">
-                                    <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span> -->
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Busra Waterfall</a>
-                                </div>
-                                <a class="h5 m-0 text-decoration-none" href="">Busra Waterfall, a tourist attraction in Mondulkiri province in Cambodia</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4 pb-2">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/photo-17.png" alt="">
-                                <div class="blog-date">
-                                    <h6 class="font-weight-bold mb-n1">01</h6>
-                                    <small class="text-white text-uppercase">Jan</small>
-                                </div>
-                            </div>
-                            <div class="bg-white p-4">
-                                <div class="d-flex mb-2">
-                                    <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span> -->
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Tatai Waterfall</a>
-                                </div>
-                                <a class="h5 m-0 text-decoration-none" href="">Tatai Waterfall is a large rocky cascade located amidst a lush jungle </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4 pb-2">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/photo-18.png" alt="">
-                                <div class="blog-date">
-                                    <h6 class="font-weight-bold mb-n1">01</h6>
-                                    <small class="text-white text-uppercase">Jan</small>
-                                </div>
-                            </div>
-                            <div class="bg-white p-4">
-                                <div class="d-flex mb-2">
-                                    <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span> -->
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Phnom Krom</a>
-                                </div>
-                                <a class="h5 m-0 text-decoration-none" href="">This is the big hill that you see near the landing if you head to Siem Reap by bullet boat</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4 pb-2">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/photo-19.png" alt="">
-                                <div class="blog-date">
-                                    <h6 class="font-weight-bold mb-n1">01</h6>
-                                    <small class="text-white text-uppercase">Jan</small>
-                                </div>
-                            </div>
-                            <div class="bg-white p-4">
-                                <div class="d-flex mb-2">
-                                    <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span> -->
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Phnom Bakheng</a>
-                                </div>
-                                <a class="h5 m-0 text-decoration-none" href="">Phnom Bakheng is a temple mountain in honor of the Hindu god Shiva</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4 pb-2">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/photo-20.png" alt="">
-                                <div class="blog-date">
-                                    <h6 class="font-weight-bold mb-n1">01</h6>
-                                    <small class="text-white text-uppercase">Jan</small>
-                                </div>
-                            </div>
-                            <div class="bg-white p-4">
-                                <div class="d-flex mb-2">
-                                    <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span> -->
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Phnom Banan</a>
-                                </div>
-                                <a class="h5 m-0 text-decoration-none" href="">Phnom Banan is a must-see ancient site located at Battambang</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-4 pb-2">
-                        <div class="blog-item">
-                            <div class="position-relative">
-                                <img class="img-fluid w-100" src="../app/img/photo-21.png" alt="">
-                                <div class="blog-date">
-                                    <h6 class="font-weight-bold mb-n1">01</h6>
-                                    <small class="text-white text-uppercase">Jan</small>
-                                </div>
-                            </div>
-                            <div class="bg-white p-4">
-                                <div class="d-flex mb-2">
-                                    <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                                    <span class="text-primary px-2">|</span> -->
-                                    <a class="text-primary text-uppercase text-decoration-none" href="">Banteay Srei</a>
-                                </div>
-                                <a class="h5 m-0 text-decoration-none" href="">Banteay Srei Temple is one of the most beautiful ancient temples to be found in Asia</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                        }
+                    } ?>
                     <div class="col-12">
                         <nav aria-label="Page navigation">
                             <ul class="pagination pagination-lg justify-content-center bg-white mb-0" style="padding: 30px;">
@@ -186,30 +57,6 @@ $this->title = 'Blog';
             </div>
 
             <div class="col-lg-4 mt-5 mt-lg-0">
-                <!-- Author Bio -->
-                <!-- <div class="d-flex flex-column text-center bg-white mb-5 py-5 px-4">
-                        <img src="../app/img/user.jpg" class="img-fluid mx-auto mb-3" style="width: 100px;">
-                        <h3 class="text-primary mb-3">John Doe</h3>
-                        <p>Conset elitr erat vero dolor ipsum et diam, eos dolor lorem, ipsum sit no ut est  ipsum erat kasd amet elitr</p>
-                        <div class="d-flex justify-content-center">
-                            <a class="text-primary px-2" href="">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a class="text-primary px-2" href="">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a class="text-primary px-2" href="">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a class="text-primary px-2" href="">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a class="text-primary px-2" href="">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div> -->
-
                 <!-- Search Form -->
                 <div class="mb-5">
                     <div class="bg-white" style="padding: 30px;">
@@ -254,27 +101,18 @@ $this->title = 'Blog';
                 <!-- Recent Post -->
                 <div class="mb-5">
                     <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Recent Post</h4>
-                    <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/photo-12.png" style="max-width:40%;" alt="">
-                        <div class="pl-3">
-                            <h6 class="ml-1">Knorng Psar is an area rich in dense forests</h6>
-                            <small class="">Jan 01, 2023</small>
-                        </div>
-                    </a>
-                    <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/photo-15.png" style="max-width:40%;" alt="">
-                        <div class="pl-3">
-                            <h6 class="ml-1">Angkor Wat is a huge Buddhist temple</h6>
-                            <small>Jan 01, 2023</small>
-                        </div>
-                    </a>
-                    <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/photo-16.png" style="max-width:40%;" alt="">
-                        <div class="pl-3">
-                            <h6 class="m-1">Busra Waterfall, a tourist attraction</h6>
-                            <small>Jan 01, 2023</small>
-                        </div>
-                    </a>
+                    <?php if (!empty($threeblog)) {
+                        foreach ($threeblog as $key => $value) { ?>
+                            <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                                <img class="img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="" style="max-width:40%;">
+                                <div class="pl-3">
+                                    <h6 class="ml-1"><?= $value['title'] ?></h6>
+                                    <small class=""><?= $formater->date($value->created_date) ?></small>
+                                </div>
+                            </a>
+                    <?php
+                        }
+                    } ?>
                 </div>
 
                 <!-- Tag Cloud -->

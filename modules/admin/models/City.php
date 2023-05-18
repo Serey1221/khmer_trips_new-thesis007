@@ -63,7 +63,7 @@ class City extends \yii\db\ActiveRecord
             'name_kh' => 'Name Kh',
             'description' => 'Description',
             'country_id' => 'Country ID',
-            'img_url' => 'Img Url',
+            'img_url' => 'Image',
             'status' => 'Status',
         ];
     }

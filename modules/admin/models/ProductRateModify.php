@@ -10,7 +10,7 @@ use Yii;
  * @property int $id
  * @property int|null $product_id
  * @property float|null $amount
- * @property int|null $amont_type
+ * @property int|null $amount_type
  * @property string|null $from_date
  * @property string|null $to_date
  * @property string|null $created_at
@@ -36,7 +36,7 @@ class ProductRateModify extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['product_id', 'amont_type'], 'integer'],
+            [['product_id', 'amount_type'], 'integer'],
             [['amount'], 'number'],
             [['from_date', 'to_date', 'created_at', 'updated_at'], 'safe'],
             [['created_by', 'updated_by'], 'string'],
@@ -53,7 +53,7 @@ class ProductRateModify extends \yii\db\ActiveRecord
             'id' => 'ID',
             'product_id' => 'Product ID',
             'amount' => 'Amount',
-            'amont_type' => 'Amont Type',
+            'amount_type' => 'Amont Type',
             'from_date' => 'From Date',
             'to_date' => 'To Date',
             'created_at' => 'Created At',

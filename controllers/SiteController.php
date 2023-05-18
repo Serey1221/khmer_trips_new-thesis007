@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Article;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -75,6 +76,22 @@ class SiteController extends Controller
             ->limit(4)
             ->all();
     }
+    public function blogData()
+    {
+        return Article::find()
+            ->where(['status' => 1])
+            ->orderBy(new Expression('rand()'))
+            ->limit(8)
+            ->all();
+    }
+    public function threeblogData()
+    {
+        return Article::find()
+            ->where(['status' => 1])
+            ->orderBy(new Expression('rand()'))
+            ->limit(3)
+            ->all();
+    }
 
     /**
      * Displays homepage.
@@ -90,6 +107,9 @@ class SiteController extends Controller
 
         $city = $this->cityData();
         $guide = $this->guideData();
+        $blog = $this->blogData();
+        $threeblog = $this->threeblogData();
+
         // echo '<pre>';
         // print_r($numberCity);
         // echo '</pre>';
@@ -98,7 +118,8 @@ class SiteController extends Controller
             'numberCity' => $numberCity,
             'city' => $city,
             'guide' => $guide,
-
+            'blog' => $blog,
+            'threeblog' => $threeblog
 
         ]);
     }
@@ -185,7 +206,13 @@ class SiteController extends Controller
     {
         $this->layout = 'package';
 
-        return $this->render('bloggrid');
+        $blog = $this->blogData();
+        $threeblog = $this->threeblogData();
+
+        return $this->render('bloggrid', [
+            'blog' => $blog,
+            'threeblog' => $threeblog,
+        ]);
     }
     public function actionDetail()
     {

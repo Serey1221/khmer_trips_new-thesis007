@@ -38,6 +38,13 @@ $this->params['pageTitle'] = $this->title;
         //'layout' => "{summary}<hr>\n{items}\n<div class='d-flex justify-content-center' id='custompagination'>{pager}</div>",
         'columns' => [
           ['class' => 'yii\grid\SerialColumn'],
+          [
+            'attribute' => 'img_url',
+            'format' => 'raw',
+            'value' => function ($model) {
+              return Html::img($model->getThumbUploadUrl('img_url'), ['alt' => 'yii', 'width' => '60', 'height' => '60']);
+            }
+          ],
           'title',
           'slug',
           [

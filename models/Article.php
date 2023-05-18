@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\admin\models;
+namespace app\models;
 
 use Yii;
 
@@ -81,7 +81,6 @@ class Article extends \yii\db\ActiveRecord
             'updated_date' => 'Updated Date',
         ];
     }
-
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {
@@ -96,20 +95,6 @@ class Article extends \yii\db\ActiveRecord
             return true;
         } else {
             return false;
-        }
-    }
-
-    public function getCategory()
-    {
-        return $this->hasOne(ArticleCategory::class, ['id' => 'category_id']);
-    }
-
-    public function getStatusTemp()
-    {
-        if ($this->status == 1) {
-            return '<span class="badge badge-pill badge-info">Publish</span>';
-        } else {
-            return '<span class="badge badge-pill badge-danger">Inactive</span>';
         }
     }
 }

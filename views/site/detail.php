@@ -50,16 +50,16 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="blog-item">
                         <div class="position-relative">
                             <img class="img-fluid w-100" src="../app/img/blog-1.jpg" alt="">
-                            <div class="blog-date">
+                            <!-- <div class="blog-date">
                                 <h6 class="font-weight-bold mb-n1">01</h6>
                                 <small class="text-white text-uppercase">Jan</small>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="bg-white mb-3" style="padding: 30px;">
                         <div class="d-flex mb-3">
-                            <!-- <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                            <span class="text-primary px-2">|</span> -->
+                            <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
+                            <span class="text-primary px-2">|</span>
                             <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
                         </div>
                         <h2 class="mb-3">Dolor justo sea kasd lorem clita justo diam amet</h2>
@@ -104,45 +104,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <!-- Blog Detail End -->
 
-                <!-- Comment List Start -->
-                <!-- <div class="bg-white" style="padding: 30px; margin-bottom: 30px;">
-                    <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">3 Comments</h4>
-                    <div class="media mb-4">
-                        <img src="../app/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                        <div class="media-body">
-                            <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                            <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
-                                Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
-                                consetetur at sit.</p>
-                            <button class="btn btn-sm btn-outline-primary">Reply</button>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <img src="../app/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                        <div class="media-body">
-                            <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                            <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.
-                                Gubergren clita aliquyam consetetur sadipscing, at tempor amet ipsum diam tempor
-                                consetetur at sit.</p>
-                            <button class="btn btn-sm btn-outline-primary">Reply</button>
-                            <div class="media mt-4">
-                                <img src="../app/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                                <div class="media-body">
-                                    <h6><a href="">John Doe</a> <small><i>01 Jan 2045</i></small></h6>
-                                    <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor
-                                        labore accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed
-                                        eirmod ipsum. Gubergren clita aliquyam consetetur sadipscing, at tempor amet
-                                        ipsum diam tempor consetetur at sit.</p>
-                                    <button class="btn btn-sm btn-outline-primary">Reply</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- Comment List End -->
-
                 <!-- Comment Form Start -->
                 <div class="bg-white mb-3" style="padding: 30px;">
                     <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Leave a comment</h4>
@@ -173,42 +134,6 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
 
             <div class="col-lg-4 mt-5 mt-lg-0">
-                <!-- Author Bio -->
-                <!-- <div class="d-flex flex-column text-center bg-white mb-5 py-5 px-4">
-                        <img src="../app/img/user.jpg" class="img-fluid mx-auto mb-3" style="width: 100px;">
-                        <h3 class="text-primary mb-3">John Doe</h3>
-                        <p>Conset elitr erat vero dolor ipsum et diam, eos dolor lorem, ipsum sit no ut est  ipsum erat kasd amet elitr</p>
-                        <div class="d-flex justify-content-center">
-                            <a class="text-primary px-2" href="">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a class="text-primary px-2" href="">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a class="text-primary px-2" href="">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a class="text-primary px-2" href="">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a class="text-primary px-2" href="">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div> -->
-
-                <!-- Search Form -->
-                <!-- <div class="mb-5">
-                    <div class="bg-white" style="padding: 30px;">
-                        <div class="input-group">
-                            <input type="text" class="form-control p-4" placeholder="Keyword">
-                            <div class="input-group-append">
-                                <span class="input-group-text bg-primary border-primary text-white"><i class="fa fa-search"></i></span>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
                 <!-- Category List -->
                 <div class="mb-5">
                     <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Categories</h4>

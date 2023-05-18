@@ -1,3 +1,7 @@
+<?php
+$formater = Yii::$app->formater;
+
+?>
 <!-- Blog Start -->
 <div class="container-fluid py-5">
     <div class="container pt-5 pb-3">
@@ -6,7 +10,29 @@
             <h1>Latest From Our Blog</h1>
         </div>
         <div class="row pb-3">
-            <div class="col-lg-4 col-md-6 mb-4 pb-2">
+            <?php if (!empty($threeblog)) {
+                foreach ($threeblog as $key => $value) { ?>
+                    <div class="col-lg-4 col-md-6 mb-4 pb-2">
+                        <div class="blog-item">
+                            <div class="position-relative">
+                                <img class="img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
+                                <div class="blog-date">
+                                    <!-- <h6 class="font-weight-bold mb-n1">01</h6> -->
+                                    <small class="font-weight-bold text-white text-uppercase ml-2"><?= $formater->date($value->created_date) ?></small>
+                                </div>
+                            </div>
+                            <div class="bg-white p-4">
+                                <div class="d-flex mb-2">
+                                    <a class="text-primary text-uppercase text-decoration-none" href=""><?= $value['title'] ?></a>
+                                </div>
+                                <a class="h5 m-0 text-decoration-none" href="<?= Yii::getAlias('@web/site/detail') ?>"><?= $value->short_description ?></a>
+                            </div>
+                        </div>
+                    </div>
+            <?php
+                }
+            } ?>
+            <!-- <div class="col-lg-4 col-md-6 mb-4 pb-2">
                 <div class="blog-item">
                     <div class="position-relative">
                         <img class="img-fluid w-100" src="../app/img/photo-15.png" alt="">
@@ -56,7 +82,7 @@
                         <a class="h5 m-0 text-decoration-none" href="">Peam Krasop Natural Tourism Site </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

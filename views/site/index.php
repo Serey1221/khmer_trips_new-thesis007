@@ -151,7 +151,7 @@ $this->title = 'Khmer Travel';
 
 <?= $this->render('testimonial'); ?>
 
-<?= $this->render('blog'); ?>
+<?= $this->render('blog', ['threeblog' => $threeblog]); ?>
 
 <?php
 $script = <<<JS
