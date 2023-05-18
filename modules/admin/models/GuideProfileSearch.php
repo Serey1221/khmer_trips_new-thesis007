@@ -68,9 +68,9 @@ class GuideProfileSearch extends GuideProfile
             'updated_by' => $this->updated_by,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'language', $this->language])
-            ->andFilterWhere(['like', 'img_url', $this->img_url]);
+        $query->andFilterWhere(['like', 'name', $this->globalSearch])
+            ->andFilterWhere(['like', 'language', $this->globalSearch]);
+        // ->andFilterWhere(['like', 'img_url', $this->img_url]);
 
         return $dataProvider;
     }

@@ -11,6 +11,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\City;
 use app\models\Gallery;
+use app\models\GuideProfile;
 use yii\db\Expression;
 
 class SiteController extends Controller
@@ -66,6 +67,14 @@ class SiteController extends Controller
             ->limit(6)
             ->all();
     }
+    public function guideData()
+    {
+        return GuideProfile::find()
+            ->where(['status' => 1])
+            ->orderBy(new Expression('rand()'))
+            ->limit(4)
+            ->all();
+    }
 
     /**
      * Displays homepage.
@@ -80,7 +89,7 @@ class SiteController extends Controller
             ->all();
 
         $city = $this->cityData();
-
+        $guide = $this->guideData();
         // echo '<pre>';
         // print_r($numberCity);
         // echo '</pre>';
@@ -88,6 +97,7 @@ class SiteController extends Controller
         return $this->render('index', [
             'numberCity' => $numberCity,
             'city' => $city,
+            'guide' => $guide,
 
 
         ]);

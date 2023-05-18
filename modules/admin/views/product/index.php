@@ -52,6 +52,13 @@ $this->params['pageTitle'] = $this->title;
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn'],
                     //'id',
+                    [
+                        'attribute' => 'img_url',
+                        'format' => 'raw',
+                        'value' => function ($model) {
+                            return Html::img($model->getThumbUploadUrl('img_url'), ['alt' => 'yii', 'width' => '60', 'height' => '60']);
+                        }
+                    ],
                     'name',
                     //'namekh', 
                     //'tourday', 
@@ -62,13 +69,12 @@ $this->params['pageTitle'] = $this->title;
                     //'highlight_kh:ntext',
                     //'price_include_kh',
                     //'price_exclude_kh',
-                    'created_at',
-                    // [
-                    //     'attribute' => 'created_at',
-                    //     'value' => function ($model) {
-                    //         return Yii::$app->formater->timeAgo($model->created_at);
-                    //     }
-                    // ],
+                    [
+                        'attribute' => 'created_at',
+                        'value' => function ($model) {
+                            return Yii::$app->formater->timeAgo($model->created_at);
+                        }
+                    ],
                     [
                         'attribute' => 'status',
                         'format' => 'raw',

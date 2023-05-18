@@ -79,8 +79,8 @@ class Product extends \yii\db\ActiveRecord
                 'attribute' => 'img_url',
                 'scenarios' => ['admin', self::ACTIVITY, self::TOUR],
                 'placeholder' => '@webroot/img/placeholder-3.png',
-                'path' => '@webroot/upload/city/{id}',
-                'url' => '@web/upload/city/{id}',
+                'path' => '@webroot/upload/product/{id}',
+                'url' => '@web/upload/product/{id}',
                 'thumbs' => [
                     'thumb' => ['width' => 300, 'height' => 300],
                 ],
@@ -117,25 +117,24 @@ class Product extends \yii\db\ActiveRecord
             'deleted_at' => 'Deleted At',
             'deleted_by' => 'Deleted By',
             'rate' => 'Rate',
-            'img_url' => 'Img Url',
+            'img_url' => 'Image',
         ];
     }
-    // public function beforeSave($insert)
-    // {
-    //     if (parent::beforeSave($insert)) {
-    //         $this->slug = Yii::$app->formater->slugify($this->slug);
-    //         if ($this->isNewRecord) {
-    //             $this->created_at = date('Y-m-d H:i:s');
-    //             $this->created_by = Yii::$app->user->identity->id;
-    //         } else {
-    //             $this->updated_at = date('Y-m-d H:i:s');
-    //             $this->updated_by = Yii::$app->user->identity->id;
-    //         }
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if ($this->isNewRecord) {
+                $this->created_at = date('Y-m-d H:i:s');
+                $this->created_by = Yii::$app->user->identity->id;
+            } else {
+                $this->updated_at = date('Y-m-d H:i:s');
+                $this->updated_by = Yii::$app->user->identity->id;
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
     public function getStatusTemp()
     {
         if ($this->status == 1) {

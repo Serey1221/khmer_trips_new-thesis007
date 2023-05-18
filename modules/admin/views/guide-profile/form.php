@@ -7,7 +7,10 @@ $this->title = $model->isNewRecord ? "Add New Guide" : "Update Guide: {$model->n
 $languages = [
   'english' => 'English',
   'korea' => 'Korea',
-  'cambodia' => 'Cambodia'
+  'cambodia' => 'Cambodia',
+  'thai' => 'Thai',
+  'chinese' => 'Chinese',
+  'spain' => 'Spain'
 ];
 ?>
 <style>
@@ -47,8 +50,8 @@ $languages = [
           <?= $form->field($model, 'language')->dropDownList($languages, ['class' => 'form-control form-control-lg', 'prompt' => 'Select'])->label() ?>
           <div class="card border shadow bg-white rounded">
             <div class="card-body ">
-              <div class="card-title ml-4 mb-3"><?= Yii::t('app', 'Restriction Area') ?></div>
-
+              <div class="card-title  ml-4"><?= Yii::t('app', 'Restriction Area') ?></div>
+              <hr class="mt-4">
               <div class="form-group ml-4">
                 <div class="custom-control custom-switch">
                   <?= $form->field($model, 'status')->hiddenInput()->label(false); ?>

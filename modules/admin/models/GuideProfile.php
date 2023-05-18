@@ -68,7 +68,7 @@ class GuideProfile extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Name',
             'language' => 'Language',
-            'img_url' => 'Img Url',
+            'img_url' => 'Image',
             'status' => 'Status',
             'created_at' => 'Created At',
             'created_by' => 'Created By',

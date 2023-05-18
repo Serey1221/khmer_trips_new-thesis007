@@ -49,6 +49,7 @@ class ProductSearch extends Product
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => ['defaultOrder' => ['created_at' => SORT_DESC]]
         ]);
 
         $this->load($params);
@@ -76,7 +77,8 @@ class ProductSearch extends Product
             'rate' => $this->rate,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->globalSearch], ['like', 'namekh', $this->globalSearch]);
+        $query->andFilterWhere(['between', 'DATE(created_at)', $this->from_date, $this->to_date])
+            ->andFilterWhere(['like', 'name', $this->globalSearch], ['like', 'namekh', $this->globalSearch]);
         // ->andFilterWhere(['like', 'namekh', $this->namekh])
         // ->andFilterWhere(['like', 'overview', $this->overview])
         // ->andFilterWhere(['like', 'overviewkh', $this->overviewkh])

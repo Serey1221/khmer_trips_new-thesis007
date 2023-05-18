@@ -37,7 +37,23 @@ class GuideProfile extends \yii\db\ActiveRecord
       [['created_at', 'updated_at'], 'safe'],
       [['name'], 'string', 'max' => 50],
       [['language'], 'string', 'max' => 20],
-      [['img_url'], 'string', 'max' => 255],
+      ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['form']],
+    ];
+  }
+  public function behaviors()
+  {
+    return [
+      [
+        'class' => \mohorev\file\UploadImageBehavior::class,
+        'attribute' => 'img_url',
+        'scenarios' => ['form'],
+        'placeholder' => '@webroot/img/placeholder-3.png',
+        'path' => '@webroot/upload/guide-profile/{id}',
+        'url' => '@web/upload/guide-profile/{id}',
+        'thumbs' => [
+          'thumb' => ['width' => 300, 'height' => 300],
+        ],
+      ],
     ];
   }
 

@@ -1,7 +1,9 @@
 <?php
 
 use yii\bootstrap4\Breadcrumbs;
+use app\assets\DatePickerAsset;
 
+DatePickerAsset::register($this);
 $this->title = 'Booking Detail';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -89,17 +91,17 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
                                             </select>
-                                            <!-- <i class="fa fa-users" aria-hidden="true"></i> -->
+
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <!-- <label for="id_start_datetime"></label> -->
                                             <div class="input-group date" id='datetimepicker1'>
-                                                <input type="text" name="birthday" value="05/16/2018 11:31:00" class="form-control p-4 datetimepicker-input" required />
+                                                <input type="text" name="departure_date" value="<?= date("Y-m-d") ?>" class="form-control bg-white  p-4" required />
                                                 <div class="input-group-addon input-group-append">
                                                     <div class="input-group-text">
-                                                        <i class="far fa-calendar-alt"></i>
+                                                        <i class="far fa-calendar-alt"></i>&nbsp;
                                                         <!-- <i class="glyphicon glyphicon-calendar fa fa-calendar"></i> -->
                                                     </div>
                                                 </div>
@@ -112,7 +114,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="row mt-4">
                             <div class="col-md-8"></div>
                             <div class="col-md-4">
-                                <a href="#checkavaibility" class="btn btn-info btn-block"> Check availability</a>
+                                <a href="#checkavaibility" class="btn btn-warning btn-block"> Check availability</a>
                             </div>
                         </div>
                     </div>
@@ -305,3 +307,14 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 </div>
 <!-- Blog End -->
+<?php
+$script = <<<JS
+    
+    flatpickr('input[name="departure_date"', {
+        altInput: true,
+        altFormat: "F j, Y",
+        dateFormat: "Y-m-d",
+    });
+JS;
+$this->registerJs($script);
+?>

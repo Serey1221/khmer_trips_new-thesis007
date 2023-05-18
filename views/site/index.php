@@ -146,7 +146,7 @@ $this->title = 'Khmer Travel';
 
 <?= $this->render('registration'); ?>
 
-<?= $this->render('team'); ?>
+<?= $this->render('team', ['guide' => $guide]); ?>
 
 
 <?= $this->render('testimonial'); ?>

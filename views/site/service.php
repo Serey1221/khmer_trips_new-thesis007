@@ -24,7 +24,7 @@ $this->title = 'Service';
         </div>
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="service-item bg-white text-center mb-2 py-5 px-4">
-                <i class="fa fa-2x fa-refresh mx-auto mb-4"></i>
+                <i class="fa fa-2x fa-retweet mx-auto mb-4"></i>
                 <h5 class="mb-2">Recent Post</h5>
                 <p class="m-0">You will receive a new tour from our company Khmer Travel.</p>
             </div>

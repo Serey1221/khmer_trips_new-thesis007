@@ -52,6 +52,13 @@ $this->params['pageTitle'][] = $this->title;
                     ['class' => 'yii\grid\SerialColumn'],
 
                     //'id',
+                    [
+                        'attribute' => 'img_url',
+                        'format' => 'raw',
+                        'value' => function ($model) {
+                            return Html::img($model->getThumbUploadUrl('img_url'), ['alt' => 'yii', 'width' => '60', 'height' => '60']);
+                        }
+                    ],
                     'name',
                     'name_kh',
                     [

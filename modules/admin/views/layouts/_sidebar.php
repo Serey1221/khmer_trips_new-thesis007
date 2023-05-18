@@ -67,6 +67,14 @@ $action = Yii::$app->controller->action->id;
           </a>
         </li>
         <li class="nav-item">
+          <a href="<?= Yii::getAlias('@web/admin/guide-profile') ?>" class="nav-link <?= $controller . '-' . $action === 'guide-profile-index' ? 'active' : '' ?>">
+            <i class="nav-icon fas fa-map"></i>
+            <p>
+              Guide
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="<?= Yii::getAlias('@web/admin/booking') ?>" class="nav-link <?= $controller . '-' . $action === 'booking-index' ? 'active' : '' ?>">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>

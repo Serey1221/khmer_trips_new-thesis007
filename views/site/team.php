@@ -6,18 +6,22 @@
             <h1>Our Travel Guides</h1>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
-                <div class="team-item bg-white mb-4">
-                    <div class="team-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="../app/img/Guides-1.png" alt="">
+            <?php if (!empty($guide)) {
+                foreach ($guide as $key => $value) { ?>
+                    <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
+                        <div class="team-item bg-white mb-4">
+                            <div class="team-img position-relative overflow-hidden">
+                                <img class="img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
+                            </div>
+                            <div class="text-center py-4">
+                                <h5 class="text-truncate"><?= $value['name'] ?></h5>
+                                <p class="m-0">Guide <?= $value->language ?></p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="text-center py-4">
-                        <h5 class="text-truncate">Saom Hoem</h5>
-                        <p class="m-0">Guide Thai</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
+            <?php }
+            } ?>
+            <!-- <div class="col-lg-3 col-md-4 col-sm-6 pb-2">
                 <div class="team-item bg-white mb-4">
                     <div class="team-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="../app/img/Guides-2.png" alt="">
@@ -49,7 +53,7 @@
                         <p class="m-0">Guide Spain</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
