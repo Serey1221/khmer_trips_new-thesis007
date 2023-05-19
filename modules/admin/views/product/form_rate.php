@@ -46,7 +46,7 @@ $products = ArrayHelper::map(Product::find()->where(['status' => 1])->andWhere([
               <?= $form->field($model, 'amount')->textInput(['type' => 'number'])->label('Amount') ?>
             </div>
             <div class="col-lg-4">
-              <?= $form->field($model, 'amont_type')->dropDownList([1 => 'Amount', 2 => 'Percentage'], ['prompt' => 'Select'])->label('Amount Type') ?>
+              <?= $form->field($model, 'amount_type')->dropDownList([1 => 'Amount', 2 => 'Percentage'], ['prompt' => 'Select'])->label('Amount Type') ?>
             </div>
           </div>
 
