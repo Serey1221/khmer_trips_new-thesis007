@@ -202,17 +202,6 @@ $script = <<<JS
         $('#productForm').trigger('submit');
     });
 
-
-    $("#itemStatus").change(function(){
-        if($(this).is(":checked")){
-            $("#product-status").val(1);
-        }else{
-            $("#product-status").val(0);
-        }
-    })
-
-    
-
     $("#image_upload").change(function(){
         if(event.target.files.length > 0){
             var src = URL.createObjectURL(event.target.files[0]);
@@ -221,6 +210,14 @@ $script = <<<JS
             preview.style.display = "block";
         }
     });
+
+    $("#itemStatus").change(function(){
+        if($(this).is(":checked")){
+            $("#product-status").val(1);
+        }else{
+            $("#product-status").val(0);
+        }
+    })
 
     $(".rating input").click(function(){
         var rate = $(this).val();

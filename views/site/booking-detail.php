@@ -77,8 +77,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <p>In the first part of the 20th century, the École Française d'Extrême Orient took the lead in the conservation of the temple, restoring it in accordance with the technique of anastylosis. Since 1995 the Japanese Government team for the Safeguarding of Angkor (the JSA) has been the main conservatory body, and has held annual symposia.</p>
                     </div>
                 </div>
-                <section>
-                    <div class="bg-primary shadow" style="padding: 30px;">
+                <section id="checkavaibility">
+                    <div class=" bg-primary shadow" style="padding: 30px;">
                         <h2 class="text-white">Select participants and date</h2>
                         <div class="row">
                             <div class="col-md-12">
@@ -114,7 +114,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="row mt-4">
                             <div class="col-md-8"></div>
                             <div class="col-md-4">
-                                <a href="#checkavaibility" class="btn btn-warning btn-block"> Check availability</a>
+                                <a href="#" class="btn btn-warning btn-block"> Check availability</a>
                             </div>
                         </div>
                     </div>
@@ -192,7 +192,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <div class="bg-white" style="padding: 30px;">
                     <div class="mb-2">
-                        <a class="btn btn-primary btn-lg btn-block m-0"><i class="fas fa-shopping-cart" id="checkavaibility"></i> Add to Cart</a>
+                        <a href="#checkavaibility" class="btn btn-primary btn-lg btn-block m-0"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                     </div>
                     <div class="mb-2">
                         <a href="<?= Yii::getAlias('@web/site/checkout') ?>" class="btn btn-warning btn-lg btn-block m-0"></i> Book Now</a>
@@ -311,6 +311,7 @@ $this->params['breadcrumbs'][] = $this->title;
 $script = <<<JS
     
     flatpickr('input[name="departure_date"', {
+        minDate: "today",
         altInput: true,
         altFormat: "F j, Y",
         dateFormat: "Y-m-d",

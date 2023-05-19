@@ -12,54 +12,46 @@ $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="product-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1 class="mt-3"><?= Html::encode($this->title) ?></h1>
     <div class="row">
-        <div class="col-lg-8">
-            <p>
-                <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-                <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-                    'class' => 'btn btn-danger',
-                    'data' => [
-                        'confirm' => 'Are you sure you want to delete this item?',
-                        'method' => 'post',
-                    ],
-                ]) ?>
-            </p>
-
-            <?= DetailView::widget([
-                'model' => $model,
-                'attributes' => [
-                    'id',
-                    'name',
-                    'namekh',
-                    'tourday',
-                    'tournight',
-                    'tourhour',
-                    'tourmin',
-                    'overview:ntext',
-                    'overviewkh:ntext',
-                    'highlight:ntext',
-                    'highlight_kh:ntext',
-                    'pick_up',
-                    'pick_up_kh',
-                    'drop_off',
-                    'drop_off_kh',
-                    'price_include_kh',
-                    'price_exclude_kh',
-                    'status',
-                    // 'created_at',
-                    // 'created_by',
-                    // 'updated_at',
-                    // 'updated_by',
-                    // 'deleted_at',
-                    // 'deleted_by',
-                    'rate',
-                ],
-            ]) ?>
+        <div class="col-lg-8 mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <?= DetailView::widget([
+                        'model' => $model,
+                        'attributes' => [
+                            'id',
+                            'name',
+                            'namekh',
+                            'tourday',
+                            'tournight',
+                            'tourhour',
+                            'tourmin',
+                            'overview:ntext',
+                            'overviewkh:ntext',
+                            'highlight:ntext',
+                            'highlight_kh:ntext',
+                            'pick_up',
+                            'pick_up_kh',
+                            'drop_off',
+                            'drop_off_kh',
+                            'price_include_kh',
+                            'price_exclude_kh',
+                            'status',
+                            // 'created_at',
+                            // 'created_by',
+                            // 'updated_at',
+                            // 'updated_by',
+                            // 'deleted_at',
+                            // 'deleted_by',
+                            'rate',
+                        ],
+                    ]) ?>
+                </div>
+            </div>
         </div>
         <div class="col-lg-4">
-            <div class="card">
+            <div class="card mt-5">
                 <div class="card-body">
                     <div class="float-right">
                         <?= Html::a("<i class='fas fa-plus'></i> Add Rate", ['add-rate', 'type' => $model->type]) ?>
@@ -96,6 +88,16 @@ $this->params['breadcrumbs'][] = $this->title;
                     ?>
                 </div>
             </div>
+            <p>
+                <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+                <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+                    'class' => 'btn btn-danger',
+                    'data' => [
+                        'confirm' => 'Are you sure you want to delete this item?',
+                        'method' => 'post',
+                    ],
+                ]) ?>
+            </p>
         </div>
     </div>
 
