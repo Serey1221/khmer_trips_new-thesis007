@@ -24,6 +24,26 @@ class m230519_083054_create_product_itinerary_table extends Migration
             'is_dinner' => $this->integer(),
             'is_overnight' => $this->integer(),
         ]);
+
+        // add foreign key for table `product`
+        $this->addForeignKey(
+            'fk-product_itinerary-product_id',
+            'product_itinerary',
+            'product_id',
+            'product',
+            'id',
+            'CASCADE'
+        );
+
+        // add foreign key for table `city`
+        $this->addForeignKey(
+            'fk-product_itinerary-city_id',
+            'product_itinerary',
+            'city_id',
+            'city',
+            'id',
+            'CASCADE'
+        );
     }
 
     /**
@@ -31,6 +51,18 @@ class m230519_083054_create_product_itinerary_table extends Migration
      */
     public function safeDown()
     {
+        // drops foreign key for table `product`
+        $this->dropForeignKey(
+            'fk-product_itinerary-product_id',
+            'product_itinerary'
+        );
+
+        // drops foreign key for table `city`
+        $this->dropForeignKey(
+            'fk-product_itinerary-city_id',
+            'product_itinerary'
+        );
+
         $this->dropTable('{{%product_itinerary}}');
     }
 }

@@ -30,7 +30,8 @@ class City extends \yii\db\ActiveRecord
     {
         return [
             ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['admin']],
-            [['country_id', 'status',], 'integer'],
+            [['country_id', 'status', 'created_by', 'updated_by',], 'integer'],
+            [['created_at', 'updated_at'], 'safe'],
             [['name', 'name_kh', 'description'], 'required', 'on' => ['admin']],
             [['name', 'name_kh', 'description'], 'string', 'max' => 255],
         ];
@@ -64,6 +65,10 @@ class City extends \yii\db\ActiveRecord
             'description' => 'Description',
             'country_id' => 'Country ID',
             'img_url' => 'Image',
+            'created_at' => 'Created At',
+            'created_by' => 'Created By',
+            'updated_at' => 'Updated At',
+            'updated_by' => 'Updated By',
             'status' => 'Status',
         ];
     }

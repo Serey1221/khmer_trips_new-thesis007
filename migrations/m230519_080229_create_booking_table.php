@@ -26,6 +26,26 @@ class m230519_080229_create_booking_table extends Migration
             'updated_by' => $this->text(),
             'status' => $this->tinyInteger(1),
         ]);
+
+        // add foreign key for table `product`
+        $this->addForeignKey(
+            'fk-booking-product_id',
+            'booking',
+            'product_id',
+            'product',
+            'id',
+            'CASCADE'
+        );
+
+        // add foreign key for table `customer`
+        $this->addForeignKey(
+            'fk-booking-customer_id',
+            'booking',
+            'customer_id',
+            'customer',
+            'id',
+            'CASCADE'
+        );
     }
 
     /**
@@ -33,6 +53,17 @@ class m230519_080229_create_booking_table extends Migration
      */
     public function safeDown()
     {
+        // drops foreign key for table `product`
+        $this->dropForeignKey(
+            'fk-booking-product_id',
+            'booking'
+        );
+
+        // drops foreign key for table `customer`
+        $this->dropForeignKey(
+            'fk-booking-customer_id',
+            'booking'
+        );
         $this->dropTable('{{%booking}}');
     }
 }
