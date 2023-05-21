@@ -23,15 +23,15 @@ class m230519_081146_create_customer_table extends Migration
             'email' => $this->string(),
         ]);
 
-        // add foreign key for table `user`
-        $this->addForeignKey(
-            'fk-customer-user_id',
-            'customer',
-            'user_id',
-            'user',
-            'id',
-            'CASCADE'
-        );
+        // // add foreign key for table `user`
+        // $this->addForeignKey(
+        //     'fk-customer-user_id',
+        //     'customer',
+        //     'user_id',
+        //     'user',
+        //     'id',
+        //     'CASCADE'
+        // );
     }
 
     /**
@@ -39,11 +39,11 @@ class m230519_081146_create_customer_table extends Migration
      */
     public function safeDown()
     {
-        // drops foreign key for table `user`
-        $this->dropForeignKey(
-            'fk-customer-user_id',
-            'customer'
-        );
+        // // drops foreign key for table `user`
+        // $this->dropForeignKey(
+        //     'fk-customer-user_id',
+        //     'customer'
+        // );
 
         $this->dropTable('{{%customer}}');
     }

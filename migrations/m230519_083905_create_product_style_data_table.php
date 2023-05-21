@@ -18,25 +18,25 @@ class m230519_083905_create_product_style_data_table extends Migration
             'style_id' => $this->integer(),
         ]);
 
-        // add foreign key for table `product`
-        $this->addForeignKey(
-            'fk-product_style_data-product_id',
-            'product_style_data',
-            'product_id',
-            'product',
-            'id',
-            'CASCADE'
-        );
+        // // add foreign key for table `product`
+        // $this->addForeignKey(
+        //     'fk-product_style_data-product_id',
+        //     'product_style_data',
+        //     'product_id',
+        //     'product',
+        //     'id',
+        //     'CASCADE'
+        // );
 
-        // add foreign key for table `style`
-        $this->addForeignKey(
-            'fk-product_style_data-style_id',
-            'product_style_data',
-            'style_id',
-            'style',
-            'id',
-            'CASCADE'
-        );
+        // // add foreign key for table `style`
+        // $this->addForeignKey(
+        //     'fk-product_style_data-style_id',
+        //     'product_style_data',
+        //     'style_id',
+        //     'style',
+        //     'id',
+        //     'CASCADE'
+        // );
     }
 
     /**
@@ -44,17 +44,17 @@ class m230519_083905_create_product_style_data_table extends Migration
      */
     public function safeDown()
     {
-        // drops foreign key for table `product`
-        $this->dropForeignKey(
-            'fk-product_style_data-product_id',
-            'product_style_data'
-        );
+        // // drops foreign key for table `product`
+        // $this->dropForeignKey(
+        //     'fk-product_style_data-product_id',
+        //     'product_style_data'
+        // );
 
-        // drops foreign key for table `style`
-        $this->dropForeignKey(
-            'fk-product_style_data-style_id',
-            'product_style_data'
-        );
+        // // drops foreign key for table `style`
+        // $this->dropForeignKey(
+        //     'fk-product_style_data-style_id',
+        //     'product_style_data'
+        // );
 
         $this->dropTable('{{%product_style_data}}');
     }

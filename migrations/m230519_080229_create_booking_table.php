@@ -19,7 +19,7 @@ class m230519_080229_create_booking_table extends Migration
             'from_date' => $this->dateTime(),
             'to_date' => $this->dateTime(),
             'total_amount' => $this->string(100),
-            'paid' => $this->decimal(),
+            'paid' => $this->decimal(10),
             'created_at' => $this->dateTime(),
             'created_by' => $this->text(),
             'updated_at' => $this->dateTime(),
@@ -27,25 +27,25 @@ class m230519_080229_create_booking_table extends Migration
             'status' => $this->tinyInteger(1),
         ]);
 
-        // add foreign key for table `product`
-        $this->addForeignKey(
-            'fk-booking-product_id',
-            'booking',
-            'product_id',
-            'product',
-            'id',
-            'CASCADE'
-        );
+        // // add foreign key for table `product`
+        // $this->addForeignKey(
+        //     'fk-booking-product_id',
+        //     'booking',
+        //     'product_id',
+        //     'product',
+        //     'id',
+        //     'CASCADE'
+        // );
 
-        // add foreign key for table `customer`
-        $this->addForeignKey(
-            'fk-booking-customer_id',
-            'booking',
-            'customer_id',
-            'customer',
-            'id',
-            'CASCADE'
-        );
+        // // add foreign key for table `customer`
+        // $this->addForeignKey(
+        //     'fk-booking-customer_id',
+        //     'booking',
+        //     'customer_id',
+        //     'customer',
+        //     'id',
+        //     'CASCADE'
+        // );
     }
 
     /**
@@ -53,17 +53,17 @@ class m230519_080229_create_booking_table extends Migration
      */
     public function safeDown()
     {
-        // drops foreign key for table `product`
-        $this->dropForeignKey(
-            'fk-booking-product_id',
-            'booking'
-        );
+        // // drops foreign key for table `product`
+        // $this->dropForeignKey(
+        //     'fk-booking-product_id',
+        //     'booking'
+        // );
 
-        // drops foreign key for table `customer`
-        $this->dropForeignKey(
-            'fk-booking-customer_id',
-            'booking'
-        );
+        // // drops foreign key for table `customer`
+        // $this->dropForeignKey(
+        //     'fk-booking-customer_id',
+        //     'booking'
+        // );
         $this->dropTable('{{%booking}}');
     }
 }

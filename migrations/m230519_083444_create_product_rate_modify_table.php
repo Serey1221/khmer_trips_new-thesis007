@@ -26,15 +26,15 @@ class m230519_083444_create_product_rate_modify_table extends Migration
 
         ]);
 
-        // add foreign key for table `product`
-        $this->addForeignKey(
-            'fk-product_rate_modify-product_id',
-            'product_rate_modify',
-            'product_id',
-            'product',
-            'id',
-            'CASCADE'
-        );
+        // // add foreign key for table `product`
+        // $this->addForeignKey(
+        //     'fk-product_rate_modify-product_id',
+        //     'product_rate_modify',
+        //     'product_id',
+        //     'product',
+        //     'id',
+        //     'CASCADE'
+        // );
     }
 
     /**
@@ -42,11 +42,11 @@ class m230519_083444_create_product_rate_modify_table extends Migration
      */
     public function safeDown()
     {
-        // drops foreign key for table `product`
-        $this->dropForeignKey(
-            'fk-product_rate_modify-product_id',
-            'product_rate_modify'
-        );
+        // // drops foreign key for table `product`
+        // $this->dropForeignKey(
+        //     'fk-product_rate_modify-product_id',
+        //     'product_rate_modify'
+        // );
 
         $this->dropTable('{{%product_rate_modify}}');
     }

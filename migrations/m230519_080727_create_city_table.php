@@ -26,15 +26,15 @@ class m230519_080727_create_city_table extends Migration
             'status' => $this->tinyInteger(1),
         ]);
 
-        // add foreign key for table `{{%country}}`
-        $this->addForeignKey(
-            '{{%fk-city-country_id}}',
-            '{{%city}}',
-            'country_id',
-            '{{%country}}',
-            'id',
-            'CASCADE'
-        );
+        // // add foreign key for table `{{%country}}`
+        // $this->addForeignKey(
+        //     '{{%fk-city-country_id}}',
+        //     '{{%city}}',
+        //     'country_id',
+        //     '{{%country}}',
+        //     'id',
+        //     'CASCADE'
+        // );
     }
 
     /**
@@ -42,11 +42,11 @@ class m230519_080727_create_city_table extends Migration
      */
     public function safeDown()
     {
-        // drops foreign key for table `{{%country}}`
-        $this->dropForeignKey(
-            '{{%fk-city-country_id}}',
-            '{{%city}}'
-        );
+        // // drops foreign key for table `{{%country}}`
+        // $this->dropForeignKey(
+        //     '{{%fk-city-country_id}}',
+        //     '{{%city}}'
+        // );
 
 
         $this->dropTable('{{%city}}');

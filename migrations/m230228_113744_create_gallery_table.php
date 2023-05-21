@@ -24,15 +24,15 @@ class m230228_113744_create_gallery_table extends Migration
             'description' => $this->string(255)
         ]);
 
-        // add foreign key for table `product`
-        $this->addForeignKey(
-            'fk-gallery-product_id',
-            'gallery',
-            'product_id',
-            'product',
-            'id',
-            'CASCADE'
-        );
+        // // add foreign key for table `product`
+        // $this->addForeignKey(
+        //     'fk-gallery-product_id',
+        //     'gallery',
+        //     'product_id',
+        //     'product',
+        //     'id',
+        //     'CASCADE'
+        // );
     }
 
     /**
@@ -40,11 +40,11 @@ class m230228_113744_create_gallery_table extends Migration
      */
     public function safeDown()
     {
-        // drops foreign key for table `product`
-        $this->dropForeignKey(
-            'fk-gallery-product_id',
-            'gallery'
-        );
+        // // drops foreign key for table `product`
+        // $this->dropForeignKey(
+        //     'fk-gallery-product_id',
+        //     'gallery'
+        // );
 
         $this->dropTable('{{%gallery}}');
     }
