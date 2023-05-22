@@ -1,24 +1,29 @@
 <?php
 
+use app\models\Article;
 use yii\bootstrap4\Breadcrumbs;
+use yii\bootstrap4\Html;
+use yii\helpers\Url;
 
 $this->title = 'Blog Detail';
 $this->params['breadcrumbs'][] = $this->title;
+
+$formater = Yii::$app->formater;
 ?>
 <?php // $this->render('booking'); 
 ?>
 <style>
     .page-title {
         background-color: #7ab730;
-        margin-top: 85px;
-        height: 60px;
+        margin-top: 45px;
+        height: 62px;
     }
 </style>
 <div class="page-title">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                <h4 class="text-justify py-3" style="color:white">Ta Prom Temple </h4>
+                <h4 class="text-justify py-3" style="color:white"><?= $model->title ?></h4>
             </div>
             <div class="col-lg-4">
                 <div class="text-justify py-2">
@@ -26,13 +31,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     echo Breadcrumbs::widget([
                         'class' => 'py-4',
                         'homeLink' => [
-                            'label' => Yii::t('yii', 'Home'),
-                            'url' => Yii::$app->homeUrl,
+                            'label' => Yii::t('yii', 'Back to Blog'),
+                            'url' => Yii::getAlias('@web/site/bloggrid'),
+
                         ],
                         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                     ]);
                     ?>
-                    <!-- <small class="text-color">Home</small> / <small>Page</small> -->
+
                 </div>
 
             </div>
@@ -49,63 +55,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="pb-3">
                     <div class="blog-item">
                         <div class="position-relative">
-                            <img class="img-fluid w-100" src="../app/img/blog-1.jpg" alt="">
-                            <!-- <div class="blog-date">
-                                <h6 class="font-weight-bold mb-n1">01</h6>
-                                <small class="text-white text-uppercase">Jan</small>
-                            </div> -->
+                            <img alt="<?= $model->title ?>" class="img-fluid w-100" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/img/not_found.png') ?>';" src="<?= $model->getUploadUrl('img_url') ?>" />
                         </div>
                     </div>
-                    <div class="bg-white mb-3" style="padding: 30px;">
-                        <div class="d-flex mb-3">
-                            <a class="text-primary text-uppercase text-decoration-none" href="">Admin</a>
-                            <span class="text-primary px-2">|</span>
-                            <a class="text-primary text-uppercase text-decoration-none" href="">Tours & Travel</a>
-                        </div>
-                        <h2 class="mb-3">Dolor justo sea kasd lorem clita justo diam amet</h2>
-                        <p>Sadipscing labore amet rebum est et justo gubergren. Et eirmod ipsum sit diam ut
-                            magna lorem. Nonumy vero labore lorem sanctus rebum et lorem magna kasd, stet
-                            amet magna accusam consetetur eirmod. Kasd accusam sit ipsum sadipscing et at at
-                            sanctus et. Ipsum sit gubergren dolores et, consetetur justo invidunt at et
-                            aliquyam ut et vero clita. Diam sea sea no sed dolores diam nonumy, gubergren
-                            sit stet no diam kasd vero.</p>
-                        <p>Voluptua est takimata stet invidunt sed rebum nonumy stet, clita aliquyam dolores
-                            vero stet consetetur elitr takimata rebum sanctus. Sit sed accusam stet sit
-                            nonumy kasd diam dolores, sanctus lorem kasd duo dolor dolor vero sit et. Labore
-                            ipsum duo sanctus amet eos et. Consetetur no sed et aliquyam ipsum justo et,
-                            clita lorem sit vero amet amet est dolor elitr, stet et no diam sit. Dolor erat
-                            justo dolore sit invidunt.</p>
-                        <h4 class="mb-3">Est dolor lorem et ea</h4>
-                        <img class="img-fluid w-50 float-left mr-4 mb-2" src="../app/img/blog-2.jpg">
-                        <p>Diam dolor est labore duo invidunt ipsum clita et, sed et lorem voluptua tempor
-                            invidunt at est sanctus sanctus. Clita dolores sit kasd diam takimata justo diam
-                            lorem sed. Magna amet sed rebum eos. Clita no magna no dolor erat diam tempor
-                            rebum consetetur, sanctus labore sed nonumy diam lorem amet eirmod. No at tempor
-                            sea diam kasd, takimata ea nonumy elitr sadipscing gubergren erat. Gubergren at
-                            lorem invidunt sadipscing rebum sit amet ut ut, voluptua diam dolores at
-                            sadipscing stet. Clita dolor amet dolor ipsum vero ea ea eos. Invidunt sed diam
-                            dolores takimata dolor dolore dolore sit. Sit ipsum erat amet lorem et, magna
-                            sea at sed et eos. Accusam eirmod kasd lorem clita sanctus ut consetetur et. Et
-                            duo tempor sea kasd clita ipsum et.</p>
-                        <h5 class="mb-3">Est dolor lorem et ea</h5>
-                        <img class="img-fluid w-50 float-right ml-4 mb-2" src="../app/img/blog-3.jpg">
-                        <p>Diam dolor est labore duo invidunt ipsum clita et, sed et lorem voluptua tempor
-                            invidunt at est sanctus sanctus. Clita dolores sit kasd diam takimata justo diam
-                            lorem sed. Magna amet sed rebum eos. Clita no magna no dolor erat diam tempor
-                            rebum consetetur, sanctus labore sed nonumy diam lorem amet eirmod. No at tempor
-                            sea diam kasd, takimata ea nonumy elitr sadipscing gubergren erat. Gubergren at
-                            lorem invidunt sadipscing rebum sit amet ut ut, voluptua diam dolores at
-                            sadipscing stet. Clita dolor amet dolor ipsum vero ea ea eos. Invidunt sed diam
-                            dolores takimata dolor dolore dolore sit. Sit ipsum erat amet lorem et, magna
-                            sea at sed et eos. Accusam eirmod kasd lorem clita sanctus ut consetetur et. Et
-                            duo tempor sea kasd clita ipsum et. Takimata kasd diam justo est eos erat
-                            aliquyam et ut.</p>
+                    <div class=" mb-3" style="padding: 30px;">
+                        <span class="text-primary">Written <?= Yii::$app->formater->date($model->created_date) ?></span>
+
+                        <h3 class="mb-3"><?= $model->short_description ?></h3>
+                        <p> <?= $model->description ?></p>
                     </div>
                 </div>
                 <!-- Blog Detail End -->
 
                 <!-- Comment Form Start -->
-                <div class="bg-white mb-3" style="padding: 30px;">
+                <!-- <div class="bg-white mb-3" style="padding: 30px;">
                     <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Leave a comment</h4>
                     <form>
                         <div class="form-group">
@@ -129,7 +92,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <input type="submit" value="Leave a comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
                         </div>
                     </form>
-                </div>
+                </div> -->
                 <!-- Comment Form End -->
             </div>
 
@@ -166,39 +129,33 @@ $this->params['breadcrumbs'][] = $this->title;
                 <!-- Recent Post -->
                 <div class="mb-5">
                     <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Recent Post</h4>
-                    <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/photo-12.png" style="max-width:40%;" alt="">
-                        <div class="pl-3">
-                            <h6 class="ml-1">Knorng Psar is an area rich in dense forests</h6>
-                            <small class="">Jan 01, 2023</small>
-                        </div>
-                    </a>
-                    <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/photo-15.png" style="max-width:40%;" alt="">
-                        <div class="pl-3">
-                            <h6 class="ml-1">Angkor Wat is a huge Buddhist temple</h6>
-                            <small>Jan 01, 2023</small>
-                        </div>
-                    </a>
-                    <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/photo-16.png" style="max-width:40%;" alt="">
-                        <div class="pl-3">
-                            <h6 class="m-1">Busra Waterfall, a tourist attraction</h6>
-                            <small>Jan 01, 2023</small>
-                        </div>
-                    </a>
+                    <?php if (!empty($threeblog)) {
+                        foreach ($threeblog as $key => $value) {
+                            $url = Url::toRoute(['site/detail', 'slug' => $value->slug]); ?>
+                            <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="<?= $url ?>">
+                                <img class="img-fluid w-100" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="" style="max-width:40%;">
+                                <div class="pl-3">
+                                    <h6 class="ml-0"><?= $value['title'] ?></h6>
+                                    <small class="">Written <?= $formater->date($value->created_date) ?></small>
+                                </div>
+                            </a>
+                    <?php
+                        }
+                    } ?>
                 </div>
 
                 <!-- Tag Cloud -->
                 <div class="mb-5">
                     <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Tag Cloud</h4>
                     <div class="d-flex flex-wrap m-n1">
-                        <a href="" class="btn btn-light m-1">Design</a>
-                        <a href="" class="btn btn-light m-1">Development</a>
-                        <a href="" class="btn btn-light m-1">Marketing</a>
-                        <a href="" class="btn btn-light m-1">SEO</a>
-                        <a href="" class="btn btn-light m-1">Writing</a>
-                        <a href="" class="btn btn-light m-1">Consulting</a>
+                        <?php
+                        $suggesstion = Article::find()->orderBy(['created_date' => SORT_DESC])->all();
+                        if (!empty($suggesstion)) {
+                            foreach ($suggesstion as $key => $value) :
+                                echo Html::button($value->title, ['data-value' => $value->title, 'class' => 'btnSuggestionSearch btn btn-light border-primary m-1']);
+                            endforeach;
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

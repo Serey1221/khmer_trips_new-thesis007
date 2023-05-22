@@ -14,6 +14,7 @@ use app\models\City;
 use app\models\Gallery;
 use app\models\GuideProfile;
 use yii\db\Expression;
+use yii\web\NotFoundHttpException;
 
 class SiteController extends Controller
 {
@@ -92,7 +93,14 @@ class SiteController extends Controller
             ->limit(3)
             ->all();
     }
-
+    protected function findModelBySlug($slug)
+    {
+        if (($model = Article::findOne(['slug' => $slug])) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException();
+        }
+    }
     /**
      * Displays homepage.
      *
@@ -214,11 +222,18 @@ class SiteController extends Controller
             'threeblog' => $threeblog,
         ]);
     }
-    public function actionDetail()
+    public function actionDetail($slug = '')
     {
-        // $this->layout = 'package';
 
-        return $this->render('detail');
+        // $this->layout = 'package';
+        // $model = Article::findOne(['slug' => $slug]);
+        $threeblog = $this->threeblogData();
+
+
+        return $this->render('detail', [
+            'threeblog' => $threeblog,
+            'model' => $this->findModelBySlug($slug),
+        ]);
     }
     public function actionDestination()
     {

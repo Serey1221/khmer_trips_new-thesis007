@@ -66,7 +66,7 @@ $this->title = 'Guide Profile';
             'template' => '{update} {delete}',
             'buttons' => [
               // 'view' => function ($url, $model) {
-              //   return Html::a('<i class="far fa-eye"></i>', Yii::getAlias("@web/destination.html"), ['class' => 'btn btn-sm btn-icon btn-secondary', 'target' => '_blank']);
+              //   return Html::a('<i class="far fa-eye"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-primary', 'data-pjax' => 0]);
               // },
               'update' => function ($url, $model) {
                 return Html::a('<i class="fas fa-pen"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-info', 'data-pjax' => 0]);

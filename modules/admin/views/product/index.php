@@ -97,7 +97,7 @@ $this->params['pageTitle'] = $this->title;
                         'template' => '{view} {update} {delete}',
                         'buttons' => [
                             'view' => function ($url, $model) {
-                                return Html::a('<i class="fas fa-eye"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-warning ', 'data-pjax' => 0]);
+                                return Html::a('<i class="fas fa-eye"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-primary ', 'data-pjax' => 0]);
                             },
                             'update' => function ($url, $model) {
                                 return Html::a('<i class="fas fa-pen"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-info ', 'data-pjax' => 0]);

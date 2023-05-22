@@ -43,8 +43,6 @@ EditorAsset::register($this);
         </div>
         <div class="col-lg-3">
             <?= $form->field($model, 'slug')->textInput()->label('URL Slug <abbr title="Required">*</abbr>') ?>
-            <?php // $form->field($model, 'category_id')->dropDownList($category, ['data-toggle' => 'selectpicker', 'data-width' => "100%", 'data-size' => 5])->label('Category <abbr title="Required">*</abbr>') 
-            ?>
 
             <p class="font-weight-bold">Banner Image</p>
             <div class="form-upload-image">
@@ -67,23 +65,10 @@ EditorAsset::register($this);
                     </div>
                 </div>
             </div>
-            <?php // Html::submitButton('Save', ['class' => 'btn btn-block btn-primary']) 
-            ?>
+
             <input type="hidden" name="submit_type" value="save">
             <div class="btn-group btn-block" role="group" aria-label="Button group with nested dropdown">
                 <button type="submut" class="btn btn-primary"><i class="far fa-save mr-1"></i> Save</button>
-                <!-- <div class="btn-group" role="group">
-                    <button id="btnGroupDrop4" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                    <div class="dropdown-menu" aria-labelledby="btnGroupDrop4">
-                        <div class="dropdown-arrow"></div>
-                        <a class="dropdown-item submit-button" data-type="save_add_new" href="#">Save and Create New</a>
-                        <a class="dropdown-item submit-button" data-type="save_close" href="#">Save and Close</a>
-                        <?php if (!$model->isNewRecord) { ?>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item submit-button" data-type="save_duplicate" href="#">Duplicate</a>
-                        <?php } ?>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
