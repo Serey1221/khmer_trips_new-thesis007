@@ -36,14 +36,10 @@ class Article extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['admin']],
             [['description'], 'string'],
-            [['category_id', 'status', 'created_by', 'updated_by'], 'integer'],
-            [['created_date', 'updated_date'], 'safe'],
-            [['slug', 'title', 'short_description', 'meta_description', 'meta_keyword'], 'string', 'max' => 255],
-            [['slug', 'title', 'short_description'], 'required', 'on' => ['admin']],
-            [['slug'], 'unique'],
-            [['slug'], 'match', 'pattern' => '/^[A-Za-z0-9 -_.]+$/', 'message' => 'Invalid characters'],
+            [['status', 'created_by'], 'integer'],
+            [['created_date', 'updated_by'], 'safe'],
+            [['img_url', 'slug', 'title', 'short_description'], 'string', 'max' => 255],
         ];
     }
 
@@ -73,7 +69,6 @@ class Article extends \yii\db\ActiveRecord
             'title' => 'Title',
             'short_description' => 'Short Description',
             'description' => 'Description',
-            'category_id' => 'Category ID',
             'status' => 'Status',
             'created_by' => 'Created By',
             'created_date' => 'Created Date',

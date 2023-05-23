@@ -6,28 +6,32 @@
             <h1>Pefect Tour Packages</h1>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="package-item bg-white mb-2">
-                    <img class="img-fluid" src="../app/img/photo-7.png" alt="">
-                    <div class="p-4">
-                        <div class="d-flex justify-content-between mb-3">
-                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Angkor Thom</small>
-                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>2 days</small>
-                            <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>5 Person</small>
-                        </div>
-                        <a class="h5 text-decoration-none" href="<?= Yii::getAlias('@web/site/booking-detail') ?>">Angkor Thom</a>
-                        <p class="overflow-hidden" style="text-overflow: ellipsis;">The Bayon was the last state temple to be built at Angkor and the only Angkorian </p>
-                        <div class="border-top mt-4 pt-4">
-                            <div class="d-flex justify-content-between">
-                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
-                                <h5 class="m-0">$235</h5>
-                                <!-- <a href="<?= Yii::getAlias('@web/site/booking-detail') ?>" class="btn btn-primary m-0">Book Now</a> -->
+            <?php if (!empty($product)) {
+                foreach ($product as $key => $value) { ?>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="package-item bg-white mb-2">
+                            <img class="img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Angkor Thom</small>
+                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>2 days</small>
+                                    <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>5 Person</small>
+                                </div>
+                                <a class="h5 text-decoration-none" href="<?= Yii::getAlias('@web/site/booking-detail') ?>"><?= $value['name'] ?></a>
+                                <!-- <p class="overflow-hidden" style="text-overflow: ellipsis;">The Bayon was the last state temple to be built at Angkor and the only Angkorian </p> -->
+                                <div class="border-top mt-4 pt-4">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                        <h5 class="m-0">$235</h5>
+                                        <!-- <a href="<?= Yii::getAlias('@web/site/booking-detail') ?>" class="btn btn-primary m-0">Book Now</a> -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
+            <?php }
+            } ?>
+            <!-- <div class="col-lg-4 col-md-6 mb-4">
                 <div class="package-item bg-white mb-2">
                     <img class="img-fluid" src="../app/img/photo-8.png" alt="">
                     <div class="p-4">
@@ -126,7 +130,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

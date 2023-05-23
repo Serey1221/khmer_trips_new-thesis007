@@ -20,7 +20,7 @@ class ProductSearch extends Product
         return [
             [['id', 'tourday', 'tournight', 'tourhour', 'tourmin', 'status', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
             [['name', 'namekh', 'overview', 'overviewkh', 'highlight', 'highlight_kh', 'pick_up', 'pick_up_kh', 'drop_off', 'drop_off_kh', 'price_include_kh', 'price_exclude_kh', 'price_include', 'price_exclude', 'created_at', 'updated_at', 'deleted_at'], 'safe'],
-            [['rate'], 'number'],
+            [['rating'], 'number'],
             [['globalSearch', 'from_date', 'to_date'], 'safe']
         ];
     }
@@ -74,7 +74,7 @@ class ProductSearch extends Product
             'updated_by' => $this->updated_by,
             'deleted_at' => $this->deleted_at,
             'deleted_by' => $this->deleted_by,
-            'rate' => $this->rate,
+            'rating' => $this->rating,
         ]);
 
         $query->andFilterWhere(['between', 'DATE(created_at)', $this->from_date, $this->to_date])

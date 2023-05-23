@@ -1,31 +1,41 @@
 <?php
 
+use app\models\Article;
+use yii\widgets\ActiveForm;
+use yii\bootstrap4\Html;
+use yii\helpers\Url;
+use yii\widgets\Pjax;
+
 $this->title = 'Blog';
 $formater = Yii::$app->formater;
 ?>
 <?= $this->render('_section_search') ?>
 <!-- Blog Start -->
+<?php Pjax::begin(['id' => 'articleSearchPjax']); ?>
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="row">
             <div class="col-lg-8">
                 <div class="row pb-3">
                     <?php if (!empty($blog)) {
-                        foreach ($blog as $key => $value) { ?>
+                        foreach ($blog as $key => $value) {
+                            $url = Url::toRoute(['site/detail', 'slug' => $value->slug]); ?>
                             <div class="col-md-6 mb-4 pb-2">
                                 <div class="blog-item">
                                     <div class="position-relative">
-                                        <img class="img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
+                                        <img class="img-fluid w-100" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
+                                        <div class="h_container" style="position: absolute;top: 8px;right: 10px;">
+                                            <i id="heart" class="far fa-heart"></i>
+                                        </div>
                                         <div class="blog-date">
-                                            <!-- <h6 class="font-weight-bold mb-n1">01</h6> -->
                                             <small class="font-weight-bold text-white text-uppercase ml-2"><?= $formater->date($value->created_date) ?></small>
                                         </div>
                                     </div>
                                     <div class="bg-white p-4">
                                         <div class="d-flex mb-2">
-                                            <a class="text-primary text-uppercase text-decoration-none" href=""><?= $value['title'] ?></a>
+                                            <a class="text-primary text-uppercase text-decoration-none" href="<?= $url ?>"><?= $value['title'] ?></a>
                                         </div>
-                                        <a class="h5 m-0 text-decoration-none" href="<?= Yii::getAlias('@web/site/detail') ?>"><?= $value->short_description ?></a>
+                                        <a class="h5 m-0 text-decoration-none" href="<?= $url ?>"><?= $value->short_description ?></a>
                                     </div>
                                 </div>
                             </div>
@@ -57,6 +67,11 @@ $formater = Yii::$app->formater;
             </div>
 
             <div class="col-lg-4 mt-5 mt-lg-0">
+                <?php $form = ActiveForm::begin([
+                    'action' => ['index'],
+                    'options' => ['data-pjax' => true, 'id' => 'formArticleSearch'],
+                    'method' => 'get',
+                ]); ?>
                 <!-- Search Form -->
                 <div class="mb-5">
                     <div class="bg-white" style="padding: 30px;">
@@ -103,11 +118,11 @@ $formater = Yii::$app->formater;
                     <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Recent Post</h4>
                     <?php if (!empty($threeblog)) {
                         foreach ($threeblog as $key => $value) { ?>
-                            <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                                <img class="img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="" style="max-width:40%;">
+                            <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="<?= $url ?>">
+                                <img class="img-fluid w-100" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="" style="max-width:40%;">
                                 <div class="pl-3">
                                     <h6 class="ml-1"><?= $value['title'] ?></h6>
-                                    <small class=""><?= $formater->date($value->created_date) ?></small>
+                                    <small class="">Written <?= $formater->date($value->created_date) ?></small>
                                 </div>
                             </a>
                     <?php
@@ -119,16 +134,29 @@ $formater = Yii::$app->formater;
                 <div class="mb-5">
                     <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Tag Cloud</h4>
                     <div class="d-flex flex-wrap m-n1">
-                        <a href="" class="btn btn-light m-1">Camping</a>
-                        <a href="" class="btn btn-light m-1">Calture</a>
-                        <a href="" class="btn btn-light m-1">Adventure</a>
-                        <a href="" class="btn btn-light m-1">Mountain</a>
-                        <a href="" class="btn btn-light m-1">Nature</a>
-                        <a href="" class="btn btn-light m-1">Food</a>
+                        <?php
+                        $suggesstion = Article::find()->orderBy(['created_date' => SORT_DESC])->all();
+                        if (!empty($suggesstion)) {
+                            foreach ($suggesstion as $key => $value) :
+                                echo Html::button($value->title, ['data-value' => $value->title, 'class' => 'btnSuggestionSearch btn btn-light border-primary m-1']);
+                            endforeach;
+                        }
+                        ?>
                     </div>
                 </div>
+                <?php ActiveForm::end(); ?>
             </div>
         </div>
     </div>
 </div>
+<?php Pjax::end(); ?>
 <!-- Blog End -->
+<?php
+$base_url = Yii::getAlias("@web");
+$script = <<<JS
+
+
+JS;
+$this->registerJs($script);
+?>
+?>

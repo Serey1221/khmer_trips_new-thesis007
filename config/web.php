@@ -76,7 +76,13 @@ $config = [
             'baseUrl' => $baseUrl,
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [],
+            'rules' => [
+                [
+                    'pattern' => 'articles/<slug:[^/.]*>',
+                    'route' => 'site/detail',
+                    'suffix' => '',
+                ],
+            ],
         ],
     ],
     'params' => $params,

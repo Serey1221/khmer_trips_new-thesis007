@@ -75,11 +75,11 @@ $this->params['pageTitle'][] = $this->title;
                         'header' => Yii::t('app', 'Actions'),
                         'headerOptions' => ['class' => 'text-center'],
                         'contentOptions' => ['class' => 'text-center'],
-                        'template' => '{update} {delete}',
+                        'template' => '{view} {update} {delete}',
                         'buttons' => [
-                            // 'view' => function ($url, $model) {
-                            //     return Html::a('<i class="far fa-eye"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-primary', 'data-pjax' => 0]);
-                            // },
+                            'view' => function ($url, $model) {
+                                return Html::a('<i class="far fa-eye"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-primary', 'data-pjax' => 0]);
+                            },
                             'update' => function ($url, $model) {
                                 return Html::a('<i class="fas fa-pen"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-info ', 'data-pjax' => 0]);
                             },

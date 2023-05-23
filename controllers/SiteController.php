@@ -13,7 +13,9 @@ use app\models\ContactForm;
 use app\models\City;
 use app\models\Gallery;
 use app\models\GuideProfile;
+use app\models\Product;
 use yii\db\Expression;
+use yii\web\NotFoundHttpException;
 
 class SiteController extends Controller
 {
@@ -59,7 +61,29 @@ class SiteController extends Controller
             ],
         ];
     }
-
+    public function newproductData()
+    {
+        return Product::find()
+            ->where(['status' => 1])
+            ->orderBy(['created_at' => SORT_DESC])
+            ->one();
+    }
+    public function threeproductData()
+    {
+        return Product::find()
+            ->where(['status' => 1])
+            ->orderBy(['created_at' => SORT_DESC])
+            ->limit(3)
+            ->all();
+    }
+    public function productData()
+    {
+        return Product::find()
+            ->where(['status' => 1])
+            ->orderBy(new Expression('rand()'))
+            ->limit(6)
+            ->all();
+    }
     public function cityData()
     {
         return City::find()
@@ -92,7 +116,14 @@ class SiteController extends Controller
             ->limit(3)
             ->all();
     }
-
+    protected function findModelBySlug($slug)
+    {
+        if (($model = Article::findOne(['slug' => $slug])) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException();
+        }
+    }
     /**
      * Displays homepage.
      *
@@ -100,26 +131,23 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        // $data = $this->queryData();
-        $numberCity = City::find()
-            ->indexBy('id')
-            ->all();
 
         $city = $this->cityData();
         $guide = $this->guideData();
         $blog = $this->blogData();
         $threeblog = $this->threeblogData();
+        $product = $this->productData();
 
         // echo '<pre>';
         // print_r($numberCity);
         // echo '</pre>';
 
         return $this->render('index', [
-            'numberCity' => $numberCity,
             'city' => $city,
             'guide' => $guide,
             'blog' => $blog,
-            'threeblog' => $threeblog
+            'threeblog' => $threeblog,
+            'product' => $product,
 
         ]);
     }
@@ -198,9 +226,16 @@ class SiteController extends Controller
     public function actionPackage()
     {
         $this->layout = 'package';
-        $city = $this->cityData();
 
-        return $this->render('package', ['city' => $city]);
+        $city = $this->cityData();
+        $product = $this->productData();
+        $newproduct = $this->newproductData();
+
+        return $this->render('package', [
+            'city' => $city,
+            'product' => $product,
+            'newproduct' => $newproduct,
+        ]);
     }
     public function actionBloggrid()
     {
@@ -214,11 +249,18 @@ class SiteController extends Controller
             'threeblog' => $threeblog,
         ]);
     }
-    public function actionDetail()
+    public function actionDetail($slug = '')
     {
-        // $this->layout = 'package';
 
-        return $this->render('detail');
+        // $this->layout = 'package';
+        // $model = Article::findOne(['slug' => $slug]);
+        $threeblog = $this->threeblogData();
+
+
+        return $this->render('detail', [
+            'threeblog' => $threeblog,
+            'model' => $this->findModelBySlug($slug),
+        ]);
     }
     public function actionDestination()
     {
@@ -252,7 +294,11 @@ class SiteController extends Controller
     public function actionBookingDetail()
     {
 
-        return $this->render('booking-detail');
+        $threeproduct = $this->threeproductData();
+
+        return $this->render('booking-detail', [
+            'threeproduct' => $threeproduct,
+        ]);
     }
     public function actionAddCart()
     {

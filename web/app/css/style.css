@@ -4865,7 +4865,7 @@ input[type="button"].btn-block {
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
   list-style: none;
-  background-color: #e9ecef;
+  background-color: #ffffff;
 }
 
 .breadcrumb-item {
@@ -4879,7 +4879,7 @@ input[type="button"].btn-block {
 .breadcrumb-item + .breadcrumb-item::before {
   display: inline-block;
   padding-right: 0.5rem;
-  color: #6c757d;
+  color: #212121;
   content: "/";
 }
 
@@ -4892,7 +4892,7 @@ input[type="button"].btn-block {
 }
 
 .breadcrumb-item.active {
-  color: #6c757d;
+  color: #212121;
 }
 
 .pagination {
@@ -10181,4 +10181,24 @@ h6,
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+/* Add icon heart*/
+.h_container {
+  background-color: #ffff;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  line-height: 45px;
+}
+
+#heart {
+  font-size: 25px;
+  color: #7ab730;
+}
+
+#heart:hover {
+  color: red;
 }

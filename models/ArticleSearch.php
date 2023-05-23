@@ -1,26 +1,26 @@
 <?php
 
-namespace app\modules\admin\models;
+namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\admin\models\Article;
+use app\models\Article;
 
 /**
- * ArticleSearch represents the model behind the search form of `app\modules\admin\models\Article`.
+ * ArticleSearch represents the model behind the search form of `app\models\Article`.
  */
 class ArticleSearch extends Article
 {
     /**
      * {@inheritdoc}
      */
-    public $globalSearch, $from_date, $to_date;
+    public $article;
     public function rules()
     {
         return [
             [['id', 'status', 'created_by', 'updated_by'], 'integer'],
-            [['img_url', 'slug', 'title', 'short_description', 'description', 'created_date', 'updated_date'], 'safe'],
-            [['globalSearch', 'from_date', 'to_date'], 'safe']
+            [['img_url', 'slug', 'title', 'like_user', 'unlike_user', 'short_description', 'description', 'viewer', 'created_date', 'updated_date'], 'safe'],
+            [['article'], 'safe'],
         ];
     }
 
@@ -48,7 +48,6 @@ class ArticleSearch extends Article
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort' => ['defaultOrder' => ['created_date' => SORT_DESC]]
         ]);
 
         $this->load($params);
@@ -58,12 +57,10 @@ class ArticleSearch extends Article
             // $query->where('0=1');
             return $dataProvider;
         }
-        $query->andFilterWhere(['between', 'DATE(created_date)', $this->from_date, $this->to_date])
-            ->andFilterWhere([
-                'OR',
-                ['like', 'title', $this->globalSearch],
-                ['like', 'slug', $this->globalSearch],
-            ]);
+
+        $query
+            ->andFilterWhere(['like', 'slug', $this->slug])
+            ->andFilterWhere(['like', 'title', $this->title]);
 
         return $dataProvider;
     }

@@ -19,7 +19,7 @@ class CitySearch extends City
     {
         return [
             [['id', 'status', 'country_id'], 'integer'],
-            [['name', 'name_kh', 'description'], 'safe'],
+            [['img_url', 'name', 'name_kh', 'description', 'created_at', 'updated_at'], 'safe'],
             [['globalSearch', 'from_date', 'to_date'], 'safe']
         ];
     }
@@ -48,6 +48,7 @@ class CitySearch extends City
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            //'sort' => ['defaultOrder' => ['created_at' => SORT_DESC]]
         ]);
 
         $this->load($params);
@@ -65,9 +66,13 @@ class CitySearch extends City
             'country_id' => $this->country_id,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->globalSearch], ['like', 'name_kh', $this->globalSearch], ['like', 'description', $this->globalSearch]);
-        // ->andFilterWhere(['like', 'name_kh', $this->name_kh])
-        // ->andFilterWhere(['like', 'description', $this->description]);
+        $query->andFilterWhere(['between', 'DATE(created_at)', $this->from_date, $this->to_date])
+            ->andFilterWhere(
+                ['like', 'name', $this->globalSearch],
+                ['like', 'name_kh', $this->globalSearch],
+                ['like', 'description', $this->globalSearch]
+            );
+
 
         return $dataProvider;
     }

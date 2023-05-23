@@ -142,7 +142,7 @@ $this->title = 'Khmer Travel';
 <?= $this->render('_sub_service'); ?>
 
 
-<?= $this->render('_sub_package'); ?>
+<?= $this->render('_sub_package', ['product' => $product]); ?>
 
 <?= $this->render('registration'); ?>
 
