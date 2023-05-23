@@ -45,6 +45,9 @@ $config = [
         'formater' => [
             'class' => 'app\components\Formater',
         ],
+        'rate' => [
+            'class' => 'app\components\Rate',
+        ],
         'user' => [
             'identityClass' => 'app\modules\admin\models\User',
             'enableAutoLogin' => true,

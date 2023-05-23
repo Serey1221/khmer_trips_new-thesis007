@@ -33,6 +33,8 @@ class ProductRateModify extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+    const FIXED_AMOUNT = 1, PERCENTAGE = 2;
     public function rules()
     {
         return [
