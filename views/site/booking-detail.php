@@ -166,7 +166,9 @@ $formater = Yii::$app->formater;
 
                 <div class="bg-white" style="padding: 30px;">
                     <h6>Need Assist from Khmer Travel?</h6>
-
+                    <p>យើងរីករាយនឹងផ្តល់ប្រឹក្សា(24/7) ដល់អ្នកដើម្បីបំពេញតម្រូវការដំណើរកំសាន្តរបស់អ្នក។ khmertravel នឹងជូនអ្នកនៅកន្លែងដែលអ្នកប្រាថ្នា</p>
+                    <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
+                    <p><i class="fa fa-envelope mr-2"></i>khmertravel@gmail.com</p>
                 </div>
 
                 <div class="bg-white mt-4" style="padding: 30px;">
