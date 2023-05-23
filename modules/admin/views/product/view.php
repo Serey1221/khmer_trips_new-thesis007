@@ -44,6 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             // 'updated_by',
                             // 'deleted_at',
                             // 'deleted_by',
+                            'rating',
                             'rate',
                         ],
                     ]) ?>

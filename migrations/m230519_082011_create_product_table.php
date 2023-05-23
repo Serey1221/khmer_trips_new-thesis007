@@ -40,6 +40,7 @@ class m230519_082011_create_product_table extends Migration
             'deleted_at' => $this->dateTime(),
             'deleted_by' => $this->integer(),
             'rate' => $this->decimal(),
+            'rating' => $this->decimal(),
             'type' => $this->string(20),
             'status' => $this->tinyInteger(1),
 

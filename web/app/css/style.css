@@ -10182,3 +10182,23 @@ h6,
   padding: 0;
   list-style-type: none;
 }
+/* Add icon heart*/
+.h_container {
+  background-color: #ffff;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  line-height: 45px;
+}
+
+#heart {
+  font-size: 25px;
+  color: #7ab730;
+}
+
+#heart:hover {
+  color: red;
+}

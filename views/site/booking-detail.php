@@ -6,14 +6,16 @@ use app\assets\DatePickerAsset;
 DatePickerAsset::register($this);
 $this->title = 'Booking Detail';
 $this->params['breadcrumbs'][] = $this->title;
+
+$formater = Yii::$app->formater;
 ?>
 <?php // $this->render('booking'); 
 ?>
 <style>
     .page-title {
         background-color: #7ab730;
-        margin-top: 85px;
-        height: 60px;
+        margin-top: 45px;
+        height: 62px;
     }
 </style>
 <div class="page-title">
@@ -28,13 +30,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     echo Breadcrumbs::widget([
                         'class' => 'py-4',
                         'homeLink' => [
-                            'label' => Yii::t('yii', 'Home'),
-                            'url' => Yii::$app->homeUrl,
+                            'label' => Yii::t('yii', 'Back to package'),
+                            'url' => Yii::getAlias('@web/site/package'),
                         ],
                         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                     ]);
                     ?>
-                    <!-- <small class="text-color">Home</small> / <small>Page</small> -->
                 </div>
 
             </div>
@@ -114,7 +115,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="row mt-4">
                             <div class="col-md-8"></div>
                             <div class="col-md-4">
-                                <a href="#" class="btn btn-warning btn-block"> Check availability</a>
+                                <a href="#" class="btn btn-warning btn-block">Check availability</a>
                             </div>
                         </div>
                     </div>
@@ -124,28 +125,23 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="col-lg-4 mt-5 mt-lg-0">
                 <!-- Category List -->
                 <div class="mb-5">
-                    <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Categories</h4>
+                    <h4 class="text-uppercase mb-4" style="letter-spacing: 2px;">Why book with us?</h4>
                     <div class="bg-white" style="padding: 30px;">
                         <ul class="list-inline m-0">
                             <li class="mb-3 d-flex justify-content-between align-items-center">
-                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Camping Trip</a>
-                                <span class="badge badge-primary badge-pill">150</span>
+                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>រៀបចំដំណើរកំសាន្តដោយសម្រិតសម្រាង</a>
                             </li>
                             <li class="mb-3 d-flex justify-content-between align-items-center">
-                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Solo Travel</a>
-                                <span class="badge badge-primary badge-pill">131</span>
+                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>ធានាលើតម្លៃ និង គុណភាពសេវាកម្ម</a>
                             </li>
                             <li class="mb-3 d-flex justify-content-between align-items-center">
-                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Calture</a>
-                                <span class="badge badge-primary badge-pill">78</span>
+                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>ការបង់ប្រាក់ប្រកបដោយសុវត្ថិភាព</a>
                             </li>
                             <li class="mb-3 d-flex justify-content-between align-items-center">
-                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Adventure</a>
-                                <span class="badge badge-primary badge-pill">56</span>
+                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>បុគ្គលិកប្រកបដោយបទពិសោធន៍ខ្ពស់</a>
                             </li>
                             <li class="d-flex justify-content-between align-items-center">
-                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Group Travel</a>
-                                <span class="badge badge-primary badge-pill">98</span>
+                                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>កក់បានភ្លាមៗ ២៤/៧</a>
                             </li>
                         </ul>
                     </div>
@@ -153,82 +149,142 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <!-- Recent Post -->
                 <div class="mb-5">
-                    <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Recent Post</h4>
-                    <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/photo-12.png" style="max-width:40%;" alt="">
-                        <div class="pl-3">
-                            <h6 class="ml-1">Knorng Psar is an area rich in dense forests</h6>
-                            <small class="">Jan 01, 2023</small>
-                        </div>
-                    </a>
-                    <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/photo-15.png" style="max-width:40%;" alt="">
-                        <div class="pl-3">
-                            <h6 class="ml-1">Angkor Wat is a huge Buddhist temple</h6>
-                            <small>Jan 01, 2023</small>
-                        </div>
-                    </a>
-                    <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
-                        <img class="img-fluid" src="../app/img/photo-16.png" style="max-width:40%;" alt="">
-                        <div class="pl-3">
-                            <h6 class="m-1">Busra Waterfall, a tourist attraction</h6>
-                            <small>Jan 01, 2023</small>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Tag Cloud -->
-                <div class="mb-5">
-                    <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Tag Cloud</h4>
-                    <div class="d-flex flex-wrap m-n1">
-                        <a href="" class="btn btn-light m-1">Camping</a>
-                        <a href="" class="btn btn-light m-1">Calture</a>
-                        <a href="" class="btn btn-light m-1">Adventure</a>
-                        <a href="" class="btn btn-light m-1">Mountain</a>
-                        <a href="" class="btn btn-light m-1">Nature</a>
-                        <a href="" class="btn btn-light m-1">Food</a>
-                    </div>
+                    <h4 class="text-uppercase mb-4" style="letter-spacing: 3px;">Recent Post</h4>
+                    <?php if (!empty($threeproduct)) {
+                        foreach ($threeproduct as $key => $value) { ?>
+                            <a class="d-flex align-items-center text-decoration-none bg-white mb-3" href="">
+                                <img class="img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="" style="max-width:40%;">
+                                <div class="pl-3">
+                                    <h6 class="ml-1"><?= $value['name'] ?></h6>
+                                    <small class=""><?= $formater->date($value->created_at) ?></small>
+                                </div>
+                            </a>
+                    <?php
+                        }
+                    } ?>
                 </div>
 
                 <div class="bg-white" style="padding: 30px;">
+                    <h6>Need Assist from Khmer Travel?</h6>
+
+                </div>
+
+                <div class="bg-white mt-4" style="padding: 30px;">
+                    <div class="mb-2">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <h5>Total Price</h5>
+                            </div>
+                            <div class="col-sm-4">
+                                <h5>$300</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
                     <div class="mb-2">
                         <a href="#checkavaibility" class="btn btn-primary btn-lg btn-block m-0"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                     </div>
                     <div class="mb-2">
-                        <a href="<?= Yii::getAlias('@web/site/checkout') ?>" class="btn btn-warning btn-lg btn-block m-0"></i> Book Now</a>
+                        <a href="#checkavaibility" class="btn btn-warning btn-lg btn-block m-0"></i> Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- The Original experience-->
+        <div class="row mt-5 mb-4">
+            <div class="col-lg-8">
+                <h3>The Original experience</h3>
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <h5>Highlights</h5>
+                    </div>
+                    <div class="col-md-8">
+                        <p>Join a professional art historian for an exclusive tour of MoMA's galleries
+                            Access the galleries via a private entrance and explore MoMA free of crowds
+                            See a variety renowned works including those by Monet, Van Gogh, and Picasso
+                            Discover contemporary pieces by Elizabeth Murray, Cindy Sherman, and Andy Warhol
+                            Benefit from additional access to the MoMA PS1 contemporary art center</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <h5>Overview</h5>
+                    </div>
+                    <div class="col-md-8">
+                        <p>Join a professional art historian for an exclusive tour of MoMA's galleries
+                            Access the galleries via a private entrance and explore MoMA free of crowds
+                            See a variety renowned works including those by Monet, Van Gogh, and Picasso
+                            Discover contemporary pieces by Elizabeth Murray, Cindy Sherman, and Andy Warhol
+                            Benefit from additional access to the MoMA PS1 contemporary art center</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <h5>Includes</h5>
+                    </div>
+                    <div class="col-md-8">
+                        <p>Join a professional art historian for an exclusive tour of MoMA's galleries
+                            Access the galleries via a private entrance and explore MoMA free of crowds
+                            See a variety renowned works including those by Monet, Van Gogh, and Picasso
+                            Discover contemporary pieces by Elizabeth Murray, Cindy Sherman, and Andy Warhol
+                            Benefit from additional access to the MoMA PS1 contemporary art center</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <h5>Excludes</h5>
+                    </div>
+                    <div class="col-md-8">
+                        <p>Join a professional art historian for an exclusive tour of MoMA's galleries
+                            Access the galleries via a private entrance and explore MoMA free of crowds
+                            See a variety renowned works including those by Monet, Van Gogh, and Picasso
+                            Discover contemporary pieces by Elizabeth Murray, Cindy Sherman, and Andy Warhol
+                            Benefit from additional access to the MoMA PS1 contemporary art center</p>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- You might also like-->
         <div class="row mt-4">
             <div class="col-lg-12">
-                <h2>You might also like...</h2>
+                <h4>You might also like...</h4>
 
             </div>
         </div>
+
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="package-item bg-white mb-2">
-                    <img class="img-fluid" src="../app/img/photo-8.png" alt="">
-                    <div class="p-4">
-                        <div class="d-flex justify-content-between mb-3">
-                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Koh Ker</small>
-                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
-                            <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
-                        </div>
-                        <a class="h5 text-decoration-none" href="<?= Yii::getAlias('@web/site/booking-detail') ?>">Koh Ker</a>
-                        <p>Koh Ker is a 10th-century temple complex in the north Cambodian jungle.</p>
-                        <div class="border-top mt-4 pt-4">
-                            <div class="d-flex justify-content-between">
-                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
-                                <h5 class="m-0">$350</h5>
+            <?php if (!empty($threeproduct)) {
+                foreach ($threeproduct as $key => $value) { ?>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="package-item bg-white mb-2">
+                            <img class="img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
+                            <div class="h_container" style="position: absolute;top: 8px;right: 24px;">
+                                <i id="heart" class="far fa-heart"></i>
+                            </div>
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Koh Ker</small>
+                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
+                                    <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
+                                </div>
+                                <a class="h5 text-decoration-none" href="<?= Yii::getAlias('@web/site/booking-detail') ?>"><?= $value['name'] ?></a>
+                                <div class="border-top mt-4 pt-4">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                        <h5 class="m-0">$350</h5>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
+            <?php
+                }
+            } ?>
+            <!-- <div class="col-lg-4 col-md-6 mb-4">
                 <div class="package-item bg-white mb-2">
                     <img class="img-fluid" src="../app/img/photo-9.png" alt="">
                     <div class="p-4">
@@ -267,7 +323,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
         </div>

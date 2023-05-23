@@ -24,6 +24,9 @@ $formater = Yii::$app->formater;
                                 <div class="blog-item">
                                     <div class="position-relative">
                                         <img class="img-fluid w-100" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
+                                        <div class="h_container" style="position: absolute;top: 8px;right: 10px;">
+                                            <i id="heart" class="far fa-heart"></i>
+                                        </div>
                                         <div class="blog-date">
                                             <small class="font-weight-bold text-white text-uppercase ml-2"><?= $formater->date($value->created_date) ?></small>
                                         </div>

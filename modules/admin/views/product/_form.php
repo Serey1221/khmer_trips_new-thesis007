@@ -134,7 +134,7 @@ function iconTemplate($icon)
                     <div class="row">
                         <div class="col-lg-6">
                             <div hidden class="hide">
-                                <?= $form->field($model, 'rate')->hiddenInput()->label(false); ?>
+                                <?= $form->field($model, 'rating')->hiddenInput()->label(false); ?>
                             </div>
                             <label>Star Rating</label>
                             <div class="rating">
