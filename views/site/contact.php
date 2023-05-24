@@ -1,7 +1,7 @@
 <?php
 
 /** @var yii\web\View $this */
-/** @var yii\bootstrap5\ActiveForm $form */
+/** @var yii\bootstrap4\ActiveForm $form */
 /** @var app\models\ContactForm $model */
 
 use yii\bootstrap4\ActiveForm;
@@ -19,11 +19,25 @@ $this->title = 'Contact';
             <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Contact</h6>
             <h1>Contact For Any Query</h1>
         </div>
+        <?php $form = ActiveForm::begin(); ?>
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="contact-form bg-white" style="padding: 30px;">
                     <div id="success"></div>
                     <form name="sentMessage" id="contactForm" novalidate="novalidate">
+
+                        <?php // $form->field($model, 'name')->textInput(['maxlength' => true]) 
+                        ?>
+
+                        <?php // $form->field($model, 'email')->textInput(['maxlength' => true]) 
+                        ?>
+
+                        <?php // $form->field($model, 'subject')->textInput(['maxlength' => true]) 
+                        ?>
+
+                        <?php // $form->field($model, 'description')->textarea(['rows' => 4]) 
+                        ?>
+
                         <div class="form-row">
                             <div class="control-group col-sm-6">
                                 <input type="text" class="form-control p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
@@ -49,6 +63,7 @@ $this->title = 'Contact';
                 </div>
             </div>
         </div>
+        <?php ActiveForm::end(); ?>
     </div>
 </div>
 <!-- Contact End -->
