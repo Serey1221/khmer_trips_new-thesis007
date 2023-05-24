@@ -4,6 +4,7 @@ use app\models\Article;
 use yii\widgets\ActiveForm;
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
+use yii\widgets\LinkPager;
 use yii\widgets\Pjax;
 
 $this->title = 'Blog';
@@ -17,34 +18,45 @@ $formater = Yii::$app->formater;
         <div class="row">
             <div class="col-lg-8">
                 <div class="row pb-3">
+
                     <?php if (!empty($blog)) {
                         foreach ($blog as $key => $value) {
                             $url = Url::toRoute(['site/detail', 'slug' => $value->slug]); ?>
-                            <div class="col-md-6 mb-4 pb-2">
-                                <div class="blog-item">
-                                    <div class="position-relative">
-                                        <img class="img-fluid w-100" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
-                                        <div class="h_container" style="position: absolute;top: 8px;right: 10px;">
-                                            <i id="heart" class="far fa-heart"></i>
+                            <?php foreach ($models as $model) : ?>
+                                <div class="col-md-6 mb-4 pb-2">
+                                    <div class="blog-item">
+                                        <div class="position-relative">
+                                            <img class="img-fluid w-100" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
+                                            <div class="h_container" style="position: absolute;top: 8px;right: 10px;">
+                                                <i id="heart" class="far fa-heart"></i>
+                                            </div>
+                                            <div class="blog-date">
+                                                <small class="font-weight-bold text-white text-uppercase ml-2"><?= $formater->date($value->created_date) ?></small>
+                                            </div>
                                         </div>
-                                        <div class="blog-date">
-                                            <small class="font-weight-bold text-white text-uppercase ml-2"><?= $formater->date($value->created_date) ?></small>
+                                        <div class="bg-white p-4">
+                                            <div class="d-flex mb-2">
+                                                <a class="text-primary text-uppercase text-decoration-none" href="<?= $url ?>"><?= $value['title'] ?></a>
+                                            </div>
+                                            <a class="h5 m-0 text-decoration-none" href="<?= $url ?>"><?= $value->short_description ?></a>
                                         </div>
-                                    </div>
-                                    <div class="bg-white p-4">
-                                        <div class="d-flex mb-2">
-                                            <a class="text-primary text-uppercase text-decoration-none" href="<?= $url ?>"><?= $value['title'] ?></a>
-                                        </div>
-                                        <a class="h5 m-0 text-decoration-none" href="<?= $url ?>"><?= $value->short_description ?></a>
                                     </div>
                                 </div>
-                            </div>
+                            <?php endforeach; ?>
                     <?php
                         }
                     } ?>
+
                     <div class="col-12">
                         <nav aria-label="Page navigation">
                             <ul class="pagination pagination-lg justify-content-center bg-white mb-0" style="padding: 30px;">
+                                <?php
+                                // display pagination
+                                echo LinkPager::widget([
+                                    'pagination' => $pagination,
+
+                                ]);
+                                ?>
                                 <li class="page-item disabled">
                                     <a class="page-link" href="#" aria-label="Previous">
                                         <span aria-hidden="true">&laquo;</span>
@@ -158,5 +170,4 @@ $script = <<<JS
 
 JS;
 $this->registerJs($script);
-?>
 ?>

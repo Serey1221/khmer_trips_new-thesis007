@@ -14,6 +14,7 @@ use app\models\City;
 use app\models\Gallery;
 use app\models\GuideProfile;
 use app\models\Product;
+use yii\data\Pagination;
 use yii\db\Expression;
 use yii\web\NotFoundHttpException;
 
@@ -241,19 +242,29 @@ class SiteController extends Controller
     {
         $this->layout = 'package';
 
+        //preparing the query
+        $query = Article::find();
+        // get the total number of users
+        $count = $query->count();
+        //creating the pagination object
+        $pagination = new Pagination(['totalCount' => $count, 'defaultPageSize' => 1]);
+        //limit the query using the pagination and retrieve the users
+        $models = $query->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+
         $blog = $this->blogData();
         $threeblog = $this->threeblogData();
 
         return $this->render('bloggrid', [
             'blog' => $blog,
             'threeblog' => $threeblog,
+            'models' => $models,
+            'pagination' => $pagination,
         ]);
     }
     public function actionDetail($slug = '')
     {
-
-        // $this->layout = 'package';
-        // $model = Article::findOne(['slug' => $slug]);
         $threeblog = $this->threeblogData();
 
 
