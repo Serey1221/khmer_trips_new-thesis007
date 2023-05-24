@@ -22,20 +22,14 @@
                         <h1 class="text-white m-0">Sign Up Now</h1>
                     </div>
                     <div class="card-body rounded-bottom bg-white p-5">
+                        <p>Check out more easily and access your tickets on any device with your Khmertravel account.</p>
+                        <hr>
                         <form>
-                            <div class="form-group">
+                            <div class="form-group mt-4">
                                 <input type="text" class="form-control p-4" placeholder="Your name" required="required" />
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control p-4" placeholder="Your email" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <select class="custom-select px-4" style="height: 47px;">
-                                    <option selected>Select a destination</option>
-                                    <option value="1">destination 1</option>
-                                    <option value="2">destination 1</option>
-                                    <option value="3">destination 1</option>
-                                </select>
                             </div>
                             <div>
                                 <button class="btn btn-primary btn-block py-3" type="submit">Sign Up Now</button>

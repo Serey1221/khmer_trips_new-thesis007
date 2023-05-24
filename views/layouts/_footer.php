@@ -8,10 +8,10 @@
             <p>Do you have a dream trip in mind? Do no hesitate to speak this with us now. We will gathering all your need, and create the best tour for you.</p>
             <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Follow Us</h6>
             <div class="d-flex justify-content-start">
-                <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/khmer_travel"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100091447657537"><i class="fab fa-facebook-f" target="_blank"></i></a>
-                <a class="btn btn-outline-primary btn-square mr-2" href="https://manager.line.biz/account/@313rhjxt"><i class="fab fa-line"></i></a>
-                <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/khmertravel.cambodia/"><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/khmer_travel" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100091447657537" target="_blank"><i class="fab fa-facebook-f" target="_blank"></i></a>
+                <a class="btn btn-outline-primary btn-square mr-2" href="https://manager.line.biz/account/@313rhjxt" target="_blank"><i class="fab fa-line"></i></a>
+                <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/khmertravel.cambodia/" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 mb-5">
@@ -26,18 +26,6 @@
                 <a class="text-white-50" href="<?= Yii::getAlias('@web/site/bloggrid') ?>"><i class="fa fa-angle-right mr-2"></i>Blog</a>
             </div>
         </div>
-        <!-- <div class="col-lg-3 col-md-6 mb-5">
-                <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Usefull Links</h5>
-                <div class="d-flex flex-column justify-content-start">
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Destination</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Services</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Packages</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Guides</a>
-                    <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
-                    <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Blog</a>
-                </div>
-            </div> -->
         <div class="col-lg-4 col-md-6 mb-5">
             <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Contact Us</h5>
             <p><i class="fa fa-map-marker-alt mr-2"></i>Banteay Chas, Slor Kram, SR</p>

@@ -52,6 +52,7 @@ $formater = Yii::$app->formater;
                 <div class="pb-3">
                     <div class="blog-item">
                         <div class="position-relative">
+
                             <img class="img-fluid w-100" src="../app/img/blog-3.png" alt="">
                             <div class="blog-date">
                                 <h6 class="font-weight-bold mb-n1">01</h6>
@@ -251,7 +252,7 @@ $formater = Yii::$app->formater;
         </div>
 
         <!-- You might also like-->
-        <div class="row mt-4">
+        <div class="row mt-5">
             <div class="col-lg-12">
                 <h4>You might also like...</h4>
 
@@ -273,7 +274,7 @@ $formater = Yii::$app->formater;
                                     <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
                                     <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
                                 </div>
-                                <a class="h5 text-decoration-none" href="<?= Yii::getAlias('@web/site/booking-detail') ?>"><?= $value['name'] ?></a>
+                                <a class="h5 text-decoration-none d-inline-block text-truncate" href="<?= Yii::getAlias('@web/site/booking-detail') ?>" style="max-width: 320px;"><?= $value['name'] ?></a>
                                 <div class="border-top mt-4 pt-4">
                                     <div class="d-flex justify-content-between">
                                         <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
@@ -286,81 +287,6 @@ $formater = Yii::$app->formater;
             <?php
                 }
             } ?>
-            <!-- <div class="col-lg-4 col-md-6 mb-4">
-                <div class="package-item bg-white mb-2">
-                    <img class="img-fluid" src="../app/img/photo-9.png" alt="">
-                    <div class="p-4">
-                        <div class="d-flex justify-content-between mb-3">
-                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Kbal Spean</small>
-                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
-                            <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
-                        </div>
-                        <a class="h5 text-decoration-none" href="">Kbal Spean</a>
-                        <p>Kbal Spean is an Angkorian-era archaeological site on the southwest slopes of the Kulen Hills </p>
-                        <div class="border-top mt-4 pt-4">
-                            <div class="d-flex justify-content-between">
-                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
-                                <h5 class="m-0">$350</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="package-item bg-white mb-2">
-                    <img class="img-fluid" src="../app/img/photo-10.png" alt="">
-                    <div class="p-4">
-                        <div class="d-flex justify-content-between mb-3">
-                            <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Mekong River</small>
-                            <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
-                            <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
-                        </div>
-                        <a class="h5 text-decoration-none" href="">Mekong River</a>
-                        <p>The Mekong or Mekong River is a trans-boundary river in East Asia and Southeast Asia.</p>
-                        <div class="border-top mt-4 pt-4">
-                            <div class="d-flex justify-content-between">
-                                <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
-                                <h5 class="m-0">$350</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-
-
-        </div>
-        <div class="row">
-
-            <div class="col-lg-12 mt-4">
-                <h2>Comment Form Start </h2>
-                <!-- Comment Form Start -->
-                <div class="bg-white mb-3" style="padding: 30px;">
-                    <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Leave a comment</h4>
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" class="form-control" id="name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="website">Website</label>
-                            <input type="url" class="form-control" id="website">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-                        </div>
-                        <div class="form-group mb-0">
-                            <input type="submit" value="Leave a comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
-                        </div>
-                    </form>
-                </div>
-                <!-- Comment Form End -->
-            </div>
         </div>
     </div>
 </div>
