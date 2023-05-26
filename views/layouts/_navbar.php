@@ -33,9 +33,16 @@ $action = Yii::$app->controller->action->id; ?>
                     <a href="<?= Yii::getAlias('@web/site/contact') ?>" class="nav-item nav-link <?= $action == 'contact' ? 'active' : '' ?>">Contact</a>
                     <a href="" class="nav-item nav-link" data-toggle="modal" data-target="#ModalLike"> <i class="fas fa-heart"></i> <span class="badge badge-pill badge-danger navbar-badge">5</span> </a>
                     <a href="" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-shopping-cart"></i> <span class="badge badge-danger navbar-badge">3</span> </a>
-                    <form class="form-inline my-2 my-lg-0">
-                        <button class="btn btn-outline-primary my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModalCenter">Sign up</button>
-                    </form>
+
+                    <?php
+                    if (Yii::$app->user->isGuest) {
+                    ?>
+                        <div class="form-inline my-2 my-lg-0">
+                            <button class="btn btn-outline-primary my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModalCenter">Sign up</button>
+                        </div>
+                    <?php } else { ?>
+                        <a href="<?= Url::to(['user/index']) ?>" class="nav-item nav-link"> <i class="fas fa-user"></i> <?= Yii::$app->user->identity->username ?></a>
+                    <?php } ?>
                 </div>
             </div>
         </nav>

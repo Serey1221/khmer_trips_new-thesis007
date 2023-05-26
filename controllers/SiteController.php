@@ -14,6 +14,13 @@ use app\models\City;
 use app\models\Gallery;
 use app\models\GuideProfile;
 use app\models\Product;
+<<<<<<< HEAD
+=======
+use app\models\RegisterForm;
+use app\models\RegisterUser;
+use app\models\User;
+use Exception;
+>>>>>>> signup_and_city
 use app\modules\admin\models\ArticleSearch;
 use yii\data\Pagination;
 use yii\db\Expression;
@@ -186,6 +193,47 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionRegister()
+    {
+        if ($this->request->isPost) {
+
+            $transaction_exception = Yii::$app->db->beginTransaction();
+
+            try {
+
+                $user = new RegisterUser();
+                $user->email = $this->request->post('registerEmail');
+                $user->auth_key =  Yii::$app->security->generateRandomString();
+                $user->username = $user->email;
+                $user->password_hash = Yii::$app->security->generatePasswordHash($this->request->post('registerPassword'));
+                $user->status = 1;
+                $user->created_at = date("Y-m-d H:i:s");
+                if (!$user->save()) throw new Exception("Failed to Save! Code #001");
+
+                $model = new RegisterForm();
+                $model->name = 'Guest';
+                $model->user_id = $user->id;
+                $model->email = $this->request->post('registerEmail');
+                if (!$model->save()) throw new Exception("Failed to Save! Code #002");
+
+                $identity = RegisterUser::findOne(['username' => $user->username]);
+                Yii::$app->user->login($identity, 3600 * 24 * 30);
+
+                $transaction_exception->commit();
+                Yii::$app->session->setFlash('success', "You have register successfully");
+                return $this->redirect(Yii::$app->request->referrer);
+            } catch (Exception $ex) {
+                $transaction_exception->rollBack();
+                echo "<pre>";
+                print_r($ex->getMessage());
+                exit;
+                // Yii::$app->session->setFlash('warning', $ex->getMessage());
+                $transaction_exception->rollBack();
+                return $this->redirect(Yii::$app->request->referrer);
+            }
+        }
     }
 
     /**

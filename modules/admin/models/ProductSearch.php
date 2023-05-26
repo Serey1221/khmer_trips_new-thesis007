@@ -74,7 +74,6 @@ class ProductSearch extends Product
             'updated_by' => $this->updated_by,
             'deleted_at' => $this->deleted_at,
             'deleted_by' => $this->deleted_by,
-            'rating' => $this->rating,
         ]);
 
         $query->andFilterWhere(['between', 'DATE(created_at)', $this->from_date, $this->to_date])
