@@ -7,7 +7,7 @@ $controller = Yii::$app->controller->id;
 $action = Yii::$app->controller->action->id; ?>
 <!-- Navbar Start -->
 <?= $this->render('like') ?>
-<?= $this->render('modal') ?>
+<?= $this->render('add-cart') ?>
 <?= $this->render('sign_up') ?>
 <div class="container-fluid position-relative nav-bar p-0">
     <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">

@@ -31,12 +31,12 @@
             <p><i class="fa fa-map-marker-alt mr-2"></i>Banteay Chas, Slor Kram, SR</p>
             <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
             <p><i class="fa fa-envelope mr-2"></i>khmertravel@gmail.com</p>
-            <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Newsletter</h6>
+            <h6 class="text-white text-uppercase mt-4 mb-3" style="letter-spacing: 5px;">Ways You Can Pay</h6>
             <div class="w-100">
                 <div class="input-group">
-                    <input type="text" class="form-control border-light" style="padding: 25px;" placeholder="Your Email">
+                    <!-- <input type="text" class="form-control border-light" style="padding: 25px;" placeholder="Your Email"> -->
                     <div class="input-group-append">
-                        <button class="btn btn-primary px-3">Sign Up</button>
+                        <img src="../app/paypal_log.jpg" class="rounded float-left" alt="Logo Paypal" style="max-width: 60px;">
                     </div>
                 </div>
             </div>

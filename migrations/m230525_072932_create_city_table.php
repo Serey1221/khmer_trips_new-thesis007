@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `{{%city}}`.
  */
-class m230519_080727_create_city_table extends Migration
+class m230525_072932_create_city_table extends Migration
 {
     /**
      * {@inheritdoc}
@@ -25,16 +25,6 @@ class m230519_080727_create_city_table extends Migration
             'updated_by' => $this->integer(),
             'status' => $this->tinyInteger(1),
         ]);
-
-        // // add foreign key for table `{{%country}}`
-        // $this->addForeignKey(
-        //     '{{%fk-city-country_id}}',
-        //     '{{%city}}',
-        //     'country_id',
-        //     '{{%country}}',
-        //     'id',
-        //     'CASCADE'
-        // );
     }
 
     /**
@@ -42,13 +32,6 @@ class m230519_080727_create_city_table extends Migration
      */
     public function safeDown()
     {
-        // // drops foreign key for table `{{%country}}`
-        // $this->dropForeignKey(
-        //     '{{%fk-city-country_id}}',
-        //     '{{%city}}'
-        // );
-
-
         $this->dropTable('{{%city}}');
     }
 }

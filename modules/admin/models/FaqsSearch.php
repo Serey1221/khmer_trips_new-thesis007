@@ -68,10 +68,13 @@ class FaqsSearch extends Faqs
             'updated_by' => $this->updated_by,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->globalSearch])
-            ->andFilterWhere(['like', 'email', $this->globalSearch])
-            ->andFilterWhere(['like', 'subject', $this->globalSearch])
-            ->andFilterWhere(['like', 'description', $this->globalSearch]);
+        $query->andFilterWhere(
+            ['like', 'name', $this->globalSearch],
+            ['like', 'email', $this->globalSearch],
+            ['like', 'subject', $this->globalSearch],
+            ['like', 'description', $this->globalSearch]
+        );
+
 
         return $dataProvider;
     }
