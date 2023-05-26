@@ -9,9 +9,6 @@ use yii\widgets\Pjax;
 
 $this->title = 'Blog';
 $formater = Yii::$app->formater;
-
-
-$this->title = empty(Yii::$app->request->queryParams['ArticleSearch']['title']) ? 'Showing all articles' : 'Showing result for "' . Yii::$app->request->queryParams['ArticleSearch']['title'] . '"';
 ?>
 <?= $this->render('_section_search') ?>
 <!-- Blog Start -->

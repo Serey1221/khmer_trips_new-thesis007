@@ -14,14 +14,11 @@ use app\models\City;
 use app\models\Gallery;
 use app\models\GuideProfile;
 use app\models\Product;
-<<<<<<< HEAD
-=======
 use app\models\RegisterForm;
 use app\models\RegisterUser;
 use app\models\User;
 use Exception;
->>>>>>> signup_and_city
-use app\modules\admin\models\ArticleSearch;
+use app\models\ArticleSearch;
 use yii\data\Pagination;
 use yii\db\Expression;
 use yii\web\NotFoundHttpException;
