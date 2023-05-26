@@ -18,8 +18,7 @@
             <h5 class="text-white text-uppercase mb-4" style="letter-spacing: 5px;">Usefull Links</h5>
             <div class="d-flex flex-column justify-content-start">
                 <a class="text-white-50 mb-2" href="<?= Yii::getAlias('@web/site/about') ?>"><i class="fa fa-angle-right mr-2"></i>About</a>
-                <a class="text-white-50 mb-2" href="<?= Yii::getAlias('@web/site/destinat') ?>"><i class="fa fa-angle-right mr-2"></i>Destination</a>
-                <a class="text-white-50 mb-2" href="<?= Yii::getAlias('@web/site/service') ?>"><i class="fa fa-angle-right mr-2"></i>Purposes</a>
+                <a class="text-white-50 mb-2" href="<?= Yii::getAlias('@web/site/service') ?>"><i class="fa fa-angle-right mr-2"></i>Service</a>
                 <a class="text-white-50 mb-2" href="<?= Yii::getAlias('@web/site/package') ?>"><i class="fa fa-angle-right mr-2"></i>Packages</a>
                 <a class="text-white-50 mb-2" href="<?= Yii::getAlias('@web/site/guides') ?>"><i class="fa fa-angle-right mr-2"></i>Guides</a>
                 <a class="text-white-50 mb-2" href="<?= Yii::getAlias('@web/site/client') ?>"><i class="fa fa-angle-right mr-2"></i>Testimonial</a>
