@@ -1,11 +1,16 @@
 <?php
 
+use app\modules\admin\models\City;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
 /** @var app\modules\admin\models\Product $model */
 /** @var yii\widgets\ActiveForm $form */
+
+$this->registerJsFile("https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js", ['depends' => [\yii\web\JqueryAsset::class]]);
+$this->registerCssFile("https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css", ['depends' => [\yii\bootstrap4\BootstrapAsset::class]]);
 
 function iconTemplate($icon)
 {
@@ -133,6 +138,9 @@ function iconTemplate($icon)
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
+                            <?= $form->field($model, 'city_id')->dropDownList(ArrayHelper::map(City::find()->all(), 'id', 'name'), ['name' => 'cityId[]'])->label("City"); ?>
+                        </div>
+                        <div class="col-lg-6">
                             <div hidden class="hide">
                                 <?= $form->field($model, 'rating')->hiddenInput()->label(false); ?>
                             </div>
@@ -222,6 +230,11 @@ $script = <<<JS
     $(".rating input").click(function(){
         var rate = $(this).val();
         $("#product-rate").val(rate);
+    });
+
+    $("#product-city_id").select2({
+        multiple: true,
+        placeholder: 'Select city'
     });
 
 JS;

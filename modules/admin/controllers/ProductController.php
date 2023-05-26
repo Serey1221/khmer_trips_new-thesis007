@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use app\modules\admin\models\Product;
+use app\modules\admin\models\ProductCity;
 use app\modules\admin\models\ProductRateModify;
 use app\modules\admin\models\ProductSearch;
 use Yii;
@@ -49,6 +50,15 @@ class ProductController extends \yii\web\Controller
             try {
 
                 if (!$model->save()) throw new Exception(print_r($model->getErrors()));
+                $model->city_id = $this->request->post('cityId');
+                if (!empty($model->city_id)) {
+                    foreach ($model->city_id as $key => $value) {
+                        $productCity = new ProductCity();
+                        $productCity->product_id = $model->id;
+                        $productCity->city_id = $value;
+                        if (!$productCity->save()) throw new Exception(print_r($productCity->getErrors()));
+                    }
+                }
 
                 $transaction_exception->commit();
                 Yii::$app->session->setFlash('success', "Item has been saved successfully");
@@ -71,8 +81,33 @@ class ProductController extends \yii\web\Controller
         $model = $this->findModel($id);
         $model->scenario = $model->type == '' ||  $model->type == null ? Product::ACTIVITY : $model->type;
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $transaction_exception = Yii::$app->db->beginTransaction();
+            try {
+
+                if (!$model->save()) throw new Exception(print_r($model->getErrors()));
+
+                $model->city_id = $this->request->post('cityId');
+                ProductCity::deleteAll(['product_id' => $model->id]);
+                if (!empty($model->city_id)) {
+                    foreach ($model->city_id as $key => $value) {
+                        $productCity = new ProductCity();
+                        $productCity->product_id = $model->id;
+                        $productCity->city_id = $value;
+                        if (!$productCity->save()) throw new Exception(print_r($productCity->getErrors()));
+                    }
+                }
+
+                $transaction_exception->commit();
+                Yii::$app->session->setFlash('success', "Item has been saved successfully");
+                return $this->redirect(['view', 'id' => $model->id]);
+            } catch (Exception $ex) {
+                echo "<pre>";
+                print_r($ex->getMessage());
+                exit;
+                Yii::$app->session->setFlash('warning', $ex->getMessage());
+                $transaction_exception->rollBack();
+            }
         }
 
         return $this->render('update', [

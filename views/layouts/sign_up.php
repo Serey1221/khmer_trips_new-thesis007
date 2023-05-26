@@ -14,16 +14,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Check out more easily and access your tickets on any device with your Khmertravel account.</p>
-                <div class="form-group mt-4">
-                    <input type="text" class="form-control p-4" placeholder="Your name" required="required" />
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control p-4" placeholder="Your email" required="required" />
-                </div>
-                <div>
-                    <button class="btn btn-primary btn-block py-3" type="submit">Sign Up Now</button>
-                </div>
+                <?= $this->render('//auth/register') ?>
             </div>
         </div>
     </div>

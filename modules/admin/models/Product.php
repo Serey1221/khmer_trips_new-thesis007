@@ -50,6 +50,7 @@ class Product extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+    public $city_id;
     public function rules()
     {
         return [
@@ -57,6 +58,9 @@ class Product extends \yii\db\ActiveRecord
             [['tourday', 'tournight'], 'required', 'on' => self::TOUR],
             [['tourday', 'tournight'], 'integer', 'min' => 1],
             [['name', 'namekh'], 'required'],
+
+            // [['city_id'], 'required'],
+            [['city_id'], 'safe',],
 
             ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['admin']],
             [['tourhour', 'tourmin', 'status', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
@@ -90,6 +94,7 @@ class Product extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            'city_id' => 'City',
             'id' => 'ID',
             'name' => 'Name',
             'namekh' => 'Name khmer',

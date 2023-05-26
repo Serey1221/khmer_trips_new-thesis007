@@ -1,4 +1,5 @@
 <!-- Registration Start -->
+
 <div class="container-fluid bg-registration py-5" style="margin: 90px 0;">
     <div class="container py-5">
         <div class="row align-items-center">
@@ -17,12 +18,13 @@
                 </ul>
             </div>
             <div class="col-lg-5">
-                <div class="card border-0">
-                    <div class="card-header bg-primary text-center p-4">
-                        <h1 class="text-white m-0">Sign Up Now</h1>
-                    </div>
-                    <div class="card-body rounded-bottom bg-white p-5">
-                        <p>Check out more easily and access your tickets on any device with your Khmertravel account.</p>
+                <?php if (Yii::$app->user->isGuest) { ?>
+                    <div class="card border-0">
+                        <div class="card-header bg-primary text-center p-4">
+                            <h1 class="text-white m-0">Sign Up Now</h1>
+                        </div>
+                        <div class="card-body rounded-bottom bg-white p-5">
+                            <!-- <p>Check out more easily and access your tickets on any device with your Khmertravel account.</p>
                         <hr>
                         <form>
                             <div class="form-group mt-4">
@@ -34,11 +36,15 @@
                             <div>
                                 <button class="btn btn-primary btn-block py-3" type="submit">Sign Up Now</button>
                             </div>
-                        </form>
+                        </form> -->
+                            <?= $this->render('//auth/register') ?>
+                        </div>
                     </div>
-                </div>
+                <?php } ?>
             </div>
+
         </div>
     </div>
 </div>
+
 <!-- Registration End -->
