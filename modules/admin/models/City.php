@@ -12,6 +12,10 @@ use Yii;
  * @property string|null $name_kh
  * @property string|null $description
  * @property int|null $country_id
+ * @property string|null $created_at
+ * @property int|null $created_by
+ * @property string|null $updated_at
+ * @property int|null $updated_by
  */
 class City extends \yii\db\ActiveRecord
 {
@@ -71,6 +75,21 @@ class City extends \yii\db\ActiveRecord
             'updated_by' => 'Updated By',
             'status' => 'Status',
         ];
+    }
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if ($this->isNewRecord) {
+                $this->created_at = date('Y-m-d H:i:s');
+                $this->created_by = Yii::$app->user->identity->id;
+            } else {
+                $this->updated_at = date('Y-m-d H:i:s');
+                $this->updated_by = Yii::$app->user->identity->id;
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
     public function getStatusTemp()
     {

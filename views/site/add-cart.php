@@ -20,20 +20,27 @@ $this->title = 'Your cart';
                                         <h6 class="mb-0 text-muted">3 items</h6>
                                     </div>
                                     <hr class="my-4">
-
                                     <div class="row mb-4 d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-2 col-xl-2">
-                                            <img src="../app/img/photo-4.png" class="img-fluid rounded-3" style="max-width:130%;" alt="Cotton T-shirt">
+                                            <img src="../app/img/photo-4.png" class="img-fluid rounded-3" style="max-width:160%;margin-top:-50px" alt="Cotton T-shirt">
                                         </div>
-                                        <div class="col-md-4 col-lg-4 col-xl-4">
+                                        <div class="col-md-4 col-lg-4 col-xl-4 ml-3">
                                             <h6 class="m-1">Yeak loam crater lake</h6>
                                             <div class="d-flexmb-3">
                                                 <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Ratanakiri</small>
+                                            </div>
+                                            <div class="d-flexmb-3">
                                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
+                                            </div>
+                                            <div class="d-flexmb-3">
                                                 <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 </small>
                                             </div>
-                                            <small class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></small>
-                                            <small>July 01, 2023</small>
+                                            <div class="d-flexmb-3">
+                                                <small class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></small>
+                                            </div>
+                                            <div class="d-flexm-3">
+                                                <small><i class="fa fa-clock text-primary mr-2"></i> July 01, 2023</small>
+                                            </div>
                                         </div>
                                         <div class="col-md-2 col-lg-2 col-xl-2 d-flex">
                                             <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
@@ -46,11 +53,11 @@ $this->title = 'Your cart';
                                                 <i class="fas fa-plus"></i>
                                             </button>
                                         </div>
-                                        <div class="col-md-2 col-lg-2 col-xl-2 offset-lg-1">
-                                            <h6 class="mb-0">$ 84.00</h6>
-                                        </div>
-                                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                            <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                        <div class="col-md-2 col-lg-2 col-xl-2 offset-lg-1" style="margin-top: -50px;">
+                                            <div class="d-flexm-3 text-right mb-4">
+                                                <a href="#!" class="text-muted"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                            <h6 class="mb-0 text-right">$ 84.00</h6>
                                         </div>
                                     </div>
 
@@ -58,17 +65,25 @@ $this->title = 'Your cart';
 
                                     <div class="row mb-4 d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-2 col-xl-2">
-                                            <img src="../app/img/photo-5.png" class="img-fluid rounded-3" style="max-width:130%;" alt="Cotton T-shirt">
+                                            <img src="../app/img/photo-5.png" class="img-fluid rounded-3" style="max-width:160%;margin-top:-50px" alt="Cotton T-shirt">
                                         </div>
-                                        <div class="col-md-4 col-lg-4 col-xl-4">
+                                        <div class="col-md-4 col-lg-4 col-xl-4 ml-3">
                                             <h6 class="m-1">kbal spean cambodia</h6>
                                             <div class="d-flexmb-3">
                                                 <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>SR</small>
+                                            </div>
+                                            <div class="d-flexmb-3">
                                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>2 days</small>
+                                            </div>
+                                            <div class="d-flexmb-3">
                                                 <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>6 </small>
                                             </div>
-                                            <small class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></small>
-                                            <small>July 01, 2023</small>
+                                            <div class="d-flexmb-3">
+                                                <small class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></small>
+                                            </div>
+                                            <div class="d-flexm-3">
+                                                <small><i class="fa fa-clock text-primary mr-2"></i> July 01, 2023</small>
+                                            </div>
                                         </div>
                                         <div class="col-md-2 col-lg-2 col-xl-2 d-flex">
                                             <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
@@ -81,46 +96,58 @@ $this->title = 'Your cart';
                                                 <i class="fas fa-plus"></i>
                                             </button>
                                         </div>
-                                        <div class="col-md-2 col-lg-2 col-xl-2 offset-lg-1">
-                                            <h6 class="mb-0">$ 95.00</h6>
-                                        </div>
-                                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                            <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                        <div class="col-md-2 col-lg-2 col-xl-2 offset-lg-1" style="margin-top: -50px;">
+                                            <div class="d-flexm-3 text-right mb-4">
+                                                <a href="#!" class="text-muted"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                            <h6 class="mb-0 text-right">$ 95.00</h6>
                                         </div>
                                     </div>
+
 
                                     <hr class="my-4">
 
                                     <div class="row mb-4 d-flex justify-content-between align-items-center">
                                         <div class="col-md-2 col-lg-2 col-xl-2">
-                                            <img src="../app/img/photo-6.png" class="img-fluid rounded-3" style="max-width:130%;" alt="Cotton T-shirt">
+                                            <img src="../app/img/photo-6.png" class="img-fluid rounded-3" style="max-width:160%;margin-top:-50px" alt="Cotton T-shirt">
                                         </div>
-                                        <div class="col-md-4 col-lg-4 col-xl-4">
+                                        <div class="col-md-4 col-lg-4 col-xl-4 ml-3">
                                             <h6 class="m-1">Royal Palace</h6>
                                             <div class="d-flexmb-3">
                                                 <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>PP</small>
+                                            </div>
+                                            <div class="d-flexmb-3">
                                                 <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>2 days</small>
+                                            </div>
+                                            <div class="d-flexmb-3">
                                                 <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>5 </small>
                                             </div>
-                                            <small class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></small>
-                                            <small>July 01, 2023</small>
+                                            <div class="d-flexmb-3">
+                                                <small class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></small>
+                                            </div>
+                                            <div class="d-flexm-3">
+                                                <small><i class="fa fa-clock text-primary mr-2"></i> July 01, 2023</small>
+                                            </div>
                                         </div>
+
+
+
                                         <div class="col-md-2 col-lg-2 col-xl-2 d-flex">
                                             <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                                                 <i class="fas fa-minus"></i>
                                             </button>
 
-                                            <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-lg" />
+                                            <input id="form1" min="0" name="quantity" value="1" type="number" class="form-control form-control-lg mw-100" />
 
                                             <button class="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                                 <i class="fas fa-plus"></i>
                                             </button>
                                         </div>
-                                        <div class="col-md-2 col-lg-2 col-xl-2 offset-lg-1">
-                                            <h6 class="mb-0">$ 134.00</h6>
-                                        </div>
-                                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                            <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                        <div class="col-md-2 col-lg-2 col-xl-2 offset-lg-1" style="margin-top: -50px;">
+                                            <div class="d-flexm-3 text-right mb-4">
+                                                <a href="#!" class="text-muted"><i class="fas fa-trash"></i></a>
+                                            </div>
+                                            <h6 class="mb-0 text-right">$ 134.00</h6>
                                         </div>
                                     </div>
 

@@ -87,52 +87,52 @@ function iconTemplate($icon)
                     </div>
                     <div class="form-row">
                         <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'overview')->textarea(['rows' => 4]) ?>
+                            <?= $form->field($model, 'overview')->textarea(['rows' => 6]) ?>
                         </div>
                         <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'overviewkh')->textarea(['rows' => 4]) ?>
+                            <?= $form->field($model, 'overviewkh')->textarea(['rows' => 6]) ?>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'highlight')->textarea(['rows' => 4]) ?>
+                            <?= $form->field($model, 'highlight')->textarea(['rows' => 6]) ?>
                         </div>
                         <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'highlight_kh')->textarea(['rows' => 4]) ?>
+                            <?= $form->field($model, 'highlight_kh')->textarea(['rows' => 6]) ?>
                         </div>
                     </div>
 
 
 
                     <div class="form-row">
-                        <div class="form-check col-lg-6">
+                        <div class="form-group col-lg-6">
                             <?= $form->field($model, 'pick_up')->textInput(['maxlength' => true]) ?>
                         </div>
-                        <div class="form-check col-lg-6">
+                        <div class="form-group col-lg-6">
                             <?= $form->field($model, 'pick_up_kh')->textInput(['maxlength' => true]) ?>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="form-check col-lg-6">
+                        <div class="form-group col-lg-6">
                             <?= $form->field($model, 'drop_off')->textInput(['maxlength' => true]) ?>
                         </div>
-                        <div class="form-check col-lg-6">
+                        <div class="form-group col-lg-6">
                             <?= $form->field($model, 'drop_off_kh')->textInput(['maxlength' => true]) ?>
                         </div>
                     </div>
                     <div class="form-row ">
-                        <div class="form-check col-lg-6">
+                        <div class="form-group col-lg-6">
                             <?= $form->field($model, 'price_include')->textInput(['maxlength' => true]) ?>
                         </div>
-                        <div class="form-check col-lg-6">
+                        <div class="form-group col-lg-6">
                             <?= $form->field($model, 'price_include_kh')->textInput(['maxlength' => true]) ?>
                         </div>
                     </div>
                     <div class="form-row ">
-                        <div class="form-check col-lg-6">
+                        <div class="form-group col-lg-6">
                             <?= $form->field($model, 'price_exclude')->textInput(['maxlength' => true]) ?>
                         </div>
-                        <div class="form-check col-lg-6">
+                        <div class="form-group col-lg-6">
                             <?= $form->field($model, 'price_exclude_kh')->textInput(['maxlength' => true]) ?>
                         </div>
                     </div>
@@ -154,13 +154,7 @@ function iconTemplate($icon)
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="form-check form-switch col-lg-6">
-                            <?php // $form->field($model, 'status')->checkbox() 
-                            ?>
 
-                        </div>
-                    </div>
                 </div>
                 <div class="form-group col-lg-3">
                     <p class="font-weight-bold">Banner Image</p>

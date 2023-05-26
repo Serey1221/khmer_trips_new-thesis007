@@ -14,10 +14,14 @@ use app\models\City;
 use app\models\Gallery;
 use app\models\GuideProfile;
 use app\models\Product;
+<<<<<<< HEAD
 use app\models\RegisterForm;
 use app\models\RegisterUser;
 use app\models\User;
 use Exception;
+=======
+use app\modules\admin\models\ArticleSearch;
+>>>>>>> refs/remotes/origin/master
 use yii\data\Pagination;
 use yii\db\Expression;
 use yii\web\NotFoundHttpException;
@@ -285,6 +289,7 @@ class SiteController extends Controller
     }
     public function actionBloggrid()
     {
+        $searchModel = new ArticleSearch();
         $this->layout = 'package';
 
         //preparing the query
@@ -306,6 +311,7 @@ class SiteController extends Controller
             'threeblog' => $threeblog,
             'models' => $models,
             'pagination' => $pagination,
+            'searchModel' => $searchModel
         ]);
     }
     public function actionDetail($slug = '')
@@ -374,5 +380,9 @@ class SiteController extends Controller
     public function actionAvailability()
     {
         return $this->render('availability');
+    }
+    public function actionSearch()
+    {
+        return $this->render('carousel-search');
     }
 }

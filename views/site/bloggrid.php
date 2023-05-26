@@ -9,6 +9,8 @@ use yii\widgets\Pjax;
 
 $this->title = 'Blog';
 $formater = Yii::$app->formater;
+
+$this->title = empty(Yii::$app->request->queryParams['ArticleSearch']['title']) ? 'Showing all articles' : 'Showing result for "' . Yii::$app->request->queryParams['ArticleSearch']['title'] . '"';
 ?>
 <?= $this->render('_section_search') ?>
 <!-- Blog Start -->
@@ -38,7 +40,7 @@ $formater = Yii::$app->formater;
                                             <div class="d-flex mb-2">
                                                 <a class="text-primary text-uppercase text-decoration-none" href="<?= $url ?>"><?= $value['title'] ?></a>
                                             </div>
-                                            <a class="h5 m-0 text-decoration-none" href="<?= $url ?>"><?= $value->short_description ?></a>
+                                            <a class="h5 m-0 text-decoration-none d-inline-block text-truncate" href="<?= $url ?>" style="max-width: 320px;"><?= $value->short_description ?></a>
                                         </div>
                                     </div>
                                 </div>
@@ -77,10 +79,9 @@ $formater = Yii::$app->formater;
                     </div>
                 </div>
             </div>
-
             <div class="col-lg-4 mt-5 mt-lg-0">
                 <?php $form = ActiveForm::begin([
-                    'action' => ['index'],
+                    'action' => ['site/bloggrid'],
                     'options' => ['data-pjax' => true, 'id' => 'formArticleSearch'],
                     'method' => 'get',
                 ]); ?>
@@ -88,14 +89,14 @@ $formater = Yii::$app->formater;
                 <div class="mb-5">
                     <div class="bg-white" style="padding: 30px;">
                         <div class="input-group">
-                            <input type="text" class="form-control p-4" placeholder="Keyword">
-                            <div class="input-group-append">
+                            <?= $form->field($searchModel, 'title')->textInput(['value' => '', 'class' => 'form-control p-4', 'placeholder' => 'Enter Keyword'])->label(false) ?>
+                            <div class="input-group-append " style="max-height: 48.5px;">
                                 <span class="input-group-text bg-primary border-primary text-white"><i class="fa fa-search"></i></span>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                <?php ActiveForm::end(); ?>
                 <!-- Category List -->
                 <div class="mb-5">
                     <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Categories</h4>
@@ -156,8 +157,8 @@ $formater = Yii::$app->formater;
                         ?>
                     </div>
                 </div>
-                <?php ActiveForm::end(); ?>
             </div>
+
         </div>
     </div>
 </div>
@@ -165,8 +166,77 @@ $formater = Yii::$app->formater;
 <!-- Blog End -->
 <?php
 $base_url = Yii::getAlias("@web");
+
 $script = <<<JS
 
+function beforePjax(){
+      $(".btnSuggestionSearch").click(function(){
+        var title = $(this).data("value");
+        $("#articlesearch-title").val(title);
+        $("#submitButton").click();
+      });
+
+      $("#submitButton").click(function(){
+        var title = $("#articlesearch-title").val();
+        if(title == ''){
+          Swal.fire({
+              icon: 'info',
+              title: 'Query required!',
+              text: 'Please enter search term to continue!',
+              confirmButtonText: 'OK. I Got it',
+          }).then((result) => {
+              if (result.isConfirmed) {
+                  $("#articlesearch-title").focus();
+              }
+          });
+          return false;
+        }
+      });
+
+      var base_url = "$base_url";
+
+      // Constructing the suggestion engine
+      var articleTitle = new Bloodhound({
+          datumTokenizer: Bloodhound.tokenizers.whitespace('name'),
+          queryTokenizer: Bloodhound.tokenizers.whitespace,
+          remote: {
+            url: base_url +"/site/get-article-title?query=%QUERY",
+            wildcard: '%QUERY'
+          }
+      });
+      var articleCategory = new Bloodhound({
+          datumTokenizer: Bloodhound.tokenizers.whitespace('name'),
+          queryTokenizer: Bloodhound.tokenizers.whitespace,
+          remote: {
+            url: base_url +"/site/get-article-category?query=%QUERY",
+            wildcard: '%QUERY'
+          }
+      });
+
+      // Initializing the typeahead
+      $('#articlesearch-title').typeahead({
+          hint: false,
+          highlight: true, /* Enable substring highlighting */
+          minLength: 3 /* Specify minimum characters required for showing suggestions */
+      },
+      {
+        name: 'articleTitle',
+        display: 'title',
+        source: articleTitle,
+        templates: {
+          header: '<h3 class="tt-menu-header">Article</h3>'
+        }
+      }, 
+      // {
+      //   name: 'articleCategory',
+      //   display: 'name',
+      //   source: articleCategory,
+      //   templates: {
+      //     header: '<h3 class="tt-menu-header">Category</h3>'
+      //   }
+      // },
+      );
+    }
 
 JS;
 $this->registerJs($script);
