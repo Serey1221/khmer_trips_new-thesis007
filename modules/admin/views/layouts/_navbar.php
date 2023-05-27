@@ -3,7 +3,7 @@
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
 
-Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
+// Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
 ?>
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
   <!-- Left navbar links -->

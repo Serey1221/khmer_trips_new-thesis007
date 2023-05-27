@@ -3,14 +3,13 @@
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
 
-Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
-
+// Yii::$app->setHomeUrl(Yii::getAlias('@web/admin'));
 $controller = Yii::$app->controller->id;
 $action = Yii::$app->controller->action->id;
 ?>
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-  <a href="<?= Yii::$app->homeUrl ?>" class="brand-link">
+  <a href="<?= Yii::getAlias('@web/admin/dashboard') ?>" class="brand-link">
     <img src="../../img/Khmer_Travel.png" alt="Admin" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light">Khmer Travel</span>
   </a>
@@ -26,7 +25,7 @@ $action = Yii::$app->controller->action->id;
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
-          <a href="<?= Yii::$app->homeUrl ?>" class="nav-link <?= $controller . '-' . $action === 'admin-index' ? 'active' : '' ?>">
+          <a href="<?= Yii::getAlias('@web/admin/dashboard') ?>" class="nav-link <?= $controller . '-' . $action === 'dashboard-index' ? 'active' : '' ?>">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard

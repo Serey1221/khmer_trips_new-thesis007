@@ -32,6 +32,15 @@ class AdminController extends Controller
     }
     public function actionIndex()
     {
+        // echo 123;
+        // exit;
+        return $this->render('index');
+    }
+
+    public function actionTest()
+    {
+        echo "Test";
+        exit;
         return $this->render('index');
     }
     public function beforeAction($action)

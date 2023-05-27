@@ -8,7 +8,7 @@ class Admin extends \yii\base\Module
 {
     public $controllerNamespace = 'app\modules\admin\controllers';
     public $layout = 'main';
-    public $defaultRoute = 'admin/index';
+    public $defaultRoute = 'admin';
 
     public function init()
     {
@@ -18,7 +18,7 @@ class Admin extends \yii\base\Module
 
         Yii::$app->errorHandler->errorAction = 'admin/admin/error';
 
-        Yii::$app->homeUrl = Yii::getAlias('@web/admin/index');
+        Yii::$app->homeUrl = Yii::getAlias('@web/admin/dashboard');
 
         Yii::$app->user->identityClass = 'app\modules\admin\models\User';
         Yii::$app->user->loginUrl = ['admin/site/login'];
