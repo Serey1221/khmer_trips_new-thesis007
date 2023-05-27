@@ -26,8 +26,7 @@ class RegisterForm extends \yii\db\ActiveRecord
   public function rules()
   {
     return [
-      [['name'], 'string', 'max' => 50],
-      [['phone_number',], 'integer'],
+      [['name', 'phone_number'], 'string', 'max' => 50],
       [['email'], 'email'],
     ];
   }

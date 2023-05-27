@@ -211,7 +211,8 @@ class SiteController extends Controller
                 if (!$user->save()) throw new Exception("Failed to Save! Code #001");
 
                 $model = new RegisterForm();
-                $model->name = 'Guest';
+                $model->name = $this->request->post('registerName');
+                $model->phone_number =  $this->request->post('registerPhonenumber');
                 $model->user_id = $user->id;
                 $model->email = $this->request->post('registerEmail');
                 if (!$model->save()) throw new Exception("Failed to Save! Code #002");
