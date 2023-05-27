@@ -383,8 +383,4 @@ class SiteController extends Controller
     {
         return $this->render('carousel-search');
     }
-    public function actionWishlist()
-    {
-        return $this->render('wishlist');
-    }
 }

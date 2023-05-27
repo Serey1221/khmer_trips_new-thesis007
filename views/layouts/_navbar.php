@@ -7,8 +7,7 @@ use yii\helpers\Url;
 $controller = Yii::$app->controller->id;
 $action = Yii::$app->controller->action->id; ?>
 <!-- Navbar Start -->
-<?php // $this->render('like') 
-?>
+<?= $this->render('like') ?>
 <?= $this->render('add-cart') ?>
 <?= $this->render('sign_up') ?>
 <div class="container-fluid position-relative nav-bar p-0">
@@ -33,7 +32,7 @@ $action = Yii::$app->controller->action->id; ?>
                         </div>
                     </div> -->
                     <a href="<?= Yii::getAlias('@web/site/contact') ?>" class="nav-item nav-link <?= $action == 'contact' ? 'active' : '' ?>">Contact</a>
-                    <a href="<?= Yii::getAlias('@web/site/wishlist') ?>" class="nav-item nav-link"> <i class="fas fa-heart"></i> <span class="badge badge-pill badge-danger navbar-badge">5</span> </a>
+                    <a href="" class="nav-item nav-link" data-toggle="modal" data-target="#ModalLike"> <i class="fas fa-heart"></i> <span class="badge badge-pill badge-danger navbar-badge">5</span> </a>
                     <a href="" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-shopping-cart"></i> <span class="badge badge-danger navbar-badge">3</span> </a>
 
                     <?php

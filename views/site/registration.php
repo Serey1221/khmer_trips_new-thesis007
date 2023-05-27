@@ -3,7 +3,7 @@
 <div class="container-fluid bg-registration py-5" style="margin: 90px 0;">
     <div class="container py-5">
         <div class="row align-items-center">
-            <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="col-lg-7 mb-5 mb-lg-0">
                 <div class="mb-4">
                     <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Mega Offer</h6>
                     <h1 class="text-white"><span class="text-primary">30% OFF</span> For Honeymoon</h1>
@@ -17,13 +17,13 @@
                     <li class="py-2"><i class="fa fa-check text-primary mr-3"></i>Photoshoot</li>
                 </ul>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                 <?php if (Yii::$app->user->isGuest) { ?>
                     <div class="card border-0">
                         <div class="card-header bg-primary text-center p-4">
                             <h1 class="text-white m-0">Sign Up Now</h1>
                         </div>
-                        <div class="card-body rounded-bottom bg-white p-4">
+                        <div class="card-body rounded-bottom bg-white p-5">
                             <!-- <p>Check out more easily and access your tickets on any device with your Khmertravel account.</p>
                         <hr>
                         <form>
