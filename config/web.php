@@ -49,7 +49,7 @@ $config = [
             'class' => 'app\components\Rate',
         ],
         'user' => [
-            'identityClass' => 'app\modules\admin\models\User',
+            'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [

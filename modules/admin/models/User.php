@@ -118,9 +118,9 @@ class User extends ActiveRecord implements IdentityInterface
         }
 
         if (checkEmail($username)) {
-            return static::findOne(['email' => $username, 'status' => self::STATUS_ACTIVE]);
+            return static::findOne(['email' => $username, 'user_type' => 1, 'status' => self::STATUS_ACTIVE]);
         } else {
-            return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+            return static::findOne(['username' => $username, 'user_type' => 1, 'status' => self::STATUS_ACTIVE]);
         }
     }
 

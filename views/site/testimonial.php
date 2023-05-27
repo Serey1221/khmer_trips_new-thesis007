@@ -1,7 +1,3 @@
-<?php
-$this->title = 'Testimonial';
-
-?>
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="text-center mb-3 pb-3">
