@@ -38,6 +38,12 @@ class User extends ActiveRecord implements IdentityInterface
             [['created_at'], 'safe']
         ];
     }
+
+    public function getCustomer()
+    {
+        return $this->hasOne(Customer::class, ['user_id' => 'id']);
+    }
+
     public static function findIdentity($id)
     {
         return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
