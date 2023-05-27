@@ -27,6 +27,7 @@ class RegisterForm extends \yii\db\ActiveRecord
   {
     return [
       [['name'], 'string', 'max' => 50],
+      [['phone_number',], 'integer'],
       [['email'], 'email'],
     ];
   }
