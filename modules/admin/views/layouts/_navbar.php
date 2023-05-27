@@ -39,7 +39,7 @@ Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
     <li class="nav-item dropdown user-menu">
       <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
         <img src="../../img/user2-160x160.jpg" class="user-image img-circle elevation-2" alt="User Image">
-        <span class="d-none d-md-inline">Admin</span>
+        <span class="d-none d-md-inline"><?= Yii::$app->user->isGuest ? 'Guest' : Yii::$app->user->identity->username ?></span>
       </a>
       <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
         <li class="user-header bg-primary">

@@ -48,8 +48,12 @@ $config = [
         'rate' => [
             'class' => 'app\components\Rate',
         ],
+        'session' => [
+            'name' => 'app-khmertravel',
+        ],
         'user' => [
             'identityClass' => 'app\models\User',
+            'identityCookie' => ['name' => '_identity-app-khmertravel', 'httpOnly' => false],
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [

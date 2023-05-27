@@ -207,6 +207,7 @@ class SiteController extends Controller
                 $user->password_hash = Yii::$app->security->generatePasswordHash($this->request->post('registerPassword'));
                 $user->status = 1;
                 $user->created_at = date("Y-m-d H:i:s");
+                $user->user_type = 2;
                 if (!$user->save()) throw new Exception("Failed to Save! Code #001");
 
                 $model = new RegisterForm();

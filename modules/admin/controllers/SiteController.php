@@ -40,8 +40,6 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
-        Yii::$app->setHomeUrl(Yii::getAlias('@web/admin/admin'));
-
         $this->layout = 'login';
 
         if (!Yii::$app->user->isGuest) {
@@ -49,8 +47,10 @@ class SiteController extends Controller
         }
 
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->login()) {
+                return $this->goBack();
+            }
         }
 
         $model->password = '';
@@ -68,7 +68,7 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->goHome();
+        return $this->redirect(['login']);
     }
 
     /**
