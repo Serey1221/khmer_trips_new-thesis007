@@ -1,5 +1,6 @@
 <?php
 
+use yii\bootstrap4\Dropdown;
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
 
@@ -41,7 +42,18 @@ $action = Yii::$app->controller->action->id; ?>
                             <button class="btn btn-outline-primary my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModalCenter">Sign up</button>
                         </div>
                     <?php } else { ?>
-                        <a href="<?= Url::to(['user/index']) ?>" class="nav-item nav-link"> <i class="fas fa-user"></i> <?= Yii::$app->user->identity->username ?></a>
+                        <div class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="nav-item nav-link"> <i class="fas fa-user"></i> <?= Yii::$app->user->identity->username ?></a>
+                            <?php
+                            echo Dropdown::widget([
+                                'items' => [
+                                    ['label' => '<i class="fas fa-sign-out-alt"></i> Logout', 'linkOptions' => ['data-pjax' => 0], 'url' => '/', 'encode' => false],
+                                    ' <hr>',
+                                    ['label' => '<i class="fas fa-user"></i> Profile', 'linkOptions' => ['data-pjax' => 0], 'url' => '/', 'encode' => false],
+                                ],
+                            ]);
+                            ?>
+                        </div>
                     <?php } ?>
                 </div>
             </div>
