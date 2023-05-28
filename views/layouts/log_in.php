@@ -9,7 +9,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <?= $this->render('//auth/login') ?>
+                <?php // $this->render('//auth/login') 
+                ?>
             </div>
         </div>
     </div>

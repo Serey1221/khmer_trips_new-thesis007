@@ -38,11 +38,11 @@ $action = Yii::$app->controller->action->id; ?>
                     <?php
                     if (Yii::$app->user->isGuest) {
                     ?>
-                        <div class="form-inline my-2 my-lg-0">
+                        <!-- <div class="form-inline my-2 my-lg-0">
                             <button class="btn btn-outline-primary my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModalCenter">Sign up</button>
-                        </div>
+                        </div> -->
                         <div class="form-inline my-2 my-lg-0 ml-2">
-                            <button class="btn btn-outline-primary my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModalLogin">Log in</button>
+                            <button class="btn btn-outline-primary my-2 my-sm-0 modalButton" type="button" data-title="KHMER TRAVEL" value="<?= Url::toRoute('site/login') ?>">Log in</button>
                         </div>
                     <?php } else { ?>
                         <div class="dropdown">
@@ -63,3 +63,15 @@ $action = Yii::$app->controller->action->id; ?>
         </nav>
     </div>
 </div> <!-- Navbar End -->
+<?php
+$script = <<<JS
+    $(document).on("click",".modalButton",function () {
+      $("#modalDialog").modal("show")
+          .find("#modalDialogContent")
+          .load($(this).attr("value"));
+      $("#modalDialog").find("#modalDialogTitle").text($(this).data("title"));
+  });
+
+JS;
+$this->registerJs($script);
+?>
