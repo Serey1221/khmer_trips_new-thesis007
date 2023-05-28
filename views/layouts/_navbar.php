@@ -7,8 +7,7 @@ use yii\helpers\Url;
 $controller = Yii::$app->controller->id;
 $action = Yii::$app->controller->action->id; ?>
 <!-- Navbar Start -->
-<?php // $this->render('like') 
-?>
+<?= $this->render('log_in') ?>
 <?= $this->render('add-cart') ?>
 <?= $this->render('sign_up') ?>
 <div class="container-fluid position-relative nav-bar p-0">
@@ -41,6 +40,9 @@ $action = Yii::$app->controller->action->id; ?>
                     ?>
                         <div class="form-inline my-2 my-lg-0">
                             <button class="btn btn-outline-primary my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModalCenter">Sign up</button>
+                        </div>
+                        <div class="form-inline my-2 my-lg-0 ml-2">
+                            <button class="btn btn-outline-primary my-2 my-sm-0" type="button" data-toggle="modal" data-target="#exampleModalLogin">Log in</button>
                         </div>
                     <?php } else { ?>
                         <div class="dropdown">
