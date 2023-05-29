@@ -19,6 +19,7 @@ use app\models\RegisterUser;
 use app\models\User;
 use Exception;
 use app\models\ArticleSearch;
+use app\models\ProductSearch;
 use yii\data\Pagination;
 use yii\db\Expression;
 use yii\web\NotFoundHttpException;
@@ -148,7 +149,9 @@ class SiteController extends Controller
         // print_r($numberCity);
         // echo '</pre>';
 
+        $searchModel = new ProductSearch();
         return $this->render('index', [
+            'searchModel' => $searchModel,
             'city' => $city,
             'guide' => $guide,
             'blog' => $blog,

@@ -63,7 +63,7 @@ class Product extends \yii\db\ActiveRecord
             [['overview', 'overviewkh', 'highlight', 'highlight_kh'], 'string'],
             [['created_at', 'updated_at', 'deleted_at'], 'safe'],
             [['rating'], 'number'],
-            [['type'], 'string', 'max' => 20],
+            [['type', 'code'], 'string', 'max' => 20],
             [['name', 'namekh', 'pick_up', 'pick_up_kh', 'drop_off', 'drop_off_kh', 'price_include_kh', 'price_exclude_kh', 'price_include', 'price_exclude'], 'string', 'max' => 255],
         ];
     }
@@ -120,28 +120,35 @@ class Product extends \yii\db\ActiveRecord
             'img_url' => 'Image',
         ];
     }
-    public function beforeSave($insert)
+
+    public function getLocation()
     {
-        if (parent::beforeSave($insert)) {
-            if ($this->isNewRecord) {
-                $this->created_at = date('Y-m-d H:i:s');
-                $this->created_by = Yii::$app->user->identity->id;
-            } else {
-                $this->updated_at = date('Y-m-d H:i:s');
-                $this->updated_by = Yii::$app->user->identity->id;
+        if (!empty($this->cities)) {
+            $str = '';
+            foreach ($this->cities as $key => $value) {
+                $str .= $value->city->name . ", ";
             }
-            return true;
+            return rtrim($str, ', ');
+        }
+        return '';
+    }
+
+    public function getDuration()
+    {
+        if ($this->type == 'activity') {
+            $tourhour = $this->tourhour . ' hour(s)';
+            if ($this->tourmin > 0) {
+                $tourhour .= ' ' . $this->tourmin . ' minute(s)';
+            }
+            return $tourhour;
         } else {
-            return false;
+            return $this->tourday . ' day(s) ' . $this->tournight . ' night(s)';
         }
     }
-    public function getStatusTemp()
+
+    public function getCities()
     {
-        if ($this->status == 1) {
-            return '<span class="badge badge-pill badge-info">Publish</span>';
-        } else {
-            return '<span class="badge badge-pill badge-danger">Inactive</span>';
-        }
+        return $this->hasMany(ProductCity::class, ['product_id' => 'id']);
     }
 
     public function isTour()

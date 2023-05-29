@@ -2,6 +2,7 @@
 
 namespace app\components;
 
+use app\models\City;
 use app\modules\admin\models\Product;
 use app\modules\admin\models\ProductRateModify;
 use DateTime;
@@ -32,6 +33,20 @@ class Rate extends \yii\web\Request
     return floatval($modifyAmount);
   }
 
+  public function city()
+  {
+    return Yii::$app->db->createCommand("SELECT city.id, city.`name`, city.name_kh
+        FROM city
+        INNER JOIN product_city ON city.id = product_city.city_id
+        GROUP BY city.id
+    ")
+      ->queryAll();
+  }
+
+  public function guest()
+  {
+    return [1 => "1 Guest", 2 => "2 Guests", 3 => "3 Guests", 4 => "4 Guests", 5 => "5 Guests"];
+  }
 
   public function validateDate($date, $format = 'Y-m-d')
   {

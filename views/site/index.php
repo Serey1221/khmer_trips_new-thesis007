@@ -10,7 +10,7 @@ $this->title = 'Khmer Travel';
 
 <?= $this->render('carousel-search') ?>
 
-<?= $this->render('_section_search') ?>
+<?= $this->render('_section_search', ['model' => $searchModel]) ?>
 
 
 <?= $this->render('_sub_about'); ?>
