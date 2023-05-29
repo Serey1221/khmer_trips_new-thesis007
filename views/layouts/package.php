@@ -53,7 +53,7 @@ $this->registerLinkTag([
     </main>
 
     <?= $this->render('_footer') ?>
-
+    <?= $this->render('_modalButton') ?>
     <?php $this->endBody(); ?>
 </body>
 
