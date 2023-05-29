@@ -59,15 +59,19 @@ class Product extends \yii\db\ActiveRecord
             [['tourday', 'tournight'], 'integer', 'min' => 1],
             [['name', 'namekh'], 'required'],
 
-            // [['city_id'], 'required'],
-            [['city_id'], 'safe',],
+            [['city_id'], 'required'],
+            [['city_id'], 'safe'],
 
             ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['admin']],
             [['tourhour', 'tourmin', 'status', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
             [['overview', 'overviewkh', 'highlight', 'highlight_kh'], 'string'],
             [['created_at', 'updated_at', 'deleted_at'], 'safe'],
             [['rating'], 'number'],
-            [['type'], 'string', 'max' => 20],
+
+            [['rate'], 'number', 'min' => 1],
+            [['rate'], 'required'],
+
+            [['type', 'code'], 'string', 'max' => 20],
             [['name', 'namekh', 'pick_up', 'pick_up_kh', 'drop_off', 'drop_off_kh', 'price_include_kh', 'price_exclude_kh', 'price_include', 'price_exclude'], 'string', 'max' => 255],
         ];
     }
@@ -129,6 +133,26 @@ class Product extends \yii\db\ActiveRecord
     {
         if (parent::beforeSave($insert)) {
             if ($this->isNewRecord) {
+
+                if ($this->isTour()) {
+                    $this->tourhour = 0;
+                    $this->tourmin = 0;
+                }
+                if ($this->isActivity()) {
+                    $this->tourday = 0;
+                    $this->tournight = 0;
+                }
+
+                $length = 10;
+                $result = false;
+                $code = '';
+                do {
+                    $code = substr(str_shuffle(str_repeat($x = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
+                    $has = self::findOne(['code' => $code]);
+                    if (empty($has)) $result = true;
+                } while (!$result);
+                $this->code = $code;
+
                 $this->created_at = date('Y-m-d H:i:s');
                 $this->created_by = Yii::$app->user->identity->id;
             } else {
@@ -147,6 +171,11 @@ class Product extends \yii\db\ActiveRecord
         } else {
             return '<span class="badge badge-pill badge-danger">Inactive</span>';
         }
+    }
+
+    public function getCities()
+    {
+        return $this->hasMany(ProductCity::class, ['product_id' => 'id']);
     }
 
     public function isTour()

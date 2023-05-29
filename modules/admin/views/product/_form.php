@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\admin\models\City;
+use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -22,6 +23,10 @@ function iconTemplate($icon)
 </label>
 <div class='form-item'>{input}</div>
 </div>";
+}
+
+if (!$model->isNewRecord) {
+    $model->city_id = ArrayHelper::getColumn($model->cities, 'city_id');
 }
 
 ?>
@@ -138,7 +143,15 @@ function iconTemplate($icon)
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
-                            <?= $form->field($model, 'city_id')->dropDownList(ArrayHelper::map(City::find()->all(), 'id', 'name'), ['name' => 'cityId[]'])->label("City"); ?>
+                            <?= $form->field($model, 'city_id')->widget(Select2::class, [
+                                'data' => ArrayHelper::map(City::find()->all(), 'id', 'name'),
+                                'theme' => Select2::THEME_BOOTSTRAP,
+                                'options' => ['placeholder' => 'Select'],
+                                'pluginOptions' => [
+                                    'multiple' => true,
+                                    'allowClear' => true
+                                ],
+                            ]); ?>
                         </div>
                         <div class="col-lg-6">
                             <div hidden class="hide">
@@ -146,11 +159,11 @@ function iconTemplate($icon)
                             </div>
                             <label>Star Rating</label>
                             <div class="rating">
-                                <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-                                <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
-                                <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-                                <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-                                <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                                <input type="radio" name="rating" <?= $model->rating == 5 ? 'checked' : '' ?> value="5" id="5"><label for="5">☆</label>
+                                <input type="radio" name="rating" <?= $model->rating == 4 ? 'checked' : '' ?> value="4" id="4"><label for="4">☆</label>
+                                <input type="radio" name="rating" <?= $model->rating == 3 ? 'checked' : '' ?> value="3" id="3"><label for="3">☆</label>
+                                <input type="radio" name="rating" <?= $model->rating == 2 ? 'checked' : '' ?> value="2" id="2"><label for="2">☆</label>
+                                <input type="radio" name="rating" <?= $model->rating == 1 ? 'checked' : '' ?> value="1" id="1"><label for="1">☆</label>
                             </div>
                         </div>
                     </div>
@@ -223,12 +236,7 @@ $script = <<<JS
 
     $(".rating input").click(function(){
         var rate = $(this).val();
-        $("#product-rate").val(rate);
-    });
-
-    $("#product-city_id").select2({
-        multiple: true,
-        placeholder: 'Select city'
+        $("#product-rating").val(rate);
     });
 
 JS;

@@ -159,9 +159,9 @@ class Formater extends \yii\web\Request
     $outputString = '';
     for ($i = 0; $i < 5; $i++) {
       if ($i < $number) {
-        $outputString .= "<i class='demo-psi-star text-warning'></i>\n";
+        $outputString .= "<i class='fas fa-star text-warning'></i>\n";
       } else {
-        $outputString .= "<i class='demo-psi-star'></i>\n";
+        $outputString .= "<i class='fas fa-star'></i>\n";
       }
     }
     return $outputString;

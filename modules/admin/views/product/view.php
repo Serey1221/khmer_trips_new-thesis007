@@ -77,7 +77,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             ?>
                                 <tr>
                                     <td><?= $value->from_date . ' to ' . $value->to_date ?></td>
-                                    <td><?= $value->amount, ' ', ($value->amont_type == 1 ? '$' : '%') ?></td>
+                                    <td><?= $value->amount, ' ', ($value->amount_type == 1 ? '$' : '%') ?></td>
                                     <td><?= Html::a("<i class='fas fa-pen'></i>", ['update-rate', 'id' => $value->id]) ?></td>
                                 </tr>
                             <?php

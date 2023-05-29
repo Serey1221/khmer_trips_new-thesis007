@@ -48,9 +48,7 @@ class ProductController extends \yii\web\Controller
         if ($this->request->isPost && $model->load($this->request->post())) {
             $transaction_exception = Yii::$app->db->beginTransaction();
             try {
-
                 if (!$model->save()) throw new Exception(print_r($model->getErrors()));
-                $model->city_id = $this->request->post('cityId');
                 if (!empty($model->city_id)) {
                     foreach ($model->city_id as $key => $value) {
                         $productCity = new ProductCity();
@@ -84,10 +82,8 @@ class ProductController extends \yii\web\Controller
         if ($this->request->isPost && $model->load($this->request->post())) {
             $transaction_exception = Yii::$app->db->beginTransaction();
             try {
-
                 if (!$model->save()) throw new Exception(print_r($model->getErrors()));
 
-                $model->city_id = $this->request->post('cityId');
                 ProductCity::deleteAll(['product_id' => $model->id]);
                 if (!empty($model->city_id)) {
                     foreach ($model->city_id as $key => $value) {
