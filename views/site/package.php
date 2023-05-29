@@ -5,9 +5,8 @@
     use yii\helpers\Html;
 
     $this->title = 'Package';
-    // $this->params['breadcrumbs'][] = $this->title;
     ?>
- <?= $this->render('_section_search') ?>
+ <?= $this->render('_section_search', ['model' => $searchModel]) ?>
  <div class="container mt-5">
      <div class="row">
          <div class="col-lg-5">
@@ -18,10 +17,9 @@
              <div class="d-flex mb-3">
                  <small class="m-0 mr-2"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Angkor Thom</small>
                  <small class="m-0 mr-2"><i class="fa fa-calendar-alt text-primary mr-2"></i>2 days</small>
-                 <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>5 Person</small>
+                 <!-- <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>5 Person</small> -->
              </div>
              <a class="h3 text-decoration-none" href="<?= Yii::getAlias('@web/site/booking-detail') ?>"><?= $newproduct['name'] ?></a>
-             <!-- <p class="text-muted">The Bayon was the last state temple to be built at Angkor and the only Angkorian</p> -->
              <div class="border-top mt-4 pt-4">
                  <div class="d-flex">
                      <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>

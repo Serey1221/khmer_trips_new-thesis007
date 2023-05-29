@@ -11,7 +11,7 @@ use yii\captcha\Captcha;
 $this->title = 'Contact';
 
 ?>
-<?= $this->render('_section_search') ?>
+<?= $this->render('_section_search', ['model' => $searchModel]) ?>
 <!-- Contact Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">

@@ -247,6 +247,7 @@ class SiteController extends Controller
     public function actionContact()
     {
         $this->layout = 'package';
+        $searchModel = new ProductSearch();
         $model = new ContactForm();
         if (
             $model->load(Yii::$app->request->post()) &&
@@ -258,6 +259,7 @@ class SiteController extends Controller
         }
         return $this->render('contact', [
             'model' => $model,
+            'searchModel' => $searchModel
         ]);
     }
 
@@ -269,12 +271,19 @@ class SiteController extends Controller
     public function actionService()
     {
         $this->layout = 'package';
-        return $this->render('service');
+        $searchModel = new ProductSearch();
+
+        return $this->render('service', [
+            'searchModel' => $searchModel,
+        ]);
     }
     public function actionAbout()
     {
         $this->layout = 'package';
-        return $this->render('about');
+        $searchModel = new ProductSearch();
+        return $this->render('about', [
+            'searchModel' => $searchModel,
+        ]);
     }
     public function actionPackage()
     {
@@ -283,17 +292,20 @@ class SiteController extends Controller
         $city = $this->cityData();
         $product = $this->productData();
         $newproduct = $this->newproductData();
+        $searchModel = new ProductSearch();
 
         return $this->render('package', [
             'city' => $city,
             'product' => $product,
             'newproduct' => $newproduct,
+            'searchModel' => $searchModel
         ]);
     }
     public function actionBloggrid()
     {
         $searchModel = new ArticleSearch();
         $this->layout = 'package';
+        $searchModel = new ProductSearch();
 
         //preparing the query
         $query = Article::find();

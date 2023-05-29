@@ -33,7 +33,7 @@ $guest = Yii::$app->rate->guest();
                     <?= $form->field($model, 'totalGuest')->dropdownList($guest, ['class' => 'custom-select'])->label("Number of guest") ?>
                 </div>
                 <div class="col-md">
-                    <button class="btn btn-primary btn-block btn-lg" type="submit">Submit</button>
+                    <button class="btn btn-primary btn-block" type="submit" style="margin-top: 52px;">Submit</button>
                 </div>
             </div>
         </div>

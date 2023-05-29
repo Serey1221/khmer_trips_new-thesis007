@@ -7,7 +7,7 @@ use yii\helpers\Html;
 $this->title = 'About';
 // $this->params['breadcrumbs'][] = $this->title;
 ?>
-<?= $this->render('_section_search') ?>
+<?= $this->render('_section_search', ['model' => $searchModel]) ?>
 
 <?= $this->render('_sub_about'); ?>
 

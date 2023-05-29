@@ -15,10 +15,10 @@
                                 <i id="heart" class="far fa-heart"></i>
                             </div>
                             <div class="p-4">
-                                <div class="d-flex justify-content-between mb-3">
+                                <div class="d-flex mb-3">
                                     <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Angkor Thom</small>
-                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>2 days</small>
-                                    <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>5 Person</small>
+                                    <small class="m-0 ml-3"><i class="fa fa-calendar-alt text-primary mr-2"></i>2 days</small>
+                                    <!-- <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>5 Person</small> -->
                                 </div>
                                 <a class="h5 text-decoration-none d-inline-block text-truncate" href="<?= Yii::getAlias('@web/site/booking-detail') ?>" style="max-width: 320px;"><?= $value['name'] ?></a>
                                 <div class="border-top mt-4 pt-4">

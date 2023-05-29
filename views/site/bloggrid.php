@@ -10,7 +10,7 @@ use yii\widgets\Pjax;
 $this->title = 'Blog';
 $formater = Yii::$app->formater;
 ?>
-<?= $this->render('_section_search') ?>
+<?= $this->render('_section_search', ['model' => $searchModel]) ?>
 <!-- Blog Start -->
 <?php Pjax::begin(['id' => 'articleSearchPjax']); ?>
 <div class="container-fluid py-5">
@@ -31,7 +31,8 @@ $formater = Yii::$app->formater;
                                                 <i id="heart" class="far fa-heart"></i>
                                             </div>
                                             <div class="blog-date">
-                                                <small class="font-weight-bold text-white text-uppercase ml-2"><?= $formater->date($value->created_date) ?></small>
+                                                <h6 class="font-weight-bold text-white mb-n1"><?= date('d', strtotime($value->created_date)); ?></h6>
+                                                <small class="text-white text-uppercase"><?= date('M', strtotime($value->created_date)); ?></small>
                                             </div>
                                         </div>
                                         <div class="bg-white p-4">
