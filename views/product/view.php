@@ -19,7 +19,7 @@ $rate = Yii::$app->rate;
 <style>
   .page-title {
     background-color: #7ab730;
-    margin-top: 45px;
+    margin-top: 84px;
     height: 62px;
   }
 
@@ -37,12 +37,17 @@ $rate = Yii::$app->rate;
   .table-booking-summary td {
     font-size: .8rem;
   }
+
+  .product-rating {
+    font-size: .9rem;
+    color: gainsboro;
+  }
 </style>
 <div class="page-title">
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
-        <h4 class="text-justify py-3" style="color:white"> <?= $model->name ?></h4>
+        <h4 class="text-justify d-inline-block text-truncate py-3" style="color:white;max-width: 720px;"> <?= $model->name ?></h4>
       </div>
       <div class="col-lg-4">
         <div class="text-justify py-2">
@@ -81,9 +86,36 @@ $rate = Yii::$app->rate;
             </div>
           </div>
           <div class="bg-white mb-3" style="padding: 30px;">
-            <div class="d-flex mb-3">
-              <a class="text-primary text-uppercase text-decoration-none" href="#"><?= $model->getLocation() ?></a>
+            <div class="row mb-3">
+              <div class="col-md">
+                <h6 class="text-primary text-uppercase text-decoration-none"><i class="fa fa-map-marker-alt mr-2"></i> <?= $model->getLocation() ?></h6>
+              </div>
+              <div class="col-md">
+                <h6 class="text-primary text-uppercase text-decoration-none"><i class="fa fa-calendar-alt mr-2"></i> <?= $model->getDuration() ?></h6>
+              </div>
+              <div class="col-md">
+                <h6 class="text-warning text-uppercase text-decoration-none"><i class="fas fa-ticket-alt mr-2"></i> Code: <?= $model->code ?></h6>
+              </div>
             </div>
+            <div class="bg-secondary" style="padding: 20px;border-radius: 10px;">
+              <div class="product-rating my-1 text-right">
+                <h6 class="text-muted">Overall rating</h6> <?= $formater->starRatingReview($model->rating) ?>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <h5>Overview</h5>
+                <p><?= nl2br($model->overview) ?></p>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <h5>Highlights</h5>
+                <p><?= nl2br($model->highlight) ?></p>
+              </div>
+            </div>
+            <hr>
+
           </div>
         </div>
         <section id="checkavaibility">
@@ -206,38 +238,17 @@ $rate = Yii::$app->rate;
     <div class="row mt-5 mb-4">
       <div class="col-lg-8">
         <h3>The Original experience</h3>
-        <div class="row mt-3">
-          <div class="col-md-4">
-            <h5>Highlights</h5>
-          </div>
-          <div class="col-md-8">
-            <p><?= nl2br($model->highlight) ?></p>
-          </div>
-        </div>
         <hr>
         <div class="row mt-3">
-          <div class="col-md-4">
-            <h5>Overview</h5>
-          </div>
-          <div class="col-md-8">
-            <p><?= nl2br($model->overview) ?></p>
-          </div>
-        </div>
-        <hr>
-        <div class="row mt-3">
-          <div class="col-md-4">
+          <div class="col-md-12">
             <h5>Includes</h5>
-          </div>
-          <div class="col-md-8">
             <p><?= nl2br($model->price_include) ?></p>
           </div>
         </div>
         <hr>
         <div class="row mt-3">
-          <div class="col-md-4">
+          <div class="col-md-12">
             <h5>Excludes</h5>
-          </div>
-          <div class="col-md-8">
             <p><?= nl2br($model->price_exclude) ?></p>
           </div>
         </div>
@@ -262,16 +273,19 @@ $rate = Yii::$app->rate;
                 <i id="heart" class="far fa-heart"></i>
               </div>
               <div class="p-4">
-                <div class="d-flex justify-content-between mb-3">
-                  <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Koh Ker</small>
-                  <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>3 days</small>
-                  <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>2 Person</small>
+                <div class="d-flex mb-2">
+                  <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?= $value->getLocation() ?></small>
                 </div>
-                <a class="h5 text-decoration-none d-inline-block text-truncate" href="<?= Yii::getAlias('@web/site/booking-detail') ?>" style="max-width: 320px;"><?= $value['name'] ?></a>
+                <div class="d-flex mb-2">
+                  <a class="h5 text-decoration-none d-inline-block text-truncate" href="<?= Yii::getAlias('product/view') ?>" style="max-width: 320px;"><?= $value['name'] ?></a>
+                </div>
+                <div class="d-flex">
+                  <small class="m-0 ml-1"><i class="fa fa-calendar-alt text-primary mr-2"></i><?= $value->getDuration() ?></small>
+                </div>
                 <div class="border-top mt-4 pt-4">
                   <div class="d-flex justify-content-between">
-                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
-                    <h5 class="m-0">$350</h5>
+                    <h6 class="m-0" style="color:gainsboro"><?= $formater->starRatingReview($value->rating) ?></h6>
+                    <h5 class="m-0"><?= $formater->DollarFormat($rate->getPrice($value->id, $selectedDate)) ?> <small class="text-muted">Per Pax</small></h5>
                   </div>
                 </div>
               </div>

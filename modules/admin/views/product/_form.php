@@ -127,18 +127,18 @@ if (!$model->isNewRecord) {
                     </div>
                     <div class="form-row ">
                         <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'price_include')->textInput(['maxlength' => true]) ?>
+                            <?= $form->field($model, 'price_include')->textarea(['rows' => 4]) ?>
                         </div>
                         <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'price_include_kh')->textInput(['maxlength' => true]) ?>
+                            <?= $form->field($model, 'price_include_kh')->textarea(['rows' => 4]) ?>
                         </div>
                     </div>
                     <div class="form-row ">
                         <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'price_exclude')->textInput(['maxlength' => true]) ?>
+                            <?= $form->field($model, 'price_exclude')->textarea(['rows' => 4]) ?>
                         </div>
                         <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'price_exclude_kh')->textInput(['maxlength' => true]) ?>
+                            <?= $form->field($model, 'price_exclude_kh')->textarea(['rows' => 4]) ?>
                         </div>
                     </div>
                     <div class="row">

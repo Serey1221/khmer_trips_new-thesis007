@@ -307,16 +307,16 @@ class SiteController extends Controller
         $this->layout = 'package';
         $searchModel = new ProductSearch();
 
-        //preparing the query
-        $query = Article::find();
-        // get the total number of users
-        $count = $query->count();
-        //creating the pagination object
-        $pagination = new Pagination(['totalCount' => $count, 'defaultPageSize' => 1]);
-        //limit the query using the pagination and retrieve the users
-        $models = $query->offset($pagination->offset)
-            ->limit($pagination->limit)
-            ->all();
+        // //preparing the query
+        // $query = Article::find();
+        // // get the total number of users
+        // $count = $query->count();
+        // //creating the pagination object
+        // $pagination = new Pagination(['totalCount' => $count, 'defaultPageSize' => 1]);
+        // //limit the query using the pagination and retrieve the users
+        // $models = $query->offset($pagination->offset)
+        //     ->limit($pagination->limit)
+        //     ->all();
 
         $blog = $this->blogData();
         $threeblog = $this->threeblogData();
@@ -324,8 +324,8 @@ class SiteController extends Controller
         return $this->render('bloggrid', [
             'blog' => $blog,
             'threeblog' => $threeblog,
-            'models' => $models,
-            'pagination' => $pagination,
+            // 'models' => $models,
+            // 'pagination' => $pagination,
             'searchModel' => $searchModel
         ]);
     }
