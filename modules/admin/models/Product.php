@@ -56,7 +56,7 @@ class Product extends \yii\db\ActiveRecord
         return [
             [['tourhour', 'tourmin'], 'required', 'on' => self::ACTIVITY],
             [['tourday', 'tournight'], 'required', 'on' => self::TOUR],
-            [['tourday', 'tournight'], 'integer', 'min' => 1],
+            [['tourday', 'tournight'], 'integer', 'min' => 1, 'on' => self::TOUR],
             [['name', 'namekh'], 'required'],
 
             [['city_id'], 'required'],

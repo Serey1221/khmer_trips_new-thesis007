@@ -42,6 +42,10 @@ $rate = Yii::$app->rate;
     font-size: .9rem;
     color: gainsboro;
   }
+
+  .shadow {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
 </style>
 <div class="page-title">
   <div class="container">
@@ -85,24 +89,28 @@ $rate = Yii::$app->rate;
               </div>
             </div>
           </div>
-          <div class="bg-white mb-3" style="padding: 30px;">
-            <div class="row mb-3">
-              <div class="col-md">
+          <div class="bg-white  mb-3" style="padding: 30px;">
+            <div class="d-flex justify-content-around mb-3">
+              <div class="d-block">
                 <h6 class="text-primary text-uppercase text-decoration-none"><i class="fa fa-map-marker-alt mr-2"></i> <?= $model->getLocation() ?></h6>
               </div>
-              <div class="col-md">
+              <div class="d-block">
                 <h6 class="text-primary text-uppercase text-decoration-none"><i class="fa fa-calendar-alt mr-2"></i> <?= $model->getDuration() ?></h6>
               </div>
-              <div class="col-md">
+              <!-- <div class="col-md">
                 <h6 class="text-warning text-uppercase text-decoration-none"><i class="fas fa-ticket-alt mr-2"></i> Code: <?= $model->code ?></h6>
-              </div>
+              </div> -->
             </div>
-            <div class="bg-secondary" style="padding: 20px;border-radius: 10px;">
-              <div class="product-rating my-1 text-right">
+            <div class="bg-secondary d-flex justify-content-around shadow" style="padding: 20px;border-radius: 10px;">
+              <div class="d-block">
+                <h6 class="text-muted">Code: </h6>
+                <h5 class="text-warning text-uppercase text-decoration-none"><i class="fas fa-ticket-alt mr-2"></i> <?= $model->code ?></h5>
+              </div>
+              <div class="product-rating my-1">
                 <h6 class="text-muted">Overall rating</h6> <?= $formater->starRatingReview($model->rating) ?>
               </div>
             </div>
-            <div class="row mt-3">
+            <div class="row mt-5">
               <div class="col-md-12">
                 <h5>Overview</h5>
                 <p><?= nl2br($model->overview) ?></p>
