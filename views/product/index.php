@@ -48,6 +48,29 @@ $rate = Yii::$app->rate;
   .product-item .product-code {
     font-size: .9rem;
   }
+
+  .product-item .product-fav-button {
+    position: absolute;
+    top: 8px;
+    right: 24px;
+  }
+
+  .product-item .product-fav-button i {
+    font-size: 1.4rem;
+    color: #7ab730;
+  }
+
+  .product-item .product-fav-button:hover,
+  .product-item .product-fav-button.active {
+    background-color: red;
+    cursor: pointer;
+  }
+
+  .product-item .product-fav-button:hover i,
+  .product-item .product-fav-button.active i {
+    color: #fff;
+    cursor: pointer;
+  }
 </style>
 <div class="container-fluid py-5">
   <div class="container pt-5 pb-3">

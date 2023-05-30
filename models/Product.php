@@ -133,6 +133,58 @@ class Product extends \yii\db\ActiveRecord
         return '';
     }
 
+    public function getListItemTemplate($data)
+    {
+        /** @var \app\components\Formater $formater */
+        $formater = Yii::$app->formater;
+
+        /** @var \app\components\Rate $tate */
+        $rate = Yii::$app->rate;
+
+        $selectedCity = !empty($data['selectedCity']) ? $data['selectedCity'] : 1;
+        $selectedDate = !empty($data['selectedDate']) ? $data['selectedDate'] : date("Y-m-d");
+        $totalGuest = !empty($data['totalGuest']) ? $data['totalGuest'] : 1;
+
+        $imageUrl = $this->getUploadUrl('img_url');
+        $bookButton = \yii\helpers\Html::a('View Now', [
+            'product/view',
+            'id' => $this->code,
+            'selectedCity' => $selectedCity,
+            'selectedDate' => $selectedDate,
+            'totalGuest' => $totalGuest
+        ], ['class' => 'btn btn-lg btn-primary']);
+        return "<div class='row product-item '>
+                    <div class='col-lg-4'>
+                        <img src='{$imageUrl}' class='product-image' />
+                        <div class='h_container product-fav-button' data-id='{$this->code}'>
+                            <i class='far fa-heart'></i>
+                        </div>
+                    </div>
+                    <div class='col-lg-6 align-self-center'>
+                        <div class='product-title'>{$this->name}</div>
+                        <div class='product-location my-1'>
+                            <i class='fas fa-map-marker-alt'></i> {$this->getLocation()}
+                        </div>
+                        <div class='product-rating my-1'>{$formater->starRatingReview($this->rating)}</div>
+                        <div class='product-duration my-2'>Duration: {$this->getDuration()}</div>
+                        <div class='product-code my-2'>Code: {$this->code}</div>
+                    </div>
+                    <div class='col-lg-2 align-self-center'>
+                        <div class='d-flex'>
+                            <div class='ml-auto'>
+                                <div class='text-right'>
+                                    <small class='d-block'>price start from</small>
+                                    <span class='product-price'>{$formater->DollarFormat($rate->getPrice($this->id,$selectedDate))}</span>
+                                    <small class='d-block'>per pax</small>
+                                    <div class='d-block mt-3'> {$bookButton} </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class='my-5'>";
+    }
+
     public function getDuration()
     {
         if ($this->type == 'activity') {
