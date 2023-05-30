@@ -8,7 +8,7 @@ use yii\helpers\Html;
     <h3 class="text-center">Log in to <span class="text-uppercase">Khmertravel</span></h3>
     <hr>
     <?php $form = ActiveForm::begin([
-        'action' => 'site/login',
+        'action' => ['site/login'],
         'options' => ['id' => 'registerForm'],
         // 'enableAjaxValidation' => false,
         // 'enableClientValidation' => true
