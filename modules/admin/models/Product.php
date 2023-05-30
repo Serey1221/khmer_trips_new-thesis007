@@ -56,7 +56,7 @@ class Product extends \yii\db\ActiveRecord
         return [
             [['tourhour', 'tourmin'], 'required', 'on' => self::ACTIVITY],
             [['tourday', 'tournight'], 'required', 'on' => self::TOUR],
-            [['tourday', 'tournight'], 'integer', 'min' => 1],
+            [['tourday', 'tournight'], 'integer', 'min' => 1, 'on' => self::TOUR],
             [['name', 'namekh'], 'required'],
 
             [['city_id'], 'required'],
@@ -64,7 +64,7 @@ class Product extends \yii\db\ActiveRecord
 
             ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['admin']],
             [['tourhour', 'tourmin', 'status', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
-            [['overview', 'overviewkh', 'highlight', 'highlight_kh'], 'string'],
+            [['overview', 'overviewkh', 'highlight', 'highlight_kh', 'price_include_kh', 'price_exclude_kh', 'price_include', 'price_exclude'], 'string'],
             [['created_at', 'updated_at', 'deleted_at'], 'safe'],
             [['rating'], 'number'],
 
@@ -72,7 +72,7 @@ class Product extends \yii\db\ActiveRecord
             [['rate'], 'required'],
 
             [['type', 'code'], 'string', 'max' => 20],
-            [['name', 'namekh', 'pick_up', 'pick_up_kh', 'drop_off', 'drop_off_kh', 'price_include_kh', 'price_exclude_kh', 'price_include', 'price_exclude'], 'string', 'max' => 255],
+            [['name', 'namekh', 'pick_up', 'pick_up_kh', 'drop_off', 'drop_off_kh'], 'string', 'max' => 255],
         ];
     }
 

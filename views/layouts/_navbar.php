@@ -22,17 +22,8 @@ $action = Yii::$app->controller->action->id; ?>
                     <a href="<?= Yii::getAlias('@web/site/service') ?>" class="nav-item nav-link <?= $action == 'service' ? 'active' : '' ?>">Service</a>
                     <a href="<?= Yii::getAlias('@web/site/package') ?>" class="nav-item nav-link <?= $action == 'package' ? 'active' : '' ?>">Packages</a>
                     <a href="<?= Yii::getAlias('@web/site/bloggrid') ?>" class="nav-item nav-link <?= $action == 'bloggrid' ? 'active' : '' ?>">Blog</a>
-                    <!-- <div class="nav-item dropdown"> <a href="#" class="nav-link dropdown-toggle <?= $action == 'bloggrid' ? 'active' : '' ?>" data-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu border-0 rounded-0 m-0">
-                            <a href="<?= Yii::getAlias('@web/site/bloggrid') ?>" class="dropdown-item <?= $action == 'bloggrid' ? 'active' : '' ?>">Blog Grid</a>
-                            <a href="<?= Yii::getAlias('@web/site/detail') ?>" class="dropdown-item <?= $action == 'detail' ? 'active' : '' ?>">Blog Detail</a>
-                            <a href="<?= Yii::getAlias('@web/site/destinat') ?>" class="dropdown-item <?= $action == 'destinat' ? 'active' : '' ?>">Destination</a>
-                            <a href="<?= Yii::getAlias('@web/site/guides') ?>" class="dropdown-item <?= $action == 'guides' ? 'active' : '' ?>">Travel Guides</a>
-                            <a href="<?= Yii::getAlias('@web/site/client') ?>" class="dropdown-item <?= $action == 'client' ? 'active' : '' ?>">Testimonial</a>
-                        </div>
-                    </div> -->
                     <a href="<?= Yii::getAlias('@web/site/contact') ?>" class="nav-item nav-link <?= $action == 'contact' ? 'active' : '' ?>">Contact</a>
-                    <a href="<?= Yii::getAlias('@web/site/wishlist') ?>" class="nav-item nav-link"> <i class="fas fa-heart"></i> <span class="badge badge-pill badge-danger navbar-badge">5</span> </a>
+                    <a href="<?= Yii::getAlias('@web/site/wishlist') ?>" class="nav-item nav-link <?= $action == 'wishlist' ? 'active' : '' ?> "> <i class="fas fa-heart"></i> <span class="badge badge-pill badge-danger navbar-badge">5</span> </a>
                     <a href="" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-shopping-cart"></i> <span class="badge badge-danger navbar-badge">3</span> </a>
 
                     <?php

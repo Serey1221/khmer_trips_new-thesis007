@@ -26,8 +26,8 @@ $formater = Yii::$app->formater;
                                     <i id="heart" class="far fa-heart"></i>
                                 </div>
                                 <div class="blog-date">
-                                    <!-- <h6 class="font-weight-bold mb-n1">01</h6> -->
-                                    <small class="font-weight-bold text-white text-uppercase ml-2"><?= $formater->date($value->created_date) ?></small>
+                                    <h6 class="font-weight-bold text-white mb-n1"><?= date('d', strtotime($value->created_date)); ?></h6>
+                                    <small class="text-white text-uppercase"><?= date('M', strtotime($value->created_date)); ?></small>
                                 </div>
                             </div>
                             <div class="bg-white p-4">
