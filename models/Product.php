@@ -133,6 +133,13 @@ class Product extends \yii\db\ActiveRecord
         return '';
     }
 
+    public function isWishlist()
+    {
+        $user_id = Yii::$app->user->identity->id;
+        $wishlist = UserWishlist::findOne(['product_id' => $this->id, 'user_id' => $user_id]);
+        return !empty($wishlist) ? true : false;
+    }
+
     public function getListItemTemplate($data)
     {
         /** @var \app\components\Formater $formater */
@@ -141,11 +148,13 @@ class Product extends \yii\db\ActiveRecord
         /** @var \app\components\Rate $tate */
         $rate = Yii::$app->rate;
 
-        $selectedCity = !empty($data['selectedCity']) ? $data['selectedCity'] : 1;
+        $selectedCity = !empty($data['selectedCity']) ? $data['selectedCity'] : '';
         $selectedDate = !empty($data['selectedDate']) ? $data['selectedDate'] : date("Y-m-d");
         $totalGuest = !empty($data['totalGuest']) ? $data['totalGuest'] : 1;
 
         $imageUrl = $this->getUploadUrl('img_url');
+        $wishlist = $this->isWishlist() ? "active" : "";
+        $wishlistIcon = $this->isWishlist() ? "fas fa-heart" : "far fa-heart";
         $bookButton = \yii\helpers\Html::a('View Now', [
             'product/view',
             'id' => $this->code,
@@ -153,11 +162,13 @@ class Product extends \yii\db\ActiveRecord
             'selectedDate' => $selectedDate,
             'totalGuest' => $totalGuest
         ], ['class' => 'btn btn-lg btn-primary']);
+        $notFound = Yii::getAlias('@web/app/img/no-img.png');
+        $onerror = "this.onerror=null;this.src=\"{$notFound}\"";
         return "<div class='row product-item '>
                     <div class='col-lg-4'>
-                        <img src='{$imageUrl}' class='product-image' />
-                        <div class='h_container product-fav-button' data-id='{$this->code}'>
-                            <i class='far fa-heart'></i>
+                        <img onerror='{$onerror}' src='{$imageUrl}' class='product-image' />
+                        <div class='h_container product-fav-button {$wishlist}' data-id='{$this->code}'>
+                            <i class='{$wishlistIcon}'></i>
                         </div>
                     </div>
                     <div class='col-lg-6 align-self-center'>

@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Product;
 use app\models\ProductSearch;
+use app\models\UserWishlist;
 use Yii;
 use yii\base\Exception;
 use yii\web\Controller;
@@ -61,6 +62,29 @@ class ProductController extends \yii\web\Controller
           return $rate->getPrice($model->id, $departure_date);
         }
         return 0;
+      }
+      if ($this->request->post('action') == 'update-wishlist') {
+        $productCode = $this->request->post('productCode');
+        $type = $this->request->post('type');
+        $user_id = Yii::$app->user->identity->id;
+        $product = Product::findOne(['code' => $productCode]);
+        if ($type == 'add') {
+          $wishlist = new UserWishlist();
+          $wishlist->product_id = $product->id;
+          $wishlist->user_id = $user_id;
+          if ($wishlist->save()) {
+            $status = 'added';
+          }
+        } else if ($type == 'remove') {
+          $wishlist = UserWishlist::findOne(['product_id' => $product->id, 'user_id' => $user_id]);
+          if ($wishlist->delete()) {
+            $status = 'removed';
+          }
+        } else {
+          $status = 'error';
+        }
+        $count = UserWishlist::find()->where(['user_id' => $user_id])->count();
+        return json_encode(['status' => $status, 'total' => $count]);
       }
     }
   }

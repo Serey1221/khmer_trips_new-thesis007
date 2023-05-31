@@ -402,6 +402,14 @@ class SiteController extends Controller
     }
     public function actionWishlist()
     {
-        return $this->render('wishlist');
+        if (Yii::$app->user->isGuest) {
+            $model = [];
+        } else {
+            $model = Product::find()
+                ->innerJoin('user_wishlist', 'product.id = user_wishlist.product_id')
+                ->where(['user_id' => Yii::$app->user->identity->id])
+                ->all();
+        }
+        return $this->render('wishlist', ['model' => $model]);
     }
 }
