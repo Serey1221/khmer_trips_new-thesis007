@@ -151,6 +151,7 @@ class Product extends \yii\db\ActiveRecord
         $selectedCity = !empty($data['selectedCity']) ? $data['selectedCity'] : '';
         $selectedDate = !empty($data['selectedDate']) ? $data['selectedDate'] : date("Y-m-d");
         $totalGuest = !empty($data['totalGuest']) ? $data['totalGuest'] : 1;
+        $button = !empty($data['button']) ? boolval($data['button']) : true;
 
         $imageUrl = $this->getUploadUrl('img_url');
         $wishlist = $this->isWishlist() ? "active" : "";
@@ -164,6 +165,21 @@ class Product extends \yii\db\ActiveRecord
         ], ['class' => 'btn btn-lg btn-primary']);
         $notFound = Yii::getAlias('@web/app/img/no-img.png');
         $onerror = "this.onerror=null;this.src=\"{$notFound}\"";
+        $buttonTemp = '';
+        if ($button) {
+            $buttonTemp = "<div class='col-lg-2 align-self-center'>
+                                <div class='d-flex'>
+                                    <div class='ml-auto'>
+                                        <div class='text-right'>
+                                            <small class='d-block'>price start from</small>
+                                            <span class='product-price'>{$formater->DollarFormat($rate->getPrice($this->id,$selectedDate))}</span>
+                                            <small class='d-block'>per pax</small>
+                                            <div class='d-block mt-3'> {$bookButton} </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>";
+        }
         return "<div class='row product-item '>
                     <div class='col-lg-4'>
                         <img onerror='{$onerror}' src='{$imageUrl}' class='product-image' />
@@ -171,7 +187,7 @@ class Product extends \yii\db\ActiveRecord
                             <i class='{$wishlistIcon}'></i>
                         </div>
                     </div>
-                    <div class='col-lg-6 align-self-center'>
+                    <div class='col-lg align-self-center'>
                         <div class='product-title'>{$this->name}</div>
                         <div class='product-location my-1'>
                             <i class='fas fa-map-marker-alt'></i> {$this->getLocation()}
@@ -180,18 +196,7 @@ class Product extends \yii\db\ActiveRecord
                         <div class='product-duration my-2'>Duration: {$this->getDuration()}</div>
                         <div class='product-code my-2'>Code: {$this->code}</div>
                     </div>
-                    <div class='col-lg-2 align-self-center'>
-                        <div class='d-flex'>
-                            <div class='ml-auto'>
-                                <div class='text-right'>
-                                    <small class='d-block'>price start from</small>
-                                    <span class='product-price'>{$formater->DollarFormat($rate->getPrice($this->id,$selectedDate))}</span>
-                                    <small class='d-block'>per pax</small>
-                                    <div class='d-block mt-3'> {$bookButton} </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {$buttonTemp}
                 </div>
                 <hr class='my-5'>";
     }

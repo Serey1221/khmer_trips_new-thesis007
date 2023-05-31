@@ -1,5 +1,6 @@
 <?php
 
+use app\models\Cart;
 use app\models\UserWishlist;
 use yii\bootstrap4\Dropdown;
 use yii\bootstrap4\Html;
@@ -25,7 +26,7 @@ $action = Yii::$app->controller->action->id; ?>
                     <a href="<?= Yii::getAlias('@web/site/bloggrid') ?>" class="nav-item nav-link <?= $action == 'bloggrid' ? 'active' : '' ?>">Blog</a>
                     <a href="<?= Yii::getAlias('@web/site/contact') ?>" class="nav-item nav-link <?= $action == 'contact' ? 'active' : '' ?>">Contact</a>
                     <a href="<?= Yii::getAlias('@web/site/wishlist') ?>" class="nav-item nav-link <?= $action == 'wishlist' ? 'active' : '' ?> "> <i class="fas fa-heart"></i> <span class="badge badge-pill badge-danger wishlist-badge navbar-badge"><?= Yii::$app->user->isGuest ? 0 : UserWishlist::find()->where(['user_id' => Yii::$app->user->identity->id])->count(); ?></span> </a>
-                    <a href="" class="nav-item nav-link" data-toggle="modal" data-target="#exampleModal"> <i class="fas fa-shopping-cart"></i> <span class="badge badge-danger navbar-badge">3</span> </a>
+                    <a href="<?= Yii::getAlias('@web/cart/index') ?>" class="nav-item nav-link <?= $controller . $action == 'cartindex' ? 'active' : '' ?> "> <i class="fas fa-shopping-cart"></i> <span class="badge badge-pill badge-danger cart-badge navbar-badge"><?= Yii::$app->user->isGuest ? 0 : Cart::find()->where(['created_by' => Yii::$app->user->identity->id])->count(); ?></span> </a>
 
                     <?php
                     if (Yii::$app->user->isGuest) {

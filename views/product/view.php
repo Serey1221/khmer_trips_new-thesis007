@@ -4,9 +4,10 @@ use yii\bootstrap4\Breadcrumbs;
 use app\assets\DatePickerAsset;
 use yii\bootstrap4\ActiveForm;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 DatePickerAsset::register($this);
-$this->title = 'Booking Detail';
+$this->title = 'Product Detail';
 $this->params['breadcrumbs'][] = $this->title;
 
 /** @var \app\components\Formater $formater */
@@ -130,7 +131,7 @@ $rate = Yii::$app->rate;
           <div class=" bg-primary shadow" style="padding: 30px;">
             <h2 class="text-white">Select participants and date</h2>
             <?php $form = ActiveForm::begin([
-              'action' => ['product/invidex'],
+              'action' => ['product/index'],
               'options' => ['data-pjax' => false, 'id' => 'formProductsearch'],
               'method' => 'get',
             ]); ?>
@@ -138,12 +139,12 @@ $rate = Yii::$app->rate;
 
               <div class="col-md">
                 <h4 class="title text-white">Date</h4>
-                <?= Html::textInput('departure_date', $selectedDate, ['class' => 'form-control bg-white', 'value' => date("Y-m-d")]) ?>
+                <?= Html::textInput('departure_date', $selectedDate, ['class' => 'form-control search-availability-form bg-white', 'value' => date("Y-m-d")]) ?>
               </div>
 
               <div class="col-md">
                 <h4 class="title text-white">Guest</h4>
-                <?= Html::dropDownList('number_of_guest', $totalGuest, Yii::$app->rate->guest(), ['class' => 'custom-select']) ?>
+                <?= Html::dropDownList('number_of_guest', $totalGuest, Yii::$app->rate->guest(), ['class' => 'custom-select search-availability-form']) ?>
               </div>
             </div>
             <div class="row mt-4">
@@ -234,10 +235,10 @@ $rate = Yii::$app->rate;
             </tbody>
           </table>
           <div class="mb-2">
-            <a href="#checkavaibility" class="btn btn-primary btn-lg btn-block m-0"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+            <button class="btn btn-primary btn-lg btn-block m-0" id="btnAddToCart" type="button"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
           </div>
           <div class="mb-2">
-            <a href="#checkavaibility" class="btn btn-warning btn-lg btn-block m-0"></i> Book Now</a>
+            <a class="btn btn-warning btn-lg btn-block m-0" href="<?= Url::toRoute(['cart/check-out']) ?>"></i> Book Now</a>
           </div>
         </div>
       </div>
@@ -350,15 +351,73 @@ $script = <<<JS
           var totalPrice = parseInt(number_of_guest) * parseFloat(data);
           totalPrice = `$ \${parseFloat(totalPrice).toFixed(2)}`;
           $("#rateTotalPrice").text(totalPrice);
-        }else{
-          
         }
+        $("#btnAddToCart").prop('disabled', false);
       },
       error: function(err){
         console.log(err);
       }
     });
 
+  });
+
+  $('.search-availability-form').change(function(){
+    $("#btnAddToCart").prop('disabled', true);
+  });
+
+  $("#btnAddToCart").click(function(){
+    var departure_date = $('input[name="departure_date"]').val();
+    var number_of_guest = $('select[name="number_of_guest"]').val();
+    var productCode = "$model->code";
+
+    $.ajax({
+      url: baseUrl + "/cart/dependent",
+      method: 'post',
+      data: {
+        number_of_guest: number_of_guest,
+        productCode: productCode,
+        departure_date: departure_date,
+        action: 'add-to-cart',
+      },
+      success: function(res){
+        var data = JSON.parse(res);
+        var Toast = Swal.mixin({
+          toast: true,
+          position: "bottom-end",
+          showConfirmButton: false,
+          timer: 5000,
+          iconColor: "#fff",
+          background: "#7ab730",
+          customClass: {
+            container: "colored-toast",
+          }
+        });
+        if(data.status == 'success'){
+          Swal.fire({
+            title: "Item Added to Cart Sucessful!",
+            text: "Do you want to check-out now?",
+            icon: 'success',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonText:'Not Now',
+            confirmButtonText: 'Yes, Go to check-out'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              location.href = baseUrl+'/cart/index';
+            }
+          });
+        }else if(data.status == 'error'){
+          Toast.fire({
+            icon: 'error',
+            title: 'Something went wrong!'
+          });
+          console.log(data.status);
+        }
+      },
+      error: function(err){
+        console.log(err);
+      }
+    });
   });
 
 JS;
