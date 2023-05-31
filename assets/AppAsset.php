@@ -26,7 +26,7 @@ class AppAsset extends AssetBundle
         'app/lib/owlcarousel/assets/owl.carousel.min.css',
         'app/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css',
         'app/css/style.css',
-
+        'css/product.css'
     ];
     public $js = [
         'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js',

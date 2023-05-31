@@ -65,4 +65,5 @@ $this->registerLinkTag([
 </body>
 
 </html>
+<?= $this->render('_swal') ?>
 <?php $this->endPage(); ?>
