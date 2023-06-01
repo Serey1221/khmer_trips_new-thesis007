@@ -50,17 +50,16 @@ class Product extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public $city_id;
+    public $city_id, $style_id;
     public function rules()
     {
         return [
-            [['tourhour', 'tourmin'], 'required', 'on' => self::ACTIVITY],
-            [['tourday', 'tournight'], 'required', 'on' => self::TOUR],
+            [['tourhour', 'tourmin', 'city_id', 'style_id'], 'required', 'on' => self::ACTIVITY],
+            [['tourday', 'tournight', 'city_id', 'style_id'], 'required', 'on' => self::TOUR],
             [['tourday', 'tournight'], 'integer', 'min' => 1, 'on' => self::TOUR],
             [['name', 'namekh'], 'required'],
 
-            [['city_id'], 'required'],
-            [['city_id'], 'safe'],
+            [['city_id', 'style_id'], 'safe'],
 
             ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['admin']],
             [['tourhour', 'tourmin', 'status', 'created_by', 'updated_by', 'deleted_by'], 'integer'],
@@ -98,14 +97,16 @@ class Product extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            'code' => 'Tour Code',
             'city_id' => 'City',
+            'style_id' => 'Product Style',
             'id' => 'ID',
             'name' => 'Name',
-            'namekh' => 'Name khmer',
-            'tourday' => 'Day(s)',
-            'tournight' => 'Night(s)',
-            'tourhour' => 'Hour(s)',
-            'tourmin' => 'Minute(s)',
+            'namekh' => 'Name in Khmer',
+            'tourday' => 'Duration Day(s)',
+            'tournight' => 'Duration Night(s)',
+            'tourhour' => 'Duration Hour(s)',
+            'tourmin' => 'Duration Minute(s)',
             'overview' => 'Overview',
             'overviewkh' => 'Overview khmer',
             'highlight' => 'Highlight',
@@ -142,17 +143,6 @@ class Product extends \yii\db\ActiveRecord
                     $this->tourday = 0;
                     $this->tournight = 0;
                 }
-
-                $length = 10;
-                $result = false;
-                $code = '';
-                do {
-                    $code = substr(str_shuffle(str_repeat($x = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
-                    $has = self::findOne(['code' => $code]);
-                    if (empty($has)) $result = true;
-                } while (!$result);
-                $this->code = $code;
-
                 $this->created_at = date('Y-m-d H:i:s');
                 $this->created_by = Yii::$app->user->identity->id;
             } else {
@@ -176,6 +166,12 @@ class Product extends \yii\db\ActiveRecord
     public function getCities()
     {
         return $this->hasMany(ProductCity::class, ['product_id' => 'id']);
+    }
+
+
+    public function getStyles()
+    {
+        return $this->hasMany(ProductStyleData::class, ['product_id' => 'id']);
     }
 
     public function isTour()

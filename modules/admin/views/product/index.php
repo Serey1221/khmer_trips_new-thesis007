@@ -78,13 +78,13 @@ $this->params['pageTitle'] = $this->title;
                         'header' => Yii::t('app', 'Actions'),
                         'headerOptions' => ['class' => 'text-center'],
                         'contentOptions' => ['class' => 'text-center'],
-                        'template' => '{view} {update} {delete}',
+                        'template' => '{update} {delete}',
                         'buttons' => [
-                            'view' => function ($url, $model) {
-                                return Html::a('<i class="fas fa-eye"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-primary ', 'data-pjax' => 0]);
-                            },
+                            // 'view' => function ($url, $model) {
+                            //     return Html::a('<i class="fas fa-eye"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-primary ', 'data-pjax' => 0]);
+                            // },
                             'update' => function ($url, $model) {
-                                return Html::a('<i class="fas fa-pen"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-info ', 'data-pjax' => 0]);
+                                return Html::a('<i class="fas fa-pen"></i>', ['product/form', 'id' => $model->id], ['class' => 'btn btn-xs btn-icon btn-info ', 'data-pjax' => 0]);
                             },
                             'delete' => function ($url, $model) {
                                 return Html::a('<i class="fas fa-trash"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-danger ', 'data-pjax' => 0]);

@@ -10,7 +10,17 @@ $this->title = 'About';
 <?= $this->render('_section_search', ['model' => $searchModel]) ?>
 
 <?= $this->render('_sub_about'); ?>
+<style>
+    #ourTeamSection .team-item img {
+        width: 100% !important;
+        height: 200px !important;
+        object-fit: contain;
+    }
 
+    #ourTeamSection .team-item h5 {
+        font-size: 1rem !important;
+    }
+</style>
 
 <!-- Feature Start -->
 <div class="container-fluid pb-5">
@@ -85,17 +95,17 @@ $this->title = 'About';
 
 
 <!-- Team Start -->
-<div class="container-fluid py-5">
+<div class="container-fluid py-5" id="ourTeamSection">
     <div class="container pt-5 pb-3">
         <div class="text-center mb-3 pb-3">
             <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">About Us</h6>
             <h1>Our Team</h1>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="col-lg pb-1">
                 <div class="team-item bg-white mb-4">
                     <div class="team-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="../app/img/Team-1.png" alt="">
+                        <img src="../app/img/Team-1.png" alt="">
                         <div class="team-social">
                             <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/SNakatok4810" target="_blank"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-primary btn-square mr-2" href="https://web.facebook.com/srout.serey.5" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -109,10 +119,10 @@ $this->title = 'About';
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="col-lg pb-1">
                 <div class="team-item bg-white mb-4">
                     <div class="team-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="../app/img/Team-2.png" alt="">
+                        <img src="../app/img/Team-2.png" alt="">
                         <div class="team-social">
                             <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/psovanmony/" target="_blank"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100020864430839&mibextid=LQQJ4d" target="_blank"><i class="fab fa-facebook-f" target="_blank"></i></a>
@@ -126,10 +136,10 @@ $this->title = 'About';
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="col-lg pb-1">
                 <div class="team-item bg-white mb-4">
                     <div class="team-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="../app/img/Team-3.png" alt="">
+                        <img src="../app/img/Team-3.png" alt="">
                         <div class="team-social">
                             <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/khmer_travel" target="_blank"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100091447657537" target="_blank"><i class="fab fa-facebook-f" target="_blank"></i></a>
@@ -143,10 +153,10 @@ $this->title = 'About';
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="col-lg pb-1">
                 <div class="team-item bg-white mb-4">
                     <div class="team-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="../app/img/Team-4.png" alt="">
+                        <img src="../app/img/Team-4.png" alt="">
                         <div class="team-social">
                             <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/khmer_travel" target="_blank"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100091447657537" target="_blank"><i class="fab fa-facebook-f" target="_blank"></i></a>
@@ -160,14 +170,10 @@ $this->title = 'About';
                     </div>
                 </div>
             </div>
-
-        </div>
-        <div class="row">
-
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="col-lg pb-1">
                 <div class="team-item bg-white mb-4">
                     <div class="team-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="../app/img/Team.png" alt="">
+                        <img src="../app/img/Team.png" alt="">
                         <div class="team-social">
                             <a class="btn btn-outline-primary btn-square mr-2" href="https://twitter.com/khmer_travel" target="_blank"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-primary btn-square mr-2" href="https://www.facebook.com/profile.php?id=100091447657537" target="_blank"><i class="fab fa-facebook-f" target="_blank"></i></a>

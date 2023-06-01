@@ -46,10 +46,8 @@ DatetimepickerAsset::register($this);
                     <?php
                     echo Dropdown::widget([
                         'items' => [
-                            ['label' => 'Add Activity', 'linkOptions' => ['data-pjax' => 0], 'url' => ['product/create', 'type' => Product::ACTIVITY]],
-                            ['label' => 'Add Rate Acitivty', 'linkOptions' => ['data-pjax' => 0], 'url' => ['product/add-rate', 'type' => Product::ACTIVITY]],
-                            ['label' => 'Add Tour', 'linkOptions' => ['data-pjax' => 0], 'url' => ['product/create', 'type' => Product::TOUR]],
-                            ['label' => 'Add Rate Tour', 'linkOptions' => ['data-pjax' => 0], 'url' => ['product/add-rate', 'type' => Product::TOUR]],
+                            ['label' => 'Add Activity', 'linkOptions' => ['data-pjax' => 0], 'url' => ['product/form', 'type' => Product::ACTIVITY]],
+                            ['label' => 'Add Tour', 'linkOptions' => ['data-pjax' => 0], 'url' => ['product/form', 'type' => Product::TOUR]],
                         ],
                     ]);
                     ?>
