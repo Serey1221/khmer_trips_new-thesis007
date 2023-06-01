@@ -8,13 +8,12 @@
                     <div class="p-3" style="max-width: 900px;">
                         <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
                         <h1 class="display-3 text-white mb-md-4">We are serving from our heart.</h1>
-                        <div class="input-group py-md-3 px-md-5 mt-2">
+                        <!-- <div class="input-group py-md-3 px-md-5 mt-2">
                             <input type="search" class="form-control" placeholder="Where are you going?" aria-label="Search" aria-describedby="search-addon" />
                             <button type="button" class="btn btn-primary">
                                 <i class="fas fa-search"></i>
                             </button>
-
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -24,12 +23,12 @@
                     <div class="p-3" style="max-width: 900px;">
                         <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
                         <h1 class="display-3 text-white mb-md-4">Discover Amazing Places With Us.</h1>
-                        <div class="input-group py-md-3 px-md-5 mt-2">
+                        <!-- <div class="input-group py-md-3 px-md-5 mt-2">
                             <input type="search" class="form-control" placeholder="Where are you going?" aria-label="Search" aria-describedby="search-addon" />
                             <button type="button" class="btn btn-primary">
                                 <i class="fas fa-search"></i>
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -39,12 +38,12 @@
                     <div class="p-3" style="max-width: 900px;">
                         <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
                         <h1 class="display-3 text-white mb-md-4">Travel is an investment in yourself.</h1>
-                        <div class="input-group py-md-3 px-md-5 mt-2">
+                        <!-- <div class="input-group py-md-3 px-md-5 mt-2">
                             <input type="search" class="form-control" placeholder="Where are you going?" aria-label="Search" aria-describedby="search-addon" />
                             <button type="button" class="btn btn-primary">
                                 <i class="fas fa-search"></i>
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -54,12 +53,12 @@
                     <div class="p-3" style="max-width: 900px;">
                         <h4 class="text-white text-uppercase mb-md-3">Tours & Travel</h4>
                         <h1 class="display-3 text-white mb-md-4">Travel is an investment in yourself.</h1>
-                        <div class="input-group py-md-3 px-md-5 mt-2">
+                        <!-- <div class="input-group py-md-3 px-md-5 mt-2">
                             <input type="search" class="form-control" placeholder="Where are you going?" aria-label="Search" aria-describedby="search-addon" />
                             <button type="button" class="btn btn-primary">
                                 <i class="fas fa-search"></i>
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

@@ -196,7 +196,7 @@ class Formater extends \yii\web\Request
     if (!$full) $string = array_slice($string, 0, 1);
     return $string ? implode(', ', $string) . ' ago' : 'just now';
   }
-  public function timeAgoKH($datetime, $full = false)
+  public function timeAgoKH($w, $datetime, $full = false)
   {
     $now = new DateTime;
     $ago = new DateTime($datetime);

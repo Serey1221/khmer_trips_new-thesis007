@@ -14,7 +14,7 @@ $formater = Yii::$app->formater;
 <style>
     .page-title {
         background-color: #7ab730;
-        margin-top: 45px;
+        margin-top: 83px;
         height: 62px;
     }
 </style>

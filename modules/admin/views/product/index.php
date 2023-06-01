@@ -56,19 +56,10 @@ $this->params['pageTitle'] = $this->title;
                         'attribute' => 'img_url',
                         'format' => 'raw',
                         'value' => function ($model) {
-                            return Html::img($model->getThumbUploadUrl('img_url'), ['alt' => 'yii', 'width' => '60', 'height' => '60']);
+                            return Html::img($model->getUploadUrl('img_url'), ['alt' => 'yii', 'width' => '60', 'height' => '60']);
                         }
                     ],
                     'name',
-                    //'namekh', 
-                    //'tourday', 
-                    //'tournight', //'tourhour', //'tourmin', //'pick_up', //'pick_up_kh', //'drop_off', //'drop_off_kh',
-                    //'overview:ntext',
-                    //'overviewkh:ntext',
-                    //'highlight:ntext',
-                    //'highlight_kh:ntext',
-                    //'price_include_kh',
-                    //'price_exclude_kh',
                     [
                         'attribute' => 'created_at',
                         'value' => function ($model) {
@@ -82,13 +73,6 @@ $this->params['pageTitle'] = $this->title;
                             return $model->getStatusTemp();
                         }
                     ],
-                    // 'status', 
-                    //'created_by', 
-                    //'updated_at', 
-                    //'updated_by', 
-                    //'deleted_at', 
-                    //'deleted_by',
-                    //'rate',
                     [
                         'class' => 'yii\grid\ActionColumn',
                         'header' => Yii::t('app', 'Actions'),

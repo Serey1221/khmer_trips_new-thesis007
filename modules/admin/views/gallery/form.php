@@ -12,7 +12,7 @@ $form = ActiveForm::begin([
 ]); ?>
 <div class="form-upload-image">
   <div class="preview">
-    <?= Html::img($model->isNewRecord ? Yii::getAlias("@web/img/placeholder-3.png") : $model->getThumbUploadUrl('img_url'), ['class' => 'img-thumbnail', 'id' => 'image_upload-preview']) ?>
+    <?= Html::img($model->isNewRecord ? Yii::getAlias("@web/img/placeholder-3.png") : $model->getUploadUrl('img_url'), ['class' => 'img-thumbnail', 'id' => 'image_upload-preview']) ?>
   </div>
   <label for="image_upload"><i class="fas fa-image"></i> Upload Image</label>
   <?= $form->field($model, 'img_url')->fileInput(['accept' => 'image/*', 'id' => 'image_upload'])->label(false) ?>
