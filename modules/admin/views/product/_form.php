@@ -1,6 +1,7 @@
 <?php
 
 use app\modules\admin\models\City;
+use app\modules\admin\models\ProductStyle;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -10,8 +11,17 @@ use yii\widgets\ActiveForm;
 /** @var app\modules\admin\models\Product $model */
 /** @var yii\widgets\ActiveForm $form */
 
+$this->title = $model->isNewRecord ? "Create Product" : "Update Product: [{$model->code}] - {$model->name}";
+$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
 $this->registerJsFile("https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js", ['depends' => [\yii\web\JqueryAsset::class]]);
 $this->registerCssFile("https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css", ['depends' => [\yii\bootstrap4\BootstrapAsset::class]]);
+
+
+if (!$model->isNewRecord) {
+    $model->city_id = ArrayHelper::getColumn($model->cities, 'city_id');
+    $model->style_id = ArrayHelper::getColumn($model->styles, 'style_id');
+}
 
 function iconTemplate($icon)
 {
@@ -25,10 +35,12 @@ function iconTemplate($icon)
 </div>";
 }
 
-if (!$model->isNewRecord) {
-    $model->city_id = ArrayHelper::getColumn($model->cities, 'city_id');
-}
-
+$currencyInput = "{label}<div class='input-group'>
+        <div class='input-group-prepend'>
+            <span class='input-group-text'><i class='fas fa-dollar-sign'></i></span>
+        </div>
+        {input}
+</div>{error}{hint}";
 ?>
 <style>
     .product-form {
@@ -40,120 +52,69 @@ if (!$model->isNewRecord) {
     }
 </style>
 <div class="product-form">
-
-    <?php
-    $validationUrl = ['product/validation'];
-    if (!$model->isNewRecord) {
-        $validationUrl['id'] = $model->id;
-    }
-    $form = ActiveForm::begin([
-        'options' => ['id' => 'productForm', 'enctype' => 'multipart/form-data'],
-        'enableAjaxValidation' => true,
-        'enableClientValidation' => true,
-        'validationUrl' => $validationUrl
-    ]); ?>
-    <div class="card">
+    <div class="card card-primary card-outline card-outline-tabs">
+        <div class="card-header p-0 border-bottom-0">
+            <?= $this->render('_tab_menu', ['model' => $model]) ?>
+        </div>
         <div class="card-body">
-            <div class="form-row">
-                <div class="form-group col-lg-9">
-                    <?php // $form->field($model, 'name')->textInput(['maxlength' => true]) 
-                    ?>
-                    <div class="form-row">
-                        <div class="form-group col-lg-12">
-                            <?= $form->field($model, 'name', [
-                                'template' =>
-                                iconTemplate("flag-icon flag-icon-gb flag-icon-squared")
-                            ]) ?>
-                            <?= $form->field($model, 'namekh', ['template' =>
-                            iconTemplate("flag-icon flag-icon-kh flag-icon-squared")]) ?>
+            <?php
+            $validationUrl = ['product/validation'];
+            if (!$model->isNewRecord) {
+                $validationUrl['id'] = $model->id;
+            }
+            $form = ActiveForm::begin([
+                'options' => ['id' => 'productForm', 'enctype' => 'multipart/form-data'],
+                'enableAjaxValidation' => true,
+                'enableClientValidation' => true,
+                'validationUrl' => $validationUrl
+            ]); ?>
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <p class="font-weight-bold">Banner Image</p>
+                    <div class="form-upload-image">
+                        <div class="preview">
+                            <?= Html::img($model->isNewRecord ? Yii::getAlias("@web/app/img/not_found_sq.png") : $model->getThumbUploadUrl('img_url'), ['class' => 'img-thumbnail', 'id' => 'image_upload-preview', 'onerror' => "this.onerror=null;this.src='" . Yii::getAlias('@web/img/not_found_sq.png') . "';"]) ?>
                         </div>
+                        <label for="image_upload"><i class="fas fa-image"></i> Upload Image</label>
+                        <?= $form->field($model, 'img_url')->fileInput(['accept' => 'image/*', 'id' => 'image_upload'])->label(false) ?>
                     </div>
-                    <div class="form-row">
+                </div>
+                <div class="col-lg offset-lg-1">
+                    <?= $form->field($model, 'name', [
+                        'template' =>
+                        iconTemplate("flag-icon flag-icon-gb flag-icon-squared")
+                    ]) ?>
+
+                    <?= $form->field($model, 'namekh', [
+                        'template' =>
+                        iconTemplate("flag-icon flag-icon-kh flag-icon-squared")
+                    ]) ?>
+                    <div class="row">
                         <?php
                         if ($model->isTour()) {
                         ?>
-                            <div class="form-group col-lg-3">
-                                <?= $form->field($model, 'tourday') ?>
+                            <div class="col-lg-3">
+                                <?= $form->field($model, 'tourday')->textInput(['type' => 'number', 'min' => 0]) ?>
                             </div>
-                            <div class="form-group col-lg-3">
-                                <?= $form->field($model, 'tournight')  ?>
+                            <div class="col-lg-3">
+                                <?= $form->field($model, 'tournight')->textInput(['type' => 'number', 'min' => 0])  ?>
                             </div>
                         <?php } ?>
                         <?php
                         if ($model->isActivity()) {
                         ?>
-                            <div class="form-group col-lg-3">
-                                <?= $form->field($model, 'tourhour')  ?>
+                            <div class="col-lg-3">
+                                <?= $form->field($model, 'tourhour')->textInput(['type' => 'number', 'min' => 0])  ?>
                             </div>
-                            <div class="form-group col-lg-3">
-                                <?= $form->field($model, 'tourmin')  ?>
+                            <div class="col-lg-3">
+                                <?= $form->field($model, 'tourmin')->textInput(['type' => 'number', 'min' => 0])  ?>
                             </div>
                         <?php } ?>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'overview')->textarea(['rows' => 6]) ?>
+                        <div class="col-lg-3">
+                            <?= $form->field($model, 'code')->textInput(['readonly' => true]) ?>
                         </div>
-                        <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'overviewkh')->textarea(['rows' => 6]) ?>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'highlight')->textarea(['rows' => 6]) ?>
-                        </div>
-                        <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'highlight_kh')->textarea(['rows' => 6]) ?>
-                        </div>
-                    </div>
-
-
-
-                    <div class="form-row">
-                        <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'pick_up')->textInput(['maxlength' => true]) ?>
-                        </div>
-                        <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'pick_up_kh')->textInput(['maxlength' => true]) ?>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'drop_off')->textInput(['maxlength' => true]) ?>
-                        </div>
-                        <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'drop_off_kh')->textInput(['maxlength' => true]) ?>
-                        </div>
-                    </div>
-                    <div class="form-row ">
-                        <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'price_include')->textarea(['rows' => 4]) ?>
-                        </div>
-                        <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'price_include_kh')->textarea(['rows' => 4]) ?>
-                        </div>
-                    </div>
-                    <div class="form-row ">
-                        <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'price_exclude')->textarea(['rows' => 4]) ?>
-                        </div>
-                        <div class="form-group col-lg-6">
-                            <?= $form->field($model, 'price_exclude_kh')->textarea(['rows' => 4]) ?>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <?= $form->field($model, 'city_id')->widget(Select2::class, [
-                                'data' => ArrayHelper::map(City::find()->all(), 'id', 'name'),
-                                'theme' => Select2::THEME_BOOTSTRAP,
-                                'options' => ['placeholder' => 'Select'],
-                                'pluginOptions' => [
-                                    'multiple' => true,
-                                    'allowClear' => true
-                                ],
-                            ]); ?>
-                        </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-3">
                             <div hidden class="hide">
                                 <?= $form->field($model, 'rating')->hiddenInput()->label(false); ?>
                             </div>
@@ -167,45 +128,59 @@ if (!$model->isNewRecord) {
                             </div>
                         </div>
                     </div>
-
-                </div>
-                <div class="form-group col-lg-3">
-                    <p class="font-weight-bold">Banner Image</p>
-                    <div class="form-upload-image">
-                        <div class="preview">
-                            <?= Html::img($model->isNewRecord ? Yii::getAlias("@web/app/img/not_found_sq.png") : $model->getThumbUploadUrl('img_url'), ['class' => 'img-thumbnail', 'id' => 'image_upload-preview', 'onerror' => "this.onerror=null;this.src='" . Yii::getAlias('@web/img/not_found_sq.png') . "';"]) ?>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <?= $form->field($model, 'city_id')->widget(Select2::class, [
+                                'data' => ArrayHelper::map(City::find()->all(), 'id', 'name'),
+                                'theme' => Select2::THEME_BOOTSTRAP,
+                                'options' => ['placeholder' => 'Select'],
+                                'pluginOptions' => [
+                                    'multiple' => true,
+                                    'allowClear' => true
+                                ],
+                            ]); ?>
                         </div>
-                        <label for="image_upload"><i class="fas fa-image"></i> Upload Image</label>
-                        <?= $form->field($model, 'img_url')->fileInput(['accept' => 'image/*', 'id' => 'image_upload'])->label(false) ?>
                     </div>
-                    <div class="card border shadow bg-white rounded">
-                        <div class="card-body ">
-                            <div class=""><?= Yii::t('app', 'Restriction Area') ?></div>
-                            <hr>
-                            <?= $form->field($model, 'rate')->textInput(['type' => 'number'])->label('Rate') ?>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <?= $form->field($model, 'style_id')->widget(Select2::class, [
+                                'data' => ArrayHelper::map(ProductStyle::find()->all(), 'id', 'name'),
+                                'theme' => Select2::THEME_BOOTSTRAP,
+                                'options' => ['placeholder' => 'Select'],
+                                'showToggleAll' => false,
+                                'pluginOptions' => [
+                                    'multiple' => true,
+                                    'maximumSelectionLength' => 3,
+                                    'allowClear' => true
+                                ],
+                            ]); ?>
+                        </div>
+                    </div>
 
-                            <div class="form-group">
-                                <div class="custom-control custom-switch">
-                                    <?= $form->field($model, 'status')->hiddenInput()->label(false); ?>
-                                    <input type="checkbox" class="custom-control-input" value="<?= $model->status ?>" id="itemStatus" <?= $model->status == 1 ? 'checked' : '' ?>>
-                                    <label class="custom-control-label" for="itemStatus">Publish Post</label>
-                                </div>
-                            </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <?= $form->field($model, 'rate', ['template' => $currencyInput])->textInput(['type' => 'number'])->label('Rack Rate') ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-switch">
+                            <?= $form->field($model, 'status')->hiddenInput()->label(false); ?>
+                            <input type="checkbox" class="custom-control-input" value="<?= $model->status ?>" id="itemStatus" <?= $model->status == 1 ? 'checked' : '' ?>>
+                            <label class="custom-control-label" for="itemStatus">Publish this service to website</label>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="form-group">
-                <?= Html::submitButton('<i class="far fa-save mr-1"></i>  Save', ['class' => 'btn btn-success']) ?>
-            </div>
 
+            <hr>
+            <div class="form-group text-right">
+                <?= Html::submitButton('<i class="far fa-save mr-1"></i> Save Changes', ['class' => 'btn btn-success']) ?>
+            </div>
+            <?php ActiveForm::end(); ?>
         </div>
     </div>
-</div>
-</div>
-
-<?php ActiveForm::end(); ?>
 
 </div>
 <?php

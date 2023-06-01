@@ -1,7 +1,9 @@
 <?php
 
 use app\assets\DatetimepickerAsset;
+use app\modules\admin\models\City;
 use app\modules\admin\models\Product;
+use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -9,13 +11,9 @@ use yii\widgets\ActiveForm;
 DatetimepickerAsset::register($this);
 
 $this->title = $model->isNewRecord ? "Add New Rate Modify" : "Update Rate Modify";
-$products = ArrayHelper::map(Product::find()->where(['status' => 1])->andWhere(['type' => $type])->all(), 'id', 'name');
+$products = ArrayHelper::map(Product::find()->andWhere(['type' => $type])->all(), 'id', 'name');
 ?>
-<style>
-  .product-rate-form {
-    padding-top: 20px
-  }
-</style>
+
 <div class="product-rate-form">
   <?php
   $form = ActiveForm::begin([
@@ -23,44 +21,34 @@ $products = ArrayHelper::map(Product::find()->where(['status' => 1])->andWhere([
     'enableAjaxValidation' => false,
     'enableClientValidation' => true,
   ]); ?>
-  <div class="card">
-    <div class="card-header">
-      <div class="h3"><?= $this->title ?></div>
-    </div>
-    <div class="card-body">
-      <div class="row">
 
-        <div class="col-lg-8">
-          <?= $form->field($model, 'product_id')->dropDownList($products, ['class' => 'form-control form-control-lg', 'prompt' => 'Select'])->label("Choose product") ?>
+  <div class="row">
 
-          <label>Date Range</label>
-          <div id="order__date__range" style="cursor: pointer;" class="form-control">
-            <i class="fas fa-calendar-alt text-muted"></i>&nbsp;
-            <span></span> <i class="fa fa-caret-down text-muted float-right"></i>
-          </div>
-          <?= $form->field($model, 'from_date')->hiddenInput()->label(false) ?>
-          <?= $form->field($model, 'to_date')->hiddenInput()->label(false) ?>
-
-          <div class="row">
-            <div class="col-lg-4">
-              <?= $form->field($model, 'amount')->textInput(['type' => 'number'])->label('Amount') ?>
-            </div>
-            <div class="col-lg-4">
-              <?= $form->field($model, 'amount_type')->dropDownList([1 => 'Amount', 2 => 'Percentage'], ['prompt' => 'Select'])->label('Amount Type') ?>
-            </div>
-          </div>
-
-          <?= Html::submitButton($model->isNewRecord ? '<i class="far fa-save mr-1"></i> Add New' : '<i class="far fa-save mr-1"></i> Save Changes', ['class' => 'btn btn-success']) ?>
-
-
-
-        </div>
+    <div class="col-lg-12">
+      <label>Date Range</label>
+      <div id="order__date__range" style="cursor: pointer;" class="form-control">
+        <i class="fas fa-calendar-alt text-muted"></i>&nbsp;
+        <span></span> <i class="fa fa-caret-down text-muted float-right"></i>
       </div>
-
+      <?= $form->field($model, 'from_date')->hiddenInput()->label(false) ?>
+      <?= $form->field($model, 'to_date')->hiddenInput()->label(false) ?>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <?= $form->field($model, 'amount')->textInput(['type' => 'number', 'placeholder' => "Rack Rate : $ {$modelProduct->rate}"])->label('Amount') ?>
+    </div>
+    <div class="col-lg-6">
+      <?= $form->field($model, 'amount_type')->dropDownList([1 => 'Amount', 2 => 'Percentage'], ['class' => 'custom-select'])->label('Amount Type') ?>
     </div>
   </div>
 
-  <?php ActiveForm::end(); ?>
+  <?= Html::submitButton($model->isNewRecord ? '<i class="far fa-save mr-1"></i> Add New' : '<i class="far fa-save mr-1"></i> Save Changes', ['class' => 'btn btn-success']) ?>
+
+</div>
+
+
+<?php ActiveForm::end(); ?>
 
 
 </div>
