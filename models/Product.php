@@ -135,7 +135,7 @@ class Product extends \yii\db\ActiveRecord
 
     public function isWishlist()
     {
-        $user_id = Yii::$app->user->identity->id;
+        $user_id = Yii::$app->user->isGuest ? 0 : Yii::$app->user->identity->id;
         $wishlist = UserWishlist::findOne(['product_id' => $this->id, 'user_id' => $user_id]);
         return !empty($wishlist) ? true : false;
     }

@@ -111,7 +111,11 @@ $rate = Yii::$app->rate;
                     </h5>
                     <h5 class="cartTotalPrice"><?= $formater->DollarFormat($cartTotalPrice) ?></h5>
                   </div>
-                  <a href="<?= Yii::getAlias('@web/cart/check-out') ?>" class="btn btn-primary btn-lg btn-block m-0"></i> Go to checkout</a>
+                  <?php
+                  if (count($model) > 0) {
+                  ?>
+                    <a href="<?= Yii::getAlias('@web/cart/check-out') ?>" class="btn btn-primary btn-lg btn-block m-0"></i> Go to checkout</a>
+                  <?php } ?>
                 </div>
               </div>
             </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\admin\models;
+namespace app\models;
 
 use Yii;
 
@@ -61,5 +61,32 @@ class Booking extends \yii\db\ActiveRecord
             'updated_by' => 'Updated By',
             'status' => 'Status',
         ];
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if ($this->isNewRecord) {
+
+                $length = 16;
+                $result = false;
+                $code = '';
+                do {
+                    $code = substr(str_shuffle(str_repeat($x = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
+                    $has = self::findOne(['code' => $code]);
+                    if (empty($has)) $result = true;
+                } while (!$result);
+                $this->code = $code;
+                $this->status = 0;
+                $this->created_at = date('Y-m-d H:i:s');
+                $this->created_by = Yii::$app->user->identity->id;
+            } else {
+                $this->updated_at = date('Y-m-d H:i:s');
+                $this->updated_by = Yii::$app->user->identity->id;
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 }

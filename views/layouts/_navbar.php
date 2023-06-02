@@ -39,13 +39,23 @@ $action = Yii::$app->controller->action->id; ?>
                         </div>
                     <?php } else { ?>
                         <div class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="nav-item nav-link"> <i class="fas fa-user"></i> <?= !empty(Yii::$app->user->identity->customer) ? Yii::$app->user->identity->customer->name : Yii::$app->user->identity->username ?></a>
+                            <a href="#" data-toggle="dropdown" class="nav-item nav-link"> <i class="fas fa-user"></i> <?= !empty(Yii::$app->user->identity->customer) ? Yii::$app->user->identity->customer->first_name . ' ' . Yii::$app->user->identity->customer->last_name  : Yii::$app->user->identity->username ?></a>
                             <?php
                             echo Dropdown::widget([
                                 'items' => [
-                                    ['label' => '<i class="fas fa-sign-out-alt"></i> Logout', 'linkOptions' => ['data-pjax' => 0], 'url' => '/', 'encode' => false],
-                                    ' <hr>',
-                                    ['label' => '<i class="fas fa-user"></i> Profile', 'linkOptions' => ['data-pjax' => 0], 'url' => '/', 'encode' => false],
+                                    ['label' => '<i class="fas fa-user"></i> Profile', 'linkOptions' => ['data-pjax' => 0], 'url' => ['user/index'], 'encode' => false],
+                                    "<hr class='my-2'>",
+                                    ['label' => '<i class="fas fa-list"></i> My Booking', 'linkOptions' => ['data-pjax' => 0], 'url' => ['user/booking'], 'encode' => false],
+                                    "<hr class='my-2'>",
+                                    ['label' => '<i class="fas fa-sign-out-alt"></i> Logout', 'linkOptions' => [
+                                        'class' => 'sign-out-user',
+                                        'data' => [
+                                            'confirm' => 'Are you sure, you want to Logout?',
+                                            'value' => Url::toRoute(['site/logout']),
+                                            'method' => 'post',
+                                        ]
+                                    ], 'url' => '#', 'encode' => false],
+
                                 ],
                             ]);
                             ?>
@@ -59,11 +69,11 @@ $action = Yii::$app->controller->action->id; ?>
 <?php
 $script = <<<JS
     $(document).on("click",".modalButton",function () {
-      $("#modalDialog").modal("show")
-          .find("#modalDialogContent")
-          .load($(this).attr("value"));
-      $("#modalDialog").find("#modalDialogTitle").text($(this).data("title"));
-  });
+        $("#modalDialog").modal("show")
+            .find("#modalDialogContent")
+            .load($(this).attr("value"));
+        $("#modalDialog").find("#modalDialogTitle").text($(this).data("title"));
+    });
 
 JS;
 $this->registerJs($script);
