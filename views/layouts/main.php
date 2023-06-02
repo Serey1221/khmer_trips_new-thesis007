@@ -67,4 +67,27 @@ $this->registerLinkTag([
 
 </html>
 <?= $this->render('_swal') ?>
+<script type="text/javascript">
+    yii.confirm = function(message, okCallback, cancelCallback) {
+        var val = $(this).data('value');
+
+        if ($(this).hasClass('sign-out-user')) {
+
+            Swal.fire({
+                title: "Warning!",
+                text: "Are you sure you want to logout?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, Logout now!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.post(val); // <--- submit form programmatically
+                }
+            });
+        } else {
+            $.post(val);
+        }
+    };
+</script>
 <?php $this->endPage(); ?>
