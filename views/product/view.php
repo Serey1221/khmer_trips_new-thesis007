@@ -234,12 +234,30 @@ $rate = Yii::$app->rate;
               </tr>
             </tbody>
           </table>
-          <div class="mb-2">
-            <button class="btn btn-primary btn-lg btn-block m-0" id="btnAddToCart" type="button"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-          </div>
-          <div class="mb-2">
-            <a class="btn btn-warning btn-lg btn-block m-0" href="<?= Url::toRoute(['cart/check-out']) ?>"></i> Book Now</a>
-          </div>
+          <?php
+
+          if (Yii::$app->user->isGuest) {
+          ?>
+            <div class="mb-2">
+              <button class="btn btn-primary btn-lg btn-block m-0 modalButton" value="<?= Url::toRoute(['site/login']) ?>" data-title="Please login to continue" type="button"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+            </div>
+            <div class="mb-2">
+              <a class="btn btn-warning btn-lg btn-block m-0 modalButton" value="<?= Url::toRoute(['site/login']) ?>" data-title="Please login to continue"> Book Now</a>
+            </div>
+          <?php
+          } else {
+          ?>
+            <div class="mb-2">
+              <button class="btn btn-primary btn-lg btn-block m-0" id="btnAddToCart" type="button"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+            </div>
+            <div class="mb-2">
+              <a class="btn btn-warning btn-lg btn-block m-0" href="<?= Url::toRoute(['cart/check-out']) ?>"> Book Now</a>
+            </div>
+          <?php
+          }
+
+          ?>
+
         </div>
       </div>
     </div>
@@ -405,7 +423,8 @@ $script = <<<JS
             if (result.isConfirmed) {
               location.href = baseUrl+'/cart/index';
             }
-          });
+          });          
+          $(".cart-badge").text(data.total);
         }else if(data.status == 'error'){
           Toast.fire({
             icon: 'error',

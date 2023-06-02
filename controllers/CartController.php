@@ -2,8 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\BookingItem;
+use app\models\BookingPassenger;
 use app\models\Cart;
 use app\models\Product;
+use app\models\Booking;
 use Yii;
 use yii\base\Exception;
 use yii\web\Controller;
@@ -21,8 +24,13 @@ class CartController extends \yii\web\Controller
   }
   public function actionIndex()
   {
-    $model = Cart::find()->where(['created_by' => Yii::$app->user->identity->id])->all();
-    $cartTotalPrice = array_sum(array_column($model, 'total_price'));
+    if (Yii::$app->user->isGuest) {
+      $model = [];
+      $cartTotalPrice = 0;
+    } else {
+      $model = Cart::find()->where(['created_by' => Yii::$app->user->identity->id])->all();
+      $cartTotalPrice = array_sum(array_column($model, 'total_price'));
+    }
     return $this->render('index', [
       'model' => $model,
       'cartTotalPrice' => $cartTotalPrice
@@ -31,10 +39,56 @@ class CartController extends \yii\web\Controller
 
   public function actionCheckOut()
   {
-    $model = Cart::find()->where(['created_by' => Yii::$app->user->identity->id])->all();
-    $cartTotalPrice = array_sum(array_column($model, 'total_price'));
+    $cart = Cart::find()->where(['created_by' => Yii::$app->user->identity->id])->all();
+    $cartTotalPrice = array_sum(array_column($cart, 'total_price'));
+    $modelPassenger = new BookingPassenger();
+    if (
+      $this->request->isPost &&
+      $modelPassenger->load($this->request->post())
+    ) {
+      $transaction_exception = Yii::$app->db->beginTransaction();
+      try {
+        $model = new Booking();
+
+        $model->customer_id = Yii::$app->user->identity->id;
+        $model->total_amount = $cartTotalPrice;
+        $model->paid = 0;
+        $model->total_item = count($cart);
+        if (!$model->save()) throw new Exception(print_r($model->getErrors()));
+
+        $modelPassenger->is_lead = 1;
+        if (!$modelPassenger->save()) throw new Exception(print_r($modelPassenger->getErrors()));
+
+        foreach ($cart as $key => $value) {
+          $duration_day = intval($value->product->tourday);
+          $return_date = $value->product->isActivity() ? '' : date('Y-m-d', strtotime($value->select_date . " + {$duration_day} days"));
+          $item = new BookingItem();
+          $item->booking_id = $model->id;
+          $item->product_id = $value->product_id;
+          $item->departure_date = $value->select_date;
+          $item->return_date = $return_date;
+          $item->total_guest = $value->total_guest;
+          $item->price = $value->price;
+          $item->total_price = $value->total_price;
+          if (!$item->save()) throw new Exception(print_r($item->getErrors()));
+        }
+
+        Cart::deleteAll(['created_by' => Yii::$app->user->identity->id]);
+
+        $transaction_exception->commit();
+        return $this->redirect(['site/success-pay']);
+      } catch (Exception $ex) {
+        echo "<pre>";
+        print_r($ex->getMessage());
+        exit;
+        Yii::$app->session->setFlash('warning', $ex->getMessage());
+        $transaction_exception->rollBack();
+      }
+    }
+
     return $this->render('checkout', [
-      'model' => $model,
+      'modelPassenger' => $modelPassenger,
+      'cart' => $cart,
       'cartTotalPrice' => $cartTotalPrice
     ]);
   }
@@ -68,7 +122,8 @@ class CartController extends \yii\web\Controller
         if ($cart->save()) {
           $status = 'success';
         }
-        return json_encode(['status' => $status]);
+        $cart = Cart::find()->where(['created_by' => $user_id])->all();
+        return json_encode(['status' => $status, 'total' => count($cart)]);
       }
       if ($this->request->post('action') == 'update-cart') {
         $cartId = $this->request->post('cartId');

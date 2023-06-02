@@ -175,7 +175,8 @@ class SiteController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($model->login()) {
-                return $this->goBack();
+                // return $this->goBack();
+                return $this->redirect(Yii::$app->request->referrer);
             }
         }
 
@@ -216,7 +217,9 @@ class SiteController extends Controller
                 if (!$user->save()) throw new Exception("Failed to Save! Code #001");
 
                 $model = new RegisterForm();
-                $model->name = 'Guest';
+                $model->first_name = $this->request->post('registerFirstName');
+                $model->last_name = $this->request->post('registerLastName');
+                $model->phone_number = $this->request->post('registerPhonenumber');
                 $model->user_id = $user->id;
                 $model->email = $this->request->post('registerEmail');
                 if (!$model->save()) throw new Exception("Failed to Save! Code #002");

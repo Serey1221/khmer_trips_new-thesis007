@@ -30,10 +30,11 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js',
+        'app/lib/tempusdominus/js/moment.min.js',
         'app/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js',
         'app/lib/easing/easing.min.js',
         'app/lib/owlcarousel/owl.carousel.min.js',
-        'app/lib/tempusdominus/js/moment.min.js',
+
         'app/lib/tempusdominus/js/moment-timezone.min.js',
         'app/mail/jqBootstrapValidation.min.js',
         'app/mail/contact.js',
