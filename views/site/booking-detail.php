@@ -188,7 +188,7 @@ $formater = Yii::$app->formater;
                         <a href="#checkavaibility" class="btn btn-primary btn-lg btn-block m-0"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                     </div>
                     <div class="mb-2">
-                        <a href="#checkavaibility" class="btn btn-warning btn-lg btn-block m-0"></i> Book Now</a>
+                        <a href="<?= Yii::getAlias('@web/site/checkout') ?>" class="btn btn-warning btn-lg btn-block m-0"></i> Book Now</a>
                     </div>
                 </div>
             </div>

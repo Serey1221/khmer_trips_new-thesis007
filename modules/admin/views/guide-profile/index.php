@@ -45,12 +45,13 @@ $this->title = 'Guide Profile';
             }
           ],
           'name',
-          [
-            'attribute' => 'created_at',
-            'value' => function ($model) {
-              return Yii::$app->formater->timeAgo($model->created_at);
-            }
-          ],
+          'created_at',
+          // [
+          //   'attribute' => 'created_at',
+          //   'value' => function ($model) {
+          //     return Yii::$app->formater->timeAgo($model->created_at);
+          //   }
+          // ],
           [
             'attribute' => 'status',
             'format' => 'raw',

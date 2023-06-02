@@ -165,19 +165,19 @@ $rate = Yii::$app->rate;
           <div class="bg-white" style="padding: 30px;">
             <ul class="list-inline m-0">
               <li class="mb-3 d-flex justify-content-between align-items-center">
-                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>រៀបចំដំណើរកំសាន្តដោយសម្រិតសម្រាង</a>
+                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Carefully organize travel packages</a>
               </li>
               <li class="mb-3 d-flex justify-content-between align-items-center">
-                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>ធានាលើតម្លៃ និង គុណភាពសេវាកម្ម</a>
+                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Guaranteed price and service</a>
               </li>
               <li class="mb-3 d-flex justify-content-between align-items-center">
-                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>ការបង់ប្រាក់ប្រកបដោយសុវត្ថិភាព</a>
+                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Secure payment</a>
               </li>
               <li class="mb-3 d-flex justify-content-between align-items-center">
-                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>បុគ្គលិកប្រកបដោយបទពិសោធន៍ខ្ពស់</a>
+                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Highly experienced staff</a>
               </li>
               <li class="d-flex justify-content-between align-items-center">
-                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>កក់បានភ្លាមៗ ២៤/៧</a>
+                <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Booking now and get now 24/7</a>
               </li>
             </ul>
           </div>
@@ -202,7 +202,7 @@ $rate = Yii::$app->rate;
 
         <div class="bg-white" style="padding: 30px;">
           <h6>Need Assist from Khmer Travel?</h6>
-          <p>យើងរីករាយនឹងផ្តល់ប្រឹក្សា(24/7) ដល់អ្នកដើម្បីបំពេញតម្រូវការដំណើរកំសាន្តរបស់អ្នក។ khmertravel នឹងជូនអ្នកនៅកន្លែងដែលអ្នកប្រាថ្នា</p>
+          <p>We are happy to provide 24/7 hours consultation to meet your travel needs.</p>
           <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
           <p><i class="fa fa-envelope mr-2"></i>khmertravel@gmail.com</p>
         </div>
