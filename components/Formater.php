@@ -167,63 +167,55 @@ class Formater extends \yii\web\Request
     return $outputString;
   }
 
-  public function timeAgo($datetime, $full = false)
+  public function timeAgo($datetime)
   {
-    $now = new DateTime;
-    $ago = new DateTime($datetime);
-    $diff = $now->diff($ago);
+    $time_difference = time() - strtotime($datetime);
 
-    $diff->w = floor($diff->d / 7);
-    $diff->d -= $diff->w * 7;
-
-    $string = array(
-      'y' => 'year',
-      'm' => 'month',
-      'w' => 'week',
-      'd' => 'day',
-      'h' => 'hour',
-      'i' => 'minute',
-      's' => 'second',
+    if ($time_difference < 1) {
+      return 'less than 1 second ago';
+    }
+    $condition = array(
+      12 * 30 * 24 * 60 * 60 =>  'year',
+      30 * 24 * 60 * 60       =>  'month',
+      24 * 60 * 60            =>  'day',
+      60 * 60                 =>  'hour',
+      60                      =>  'minute',
+      1                       =>  'second'
     );
-    foreach ($string as $k => &$v) {
-      if ($diff->$k) {
-        $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
-      } else {
-        unset($string[$k]);
+
+    foreach ($condition as $secs => $str) {
+      $d = $time_difference / $secs;
+
+      if ($d >= 1) {
+        $t = round($d);
+        return $t . ' ' . $str . ($t > 1 ? 's' : '') . ' ago';
       }
     }
-
-    if (!$full) $string = array_slice($string, 0, 1);
-    return $string ? implode(', ', $string) . ' ago' : 'just now';
   }
-  public function timeAgoKH($w, $datetime, $full = false)
+  public function timeAgoKH($datetime)
   {
-    $now = new DateTime;
-    $ago = new DateTime($datetime);
-    $diff = $now->diff($ago);
+    $time_difference = time() - strtotime($datetime);
 
-    $diff->w = floor($diff->d / 7);
-    $diff->d -= $diff->w * 7;
-
-    $string = array(
-      'y' => 'ឆ្នាំ',
-      'm' => 'ខែ',
-      'w' => 'សប្តាហ៍',
-      'd' => 'ថ្ងៃ',
-      'h' => 'ម៉ោង',
-      'i' => 'នាទី',
-      's' => 'វិនាទី',
+    if ($time_difference < 1) {
+      return 'less than 1 second ago';
+    }
+    $condition = array(
+      12 * 30 * 24 * 60 * 60 =>  'ឆ្នាំ',
+      30 * 24 * 60 * 60       =>  'ខែ',
+      24 * 60 * 60            =>  'ថ្ងៃ',
+      60 * 60                 =>  'ម៉ោង',
+      60                      =>  'នាទី',
+      1                       =>  'វិនាទី'
     );
-    foreach ($string as $k => &$v) {
-      if ($diff->$k) {
-        $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? '' : '');
-      } else {
-        unset($string[$k]);
+
+    foreach ($condition as $secs => $str) {
+      $d = $time_difference / $secs;
+
+      if ($d >= 1) {
+        $t = round($d);
+        return $t . ' ' . $str . ($t > 1 ? 's' : '') . ' មុន';
       }
     }
-
-    if (!$full) $string = array_slice($string, 0, 1);
-    return $this->maskNumberKH($string ? implode(', ', $string) . ' មុន' : 'ឥឡូវនេះ');
   }
 
   public function checkDiffDay($date)
