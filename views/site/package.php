@@ -17,13 +17,12 @@
              <div class="d-flex mb-3">
                  <small class="m-0 mr-2"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Angkor Thom</small>
                  <small class="m-0 mr-2"><i class="fa fa-calendar-alt text-primary mr-2"></i>2 days</small>
-                 <!-- <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>5 Person</small> -->
              </div>
              <a class="h3 text-decoration-none" href="<?= Yii::getAlias('@web/site/booking-detail') ?>"><?= $newproduct['name'] ?></a>
              <div class="border-top mt-4 pt-4">
                  <div class="d-flex">
                      <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
-                     <h5 class="m-0 px-4">$235</h5>
+                     <h5 class="m-0 px-4">$235 <small class="text-muted">Per Pax</small></h5>
 
                  </div>
                  <a href="<?= Yii::getAlias('@web/site/booking-detail') ?>" class="btn btn-primary mt-4">Book Now</a>

@@ -56,7 +56,7 @@ $this->params['pageTitle'] = $this->title;
                         'attribute' => 'img_url',
                         'format' => 'raw',
                         'value' => function ($model) {
-                            return Html::img($model->getUploadUrl('img_url'), ['alt' => 'yii', 'width' => '60', 'height' => '60']);
+                            return Html::img($model->getUploadUrl('img_url'), ['alt' => 'Image', 'width' => '60', 'height' => '60']);
                         }
                     ],
                     'name',

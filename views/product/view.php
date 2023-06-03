@@ -98,9 +98,6 @@ $rate = Yii::$app->rate;
               <div class="d-block">
                 <h6 class="text-primary text-uppercase text-decoration-none"><i class="fa fa-calendar-alt mr-2"></i> <?= $model->getDuration() ?></h6>
               </div>
-              <!-- <div class="col-md">
-                <h6 class="text-warning text-uppercase text-decoration-none"><i class="fas fa-ticket-alt mr-2"></i> Code: <?= $model->code ?></h6>
-              </div> -->
             </div>
             <div class="bg-secondary d-flex justify-content-around shadow" style="padding: 20px;border-radius: 10px;">
               <div class="d-block">
@@ -162,7 +159,7 @@ $rate = Yii::$app->rate;
         <!-- Category List -->
         <div class="mb-5">
           <h4 class="text-uppercase mb-4" style="letter-spacing: 2px;">Why book with us?</h4>
-          <div class="bg-white" style="padding: 30px;">
+          <div class="bg-white" style="padding: 27px;">
             <ul class="list-inline m-0">
               <li class="mb-3 d-flex justify-content-between align-items-center">
                 <a class="text-dark" href="#"><i class="fa fa-angle-right text-primary mr-2"></i>Carefully organize travel packages</a>
@@ -307,7 +304,7 @@ $rate = Yii::$app->rate;
                   <a class="h5 text-decoration-none d-inline-block text-truncate" href="<?= Yii::getAlias('product/view') ?>" style="max-width: 320px;"><?= $value['name'] ?></a>
                 </div>
                 <div class="d-flex">
-                  <small class="m-0 ml-1"><i class="fa fa-calendar-alt text-primary mr-2"></i><?= $value->getDuration() ?></small>
+                  <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i><?= $value->getDuration() ?></small>
                 </div>
                 <div class="border-top mt-4 pt-4">
                   <div class="d-flex justify-content-between">
