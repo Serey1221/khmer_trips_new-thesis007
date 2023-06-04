@@ -53,9 +53,9 @@ class Article extends \yii\db\ActiveRecord
                 'placeholder' => '@webroot/img/placeholder-3.png',
                 'path' => '@webroot/upload/article/{id}',
                 'url' => '@web/upload/article/{id}',
-                'thumbs' => [
-                    'thumb' => ['width' => 300, 'height' => 300],
-                ],
+                // 'thumbs' => [
+                //     'thumb' => ['width' => 300, 'height' => 300],
+                // ],
             ],
         ];
     }

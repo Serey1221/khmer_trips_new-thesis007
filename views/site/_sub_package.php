@@ -15,16 +15,19 @@
                                 <i id="heart" class="far fa-heart"></i>
                             </div>
                             <div class="p-4">
-                                <div class="d-flex mb-3">
+                                <div class="d-flex mb-2">
                                     <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i>Angkor Thom</small>
-                                    <small class="m-0 ml-3"><i class="fa fa-calendar-alt text-primary mr-2"></i>2 days</small>
-                                    <!-- <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>5 Person</small> -->
                                 </div>
-                                <a class="h5 text-decoration-none d-inline-block text-truncate" href="<?= Yii::getAlias('@web/site/booking-detail') ?>" style="max-width: 320px;"><?= $value['name'] ?></a>
+                                <div class="d-flex mb-2">
+                                    <a class="h5 text-decoration-none d-inline-block text-truncate" href="<?= Yii::getAlias('@web/site/booking-detail') ?>" style="max-width: 320px;"><?= $value['name'] ?></a>
+                                </div>
+                                <div class="d-flax">
+                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>2 days</small>
+                                </div>
                                 <div class="border-top mt-4 pt-4">
                                     <div class="d-flex justify-content-between">
                                         <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
-                                        <h5 class="m-0">$235</h5>
+                                        <h5 class="m-0">$235 <small class="text-muted">Per Pax</small></h5>
                                     </div>
                                 </div>
                             </div>

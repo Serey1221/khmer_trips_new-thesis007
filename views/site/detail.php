@@ -70,7 +70,7 @@ $formater = Yii::$app->formater;
 
             <div class="col-lg-4 mt-5 mt-lg-0">
                 <!-- Category List -->
-                <div class="mb-5">
+                <!-- <div class="mb-5">
                     <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Categories</h4>
                     <div class="bg-white" style="padding: 30px;">
                         <ul class="list-inline m-0">
@@ -96,7 +96,7 @@ $formater = Yii::$app->formater;
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Recent Post -->
                 <div class="mb-5">

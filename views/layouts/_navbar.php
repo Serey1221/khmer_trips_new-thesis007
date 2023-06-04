@@ -19,6 +19,7 @@ $action = Yii::$app->controller->action->id; ?>
             </a> <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse"> <span class="navbar-toggler-icon"></span> </button>
             <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                 <div class="navbar-nav ml-auto py-0">
+                    <a href="<?= Yii::getAlias('@web/bill/invoice') ?>" class="nav-item nav-link">Test</a>
                     <a href="<?= Yii::$app->homeUrl ?>" class="nav-item nav-link <?= $controller . '-' . $action === 'site-index' ? 'active' : '' ?>">Home</a>
                     <a href="<?= Yii::getAlias('@web/site/about') ?>" class="nav-item nav-link <?= $action == 'about' ? 'active' : '' ?>">About</a>
                     <a href="<?= Yii::getAlias('@web/site/service') ?>" class="nav-item nav-link <?= $action == 'service' ? 'active' : '' ?>">Service</a>

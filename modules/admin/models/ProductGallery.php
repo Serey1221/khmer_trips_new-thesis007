@@ -37,9 +37,9 @@ class ProductGallery extends \yii\db\ActiveRecord
                 'placeholder' => '@app/web/img/placeholder.png',
                 'path' => '@webroot/upload/product-gallery/{id}',
                 'url' => '@web/upload/product-gallery/{id}',
-                'thumbs' => [
-                    'thumb' => ['width' => 400, 'quality' => 90],
-                ],
+                // 'thumbs' => [
+                //     'thumb' => ['width' => 400, 'quality' => 90],
+                // ],
             ],
         ];
     }

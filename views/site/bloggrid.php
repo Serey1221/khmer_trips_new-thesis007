@@ -26,9 +26,9 @@ $formater = Yii::$app->formater;
                                 <div class="blog-item">
                                     <div class="position-relative">
                                         <img class="img-fluid w-100" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
-                                        <div class="h_container" style="position: absolute;top: 8px;right: 10px;">
+                                        <!-- <div class="h_container" style="position: absolute;top: 8px;right: 10px;">
                                             <i id="heart" class="far fa-heart"></i>
-                                        </div>
+                                        </div> -->
                                         <div class="blog-date">
                                             <h6 class="font-weight-bold text-white mb-n1"><?= date('d', strtotime($value->created_date)); ?></h6>
                                             <small class="text-white text-uppercase"><?= date('M', strtotime($value->created_date)); ?></small>
@@ -70,12 +70,13 @@ $formater = Yii::$app->formater;
                 </div>
             </div>
             <div class="col-lg-4 mt-5 mt-lg-0">
+                <!-- 
                 <?php $form = ActiveForm::begin([
                     'action' => ['site/bloggrid'],
                     'options' => ['data-pjax' => true, 'id' => 'formArticleSearch'],
                     'method' => 'get',
                 ]); ?>
-                <!-- Search Form -->
+
                 <div class="mb-5">
                     <div class="bg-white" style="padding: 30px;">
                         <div class="input-group">
@@ -87,7 +88,7 @@ $formater = Yii::$app->formater;
                     </div>
                 </div>
                 <?php ActiveForm::end(); ?>
-                <!-- Category List -->
+
                 <div class="mb-5">
                     <h4 class="text-uppercase mb-4" style="letter-spacing: 5px;">Categories</h4>
                     <div class="bg-white" style="padding: 30px;">
@@ -114,7 +115,7 @@ $formater = Yii::$app->formater;
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Recent Post -->
                 <div class="mb-5">

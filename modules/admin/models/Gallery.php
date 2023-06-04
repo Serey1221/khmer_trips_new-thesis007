@@ -31,7 +31,7 @@ class Gallery extends \yii\db\ActiveRecord
     {
         return [
 
-            [['title','img_url'], 'required'],
+            [['title', 'img_url'], 'required'],
             ['img_url', 'image', 'extensions' => 'jpg, jpeg, gif, png', 'on' => ['admin']],
             [['sub_title', 'title', 'description'], 'string', 'max' => 255],
         ];
@@ -48,9 +48,9 @@ class Gallery extends \yii\db\ActiveRecord
                 'placeholder' => '@app/web/img/placeholder.png',
                 'path' => '@webroot/upload/gallery/{id}',
                 'url' => '@web/upload/gallery/{id}',
-                'thumbs' => [
-                    'thumb' => ['width' => 400, 'quality' => 90],
-                ],
+                // 'thumbs' => [
+                //     'thumb' => ['width' => 400, 'quality' => 90],
+                // ],
             ],
         ];
     }

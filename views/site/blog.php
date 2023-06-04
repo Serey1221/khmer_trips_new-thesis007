@@ -22,9 +22,9 @@ $formater = Yii::$app->formater;
                         <div class="blog-item">
                             <div class="position-relative">
                                 <img class="img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
-                                <div class="h_container" style="position: absolute;top: 8px;right: 10px;">
+                                <!-- <div class="h_container" style="position: absolute;top: 8px;right: 10px;">
                                     <i id="heart" class="far fa-heart"></i>
-                                </div>
+                                </div> -->
                                 <div class="blog-date">
                                     <h6 class="font-weight-bold text-white mb-n1"><?= date('d', strtotime($value->created_date)); ?></h6>
                                     <small class="text-white text-uppercase"><?= date('M', strtotime($value->created_date)); ?></small>

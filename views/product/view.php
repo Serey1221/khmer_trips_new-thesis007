@@ -16,6 +16,12 @@ $formater = Yii::$app->formater;
 /** @var \app\components\Rate $tate */
 $rate = Yii::$app->rate;
 
+
+
+$selectedCity = !empty(Yii::$app->request->get("ProductSearch")) ? Yii::$app->request->get("ProductSearch")['selectedCity'] : 1;
+$selectedDate = !empty(Yii::$app->request->get("ProductSearch")) ? Yii::$app->request->get("ProductSearch")['selectedDate'] : date("Y-m-d");
+$totalGuest = !empty(Yii::$app->request->get("ProductSearch")) ? Yii::$app->request->get("ProductSearch")['totalGuest'] : 1;
+
 ?>
 <style>
   .page-title {
@@ -46,6 +52,32 @@ $rate = Yii::$app->rate;
 
   .shadow {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .timeline {
+    border-left: 1px solid hsl(0, 0%, 90%);
+    position: relative;
+    list-style: none;
+  }
+
+
+  .timeline .timeline-item {
+    position: relative;
+  }
+
+  .timeline .timeline-item:after {
+    position: absolute;
+    display: block;
+    top: 0;
+  }
+
+  .timeline .timeline-item:after {
+    background-color: hsl(87, 58%, 45%, 1);
+    left: -38px;
+    border-radius: 50%;
+    height: 11px;
+    width: 11px;
+    content: "";
   }
 </style>
 <div class="page-title">
@@ -82,8 +114,34 @@ $rate = Yii::$app->rate;
         <div class="pb-3">
           <div class="blog-item">
             <div class="position-relative">
-
-              <img class="img-fluid w-100" src="<?= $model->getUploadUrl('img_url') ?>" alt="">
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img class="img-fluid  w-100" src="<?= $model->getUploadUrl('img_url') ?>" alt="First slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="img-fluid  w-100" src="<?= $model->getUploadUrl('img_url') ?>" alt="Second slide">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="img-fluid  w-100" src="<?= $model->getUploadUrl('img_url') ?>" alt="Third slide">
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+              <!-- <img class="img-fluid w-100" src="<?php // $model->getUploadUrl('img_url') 
+                                                      ?>" alt=""> -->
               <div class="blog-date">
                 <h6 class="font-weight-bold text-white mb-n1"><?= date('d', strtotime($selectedDate)); ?></h6>
                 <small class="text-white text-uppercase"><?= date('M', strtotime($selectedDate)); ?></small>
@@ -120,7 +178,7 @@ $rate = Yii::$app->rate;
                 <p><?= nl2br($model->highlight) ?></p>
               </div>
             </div>
-            <hr>
+
 
           </div>
         </div>
@@ -261,7 +319,52 @@ $rate = Yii::$app->rate;
     <!-- The Original experience-->
     <div class="row mt-5 mb-4">
       <div class="col-lg-8">
-        <h3>The Original experience</h3>
+        <h3 class="mb-4">Detailed program</h3>
+        <ul class="timeline">
+          <li class="timeline-item mb-5">
+            <h5 class="fw-bold">Our company starts its operations</h5>
+            <p class="text-muted mb-2 fw-bold">11 March 2020</p>
+            <p class="text-muted">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
+              necessitatibus adipisci, ad alias, voluptate pariatur officia
+              repellendus repellat inventore fugit perferendis totam dolor
+              voluptas et corrupti distinctio maxime corporis optio?
+            </p>
+          </li>
+
+          <li class="timeline-item mb-5">
+            <h5 class="fw-bold">First customer</h5>
+            <p class="text-muted mb-2 fw-bold">19 March 2020</p>
+            <p class="text-muted">
+              Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed
+              aliquet laoreet sapien, eget pulvinar lectus maximus vel.
+              Phasellus suscipit porta mattis.
+            </p>
+          </li>
+
+          <li class="timeline-item mb-5">
+            <h5 class="fw-bold">Our team exceeds 10 people</h5>
+            <p class="text-muted mb-2 fw-bold">24 June 2020</p>
+            <p class="text-muted">
+              Orci varius natoque penatibus et magnis dis parturient montes,
+              nascetur ridiculus mus. Nulla ullamcorper arcu lacus, maximus
+              facilisis erat pellentesque nec. Duis et dui maximus dui aliquam
+              convallis. Quisque consectetur purus erat, et ullamcorper sapien
+              tincidunt vitae.
+            </p>
+          </li>
+
+          <li class="timeline-item mb-5">
+            <h5 class="fw-bold">Earned the first million $!</h5>
+            <p class="text-muted mb-2 fw-bold">15 October 2020</p>
+            <p class="text-muted">
+              Nulla ac tellus convallis, pulvinar nulla ac, fermentum diam. Sed
+              et urna sit amet massa dapibus tristique non finibus ligula. Nam
+              pharetra libero nibh, id feugiat tortor rhoncus vitae. Ut suscipit
+              vulputate mattis.
+            </p>
+          </li>
+        </ul>
         <hr>
         <div class="row mt-3">
           <div class="col-md-12">
@@ -301,7 +404,12 @@ $rate = Yii::$app->rate;
                   <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?= $value->getLocation() ?></small>
                 </div>
                 <div class="d-flex mb-2">
-                  <a class="h5 text-decoration-none d-inline-block text-truncate" href="<?= Yii::getAlias('product/view') ?>" style="max-width: 320px;"><?= $value['name'] ?></a>
+                  <a class="h5 text-decoration-none d-inline-block text-truncate" href="<?= Url::to([
+                                                                                          'product/view',
+                                                                                          'selectedCity' => $selectedCity,
+                                                                                          'selectedDate' => $selectedDate,
+                                                                                          'totalGuest' => $totalGuest,
+                                                                                        ]); ?>" style="max-width: 320px;"><?= $value['name'] ?></a>
                 </div>
                 <div class="d-flex">
                   <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i><?= $value->getDuration() ?></small>

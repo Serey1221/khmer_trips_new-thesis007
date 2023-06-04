@@ -61,13 +61,12 @@ $this->params['pageTitle'][] = $this->title;
                     ],
                     'name',
                     'name_kh',
-                    'created_at',
-                    // [
-                    //     'attribute' => 'created_at',
-                    //     'value' => function ($model) {
-                    //         return Yii::$app->formater->timeAgo($model->created_at);
-                    //     }
-                    // ],
+                    [
+                        'attribute' => 'created_at',
+                        'value' => function ($model) {
+                            return Yii::$app->formater->timeAgo($model->created_at);
+                        }
+                    ],
                     [
                         'attribute' => 'status',
                         'format' => 'raw',
