@@ -55,15 +55,15 @@ class UserController extends \yii\web\Controller
 
   public function actionViewBookingItem($code)
   {
-    $model = $this->findModel($code);
+    $modelBooking = $this->findModel($code);
     $modelGallery = ProductGallery::find()->where(['product_id' => $model->id])->all();
-    $relatedProducts = Product::find()
-      ->where(['product_id' => $model->id])
-      ->all();
+    $model = Product::find()
+      ->where(['id' => $modelBooking->pro_id])
+      ->one();
 
     $modelItinerary = ProductItinerary::find()
       ->where(['product_id' => $model->id])
-      ->all();
+      ->one();
 
     return $this->render('view-booking-item', [
       'model' => $model,
