@@ -221,7 +221,7 @@ class ProductController extends \yii\web\Controller
     public function actionFormGallery($id)
     {
         $model = $this->findModel($id);
-        $modelGallery = ProductGallery::find()->all();
+        $modelGallery = ProductGallery::find()->where(['product_id' => $id])->all();
         return $this->render('_form_gallery', [
             'model' => $model,
             'modelGallery' => $modelGallery

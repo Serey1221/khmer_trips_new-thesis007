@@ -116,20 +116,29 @@ $totalGuest = !empty(Yii::$app->request->get("ProductSearch")) ? Yii::$app->requ
             <div class="position-relative">
               <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  <?php
+                  if (!empty($modelGallery)) {
+                    foreach ($modelGallery as $key => $value) {
+                  ?>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="<?= $key ?>" class="<?= $key == 0 ? 'active' : '' ?>"></li>
+                  <?php
+                    }
+                  }
+                  ?>
                 </ol>
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img class="img-fluid  w-100" src="<?= $model->getUploadUrl('img_url') ?>" alt="First slide">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="img-fluid  w-100" src="<?= $model->getUploadUrl('img_url') ?>" alt="Second slide">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="img-fluid  w-100" src="<?= $model->getUploadUrl('img_url') ?>" alt="Third slide">
-                  </div>
+                  <?php
+                  if (!empty($modelGallery)) {
+                    foreach ($modelGallery as $key => $value) {
+                  ?>
+                      <div class="carousel-item <?= $key == 0 ? 'active' : '' ?>">
+                        <img class="img-fluid  w-100" src="<?= $value->getUploadUrl('img_url') ?>" alt="<?= $key ?>">
+                      </div>
+                  <?php
+                    }
+                  }
+                  ?>
+
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -406,6 +415,7 @@ $totalGuest = !empty(Yii::$app->request->get("ProductSearch")) ? Yii::$app->requ
                 <div class="d-flex mb-2">
                   <a class="h5 text-decoration-none d-inline-block text-truncate" href="<?= Url::to([
                                                                                           'product/view',
+                                                                                          'id' => $value->code,
                                                                                           'selectedCity' => $selectedCity,
                                                                                           'selectedDate' => $selectedDate,
                                                                                           'totalGuest' => $totalGuest,
