@@ -430,4 +430,16 @@ class SiteController extends Controller
         }
         return $this->render('wishlist', ['model' => $model]);
     }
+    // public function actionFaqs($id)
+    // {
+    //     $this->layout = 'package';
+
+    //     $model = $this->findModel($id);
+    //     $searchModel = new ProductSearch();
+
+    //     return $this->render('faqs', [
+    //         'model' => $model,
+    //         'searchModel' => $searchModel
+    //     ]);
+    // }
 }

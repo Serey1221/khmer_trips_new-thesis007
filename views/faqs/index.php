@@ -11,7 +11,7 @@ use yii\captcha\Captcha;
 $this->title = 'Contact';
 
 ?>
-<?= $this->render('_section_search', ['model' => $searchModel]) ?>
+<?= $this->render('//site/_section_search', ['model' => $searchModel]) ?>
 <!-- Contact Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
@@ -28,17 +28,22 @@ $this->title = 'Contact';
 
                         <?php // $form->field($model, 'name')->textInput(['maxlength' => true]) 
                         ?>
-
-                        <?php // $form->field($model, 'email')->textInput(['maxlength' => true]) 
-                        ?>
-
-                        <?php // $form->field($model, 'subject')->textInput(['maxlength' => true]) 
-                        ?>
-
-                        <?php // $form->field($model, 'description')->textarea(['rows' => 4]) 
-                        ?>
-
                         <div class="form-row">
+                            <div class="control-group col-sm-6">
+                                <?= $form->field($model, 'name')->textInput(['class' => 'form-control form-control-lg', 'maxlength' => true, 'placeholder' => ' Your name'])->label(false) ?>
+                            </div>
+                            <div class="control-group col-sm-6">
+                                <?= $form->field($model, 'email')->textInput(['class' => 'form-control form-control-lg', 'maxlength' => true, 'placeholder' => 'Your email'])->label(false) ?>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <?= $form->field($model, 'subject')->textInput(['class' => 'form-control form-control-lg', 'maxlength' => true, 'placeholder' => 'Please enter a subject'])->label(false) ?>
+                        </div>
+                        <div class="control-group">
+                            <?= $form->field($model, 'description')->textarea(['rows' => 4, 'class' => 'form-control form-control-lg', 'maxlength' => true, 'placeholder' => 'Please enter your message'])->label(false) ?>
+                        </div>
+
+                        <!-- <div class="form-row">
                             <div class="control-group col-sm-6">
                                 <input type="text" class="form-control p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
                                 <p class="help-block text-danger"></p>
@@ -51,13 +56,16 @@ $this->title = 'Contact';
                         <div class="control-group">
                             <input type="text" class="form-control p-4" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
                             <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
+                        </div> -->
+                        <!-- <div class="control-group">
                             <textarea class="form-control py-3 px-4" rows="5" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
                             <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="text-center">
+                        </div> -->
+                        <!-- <div class="text-center">
                             <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton">Send Message</button>
+                        </div> -->
+                        <div class="form-group text-center">
+                            <?= Html::submitButton(' Send Message', ['class' => 'btn btn-primary py-3 px-4']) ?>
                         </div>
                     </form>
                 </div>

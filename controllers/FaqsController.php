@@ -1,9 +1,10 @@
 <?php
 
-namespace app\modules\admin\controllers;
+namespace app\controllers;
 
-use app\modules\admin\models\Faqs;
-use app\modules\admin\models\FaqsSearch;
+use app\models\Faqs;
+use app\models\FaqsSearch;
+use app\models\ProductSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -23,9 +24,9 @@ class FaqsController extends Controller
             [
                 'verbs' => [
                     'class' => VerbFilter::className(),
-                    // 'actions' => [
-                    //     'delete' => ['POST'],
-                    // ],
+                    'actions' => [
+                        'delete' => ['POST'],
+                    ],
                 ],
             ]
         );
@@ -38,10 +39,24 @@ class FaqsController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = 'package';
+
         $searchModel = new FaqsSearch();
+        $searchModel = new ProductSearch();
+        $model = new Faqs();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post()) && $model->save()) {
+                return $this->redirect(['index', 'id' => $model->id]);
+            }
+        } else {
+            $model->loadDefaultValues();
+        }
+
         return $this->render('index', [
+            'model' => $model,
+            'searchModel' => $searchModel,
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -81,6 +96,22 @@ class FaqsController extends Controller
             'model' => $model,
         ]);
     }
+    // public function actionContact()
+    // {
+    //     $model = new Faqs();
+
+    //     if ($this->request->isPost) {
+    //         if ($model->load($this->request->post()) && $model->save()) {
+    //             return $this->redirect(['view', 'id' => $model->id]);
+    //         }
+    //     } else {
+    //         $model->loadDefaultValues();
+    //     }
+
+    //     return $this->render('create', [
+    //         'model' => $model,
+    //     ]);
+    // }
 
     /**
      * Updates an existing Faqs model.

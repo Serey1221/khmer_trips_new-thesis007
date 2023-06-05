@@ -37,23 +37,24 @@ $this->registerLinkTag([
 <?php $this->beginPage(); ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
+
 <head>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head(); ?>
 </head>
+
 <body class="hold-transition sidebar-mini">
-<?php $this->beginBody(); ?>
+    <?php $this->beginBody(); ?>
 
-<main id="main" class="flex-shrink-0" role="main">
-<div class="wrapper">
-  <div class="content-wrapper">
-      <?= $content ?>
-  </div>
-</div>
-      
-</main>
+    <main id="main" class="flex-shrink-0" role="main">
 
-<?php $this->endBody(); ?>
+        <?= $content ?>
+
+
+    </main>
+
+    <?php $this->endBody(); ?>
 </body>
+
 </html>
 <?php $this->endPage(); ?>
