@@ -56,6 +56,7 @@ class CartController extends \yii\web\Controller
         $model->total_item = count($cart);
         if (!$model->save()) throw new Exception(print_r($model->getErrors()));
 
+        $modelPassenger->booking_id = $model->id;
         $modelPassenger->is_lead = 1;
         if (!$modelPassenger->save()) throw new Exception(print_r($modelPassenger->getErrors()));
 

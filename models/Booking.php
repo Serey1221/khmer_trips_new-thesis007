@@ -63,6 +63,29 @@ class Booking extends \yii\db\ActiveRecord
         ];
     }
 
+    public function getItems()
+    {
+        return $this->hasMany(BookingItem::class, ['booking_id' => 'id']);
+    }
+
+    public function getBookingStatus()
+    {
+        if ($this->paid > 0 && $this->paid < $this->total_amount) {
+            return "<span class='badge badge-success'>Partial Paid</span>";
+        }
+        if ($this->paid == 0) {
+            return "<span class='badge badge-warning'>Unpaid</span>";
+        }
+        if ($this->paid == $this->total_amount) {
+            return "<span class='badge badge-success'>Full Paid</span>";
+        }
+    }
+
+    public function getPassenger()
+    {
+        return $this->hasOne(BookingPassenger::class, ['booking_id' => 'id']);
+    }
+
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {

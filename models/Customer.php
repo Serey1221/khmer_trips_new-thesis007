@@ -34,7 +34,7 @@ class Customer extends \yii\db\ActiveRecord
     return [
       [['user_id'], 'integer'],
       [['date_of_birth'], 'safe'],
-      [['name', 'gender'], 'string', 'max' => 100],
+      [['first_name', 'last_name', 'name', 'gender'], 'string', 'max' => 100],
       [['address', 'email'], 'string', 'max' => 255],
       [['phone_number'], 'string', 'max' => 50],
     ];
@@ -55,5 +55,10 @@ class Customer extends \yii\db\ActiveRecord
       'phone_number' => 'Phone Number',
       'email' => 'Email',
     ];
+  }
+
+  public function getFullName()
+  {
+    return "{$this->first_name} {$this->last_name}";
   }
 }
