@@ -7,6 +7,7 @@ use app\models\BookingPassenger;
 use app\models\Cart;
 use app\models\Product;
 use app\models\Booking;
+use app\models\BookingActivity;
 use Yii;
 use yii\base\Exception;
 use yii\web\Controller;
@@ -75,6 +76,7 @@ class CartController extends \yii\web\Controller
         }
 
         Cart::deleteAll(['created_by' => Yii::$app->user->identity->id]);
+        BookingActivity::addActivity(['type' => BookingActivity::TYPE_CREATE, 'booking_id' => $model->id]);
 
         $transaction_exception->commit();
         return $this->redirect(['site/success-pay']);

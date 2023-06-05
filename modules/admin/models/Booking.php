@@ -32,6 +32,9 @@ class Booking extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
+
+    const BOOKED = 2, CONFIRMED = 1, CANCELLED = 0, DECLINED = 10;
+
     public function rules()
     {
         return [
@@ -61,5 +64,57 @@ class Booking extends \yii\db\ActiveRecord
             'updated_by' => 'Updated By',
             'status' => 'Status',
         ];
+    }
+
+    public function getBalance_amount()
+    {
+        return floatval($this->total_amount - $this->paid);
+    }
+
+    public function getCustomer()
+    {
+        return $this->hasOne(Customer::class, ['id' => 'customer_id']);
+    }
+    public function getPassenger()
+    {
+        return $this->hasOne(BookingPassenger::class, ['booking_id' => 'id']);
+    }
+    public function getItems()
+    {
+        return $this->hasMany(BookingItem::class, ['booking_id' => 'id']);
+    }
+
+    public function getBookingStatus()
+    {
+        switch ($this->status) {
+            case self::BOOKED:
+                return "<span class='badge badge-success'>On Request</span>";
+                break;
+
+            case self::CONFIRMED:
+                return "<span class='badge badge-success'>Confirmed</span>";
+                break;
+
+            case self::CANCELLED:
+                return "<del>Cancelled</del>";
+                break;
+
+            case self::DECLINED:
+                return "<del>Declined</del>";
+                break;
+        }
+    }
+
+    public function getPaymentStatus()
+    {
+        if ($this->paid > 0 && $this->paid < $this->total_amount) {
+            return "<span class='badge badge-success'>Partial Paid</span>";
+        }
+        if ($this->paid == 0) {
+            return "<span class='badge badge-warning'>Unpaid</span>";
+        }
+        if ($this->paid == $this->total_amount) {
+            return "<span class='badge badge-success'>Full Paid</span>";
+        }
     }
 }

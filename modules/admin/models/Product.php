@@ -154,6 +154,32 @@ class Product extends \yii\db\ActiveRecord
             return false;
         }
     }
+
+    public function getDuration()
+    {
+        if ($this->type == 'activity') {
+            $tourhour = $this->tourhour . ' hour(s)';
+            if ($this->tourmin > 0) {
+                $tourhour .= ' ' . $this->tourmin . ' minute(s)';
+            }
+            return $tourhour;
+        } else {
+            return $this->tourday . ' day(s) ' . $this->tournight . ' night(s)';
+        }
+    }
+
+    public function getLocation()
+    {
+        if (!empty($this->cities)) {
+            $str = '';
+            foreach ($this->cities as $key => $value) {
+                $str .= $value->city->name . ", ";
+            }
+            return rtrim($str, ', ');
+        }
+        return '';
+    }
+
     public function getStatusTemp()
     {
         if ($this->status == 1) {

@@ -6,6 +6,8 @@ use app\models\Cart;
 use app\models\Product;
 use app\models\User;
 use app\models\Booking;
+use app\models\BookingActivity;
+use app\models\BookingPayment;
 use Yii;
 use yii\base\Exception;
 use yii\web\Controller;
@@ -63,8 +65,18 @@ class UserController extends \yii\web\Controller
   public function actionViewBooking($code)
   {
     $model = $this->findModel($code);
+    $modelPayment = BookingPayment::find()
+      ->where(['booking_id' => $model->id])
+      ->orderBy(['created_at' => SORT_DESC])
+      ->all();
+    $modelActivity = BookingActivity::find()
+      ->where(['booking_id' => $model->id])
+      ->orderBy(['created_at' => SORT_DESC])
+      ->all();
     return $this->render('view_booking', [
       'model' => $model,
+      'modelPayment' => $modelPayment,
+      'modelActivity' => $modelActivity,
     ]);
   }
 

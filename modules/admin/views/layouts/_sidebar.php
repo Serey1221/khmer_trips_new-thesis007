@@ -1,11 +1,14 @@
 <?php
 
+use app\models\Booking;
 use yii\bootstrap4\Html;
 use yii\helpers\Url;
 
 // Yii::$app->setHomeUrl(Yii::getAlias('@web/admin'));
 $controller = Yii::$app->controller->id;
 $action = Yii::$app->controller->action->id;
+
+$countBooking = Booking::find()->where(['status' => Booking::BOOKED])->count();
 ?>
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -86,7 +89,7 @@ $action = Yii::$app->controller->action->id;
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
               Booking
-              <span class="badge badge-info right">2</span>
+              <span class="badge badge-info right"><?= $countBooking ?></span>
             </p>
           </a>
         </li>
