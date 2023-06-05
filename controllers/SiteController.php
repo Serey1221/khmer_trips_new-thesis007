@@ -68,6 +68,14 @@ class SiteController extends Controller
             ],
         ];
     }
+    public function activityproduct()
+    {
+        return Product::find()
+            ->where(['type' => Product::ACTIVITY])
+            ->orderBy(['created_at' => SORT_DESC])
+            ->limit(6)
+            ->all();
+    }
     public function newproductData()
     {
         return Product::find()
@@ -78,7 +86,7 @@ class SiteController extends Controller
     public function threeproductData()
     {
         return Product::find()
-            ->where(['status' => 1])
+            ->where(['type' => Product::TOUR])
             ->orderBy(['created_at' => SORT_DESC])
             ->limit(3)
             ->all();
@@ -86,8 +94,8 @@ class SiteController extends Controller
     public function productData()
     {
         return Product::find()
-            ->where(['status' => 1])
-            ->orderBy(new Expression('rand()'))
+            ->where(['type' => Product::TOUR])
+            ->orderBy(['created_at' => SORT_DESC])
             ->limit(6)
             ->all();
     }
@@ -292,15 +300,22 @@ class SiteController extends Controller
     {
         $this->layout = 'package';
 
+        $newproduct = Product::find()
+            ->where(['type' => Product::TOUR])
+            ->orderBy(['created_at' => SORT_DESC])
+            ->one();
+
         $city = $this->cityData();
         $product = $this->productData();
-        $newproduct = $this->newproductData();
+        $activity = $this->activityproduct();
+        // $newproduct = $this->newproductData();
         $searchModel = new ProductSearch();
 
         return $this->render('package', [
             'city' => $city,
             'product' => $product,
             'newproduct' => $newproduct,
+            'activity' => $activity,
             'searchModel' => $searchModel
         ]);
     }

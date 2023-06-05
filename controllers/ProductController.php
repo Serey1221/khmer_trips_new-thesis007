@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Product;
 use app\models\ProductSearch;
 use app\models\UserWishlist;
+use app\modules\admin\models\ProductGallery;
 use Yii;
 use yii\base\Exception;
 use yii\web\Controller;
@@ -33,6 +34,7 @@ class ProductController extends \yii\web\Controller
   public function actionView($id, $selectedCity, $selectedDate, $totalGuest)
   {
     $model = $this->findModel($id);
+    $modelGallery = ProductGallery::find()->where(['product_id' => $model->id])->all();
     $relatedProducts = Product::find()
       ->innerJoin('product_city', 'product.id = product_city.product_id')
       ->where(['product_city.city_id' => $selectedCity])
@@ -44,7 +46,8 @@ class ProductController extends \yii\web\Controller
       'selectedCity' => $selectedCity,
       'selectedDate' => $selectedDate,
       'totalGuest' => $totalGuest,
-      'relatedProducts' => $relatedProducts
+      'relatedProducts' => $relatedProducts,
+      'modelGallery' => $modelGallery
     ]);
   }
 
