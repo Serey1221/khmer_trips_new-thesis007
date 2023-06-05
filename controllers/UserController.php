@@ -8,6 +8,8 @@ use app\models\User;
 use app\models\Booking;
 use app\models\BookingActivity;
 use app\models\BookingPayment;
+use app\modules\admin\models\ProductGallery;
+use app\modules\admin\models\ProductItinerary;
 use Yii;
 use yii\base\Exception;
 use yii\web\Controller;
@@ -48,6 +50,26 @@ class UserController extends \yii\web\Controller
     return $this->render('index', [
       'model' => $model,
       'customer' => $customer
+    ]);
+  }
+
+  public function actionViewBookingItem($code)
+  {
+    $model = $this->findModel($code);
+    $modelGallery = ProductGallery::find()->where(['product_id' => $model->id])->all();
+    $relatedProducts = Product::find()
+      ->where(['product_id' => $model->id])
+      ->all();
+
+    $modelItinerary = ProductItinerary::find()
+      ->where(['product_id' => $model->id])
+      ->all();
+
+    return $this->render('view-booking-item', [
+      'model' => $model,
+      'relatedProducts' => $relatedProducts,
+      'modelGallery' => $modelGallery,
+      'modelItinerary' => $modelItinerary
     ]);
   }
 
