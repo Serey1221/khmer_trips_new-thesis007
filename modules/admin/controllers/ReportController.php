@@ -48,6 +48,7 @@ class ReportController extends Controller
       INNER JOIN customer ON customer.id = booking.customer_id
       INNER JOIN product ON product.id = booking_item.product_id
       WHERE DATE(booking.created_at) BETWEEN :fromDate AND :toDate
+      AND booking.status NOT IN (0,10)
       AND IF(:customerId = 'all', true, booking.customer_id = :customerId)
       ORDER BY booking.created_at DESC
     ", [
@@ -80,6 +81,7 @@ class ReportController extends Controller
       INNER JOIN customer ON customer.id = booking.customer_id
       INNER JOIN product ON product.id = booking_item.product_id
       WHERE DATE(booking.created_at) BETWEEN :fromDate AND :toDate
+      AND booking.status NOT IN (0,10)
       AND IF(:customerId = 'all', true, booking.customer_id = :customerId)
       ORDER BY booking.created_at DESC
     ", [
