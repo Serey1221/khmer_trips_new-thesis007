@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Cart;
 use app\models\Product;
 use app\models\ProductSearch;
 use app\models\UserWishlist;
@@ -46,6 +47,7 @@ class ProductController extends \yii\web\Controller
       ->where(['product_id' => $model->id])
       ->all();
 
+    $totalCart = Cart::find()->where(['created_by' => Yii::$app->user->identity->id])->count();
     return $this->render('view', [
       'model' => $model,
       'selectedCity' => $selectedCity,
@@ -53,7 +55,8 @@ class ProductController extends \yii\web\Controller
       'totalGuest' => $totalGuest,
       'relatedProducts' => $relatedProducts,
       'modelGallery' => $modelGallery,
-      'modelItinerary' => $modelItinerary
+      'modelItinerary' => $modelItinerary,
+      'totalCart' => $totalCart
     ]);
   }
 

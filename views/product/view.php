@@ -315,7 +315,8 @@ $totalGuest = !empty(Yii::$app->request->get("ProductSearch")) ? Yii::$app->requ
               <button class="btn btn-primary btn-lg btn-block m-0" id="btnAddToCart" type="button"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
             </div>
             <div class="mb-2">
-              <a class="btn btn-warning btn-lg btn-block m-0" href="<?= Url::toRoute(['cart/check-out']) ?>"> Book Now</a>
+              <button class="btn btn-warning btn-lg btn-block m-0" id="btnCheckOut" type="button">Book Now</button>
+              <!-- <a class="btn btn-warning btn-lg btn-block m-0" href="<?= Url::toRoute(['cart/check-out']) ?>"> Book Now</a> -->
             </div>
           <?php
           }
@@ -476,6 +477,56 @@ $script = <<<JS
 
   $('.search-availability-form').change(function(){
     $("#btnAddToCart").prop('disabled', true);
+  });
+
+  $("#btnCheckOut").click(function(){
+    var totalCart = $totalCart;
+    totalCart = parseInt(totalCart);
+    if(totalCart > 0){
+      location.href = baseUrl+'/cart/check-out';
+    }else{
+      var departure_date = $('input[name="departure_date"]').val();
+      var number_of_guest = $('select[name="number_of_guest"]').val();
+      var productCode = "$model->code";
+
+      $.ajax({
+        url: baseUrl + "/cart/dependent",
+        method: 'post',
+        data: {
+          number_of_guest: number_of_guest,
+          productCode: productCode,
+          departure_date: departure_date,
+          action: 'add-to-cart',
+        },
+        success: function(res){
+          var data = JSON.parse(res);
+          var Toast = Swal.mixin({
+            toast: true,
+            position: "bottom-end",
+            showConfirmButton: false,
+            timer: 5000,
+            iconColor: "#fff",
+            background: "#7ab730",
+            customClass: {
+              container: "colored-toast",
+            }
+          });
+          if(data.status == 'success'){
+            location.href = baseUrl+'/cart/index';     
+            $(".cart-badge").text(data.total);
+          }else if(data.status == 'error'){
+            Toast.fire({
+              icon: 'error',
+              title: 'Something went wrong!'
+            });
+            console.log(data.status);
+          }
+        },
+        error: function(err){
+          console.log(err);
+        }
+      });
+    }
   });
 
   $("#btnAddToCart").click(function(){
