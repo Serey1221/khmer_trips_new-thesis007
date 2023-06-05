@@ -55,4 +55,9 @@ class ProductItinerary extends \yii\db\ActiveRecord
             'is_stay' => 'Stay',
         ];
     }
+
+    public function getCity()
+    {
+        return $this->hasOne(City::class, ['id' => 'city_id']);
+    }
 }

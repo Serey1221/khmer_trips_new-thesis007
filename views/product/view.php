@@ -330,49 +330,29 @@ $totalGuest = !empty(Yii::$app->request->get("ProductSearch")) ? Yii::$app->requ
       <div class="col-lg-8">
         <h3 class="mb-4">Detailed program</h3>
         <ul class="timeline">
-          <li class="timeline-item mb-5">
-            <h5 class="fw-bold">Our company starts its operations</h5>
-            <p class="text-muted mb-2 fw-bold">11 March 2020</p>
-            <p class="text-muted">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-              necessitatibus adipisci, ad alias, voluptate pariatur officia
-              repellendus repellat inventore fugit perferendis totam dolor
-              voluptas et corrupti distinctio maxime corporis optio?
-            </p>
-          </li>
+          <?php
+          if (!empty($modelItinerary)) {
+            foreach ($modelItinerary as $key => $value) {
+              $key = $key++;
+          ?>
+              <li class="timeline-item mb-5">
+                <h5 class="fw-bold"><?= "Day {$key} - {$value->title}" ?></h5>
+                <p class="text-primary mb-2 fw-bold"><?= !empty($value->city) ? "<i class='fas fa-map-marker-alt'></i> {$value->city->name}" : '' ?></p>
+                <p class="text-muted">
+                  <?= nl2br($value->description) ?>
+                </p>
+                <?= $value->is_stay == 1 ? "<span class='text-success mr-3'><i class='fas fa-bed'></i> Overnight</span>" : "" ?>
+                <?= $value->is_breakfast == 1 ? "<span class='text-info mr-2'><i class='fas fa-utensils'></i> Breakfast</span>" : "" ?>
+                <?= $value->is_lunch == 1 ? "<span class='text-info mr-2'><i class='fas fa-utensils'></i> Lunch</span>" : "" ?>
+                <?= $value->is_dinner == 1 ? "<span class='text-info mr-2'><i class='fas fa-utensils'></i> Dinner</span>" : "" ?>
+              </li>
+          <?php
+            }
+          }
+          ?>
 
-          <li class="timeline-item mb-5">
-            <h5 class="fw-bold">First customer</h5>
-            <p class="text-muted mb-2 fw-bold">19 March 2020</p>
-            <p class="text-muted">
-              Quisque ornare dui nibh, sagittis egestas nisi luctus nec. Sed
-              aliquet laoreet sapien, eget pulvinar lectus maximus vel.
-              Phasellus suscipit porta mattis.
-            </p>
-          </li>
 
-          <li class="timeline-item mb-5">
-            <h5 class="fw-bold">Our team exceeds 10 people</h5>
-            <p class="text-muted mb-2 fw-bold">24 June 2020</p>
-            <p class="text-muted">
-              Orci varius natoque penatibus et magnis dis parturient montes,
-              nascetur ridiculus mus. Nulla ullamcorper arcu lacus, maximus
-              facilisis erat pellentesque nec. Duis et dui maximus dui aliquam
-              convallis. Quisque consectetur purus erat, et ullamcorper sapien
-              tincidunt vitae.
-            </p>
-          </li>
 
-          <li class="timeline-item mb-5">
-            <h5 class="fw-bold">Earned the first million $!</h5>
-            <p class="text-muted mb-2 fw-bold">15 October 2020</p>
-            <p class="text-muted">
-              Nulla ac tellus convallis, pulvinar nulla ac, fermentum diam. Sed
-              et urna sit amet massa dapibus tristique non finibus ligula. Nam
-              pharetra libero nibh, id feugiat tortor rhoncus vitae. Ut suscipit
-              vulputate mattis.
-            </p>
-          </li>
         </ul>
         <hr>
         <div class="row mt-3">

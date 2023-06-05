@@ -6,6 +6,7 @@ use app\models\Product;
 use app\models\ProductSearch;
 use app\models\UserWishlist;
 use app\modules\admin\models\ProductGallery;
+use app\modules\admin\models\ProductItinerary;
 use Yii;
 use yii\base\Exception;
 use yii\web\Controller;
@@ -41,13 +42,18 @@ class ProductController extends \yii\web\Controller
       ->groupBy(['product.id'])
       ->all();
 
+    $modelItinerary = ProductItinerary::find()
+      ->where(['product_id' => $model->id])
+      ->all();
+
     return $this->render('view', [
       'model' => $model,
       'selectedCity' => $selectedCity,
       'selectedDate' => $selectedDate,
       'totalGuest' => $totalGuest,
       'relatedProducts' => $relatedProducts,
-      'modelGallery' => $modelGallery
+      'modelGallery' => $modelGallery,
+      'modelItinerary' => $modelItinerary
     ]);
   }
 
