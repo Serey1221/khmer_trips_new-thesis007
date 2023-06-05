@@ -56,4 +56,8 @@ class Customer extends \yii\db\ActiveRecord
             'email' => 'Email',
         ];
     }
+    public function getFullName()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
 }

@@ -3,7 +3,11 @@
 namespace app\modules\admin\controllers;
 
 use app\modules\admin\models\Booking;
+use app\modules\admin\models\BookingActivity;
+use app\modules\admin\models\BookingPayment;
 use app\modules\admin\models\BookingSearch;
+use Exception;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -55,8 +59,19 @@ class BookingController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $modelPayment = BookingPayment::find()
+            ->where(['booking_id' => $model->id])
+            ->orderBy(['created_at' => SORT_DESC])
+            ->all();
+        $modelActivity = BookingActivity::find()
+            ->where(['booking_id' => $model->id])
+            ->orderBy(['created_at' => SORT_DESC])
+            ->all();
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'modelPayment' => $modelPayment,
+            'modelActivity' => $modelActivity
         ]);
     }
 
@@ -89,9 +104,9 @@ class BookingController extends Controller
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionEdit($id)
     {
-        $model = $this->findModel($id);
+        $model = $this->findModel(['code' => $id]);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -100,6 +115,115 @@ class BookingController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
+    }
+
+    public function actionAddPayment($code)
+    {
+        $modelBooking = $this->findModel($code);
+        $model = new BookingPayment();
+        $model->booking_id = $modelBooking->id;
+        $modelPayment = BookingPayment::find()->where(['booking_id' => $modelBooking->id])->all();
+
+        if ($this->request->isPost && $model->load($this->request->post())) {
+
+            $transaction_exception = Yii::$app->db->beginTransaction();
+
+            try {
+                if (!$model->save()) throw new Exception("Failed to Save! Code #001");
+
+                BookingActivity::addActivity(['type' => BookingActivity::TYPE_PAYMENT, 'booking_id' => $modelBooking->id, 'payment_id' => $model->id]);
+
+                $modelBooking->paid = $modelBooking->paid + $model->amount;
+                if (!$modelBooking->save()) throw new Exception("Failed to update booking");
+
+                $transaction_exception->commit();
+                Yii::$app->session->setFlash('success', "Payment added successfully");
+
+                return $this->redirect(Yii::$app->request->referrer);
+            } catch (Exception $ex) {
+                Yii::$app->session->setFlash('warning', $ex->getMessage());
+                $transaction_exception->rollBack();
+                return $this->redirect(Yii::$app->request->referrer);
+            }
+        }
+        return $this->renderAjax('_form_payment', [
+            'model' => $model,
+            'modelBooking' => $modelBooking,
+            'modelPayment' => $modelPayment
+        ]);
+    }
+
+    public function actionConfirmBooking($code)
+    {
+        $model = $this->findModel($code);
+
+        $transaction_exception = Yii::$app->db->beginTransaction();
+
+        try {
+            $model->status = Booking::CONFIRMED;
+
+            $latestIncrement = Yii::$app->db->createCommand("SELECT 
+                count(id)
+                FROM booking
+            ")->queryScalar();
+            $code = sprintf("%04d", (int)$latestIncrement + 1);
+            $model->invoice_code = "INV" . date("ym") . $code;
+            if (!$model->save()) throw new Exception("Something went wrong!");
+
+            BookingActivity::addActivity(['type' => BookingActivity::TYPE_CONFIRM, 'booking_id' => $model->id]);
+
+            $transaction_exception->commit();
+            Yii::$app->session->setFlash('success', "Booking confirmed successful");
+            return $this->redirect(Yii::$app->request->referrer);
+        } catch (Exception $ex) {
+            Yii::$app->session->setFlash('warning', $ex->getMessage());
+            $transaction_exception->rollBack();
+            return $this->redirect(Yii::$app->request->referrer);
+        }
+    }
+
+    public function actionDeclineBooking($code)
+    {
+        $model = $this->findModel($code);
+
+        $transaction_exception = Yii::$app->db->beginTransaction();
+
+        try {
+            $model->status = Booking::DECLINED;
+            if (!$model->save()) throw new Exception("Something went wrong!");
+
+            BookingActivity::addActivity(['type' => BookingActivity::TYPE_DECLINE, 'booking_id' => $model->id]);
+
+            $transaction_exception->commit();
+            Yii::$app->session->setFlash('success', "Booking confirmed successful");
+            return $this->redirect(Yii::$app->request->referrer);
+        } catch (Exception $ex) {
+            Yii::$app->session->setFlash('warning', $ex->getMessage());
+            $transaction_exception->rollBack();
+            return $this->redirect(Yii::$app->request->referrer);
+        }
+    }
+
+    public function actionCancelBooking($code)
+    {
+        $model = $this->findModel($code);
+
+        $transaction_exception = Yii::$app->db->beginTransaction();
+
+        try {
+            $model->status = Booking::CANCELLED;
+            if (!$model->save()) throw new Exception("Something went wrong!");
+
+            BookingActivity::addActivity(['type' => BookingActivity::TYPE_CANCEL, 'booking_id' => $model->id]);
+
+            $transaction_exception->commit();
+            Yii::$app->session->setFlash('success', "Booking confirmed successful");
+            return $this->redirect(Yii::$app->request->referrer);
+        } catch (Exception $ex) {
+            Yii::$app->session->setFlash('warning', $ex->getMessage());
+            $transaction_exception->rollBack();
+            return $this->redirect(Yii::$app->request->referrer);
+        }
     }
 
     /**
@@ -125,7 +249,7 @@ class BookingController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Booking::findOne(['id' => $id])) !== null) {
+        if (($model = Booking::findOne(['code' => $id])) !== null) {
             return $model;
         }
 

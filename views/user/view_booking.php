@@ -132,8 +132,72 @@ $this->title = 'View Booking :' . $model->code;
     <div class="col-lg-5">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Files</h5>
+          <h5>Payment</h5>
+          <?php
+          if (!empty($modelPayment)) {
+            $paymentStr = "<table class='table table-hover'>";
+            $paymentStr .= "<thead class=''>
+                            <tr>
+                              <th>Date</th>
+                              <th>Method</th>
+                              <th class='text-right'>Amount</th>
+                            </tr>
+                            </thead>";
+            $paymentStr .= '<tbody>';
+            foreach ($modelPayment as $key => $value) {
+              $paymentStr .= "<tr>
+                            <td>{$formater->date($value->date)}</td>
+                            <td>{$value->method->name}</td>
+                            <td class='text-right'>{$formater->DollarFormat($value->amount)}</td>
+                          </tr>";
+            }
+            $paymentStr .= "</tbody>";
+            $paymentStr .= "<tfoot>
+                        <tr>
+                        <th class='text-right' colspan='2'>Total:</th>
+                        <th class='text-right'>{$formater->DollarFormat($model->paid)}</th>
+                        </tr>
+                        <tr>
+                        <th class='text-right text-red' colspan='2'>Balance:</th>
+                        <th class='text-right text-red'>{$formater->DollarFormat($model->balance_amount)}</th>
+                        </tr>
+                    </tfoot>";
+            $paymentStr .= "</table>";
+            echo $paymentStr;
+            if ($model->balance_amount > 0) {
+              echo Html::button('Add Payment', [
+                'class' => 'modalButton btn btn-sm btn-info',
+                'value' => Url::to(['booking/add-payment', 'code' => $model->code]),
+                'data' => [
+                  'title' => 'Add Payment',
+                ]
+              ]);
+            }
+          }
+          ?>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5>Activity</h5>
           <hr>
+          <ul class="list-group">
+            <?php
+            if (!empty($modelActivity)) {
+              foreach ($modelActivity as $key => $value) {
+            ?>
+                <li class="list-group-item ">
+                  <div class="text-muted">
+                    <i class="fas fa-user"></i> <?= $value->getUserAction() ?> | <?= $formater->dateTime($value->created_at) ?>
+                  </div>
+                  <div><?= $value->getTypeAsText() ?></div>
+                </li>
+
+            <?php
+              }
+            }
+            ?>
+          </ul>
         </div>
       </div>
     </div>

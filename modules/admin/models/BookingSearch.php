@@ -17,8 +17,8 @@ class BookingSearch extends Booking
     public function rules()
     {
         return [
-            [['id', 'product_id', 'status'], 'integer'],
-            [['from_date', 'to_date', 'total_amount', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'safe'],
+            [['id', 'status'], 'integer'],
+            [['total_amount', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'safe'],
             [['paid'], 'number'],
         ];
     }
@@ -56,22 +56,6 @@ class BookingSearch extends Booking
             // $query->where('0=1');
             return $dataProvider;
         }
-
-        // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'product_id' => $this->product_id,
-            'from_date' => $this->from_date,
-            'to_date' => $this->to_date,
-            'paid' => $this->paid,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-            'status' => $this->status,
-        ]);
-
-        $query->andFilterWhere(['like', 'total_amount', $this->total_amount])
-            ->andFilterWhere(['like', 'created_by', $this->created_by])
-            ->andFilterWhere(['like', 'updated_by', $this->updated_by]);
 
         return $dataProvider;
     }

@@ -43,4 +43,9 @@ class ProductCity extends \yii\db\ActiveRecord
             'city_id' => 'City ID',
         ];
     }
+
+    public function getCity()
+    {
+        return $this->hasOne(City::class, ['id' => 'city_id']);
+    }
 }

@@ -10,54 +10,100 @@ use yii\grid\GridView;
 /** @var app\modules\admin\models\BookingSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Bookings';
+/** @var app\components\Formater $formater */
+$formater = Yii::$app->formater;
+
+$this->title = 'Booking List';
 $this->params['pagetitle'][] = $this->title;
 ?>
+<style>
+    .cs-pointer {
+        cursor: pointer;
+    }
+</style>
 <div class="booking-index">
-
     <h1><?= Html::encode($this->title) ?></h1>
+    <hr class="border-0">
 
-    <p>
-        <?php // Html::a('Create Booking', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <div class="card">
+        <div class="card-body">
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                'rowOptions'   => function ($model, $key, $index, $grid) {
+                    return ['data-id' => $model->code, 'class' => 'cs-pointer'];
+                },
+                'tableOptions' => [
+                    'class' => 'table table-hover',
+                    'id' => 'tableBooking',
+                    'cellspacing' => '0',
+                    'width' => '100%',
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        // 'filterModel' => $searchModel,
-        'tableOptions'=>[
-            'class'=>'table table-striped projects',
-        ],
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            // 'id',
-            // 'product_id',
-            'from_date',
-            'to_date',
-            'total_amount',
-            'paid',
-            //'created_at',
-            //'created_by:ntext',
-            //'updated_at',
-            //'updated_by:ntext',
-            //'status',
-            [
-                'attribute' => 'status',
-                'format' => 'raw',
-                'value' => function ($model) {
-                return $model->getStatusTemp();
-                }
-            ],
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, Booking $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                 }
-            ],
-        ],
-    ]); ?>
-
-
+                ],
+                'pager' => [
+                    'class' => 'yii\bootstrap4\LinkPager'
+                ],
+                'layout' => "
+                    <div class='table-responsive'>
+                        {items}
+                    </div>
+                    <hr>
+                    <div class='row'>
+                        <div class='col-md-6'>
+                            {summary}
+                        </div>
+                        <div class='col-md-6'>
+                            {pager}
+                        </div>
+                    </div>
+                ",
+                'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
+                    [
+                        'attribute' => 'created_at',
+                        'label' => 'Booked at',
+                        'value' => function ($model) use ($formater) {
+                            return $formater->dateTime($model->created_at);
+                        }
+                    ],
+                    [
+                        'attribute' => 'code',
+                        'label' => 'Order ID',
+                        'format' => 'raw',
+                        'contentOptions' => ['class' => 'text-info'],
+                        'value' => function ($model) use ($formater) {
+                            return "#{$model->code}";
+                        }
+                    ],
+                    [
+                        'attribute' => 'customer_id',
+                        'label' => 'Customer',
+                        'format' => 'raw',
+                        'value' => function ($model) use ($formater) {
+                            return $model->customer->getFullName();
+                        }
+                    ],
+                    'total_amount',
+                    'paid',
+                    [
+                        'attribute' => 'status',
+                        'format' => 'raw',
+                        'value' => function ($model) {
+                            return $model->getBookingStatus();
+                        }
+                    ],
+                ],
+            ]); ?>
+        </div>
+    </div>
 </div>
+<?php
+$this->registerJs("
+
+  $('#tableBooking td').click(function (e) {
+      var code = $(this).closest('tr').data('id');
+      if(e.target == this)
+          location.href = '" . Url::to(['booking/view']) . "?id=' + code;
+  });
+
+");
+?>
