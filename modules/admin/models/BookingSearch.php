@@ -14,12 +14,14 @@ class BookingSearch extends Booking
     /**
      * {@inheritdoc}
      */
+    public $globalSearch, $from_date, $to_date;
     public function rules()
     {
         return [
             [['id', 'status'], 'integer'],
             [['total_amount', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'safe'],
             [['paid'], 'number'],
+            [['globalSearch', 'from_date', 'to_date'], 'safe']
         ];
     }
 
@@ -42,6 +44,7 @@ class BookingSearch extends Booking
     public function search($params)
     {
         $query = Booking::find();
+        $query->joinWith('customer');
 
         // add conditions that should always apply here
 
@@ -56,6 +59,14 @@ class BookingSearch extends Booking
             // $query->where('0=1');
             return $dataProvider;
         }
+
+        $query->andFilterWhere(['between', 'DATE(booking.created_at)', $this->from_date, $this->to_date])
+            ->andFilterWhere([
+                'OR',
+                ['like', 'booking.code', $this->globalSearch],
+                ['like', 'customer.first_name', $this->globalSearch],
+                ['like', 'customer.last_name', $this->globalSearch]
+            ]);
 
         return $dataProvider;
     }

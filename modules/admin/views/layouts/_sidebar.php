@@ -85,11 +85,19 @@ $countBooking = Booking::find()->where(['status' => Booking::BOOKED])->count();
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?= Yii::getAlias('@web/admin/booking') ?>" class="nav-link <?= $controller . '-' . $action === 'booking-index' ? 'active' : '' ?>">
+          <a href="<?= Yii::getAlias('@web/admin/booking') ?>" class="nav-link <?= $controller  === 'booking' ? 'active' : '' ?>">
             <i class="nav-icon far fa-calendar-alt"></i>
             <p>
               Booking
               <span class="badge badge-info right"><?= $countBooking ?></span>
+            </p>
+          </a>
+        </li>
+        <li class="nav-item menu-is-opening menu-open">
+          <a href="<?= Yii::getAlias('@web/admin/report/sale') ?>" class="nav-link <?= $controller == 'report' ? 'active' : '' ?>">
+            <i class="nav-icon far fa-chart-bar"></i>
+            <p>
+              Sale Report
             </p>
           </a>
         </li>

@@ -24,7 +24,7 @@ $this->params['pagetitle'][] = $this->title;
 <div class="booking-index">
     <h1><?= Html::encode($this->title) ?></h1>
     <hr class="border-0">
-
+    <?= $this->render('_search', ['model' => $searchModel]) ?>
     <div class="card">
         <div class="card-body">
             <?= GridView::widget([

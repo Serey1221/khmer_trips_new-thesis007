@@ -31,7 +31,8 @@
     "nick-denry/yii2-round-switch-column": "^0.1.2",
     "2amigos/yii2-date-picker-widget": "~1.0",
     "kartik-v/yii2-widget-datepicker": "@dev",
-    "kartik-v/yii2-widget-select2": "dev-master"
+    "kartik-v/yii2-widget-select2": "dev-master",
+    "yii2tech/csv-grid": "*"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "~2.1.0",
