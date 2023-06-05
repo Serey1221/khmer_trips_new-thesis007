@@ -40,7 +40,7 @@ $action = Yii::$app->controller->action->id; ?>
                         </div>
                     <?php } else { ?>
                         <div class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="nav-item nav-link"> <i class="fas fa-user"></i> <?= !empty(Yii::$app->user->identity->customer) ? Yii::$app->user->identity->customer->first_name . ' ' . Yii::$app->user->identity->customer->last_name  : Yii::$app->user->identity->username ?></a>
+                            <a href="#" data-toggle="dropdown" class="nav-item nav-link"> <i class="fas fa-user"></i> <?= !empty(Yii::$app->user->identity->customer) ? Yii::$app->user->identity->customer->getFullName()  : Yii::$app->user->identity->username ?></a>
                             <?php
                             echo Dropdown::widget([
                                 'items' => [

@@ -57,4 +57,9 @@ class BookingItem extends \yii\db\ActiveRecord
             'total_price' => 'Total Price',
         ];
     }
+
+    public function getProduct()
+    {
+        return $this->hasOne(Product::class, ['id' => 'product_id']);
+    }
 }
