@@ -42,7 +42,7 @@ class Booking extends \yii\db\ActiveRecord
             [['paid', 'total_amount'], 'number'],
             [['created_at', 'updated_at'], 'safe'],
             [['created_by', 'updated_by'], 'string'],
-            [['code'], 'string', 'max' => 20],
+            [['code', 'invoice_code'], 'string', 'max' => 20],
         ];
     }
 

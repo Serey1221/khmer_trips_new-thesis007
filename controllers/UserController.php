@@ -80,6 +80,22 @@ class UserController extends \yii\web\Controller
     ]);
   }
 
+  public function actionInvoice($code)
+  {
+    $this->layout = 'file';
+    $model = $this->findModel($code);
+    $customer = $model->customer;
+    $invoiceDate = BookingActivity::findOne(['booking_id' => $model->id, 'type' => BookingActivity::TYPE_CONFIRM]);
+    $invoiceDate = !empty($invoiceDate) ? $invoiceDate->created_at : $model->created_at;
+    $invoiceItem = $model->items;
+    return $this->render('_invoice', [
+      'model' => $model,
+      'customer' => $customer,
+      'invoiceDate' => $invoiceDate,
+      'invoiceItem' => $invoiceItem
+    ]);
+  }
+
   protected function findModel($id)
   {
     if (($model = Booking::findOne(['code' => $id])) !== null) {

@@ -130,7 +130,11 @@ $this->title = 'View Booking :' . $model->code;
       </div>
     </div>
     <div class="col-lg-5">
-      <div class="card">
+      <div class="d-flex mb-3">
+        <?= Html::a('View Invoice', ['user/invoice', 'code' => $model->code], ['target' => '_blank', 'class' => 'btn btn-success mr-3']) ?>
+        <?= Html::a('View Voucher', ['user/vouher', 'code' => $model->code], ['target' => '_blank', 'class' => 'btn btn-warning']) ?>
+      </div>
+      <div class="card mb-3">
         <div class="card-body">
           <h5>Payment</h5>
           <?php
