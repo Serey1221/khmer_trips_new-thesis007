@@ -49,9 +49,9 @@ class CartController extends \yii\web\Controller
     ) {
       $transaction_exception = Yii::$app->db->beginTransaction();
       try {
-        $model = new Booking();
 
-        $model->customer_id = Yii::$app->user->identity->id;
+        $model = new Booking();
+        $model->customer_id = Yii::$app->user->identity->customer->id;
         $model->total_amount = $cartTotalPrice;
         $model->paid = 0;
         $model->total_item = count($cart);
