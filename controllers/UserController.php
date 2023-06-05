@@ -7,11 +7,13 @@ use app\models\Product;
 use app\models\User;
 use app\models\Booking;
 use app\models\BookingActivity;
+use app\models\BookingItem;
 use app\models\BookingPayment;
 use app\modules\admin\models\ProductGallery;
 use app\modules\admin\models\ProductItinerary;
 use Yii;
 use yii\base\Exception;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -53,17 +55,22 @@ class UserController extends \yii\web\Controller
     ]);
   }
 
-  public function actionViewBookingItem($code)
+  public function actionViewBookingItem($item)
   {
-    $modelBooking = $this->findModel($code);
-    $modelGallery = ProductGallery::find()->where(['product_id' => $model->id])->all();
+    $modelBookingItem = BookingItem::findOne($item);
     $model = Product::find()
-      ->where(['id' => $modelBooking->pro_id])
+      ->where(['id' => $modelBookingItem->product_id])
       ->one();
-
+    $modelGallery = ProductGallery::find()->where(['product_id' => $model->id])->all();
     $modelItinerary = ProductItinerary::find()
       ->where(['product_id' => $model->id])
       ->one();
+    $cityArr = ArrayHelper::getColumn($model->cities, 'city_id');
+    $relatedProducts = Product::find()
+      ->innerJoin('product_city', 'product.id = product_city.product_id')
+      ->where(['IN', 'product_city.city_id', $cityArr])
+      ->groupBy(['product.id'])
+      ->all();
 
     return $this->render('view-booking-item', [
       'model' => $model,

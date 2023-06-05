@@ -100,7 +100,7 @@ $this->title = 'My Booking';
                                                             <small class="text-white text-uppercase"><?= date('M', strtotime($item->departure_date)); ?></small>
                                                         </div>
                                                         <hr class="border-0">
-                                                        <?= Html::a($product->name, ['user/view-booking-item', 'code' => $value->code, 'item' => $product->code], ['class' => 'product-title', 'target' => '_blank']) ?>
+                                                        <?= Html::a($product->name, ['user/view-booking-item', 'item' => $item->id], ['class' => 'product-title', 'target' => '_blank']) ?>
                                                         <div class="product-description">
                                                             <div class="product-location my-1">
                                                                 <i class="fas fa-map-marker-alt"></i> <?= $product->getLocation() ?>
