@@ -62,6 +62,11 @@ class BookingActivity extends \yii\db\ActiveRecord
             'created_by' => 'Created By',
         ];
     }
+    public function getBooking()
+    {
+        return $this->hasOne(Booking::class, ['id' => 'booking_id']);
+    }
+
     public function getPayment()
     {
         return $this->hasOne(BookingPayment::class, ['id' => 'payment_id']);
