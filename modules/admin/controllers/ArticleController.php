@@ -89,38 +89,12 @@ class ArticleController extends Controller
   public function actionUpdate($id)
   {
     $model = $this->findModel($id);
+    $model->scenario = 'admin';
 
-    if ($this->request->isPost && $model->load($this->request->post())) {
-
-      $transaction_exception = Yii::$app->db->beginTransaction();
-
-      try {
-        if (!$model->save()) throw new Exception("Failed to Save! Code #001");
-
-        $transaction_exception->commit();
-        Yii::$app->session->setFlash('success', "Post saved successfully");
-        $submit_type = $this->request->post('submit_type');
-        if ($submit_type == 'save') {
-          return $this->redirect(Yii::$app->request->referrer);
-        } else if ($submit_type == 'save_add_new') {
-          return $this->redirect('create');
-        } else if ($submit_type == 'save_close') {
-          return $this->redirect(['index']);
-        } else if ($submit_type == 'save_duplicate') {
-          $newModel = $model;
-          $newModel->id = null;
-          $newModel->isNewRecord = true;
-          $newModel->title = $newModel->title . '-copy';
-          $newModel->slug = $newModel->slug . '-copy';
-          if (!$newModel->save()) throw new Exception("Failed to Save! Code #D-001");
-          return $this->redirect(Yii::$app->request->referrer);
-        }
-      } catch (Exception $ex) {
-        Yii::$app->session->setFlash('warning', $ex->getMessage());
-        $transaction_exception->rollBack();
-        return $this->redirect(Yii::$app->request->referrer);
-      }
+    if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+      return $this->redirect(['view', 'id' => $model->id]);
     }
+
     return $this->render('update', [
       'model' => $model,
     ]);

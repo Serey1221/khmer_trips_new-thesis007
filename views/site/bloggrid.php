@@ -38,7 +38,7 @@ $formater = Yii::$app->formater;
                                         <div class="d-flex mb-2">
                                             <a class="text-primary text-uppercase text-decoration-none" href="<?= $url ?>"><?= $value['title'] ?></a>
                                         </div>
-                                        <a class="h5 m-0 text-decoration-none d-inline-block text-truncate" href="<?= $url ?>" style="max-width: 320px;"><?= $value->short_description ?></a>
+                                        <a class="h6 m-0 text-decoration-none d-inline-block text-truncate" href="<?= $url ?>" style="max-width: 320px;"><?= $value->short_description ?></a>
                                     </div>
                                 </div>
                             </div>

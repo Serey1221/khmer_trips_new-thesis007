@@ -144,65 +144,126 @@ $totalGuest = !empty(Yii::$app->request->get("ProductSearch")) ? Yii::$app->requ
 
             <div class="col-lg-4 mt-5 mt-lg-0">
                 <!-- Category List -->
-                <div class="mb-5">
-                    <h4 class="text-uppercase mb-4">Activity</h4>
-                    <div class="bg-white" style="padding: 30px;">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Activity</h5>
+                        <hr>
+                        <ul class="list-group">
+                            <?php
+                            if (!empty($modelActivity)) {
+                                foreach ($modelActivity as $key => $value) {
+                            ?>
+                                    <li class="list-group-item ">
+                                        <div class="text-muted">
+                                            <i class="fas fa-user"></i> <?= $value->getUserAction() ?> | <?= $formater->dateTime($value->created_at) ?>
+                                        </div>
+                                        <div><?= $value->getTypeAsText() ?></div>
+                                    </li>
 
+                            <?php
+                                }
+                            }
+                            ?>
+                        </ul>
                     </div>
                 </div>
 
 
             </div>
         </div>
-    </div>
 
-    <!-- You might also like-->
-    <div class="row mt-5">
-        <div class="col-lg-12">
-            <h4>You might also like...</h4>
+        <!-- The Original experience-->
+        <div class="row mt-5 mb-4">
+            <div class="col-lg-8">
+                <h3 class="mb-4">Detailed program</h3>
+                <ul class="timeline">
+                    <?php
+                    if (!empty($modelItinerary)) {
+                        foreach ($modelItinerary as $key => $value) {
+                            $key = $key++;
+                    ?>
+                            <li class="timeline-item mb-5">
+                                <h5 class="fw-bold"><?= "Day {$key} - {$value->title}" ?></h5>
+                                <p class="text-primary mb-2 fw-bold"><?= !empty($value->city) ? "<i class='fas fa-map-marker-alt'></i> {$value->city->name}" : '' ?></p>
+                                <p class="text-muted">
+                                    <?= nl2br($value->description) ?>
+                                </p>
+                                <?= $value->is_stay == 1 ? "<span class='text-success mr-3'><i class='fas fa-bed'></i> Overnight</span>" : "" ?>
+                                <?= $value->is_breakfast == 1 ? "<span class='text-info mr-2'><i class='fas fa-utensils'></i> Breakfast</span>" : "" ?>
+                                <?= $value->is_lunch == 1 ? "<span class='text-info mr-2'><i class='fas fa-utensils'></i> Lunch</span>" : "" ?>
+                                <?= $value->is_dinner == 1 ? "<span class='text-info mr-2'><i class='fas fa-utensils'></i> Dinner</span>" : "" ?>
+                            </li>
+                    <?php
+                        }
+                    }
+                    ?>
 
+
+
+                </ul>
+                <hr>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <h5>Includes</h5>
+                        <p><?= nl2br($model->price_include) ?></p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <h5>Excludes</h5>
+                        <p><?= nl2br($model->price_exclude) ?></p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+        <!-- You might also like-->
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <h4>You might also like...</h4>
 
-    <div class="row">
-        <?php if (!empty($relatedProducts)) {
-            foreach ($relatedProducts as $key => $value) { ?>
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="package-item bg-white mb-2">
-                        <img class="image-thumbnail img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
-                        <div class="h_container" style="position: absolute;top: 8px;right: 24px;">
-                            <i id="heart" class="far fa-heart"></i>
-                        </div>
-                        <div class="p-4">
-                            <div class="d-flex mb-2">
-                                <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?= $value->getLocation() ?></small>
+            </div>
+        </div>
+
+        <div class="row">
+            <?php if (!empty($relatedProducts)) {
+                foreach ($relatedProducts as $key => $value) { ?>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="package-item bg-white mb-2">
+                            <img class="image-thumbnail img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
+                            <div class="h_container" style="position: absolute;top: 8px;right: 24px;">
+                                <i id="heart" class="far fa-heart"></i>
                             </div>
-                            <div class="d-flex mb-2">
-                                <a class="h5 text-decoration-none d-inline-block text-truncate" href="<?= Url::to([
-                                                                                                            'product/view',
-                                                                                                            'id' => $value->code,
-                                                                                                            'selectedCity' => $selectedCity,
-                                                                                                            'selectedDate' => $selectedDate,
-                                                                                                            'totalGuest' => $totalGuest,
-                                                                                                        ]); ?>" style="max-width: 320px;"><?= $value['name'] ?></a>
-                            </div>
-                            <div class="d-flex">
-                                <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i><?= $value->getDuration() ?></small>
-                            </div>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0" style="color:gainsboro"><?= $formater->starRatingReview($value->rating) ?></h6>
-                                    <h5 class="m-0"><?= $formater->DollarFormat($rate->getPrice($value->id, $selectedDate)) ?> <small class="text-muted">Per Pax</small></h5>
+                            <div class="p-4">
+                                <div class="d-flex mb-2">
+                                    <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?= $value->getLocation() ?></small>
+                                </div>
+                                <div class="d-flex mb-2">
+                                    <a class="h5 text-decoration-none d-inline-block text-truncate" href="<?= Url::to([
+                                                                                                                'product/view',
+                                                                                                                'id' => $value->code,
+                                                                                                                'selectedCity' => $selectedCity,
+                                                                                                                'selectedDate' => $selectedDate,
+                                                                                                                'totalGuest' => $totalGuest,
+                                                                                                            ]); ?>" style="max-width: 320px;"><?= $value['name'] ?></a>
+                                </div>
+                                <div class="d-flex">
+                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i><?= $value->getDuration() ?></small>
+                                </div>
+                                <div class="border-top mt-4 pt-4">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="m-0" style="color:gainsboro"><?= $formater->starRatingReview($value->rating) ?></h6>
+                                        <h5 class="m-0"><?= $formater->DollarFormat($rate->getPrice($value->id, $selectedDate)) ?> <small class="text-muted">Per Pax</small></h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-        <?php
-            }
-        } ?>
+            <?php
+                }
+            } ?>
+        </div>
     </div>
-</div>
 </div>
 <!-- Blog End -->
 <?php

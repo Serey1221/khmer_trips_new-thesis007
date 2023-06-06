@@ -10,6 +10,7 @@ use yii\captcha\Captcha;
 
 $this->title = 'Contact';
 
+
 ?>
 <?= $this->render('//site/_section_search', ['model' => $searchModel]) ?>
 <!-- Contact Start -->
@@ -29,12 +30,29 @@ $this->title = 'Contact';
                         <?php // $form->field($model, 'name')->textInput(['maxlength' => true]) 
                         ?>
                         <div class="form-row">
-                            <div class="control-group col-sm-6">
-                                <?= $form->field($model, 'name')->textInput(['class' => 'form-control form-control-lg', 'maxlength' => true, 'placeholder' => ' Your name'])->label(false) ?>
-                            </div>
-                            <div class="control-group col-sm-6">
-                                <?= $form->field($model, 'email')->textInput(['class' => 'form-control form-control-lg', 'maxlength' => true, 'placeholder' => 'Your email'])->label(false) ?>
-                            </div>
+                            <?php
+
+                            if (Yii::$app->user->isGuest) {
+                            ?>
+                                <div class="control-group col-sm-6">
+                                    <?= $form->field($model, 'first_name')->textInput(['class' => 'form-control form-control-lg',])->label(false) ?>
+                                </div>
+                                <div class="control-group col-sm-6">
+                                    <?= $form->field($model, 'email')->textInput(['class' => 'form-control form-control-lg',])->label(false) ?>
+                                </div>
+                            <?php
+                            } else {
+                            ?>
+                                <div class="control-group col-sm-6">
+                                    <?= $form->field($customer, 'first_name')->textInput(['class' => 'form-control form-control-lg', 'readonly' => true])->label(false) ?>
+                                </div>
+                                <div class="control-group col-sm-6">
+                                    <?= $form->field($customer, 'email')->textInput(['class' => 'form-control form-control-lg', 'readonly' => true])->label(false) ?>
+                                </div>
+                            <?php
+                            }
+
+                            ?>
                         </div>
                         <div class="control-group">
                             <?= $form->field($model, 'subject')->textInput(['class' => 'form-control form-control-lg', 'maxlength' => true, 'placeholder' => 'Please enter a subject'])->label(false) ?>
