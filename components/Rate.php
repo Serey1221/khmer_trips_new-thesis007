@@ -45,7 +45,7 @@ class Rate extends \yii\web\Request
 
   public function guest()
   {
-    return [1 => "1 Guest", 2 => "2 Guests", 3 => "3 Guests", 4 => "4 Guests", 5 => "5 Guests"];
+    return [1 => "1 Guest", 2 => "2 Guests", 3 => "3 Guests", 4 => "4 Guests", 5 => "5 Guests", 6 => "6 Guest", 7 => "7 Guests", 8 => "8 Guests", 9 => "9 Guests", 10 => "10 Guests"];
   }
 
   public function validateDate($date, $format = 'Y-m-d')

@@ -42,3 +42,4 @@ $this->title = 'Your wishlist';
         </div>
     </div>
 </section>
+<?= $this->render('//site/_wishlist_script') ?>

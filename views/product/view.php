@@ -368,6 +368,39 @@ $totalGuest = !empty(Yii::$app->request->get("ProductSearch")) ? Yii::$app->requ
             <p><?= nl2br($model->price_exclude) ?></p>
           </div>
         </div>
+        <hr>
+        <div class="row mb-4">
+          <div class="col-md">
+            <h5>Conditions</h5>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-md">
+            <h6 class="text-primary">Conditions for children:</h6>
+            <p>For children under 5 years old: Free of charge</p>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-md">
+            <h6 class="text-primary">Reservation Terms:</h6 class="text-primary">
+            <p>- The company reserves the right to modify the program or cancel the trip if necessary: late arrival of guests, weather, traffic, insufficient customers ឫ Case of the President!</p>
+            <p>- Hotel accommodation (1 room for 2 people) In case the customer registers alone, need to stay with other guests</p>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-md">
+            <h6 class="text-primary">Deletion terms:</h6 class="text-primary">
+            <p>- If you want to cancel the tour 7 days before departure and will be fined 50%.</p>
+            <p>- If you want to cancel the trip 3 days before departure and require 75% loss.</p>
+            <p>- If you want to cancel the trip one day before departure and will be fined 100%.</p>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-md">
+            <h6 class="text-primary">Terms of payment:</h6>
+            <p>- If your booking is confirmed, the customer is required to pay 50% of the total amount in advance and the remaining amount must be paid 3 days before departure.</p>
+          </div>
+        </div>
       </div>
     </div>
 
