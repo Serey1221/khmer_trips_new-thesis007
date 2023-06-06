@@ -7,6 +7,7 @@ use yii\helpers\Url;
 // Yii::$app->setHomeUrl(Yii::getAlias('@web/admin'));
 $controller = Yii::$app->controller->id;
 $action = Yii::$app->controller->action->id;
+$controller_action = $controller . '-' . $action;
 
 $countBooking = Booking::find()->where(['status' => Booking::BOOKED])->count();
 ?>
@@ -61,7 +62,7 @@ $countBooking = Booking::find()->where(['status' => Booking::BOOKED])->count();
         </li>
 
         <li class="nav-item">
-          <a href="<?= Yii::getAlias('@web/admin/product') ?>" class="nav-link <?= $controller . '-' . $action === 'product-index' ? 'active' : '' ?>">
+          <a href="<?= Yii::getAlias('@web/admin/product') ?>" class="nav-link <?= $controller === 'product' ? 'active' : '' ?>">
             <i class="nav-icon fas fa-columns"></i>
             <p>
               Products
@@ -93,14 +94,34 @@ $countBooking = Booking::find()->where(['status' => Booking::BOOKED])->count();
             </p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="<?= Yii::getAlias('@web/admin/report/sale') ?>" class="nav-link <?= $controller == 'report' ? 'active' : '' ?>">
+        <li class="nav-item <?= $controller  === 'report' ? 'menu-is-opening menu-open' : '' ?>">
+          <a href="#" class="nav-link <?= $controller  === 'report' ? 'active' : '' ?>">
             <i class="nav-icon far fa-chart-bar"></i>
             <p>
-              Sale Report
+              Reports
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="<?= Yii::getAlias('@web/admin/report/sale') ?>" class="nav-link <?= $controller_action  === 'report-sale' ? 'active' : '' ?>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Sales</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= Yii::getAlias('@web/admin/report/customer-revenue') ?>" class="nav-link <?= $controller_action  === 'report-customer-revenue' ? 'active' : '' ?>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Customers</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?= Yii::getAlias('@web/admin/report/product-performance') ?>" class="nav-link <?= $controller_action  === 'report-product-performance' ? 'active' : '' ?>">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Products Performance</p>
+              </a>
+            </li>
+          </ul>
         </li>
       </ul>
     </nav>
