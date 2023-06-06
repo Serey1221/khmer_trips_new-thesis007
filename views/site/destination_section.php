@@ -6,16 +6,14 @@
             <h1>Explore Top Destination</h1>
         </div>
         <div class="row">
-            <?php // $this->render('destination')
-            ?>
             <?php if (!empty($city)) {
                 foreach ($city as $key => $value) { ?>
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="destination-item position-relative overflow-hidden mb-2">
                             <img class="img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
-                            <a class="destination-overlay text-white text-decoration-none" href="">
+                            <a class="destination-overlay text-white text-decoration-none" href="<?= \yii\helpers\Url::toRoute(['product/index', 'ProductSearch' => ['selectedCity' => $value->id, 'selectedDate' => date("Y-m-d"), 'totalGuest' => 1]]) ?>">
                                 <h5 class="text-white"><?= $value['name'] ?></h5>
-                                <span><?= $value->description ?></span>
+                                <span><?= $value->getCountBooking() ?> Experiences & Tours</span>
                             </a>
                         </div>
                     </div>

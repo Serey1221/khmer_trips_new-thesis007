@@ -53,6 +53,8 @@ class City extends \yii\db\ActiveRecord
         ];
     }
 
+
+
     /**
      * {@inheritdoc}
      */
@@ -65,5 +67,10 @@ class City extends \yii\db\ActiveRecord
             'description' => 'Description',
             'country_id' => 'Country ID',
         ];
+    }
+
+    public function getCountBooking()
+    {
+        return ProductCity::find()->where(['city_id' => $this->id])->count();
     }
 }
