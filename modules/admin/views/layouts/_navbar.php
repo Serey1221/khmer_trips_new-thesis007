@@ -47,7 +47,7 @@ use yii\helpers\Url;
 
           <p>
             Admin CMS
-            <small>Member since Nov. 2012</small>
+            <!-- <small>Member since Nov. 2012</small> -->
           </p>
         </li>
         <li class="user-footer">
@@ -58,7 +58,7 @@ use yii\helpers\Url;
 
           <!-- <a href="<?= \yii\helpers\Url::to(['/admin/site/logout',]) ?>" class="btn btn-default btn-flat float-right " data-confirm="Are you sure?" method="post">Sign out</a> -->
 
-          <?= Html::a('<span class="bi-box-arrow-left mr-2"></span> ' . Yii::t('app', 'Log out'), ['#'], [
+          <?= Html::a('<i class="fas fa-sign-out-alt"></i> ' . Yii::t('app', 'Log out'), ['#'], [
             'class' => 'btn btn-default btn-flat float-right sign-out-user',
             'data' => [
               'confirm' => 'Are you sure, you want to Logout?',
