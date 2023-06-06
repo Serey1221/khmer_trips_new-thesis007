@@ -47,7 +47,8 @@ class ProductController extends \yii\web\Controller
       ->where(['product_id' => $model->id])
       ->all();
 
-    $totalCart = Cart::find()->where(['created_by' => Yii::$app->user->identity->id])->count();
+    $totalCart = Cart::find()->where(['created_by' => Yii::$app->user->isGuest])->count();
+    // $totalCart = Cart::find()->where(['created_by' => Yii::$app->user->identity->id])->count();
     return $this->render('view', [
       'model' => $model,
       'selectedCity' => $selectedCity,

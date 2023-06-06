@@ -26,7 +26,6 @@ $rate = Yii::$app->rate;
                         <div class="package-item bg-white mb-2">
                             <img class="img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
                             <?= $value->getWishlistButton() ?>
-
                             <div class="p-4">
                                 <div class="d-flex mb-2">
                                     <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?= $value->getLocation() ?></small>
