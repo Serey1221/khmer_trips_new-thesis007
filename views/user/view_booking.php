@@ -163,21 +163,12 @@ $this->title = 'View Booking :' . $model->code;
                         <th class='text-right'>{$formater->DollarFormat($model->paid)}</th>
                         </tr>
                         <tr>
-                        <th class='text-right text-red' colspan='2'>Balance:</th>
-                        <th class='text-right text-red'>{$formater->DollarFormat($model->balance_amount)}</th>
+                        <th class='text-right text-danger' colspan='2'>Balance:</th>
+                        <th class='text-right text-danger'>{$formater->DollarFormat($model->balance_amount)}</th>
                         </tr>
                     </tfoot>";
             $paymentStr .= "</table>";
             echo $paymentStr;
-            if ($model->balance_amount > 0) {
-              echo Html::button('Add Payment', [
-                'class' => 'modalButton btn btn-sm btn-info',
-                'value' => Url::to(['booking/add-payment', 'code' => $model->code]),
-                'data' => [
-                  'title' => 'Add Payment',
-                ]
-              ]);
-            }
           }
           ?>
         </div>

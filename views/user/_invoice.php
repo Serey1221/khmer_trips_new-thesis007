@@ -31,7 +31,7 @@ $formater = Yii::$app->formater;
         <div class="row">
           <div class="col-xl-8">
             <ul class="list-unstyled">
-              <li class="text-muted">To: <span class="text-info"><?= $customer->name ?></span></li>
+              <li class="text-muted">To: <span class="text-info"><?= $customer->getFullName() ?></span></li>
               <li class="text-muted"><?= $customer->address ?></li>
               <li class="text-muted"><i class="fas fa-phone"></i> <?= $customer->phone_number ?></li>
             </ul>
