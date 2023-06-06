@@ -299,7 +299,6 @@ $totalGuest = !empty(Yii::$app->request->get("ProductSearch")) ? Yii::$app->requ
             </tbody>
           </table>
           <?php
-
           if (Yii::$app->user->isGuest) {
           ?>
             <div class="mb-2">

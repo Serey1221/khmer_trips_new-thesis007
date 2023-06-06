@@ -2,14 +2,15 @@
 
 use yii\bootstrap4\ActiveForm;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 ?>
 
 <p>Check out more easily and access your tickets on any device with your Khmertravel account.</p>
 <hr>
 <?php $form = ActiveForm::begin([
-  'action' => 'site/register',
-  'options' => ['id' => 'registerForm'],
+  'action' => Url::to('/site/register'), //'/site/register'
+  'options' => ['id' => 'register_Form'],
   'enableAjaxValidation' => false,
   'enableClientValidation' => true
 ]); ?>

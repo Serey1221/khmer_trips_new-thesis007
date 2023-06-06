@@ -28,7 +28,7 @@ use yii\helpers\Html;
     <p>Check out more easily and access your tickets on any device with your Khmertravel account.</p>
     <hr>
     <?php $form = ActiveForm::begin([
-        'action' => 'site/register',
+        'action' => '/site/register',
         'options' => ['id' => 'registerForm'],
         'enableAjaxValidation' => false,
         'enableClientValidation' => true
