@@ -42,7 +42,7 @@ $this->params['pageTitle'] = $this->title;
             'attribute' => 'img_url',
             'format' => 'raw',
             'value' => function ($model) {
-              return Html::img($model->getUploadUrl('img_url'), ['alt' => 'yii', 'width' => '60', 'height' => '60']);
+              return Html::img($model->getUploadUrl('img_url'), ['alt' => 'No Image', 'width' => '60', 'height' => '60']);
             }
           ],
           'title',
@@ -65,11 +65,11 @@ $this->params['pageTitle'] = $this->title;
             'header' => Yii::t('app', 'Actions'),
             'headerOptions' => ['class' => 'text-center'],
             'contentOptions' => ['class' => 'text-center'],
-            'template' => '{view} {update} {delete} ',
+            'template' => ' {update} {delete} ',
             'buttons' => [
-              'view' => function ($url, $model) {
-                return Html::a('<i class="far fa-eye"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-primary', 'data-pjax' => 0]);
-              },
+              // 'view' => function ($url, $model) {
+              //   return Html::a('<i class="far fa-eye"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-primary', 'data-pjax' => 0]);
+              // },
               'update' => function ($url, $model) {
                 return Html::a('<i class="fas fa-pen"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-info', 'data-pjax' => 0]);
               },

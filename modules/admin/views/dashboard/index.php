@@ -2,10 +2,15 @@
 
 /* @var $this yii\web\View */
 
+use app\models\Booking;
 use yii\helpers\Url;
 
 $this->title = 'Admin';
 $this->params['breadcrumbs'][] = 'Dashboard';
+
+$countBooking = Booking::find()->where(['status' => Booking::BOOKED])->count();
+$acceptBooking = Booking::find()->where(['status' => Booking::CONFIRMED])->count();
+$rejectedBooking = Booking::find()->where(['status' => Booking::DECLINED])->count();
 ?>
 
 <?php
@@ -29,7 +34,7 @@ $this->registerJs($script);
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
-            <h3>150</h3>
+            <h3><?= $countBooking ?></h3>
 
             <p>New Booking</p>
           </div>
@@ -43,7 +48,7 @@ $this->registerJs($script);
         <!-- small box -->
         <div class="small-box bg-success">
           <div class="inner">
-            <h3>53<sup style="font-size: 20px"></sup></h3>
+            <h3><?= $acceptBooking ?><sup style="font-size: 20px"></sup></h3>
 
             <p>Accept Booking</p>
           </div>
@@ -56,7 +61,7 @@ $this->registerJs($script);
         <!-- small box -->
         <div class="small-box bg-warning">
           <div class="inner">
-            <h3>65</h3>
+            <h3><?= $rejectedBooking ?></h3>
 
             <p>Rejected Booking</p>
           </div>

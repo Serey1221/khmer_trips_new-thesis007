@@ -139,6 +139,16 @@ class Product extends \yii\db\ActiveRecord
         $wishlist = UserWishlist::findOne(['product_id' => $this->id, 'user_id' => $user_id]);
         return !empty($wishlist) ? true : false;
     }
+    public function getWishlist()
+    {
+        $wishlist = $this->isWishlist() ? "active" : "";
+        $wishlistIcon = $this->isWishlist() ? "fas fa-heart" : "far fa-heart";
+
+
+        return "<div class='h_container product-fav-button {$wishlist}' data-id='{$this->code}'>
+                     <i class='{$wishlistIcon}'></i>
+                </div>";
+    }
 
     public function getListItemTemplate($data)
     {

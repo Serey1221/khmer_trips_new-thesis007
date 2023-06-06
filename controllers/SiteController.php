@@ -120,7 +120,7 @@ class SiteController extends Controller
         return Article::find()
             ->where(['status' => 1])
             ->orderBy(new Expression('rand()'))
-            ->limit(8)
+            ->limit(10)
             ->all();
     }
     public function threeblogData()

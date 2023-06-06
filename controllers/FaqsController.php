@@ -5,6 +5,9 @@ namespace app\controllers;
 use app\models\Faqs;
 use app\models\FaqsSearch;
 use app\models\ProductSearch;
+use app\models\User;
+use Exception;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -43,15 +46,27 @@ class FaqsController extends Controller
 
         $searchModel = new FaqsSearch();
         $searchModel = new ProductSearch();
+        $modelUser = User::findOne(Yii::$app->user->identity->id);
+        $customer = $modelUser->customer;
         $model = new Faqs();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['index', 'id' => $model->id]);
+        if ($this->request->isPost && $customer->load($this->request->post())) {
+            $transaction_exception = Yii::$app->db->beginTransaction();
+            try {
+
+                if (!$customer->save()) throw new Exception(print_r($customer->getErrors()));
+
+                $transaction_exception->commit();
+                Yii::$app->session->setFlash('success', "Profile has been updated successfully");
+                return $this->redirect(Yii::$app->request->referrer);
+            } catch (Exception $ex) {
+                echo "<pre>";
+                print_r($ex->getMessage());
+                exit;
+                Yii::$app->session->setFlash('warning', $ex->getMessage());
+                $transaction_exception->rollBack();
             }
-        } else {
-            $model->loadDefaultValues();
         }
 
         return $this->render('index', [
@@ -59,6 +74,8 @@ class FaqsController extends Controller
             'searchModel' => $searchModel,
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'modelUser' => $modelUser,
+            'customer' => $customer
         ]);
     }
 

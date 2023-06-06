@@ -64,7 +64,7 @@ class UserController extends \yii\web\Controller
     $modelGallery = ProductGallery::find()->where(['product_id' => $model->id])->all();
     $modelItinerary = ProductItinerary::find()
       ->where(['product_id' => $model->id])
-      ->one();
+      ->all();
     $cityArr = ArrayHelper::getColumn($model->cities, 'city_id');
     $relatedProducts = Product::find()
       ->innerJoin('product_city', 'product.id = product_city.product_id')
@@ -72,11 +72,17 @@ class UserController extends \yii\web\Controller
       ->groupBy(['product.id'])
       ->all();
 
+    $modelActivity = BookingActivity::find()
+      ->where(['booking_id' => $model->id])
+      ->orderBy(['created_at' => SORT_DESC])
+      ->one();
+
     return $this->render('view-booking-item', [
       'model' => $model,
       'relatedProducts' => $relatedProducts,
       'modelGallery' => $modelGallery,
-      'modelItinerary' => $modelItinerary
+      'modelItinerary' => $modelItinerary,
+      'modelActivity' => $modelActivity
     ]);
   }
 
