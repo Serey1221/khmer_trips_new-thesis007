@@ -237,7 +237,7 @@ class ReportController extends Controller
       WHERE DATE(booking.created_at) BETWEEN :fromDate AND :toDate
       AND booking.status NOT IN (0,10)
       GROUP BY product.id
-      ORDER BY booking.created_at DESC
+      ORDER BY COUNT(booking_item.id) DESC
     ", [
       ':fromDate' => $fromDate,
       ':toDate' => $toDate,
@@ -263,7 +263,7 @@ class ReportController extends Controller
       WHERE DATE(booking.created_at) BETWEEN :fromDate AND :toDate
       AND booking.status NOT IN (0,10)
       GROUP BY product.id
-      ORDER BY booking.created_at DESC
+      ORDER BY COUNT(booking_item.id) DESC
     ", [
       ':fromDate' => $fromDate,
       ':toDate' => $toDate,

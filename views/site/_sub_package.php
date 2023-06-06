@@ -25,30 +25,30 @@ $rate = Yii::$app->rate;
                     <div class="col-lg-4 col-md-6 mb-4">
                         <div class="package-item bg-white mb-2">
                             <img class="img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
-                            <?= $value->getWishlist() ?>
-                            <div class="p-4">
-                                <div class="d-flex mb-2">
-                                    <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?= $value->getLocation() ?></small>
-                                </div>
-                                <div class="d-flex mb-2">
-                                    <a class="h5 text-decoration-none d-inline-block text-truncate" href="<?= Url::to([
-                                                                                                                '//product/view',
-                                                                                                                'id' => $value->code,
-                                                                                                                'selectedCity' => $selectedCity,
-                                                                                                                'selectedDate' => $selectedDate,
-                                                                                                                'totalGuest' => $totalGuest,
-                                                                                                            ]); ?>" style="max-width: 320px;"><?= $value['name'] ?></a>
-                                </div>
-                                <div class="d-flax">
-                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i><?= $value->getDuration() ?></small>
-                                </div>
-                                <div class="border-top mt-4 pt-4">
-                                    <div class="d-flex justify-content-between">
-                                        <h6 class="m-0" style="color:gainsboro"><?= $formater->starRatingReview($value->rating) ?></h6>
-                                        <h5 class="m-0"><?= Yii::$app->formater->DollarFormat(Yii::$app->rate->getPrice($value->id, date("Y-m-d"))) ?> <small class="text-muted">Per Pax</small></h5>
+                            <<<<<<< HEAD <?= $value->getWishlist() ?>=======<?= $value->getWishlistButton() ?>>>>>>>> 297f768a406d19469f8c33d9e438a12ee781860c
+                                <div class="p-4">
+                                    <div class="d-flex mb-2">
+                                        <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?= $value->getLocation() ?></small>
+                                    </div>
+                                    <div class="d-flex mb-2">
+                                        <a class="h5 text-decoration-none d-inline-block text-truncate" href="<?= Url::to([
+                                                                                                                    '//product/view',
+                                                                                                                    'id' => $value->code,
+                                                                                                                    'selectedCity' => $selectedCity,
+                                                                                                                    'selectedDate' => $selectedDate,
+                                                                                                                    'totalGuest' => $totalGuest,
+                                                                                                                ]); ?>" style="max-width: 320px;"><?= $value['name'] ?></a>
+                                    </div>
+                                    <div class="d-flax">
+                                        <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i><?= $value->getDuration() ?></small>
+                                    </div>
+                                    <div class="border-top mt-4 pt-4">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="m-0" style="color:gainsboro"><?= $formater->starRatingReview($value->rating) ?></h6>
+                                            <h5 class="m-0"><?= Yii::$app->formater->DollarFormat(Yii::$app->rate->getPrice($value->id, date("Y-m-d"))) ?> <small class="text-muted">Per Pax</small></h5>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
             <?php }
@@ -56,5 +56,5 @@ $rate = Yii::$app->rate;
         </div>
     </div>
 </div>
-<?= $this->render('//site/_wishlist_script') ?>
 <!-- Packages End -->
+<?= $this->render('//site/_wishlist_script') ?>
