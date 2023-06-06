@@ -102,8 +102,9 @@ class SiteController extends Controller
     public function cityData()
     {
         return City::find()
-            ->where(['status' => 1])
-            ->orderBy(new Expression('rand()'))
+            ->innerJoin('product_city', 'city.id = product_city.city_id')
+            ->orderBy(['count(product_city.city_id)' => SORT_DESC])
+            ->groupBy(['city.id'])
             ->limit(6)
             ->all();
     }
