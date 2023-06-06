@@ -52,9 +52,9 @@ use yii\helpers\Url;
         </li>
         <li class="user-footer">
           <!-- <a href="#" class="btn btn-default btn-flat">Profile</a> -->
-          <a class="btn btn-default btn-flat" href="<?= Url::toRoute(['user/index']) ?>">
+          <!-- <a class="btn btn-default btn-flat" href="<?= Url::toRoute(['user/index']) ?>">
             <span class="bi bi-person mr-2"></span> <?= Yii::t('app', 'Profile') ?>
-          </a>
+          </a> -->
 
           <!-- <a href="<?= \yii\helpers\Url::to(['/admin/site/logout',]) ?>" class="btn btn-default btn-flat float-right " data-confirm="Are you sure?" method="post">Sign out</a> -->
 
