@@ -46,16 +46,15 @@ class FaqsController extends Controller
 
         $searchModel = new FaqsSearch();
         $searchModel = new ProductSearch();
-        $modelUser = User::findOne(Yii::$app->user->identity->id);
-        $customer = $modelUser->customer;
+
         $model = new Faqs();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
-        if ($this->request->isPost && $customer->load($this->request->post())) {
+        if ($this->request->isPost && $model->load($this->request->post())) {
             $transaction_exception = Yii::$app->db->beginTransaction();
             try {
 
-                if (!$customer->save()) throw new Exception(print_r($customer->getErrors()));
+                if (!$model->save()) throw new Exception(print_r($model->getErrors()));
 
                 $transaction_exception->commit();
                 Yii::$app->session->setFlash('success', "Profile has been updated successfully");
@@ -74,8 +73,6 @@ class FaqsController extends Controller
             'searchModel' => $searchModel,
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'modelUser' => $modelUser,
-            'customer' => $customer
         ]);
     }
 
