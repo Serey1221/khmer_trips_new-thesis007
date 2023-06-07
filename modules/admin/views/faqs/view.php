@@ -6,40 +6,25 @@ use yii\widgets\DetailView;
 /** @var yii\web\View $this */
 /** @var app\modules\admin\models\Faqs $model */
 
-$this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Faqs', 'url' => ['index']];
+$this->title = $model->subject;
+$this->params['breadcrumbs'][] = ['label' => 'Contact', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="faqs-view">
+<div class="faqs-view mt-3">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'name',
-            'email:email',
-            'subject',
-            'description',
-            'status',
-            'created_date',
-            'created_by',
-            'updated_date',
-            'updated_by',
-        ],
-    ]) ?>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Enquiry from: <?= $model->name ?></h4>
+                    <hr class="my-4">
+                    <h5><span class="text-muted">Subject:</span> <?= $model->subject ?></h5>
+                    <h5><span class="text-muted">Description:</span></h5>
+                    <p><?= nl2br($model->description) ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>

@@ -57,7 +57,7 @@ class FaqsController extends Controller
                 if (!$model->save()) throw new Exception(print_r($model->getErrors()));
 
                 $transaction_exception->commit();
-                Yii::$app->session->setFlash('success', "Profile has been updated successfully");
+                Yii::$app->session->setFlash('success', "Enquiry has been submit successfully");
                 return $this->redirect(Yii::$app->request->referrer);
             } catch (Exception $ex) {
                 echo "<pre>";
