@@ -81,7 +81,7 @@ $countBooking = Booking::find()->where(['status' => Booking::BOOKED])->count();
           <a href="<?= Yii::getAlias('@web/admin/faqs') ?>" class="nav-link <?= $controller . '-' . $action === 'faqs-index' ? 'active' : '' ?>">
             <i class="nav-icon fas fa-question-circle"></i>
             <p>
-              FAQs
+              Contact
             </p>
           </a>
         </li>

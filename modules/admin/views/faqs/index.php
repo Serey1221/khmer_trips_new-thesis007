@@ -11,7 +11,7 @@ use yii\widgets\Pjax;
 /** @var app\modules\admin\models\FaqsSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Faqs';
+$this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="faqs-index">
@@ -55,22 +55,22 @@ $this->params['breadcrumbs'][] = $this->title;
                     //'created_by',
                     //'updated_date',
                     //'updated_by',
-                    [
-                        'attribute' => 'status',
-                        'format' => 'raw',
-                        'value' => function ($model) {
-                            return $model->getStatusTemp();
-                        }
-                    ],
+                    // [
+                    //     'attribute' => 'status',
+                    //     'format' => 'raw',
+                    //     'value' => function ($model) {
+                    //         return $model->getStatusTemp();
+                    //     }
+                    // ],
                     [
                         'class' => 'yii\grid\ActionColumn',
                         'header' => Yii::t('app', 'Actions'),
                         'headerOptions' => ['class' => 'text-center'],
                         'contentOptions' => ['class' => 'text-center'],
-                        'template' => '{update} {delete}',
+                        'template' => '{view}',
                         'buttons' => [
-                            'update' => function ($url, $model) {
-                                return Html::a('<i class="fas fa-pen"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-info ', 'data-pjax' => 0]);
+                            'view' => function ($url, $model) {
+                                return Html::a('<i class="fas fa-eye"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-info ', 'data-pjax' => 0]);
                             },
                             'delete' => function ($url, $model) {
                                 return Html::a('<i class="fas fa-trash"></i>', $url, ['class' => 'btn btn-xs btn-icon btn-danger ', 'data-pjax' => 0]);
