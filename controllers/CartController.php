@@ -79,7 +79,7 @@ class CartController extends \yii\web\Controller
         BookingActivity::addActivity(['type' => BookingActivity::TYPE_CREATE, 'booking_id' => $model->id]);
 
         $transaction_exception->commit();
-        return $this->redirect(['site/success-pay']);
+        return $this->redirect(['site/success-pay', 'booking' => $model->code]);
       } catch (Exception $ex) {
         echo "<pre>";
         print_r($ex->getMessage());
