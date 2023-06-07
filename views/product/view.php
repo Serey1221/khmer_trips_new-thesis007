@@ -412,15 +412,13 @@ $totalGuest = !empty(Yii::$app->request->get("ProductSearch")) ? Yii::$app->requ
       </div>
     </div>
 
-    <div class="row">
+    <div class="row product-item">
       <?php if (!empty($relatedProducts)) {
         foreach ($relatedProducts as $key => $value) { ?>
           <div class="col-lg-4 col-md-6 mb-4">
             <div class="package-item bg-white mb-2">
               <img class="image-thumbnail img-fluid" onerror="this.onerror=null;this.src='<?= Yii::getAlias('@web/app/img/no-img.png') ?>';" src="<?= $value->getUploadUrl('img_url') ?>" alt="">
-              <div class="h_container" style="position: absolute;top: 8px;right: 24px;">
-                <i id="heart" class="far fa-heart"></i>
-              </div>
+              <?= $value->getWishlistButton() ?>
               <div class="p-4">
                 <div class="d-flex mb-2">
                   <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2"></i><?= $value->getLocation() ?></small>
@@ -499,6 +497,7 @@ $script = <<<JS
           $("#rateTotalPrice").text(totalPrice);
         }
         $("#btnAddToCart").prop('disabled', false);
+        $("#btnCheckOut").prop('disabled', false);
       },
       error: function(err){
         console.log(err);
@@ -509,6 +508,7 @@ $script = <<<JS
 
   $('.search-availability-form').change(function(){
     $("#btnAddToCart").prop('disabled', true);
+    $("#btnCheckOut").prop('disabled', true);
   });
 
   $("#btnCheckOut").click(function(){
@@ -620,3 +620,4 @@ $script = <<<JS
 JS;
 $this->registerJs($script);
 ?>
+<?= $this->render('//site/_wishlist_script') ?>
