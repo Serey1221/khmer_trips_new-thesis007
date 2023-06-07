@@ -8,7 +8,7 @@ class Admin extends \yii\base\Module
 {
     public $controllerNamespace = 'app\modules\admin\controllers';
     public $layout = 'main';
-    public $defaultRoute = 'admin';
+    public $defaultRoute = 'dashboard';
 
     public function init()
     {
