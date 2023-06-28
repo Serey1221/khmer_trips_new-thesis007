@@ -24,7 +24,7 @@ $action = Yii::$app->controller->action->id; ?>
                     <a href="<?= Yii::getAlias('@web/site/service') ?>" class="nav-item nav-link <?= $action == 'service' ? 'active' : '' ?>">Service</a>
                     <a href="<?= Yii::getAlias('@web/site/package') ?>" class="nav-item nav-link <?= $action == 'package' ? 'active' : '' ?>">Packages</a>
                     <a href="<?= Yii::getAlias('@web/site/bloggrid') ?>" class="nav-item nav-link <?= $action == 'bloggrid' ? 'active' : '' ?>">Blog</a>
-                    <a href="<?= Yii::getAlias('@web/faqs/index') ?>" class="nav-item nav-link <?= $action == 'contact' ? 'active' : '' ?>">Contact</a>
+                    <a href="<?= Yii::getAlias('@web/faqs/index') ?>" class="nav-item nav-link <?= $action == 'index' ? 'active' : '' ?>">Contact</a>
                     <a href="<?= Yii::getAlias('@web/site/wishlist') ?>" class="nav-item nav-link <?= $action == 'wishlist' ? 'active' : '' ?> "> <i class="fas fa-heart"></i> <span class="badge badge-pill badge-danger wishlist-badge navbar-badge"><?= Yii::$app->user->isGuest ? 0 : UserWishlist::find()->where(['user_id' => Yii::$app->user->identity->id])->count(); ?></span> </a>
                     <a href="<?= Yii::getAlias('@web/cart/index') ?>" class="nav-item nav-link <?= $controller . $action == 'cartindex' ? 'active' : '' ?> "> <i class="fas fa-shopping-cart"></i> <span class="badge badge-pill badge-danger cart-badge navbar-badge"><?= Yii::$app->user->isGuest ? 0 : Cart::find()->where(['created_by' => Yii::$app->user->identity->id])->count(); ?></span> </a>
 
